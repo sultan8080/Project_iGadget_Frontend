@@ -14,7 +14,6 @@ const Navbar = () => {
   return (
     <nav className="flex flex-col justify-end">
       <div class="flex flex-wrap items-center justify-between ml-28">
-        
         <a href="#" class="flex items-center">
           <img
             src="src/app/assets/logo_iGadget.png"
@@ -48,14 +47,22 @@ const Navbar = () => {
           </button>
 
           <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
-              <li>
+            <ul class="flex flex-col justify-between text-xl font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
+              <li className="flex items-center">
                 <button
                   id="dropdownNavbarLink"
                   data-dropdown-toggle="dropdownNavbar"
                   class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:p-0 md:w-auto"
                 >
-                  Store{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                  </svg>
+                  <span className="pl-2">Store </span>
                   <svg
                     class="w-5 h-5 ml-1"
                     aria-hidden="true"
@@ -105,22 +112,46 @@ const Navbar = () => {
                   </div>
                 </div>
               </li>
-              
+
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
+                  class="flex items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
                 >
-                  Mon compte
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span className="pl-2"> Mon compte</span>
                 </a>
               </li>
 
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
+                  class="flex items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
                 >
-                  Mon panier
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span className="pl-2">Mon panier</span>
                 </a>
               </li>
 
@@ -132,7 +163,6 @@ const Navbar = () => {
                   Besoin d'aide
                 </a>
               </li>
-
             </ul>
           </div>
 
@@ -165,7 +195,6 @@ const Navbar = () => {
               />
             </div>
           </form>
-
         </div>
       </div>
     </nav>
