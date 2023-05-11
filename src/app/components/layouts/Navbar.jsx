@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex flex-col justify-end">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between p-4">
+      <div class="flex flex-wrap items-center justify-between ml-28">
         
         <a href="#" class="flex items-center">
           <img
@@ -159,8 +159,8 @@ const Navbar = () => {
               <input
                 type="text"
                 id="simple-search"
-                class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                placeholder="Search"
+                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full pl-10 p-2.5"
+                placeholder="Téléphone"
                 required
               />
             </div>
