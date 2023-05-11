@@ -12,84 +12,117 @@ const Navbar = () => {
   const isLoggued = useSelector(selectIsLogged);
 
   return (
-    <div className="absolute mx-auto w-full px-4 sm:px-6">
-      <div className="flex items-center justify-between py-6 md:space-x-10">
-        {/* LOGO */}
-        <div>
-          <Link to={URL_HOME}>
-            <img
-              className="h-8 w-auto cursor-pointer sm:h-10"
-              src="https://insy2s.com/insy2s/images/Logo-insy2s-INLINE-2021.svg"
-              alt=""
-              width={200}
-              height={60}
-            />
-          </Link>
-        </div>
-
-        {/* RIGHT SECTION */}
-        <div className="flex flex-col bg-gradient-to-r from-teal-500 to-teal-300 px-40 py-14">
-          <navigation>
-            <ol className="flex flex-row">
-              <li className="m-2">Store</li>
-              <li className="m-2">Mon compte</li>
-              <li className="m-2">Mon panier</li>
-              <li className="m-2">Besoin d'aide</li>
-            </ol>
-
-          </navigation>
-          {/* Search */}
-          <form className="flex items-center">
-            <label for="simple-search" className="sr-only">
-              Search
-            </label>
-            <div className="relative w-full">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+    <nav class="bg-white border-gray-200">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="#" class="flex items-center">
+          <img
+            src="src/app/assets/logo_iGadget.png"
+            class="h-8 mr-3"
+            alt="Flowbite Logo"
+          />
+        </a>
+        <button
+          data-collapse-toggle="navbar-dropdown"
+          type="button"
+          class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          aria-controls="navbar-dropdown"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+          <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+            <li>
+              <button
+                id="dropdownNavbarLink"
+                data-dropdown-toggle="dropdownNavbar"
+                class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto"
+              >
+                Store{" "}
                 <svg
+                  class="w-5 h-5 ml-1"
                   aria-hidden="true"
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     fill-rule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                     clip-rule="evenodd"
                   ></path>
                 </svg>
+              </button>
+
+              <div
+                id="dropdownNavbar"
+                class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+              >
+                <ul
+                  class="py-2 text-sm text-gray-700"
+                  aria-labelledby="dropdownLargeButton"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Dashboard
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Settings
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Earnings
+                    </a>
+                  </li>
+                </ul>
+                <div class="py-1">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Sign out
+                  </a>
+                </div>
               </div>
-              <input
-                type="text"
-                id="simple-search"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                placeholder="Search"
-                required
-              />
-            </div>
-          </form>
-
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+              >
+                Services
+              </a>
+            </li>
+            
+          </ul>
         </div>
-
-        {/* SIGN */}
-        {/* <div className="flex flex-1 items-center justify-end lg:w-0">
-          <div className="flex flex-col justify-center space-y-4 md:flex-row md:items-center md:space-y-0 md:space-x-4">
-            {isLoggued ? (
-              <button className="btn btn-red">Sign Out</button>
-            ) : (
-              <>
-                <Link to={URL_LOGIN}>
-                  <div className="link">Sign in</div>
-                </Link>
-                <Link to={URL_REGISTER}>
-                  <button className="btn btn-green">Sign up</button>
-                </Link>{" "}
-              </>
-            )}
-          </div>
-        </div> */}
       </div>
-    </div>
+    </nav>
   );
 };
 
