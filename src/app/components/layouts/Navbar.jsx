@@ -28,7 +28,7 @@ const Navbar = () => {
         </div>
 
         {/* RIGHT SECTION */}
-        <div className="flex flex-col">
+        <div className="flex flex-col bg-gradient-to-r from-teal-500 to-teal-300 px-40 py-14">
           <navigation>
             <ol className="flex flex-row">
               <li className="m-2">Store</li>
