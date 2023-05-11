@@ -12,8 +12,9 @@ const Navbar = () => {
   const isLoggued = useSelector(selectIsLogged);
 
   return (
-    <nav>
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="flex flex-col justify-end">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between p-4">
+        
         <a href="#" class="flex items-center">
           <img
             src="src/app/assets/logo_iGadget.png"
@@ -22,7 +23,7 @@ const Navbar = () => {
           />
         </a>
 
-        <div className="bg-gradient-to-r from-[#3495A2] to-[#87D9D4] w-3/5 px-20 py-12">
+        <div className="bg-gradient-to-r from-[#3495A2] to-[#87D9D4] rounded-bl-full w-3/5 pr-20 pl-40 py-12">
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
@@ -47,12 +48,12 @@ const Navbar = () => {
           </button>
 
           <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
               <li>
                 <button
                   id="dropdownNavbarLink"
                   data-dropdown-toggle="dropdownNavbar"
-                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:p-0 md:w-auto"
                 >
                   Store{" "}
                   <svg
@@ -72,7 +73,7 @@ const Navbar = () => {
 
                 <div
                   id="dropdownNavbar"
-                  class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+                  class="z-10 hidden font-normal divide-y divide-gray-100 rounded-lg shadow w-44"
                 >
                   <ul
                     class="py-2 text-sm text-gray-700"
@@ -104,18 +105,38 @@ const Navbar = () => {
                   </div>
                 </div>
               </li>
+              
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
                 >
-                  Services
+                  Mon compte
                 </a>
               </li>
+
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
+                >
+                  Mon panier
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
+                >
+                  Besoin d'aide
+                </a>
+              </li>
+
             </ul>
           </div>
 
-          <form class="flex items-center">
+          <form class="flex items-center mt-5">
             <label for="simple-search" class="sr-only">
               Search
             </label>
@@ -138,12 +159,13 @@ const Navbar = () => {
               <input
                 type="text"
                 id="simple-search"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                 placeholder="Search"
                 required
               />
             </div>
           </form>
+
         </div>
       </div>
     </nav>
