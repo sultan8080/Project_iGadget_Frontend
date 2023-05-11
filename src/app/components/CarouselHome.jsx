@@ -36,6 +36,7 @@ const CarouselHome = ({
               transition-all w-3 h-3 bg-gray-900 rounded-full
               ${curr === i ? "p-2" : "bg-opacity-50"}
             `}
+              key={i}
             />
           ))}
         </div>
