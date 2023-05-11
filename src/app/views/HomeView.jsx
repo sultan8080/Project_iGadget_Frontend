@@ -13,8 +13,8 @@ const HomeView = () => {
 
   const slides = [
     { src: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png", alt: "Image 1" },
-    { src: "https://w7.pngwing.com/pngs/5/744/png-transparent-macbook-pro-macbook-air-laptop-macbook-electronics-netbook-computer.png", alt: "Image 2" },
-    { src: "https://www.vhv.rs/dpng/d/7-72850_new-mobile-phone-png-transparent-png.png", alt: "Image 3" },
+    { src: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png", alt: "Image 1" },
+    { src: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png", alt: "Image 1" },
   ];
   
 
@@ -25,13 +25,12 @@ const HomeView = () => {
         <br /> actuelles du shop
       </h2>
       
-      <CarouselHome>
-        {slides.map((slide) => (
-            <img src={slide} />
-        ))}
-      </CarouselHome>
+      <div className="w-full">
 
-     
+      <CarouselHome
+        slides={slides}
+      />
+      </div>
 
       {isAdmin && (
         <button
