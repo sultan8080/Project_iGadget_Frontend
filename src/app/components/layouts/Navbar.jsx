@@ -17,12 +17,12 @@ const Navbar = () => {
         <a href="#" class="flex items-center">
           <img
             src="src/app/assets/logo_iGadget.png"
-            class="h-8 mr-3"
+            class="h-16 mr-3"
             alt="logo"
           />
         </a>
 
-        <div>
+        <div className="bg-gradient-to-r from-[#3495A2] to-[#87D9D4] w-3/5 px-20 py-12">
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
