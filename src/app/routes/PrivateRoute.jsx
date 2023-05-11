@@ -19,8 +19,8 @@ export const PrivateRoute = ({ children, roles }) => {
     const location = useLocation();
     const isAuthenticated = useSelector(selectIsLogged);
     const hasRole = useSelector((state) => selectHasRole(state, roles));
-    if (!isAuthenticated)
-        return <Navigate replace to={URL_LOGIN} state={{ from: location }} />;
+    // if (!isAuthenticated)
+    //     return <Navigate replace to={URL_LOGIN} state={{ from: location }} />;
 
     if (roles && !hasRole) return <Navigate replace to={{ pathname: URL_HOME }} />;
 
