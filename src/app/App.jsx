@@ -38,7 +38,7 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <div className="flex h-full cursor-default relative flex-col bg-gray-100">
+            <div className="flex h-full cursor-default relative flex-col bg-white">
                 {isLogged && <IdleTimerCustom />}
                 <Navbar />
                 <main className="mt-24 grow">
