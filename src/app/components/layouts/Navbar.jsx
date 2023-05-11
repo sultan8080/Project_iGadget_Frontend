@@ -29,7 +29,15 @@ const Navbar = () => {
 
         {/* RIGHT SECTION */}
         <div className="flex flex-col">
-          ici
+          <navigation>
+            <ol className="flex flex-row">
+              <li className="m-2">Store</li>
+              <li className="m-2">Mon compte</li>
+              <li className="m-2">Mon panier</li>
+              <li className="m-2">Besoin d'aide</li>
+            </ol>
+
+          </navigation>
           {/* Search */}
           <form className="flex items-center">
             <label for="simple-search" className="sr-only">
