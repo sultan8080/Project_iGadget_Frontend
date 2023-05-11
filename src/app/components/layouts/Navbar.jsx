@@ -12,8 +12,10 @@ const Navbar = () => {
   const isLoggued = useSelector(selectIsLogged);
 
   return (
-    <div className="absolute mx-auto w-full bg-white px-4 shadow-sm sm:px-6">
+    <div className="absolute mx-auto w-full px-4 sm:px-6">
       <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
+        
+        {/* LOGO */}
         <div>
           <Link to={URL_HOME}>
             <img
@@ -26,7 +28,14 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex flex-1 items-center justify-end lg:w-0">
+
+        {/* Search */}
+
+
+
+
+        {/* SIGN */}
+        {/* <div className="flex flex-1 items-center justify-end lg:w-0">
           <div className="flex flex-col justify-center space-y-4 md:flex-row md:items-center md:space-y-0 md:space-x-4">
             {isLoggued ? (
               <button className="btn btn-red">Sign Out</button>
@@ -41,7 +50,8 @@ const Navbar = () => {
               </>
             )}
           </div>
-        </div>
+        </div> */}
+
       </div>
     </div>
   );
