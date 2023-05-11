@@ -12,7 +12,9 @@ const Navbar = () => {
   const isLoggued = useSelector(selectIsLogged);
 
   return (
-    <nav class="bg-white border-gray-200">
+    
+    // <nav class="bg-white border-gray-200">
+    <nav>
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" class="flex items-center">
           <img
@@ -21,6 +23,9 @@ const Navbar = () => {
             alt="Flowbite Logo"
           />
         </a>
+
+        
+
         <button
           data-collapse-toggle="navbar-dropdown"
           type="button"
@@ -43,6 +48,7 @@ const Navbar = () => {
             ></path>
           </svg>
         </button>
+
         <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
           <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
             <li>
