@@ -13,15 +13,13 @@ const HomeView = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-screen mx-24">
+    <div className="max-w-[1400px] mx-24">
       <h2 className="uppercase">
         Les <span className="text-[#349CA2]">nouveautés</span>
         <br /> actuelles du shop
       </h2>
 
       <CarouselHome/>
-
-      
 
       {isAdmin && (
         <button
