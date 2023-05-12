@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { RxDotFilled } from "react-icons/rx";
 
-const CarouselHome = ({}) => {
+const CarouselHome = ({ 
+  // autoSlide = true, 
+  // autoSlideInterval = 3000 
+}) => {
   const slides = [
     {
-      url: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png",
+      url: "src/app/assets/test/MacBookPro_gris_3.png",
       alt: "Image 1",
-      title: "Mac",
+      title: "ThinkBook 13”",
+      description:
+        "Avec un processeur rapide, une RAM de 16 Go, un disque dur SSD de grande capacité, une carte graphique dédiée, et une résolution d'écran élevée. Le ThinkBook 13” est l’ordinateur portable qu’il vous faut !",
+    },
+    {
+      url: "src/app/assets/test/WatchSE_argent_3.png",
+      alt: "Image 1",
+      title: "Nova Watch",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a sapien sed metus eleifend egestas. Curabitur posuere, felis eu rhoncus facilisis, elit massa lobortis lectus, eu pharetra orci neque in nulla. ",
     },
     {
-      url: "https://w7.pngwing.com/pngs/5/744/png-transparent-macbook-pro-macbook-air-laptop-macbook-electronics-netbook-computer.png",
+      url: "src/app/assets/test/EchoSphere_noir_3.png",
       alt: "Image 1",
-      title: "MacBook",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a sapien sed metus eleifend egestas. Curabitur posuere, felis eu rhoncus facilisis, elit massa lobortis lectus, eu pharetra orci neque in nulla. ",
-    },
-    {
-      url: "https://www.vhv.rs/dpng/d/7-72850_new-mobile-phone-png-transparent-png.png",
-      alt: "Image 1",
-      title: "IPhone",
+      title: "EchoSphere",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a sapien sed metus eleifend egestas. Curabitur posuere, felis eu rhoncus facilisis, elit massa lobortis lectus, eu pharetra orci neque in nulla. ",
     },
@@ -32,23 +35,33 @@ const CarouselHome = ({}) => {
     setCurrentIndex(slideIndex);
   };
 
-  useEffect(() => {
-    const slideInterval = setInterval(() => {
-      autoSlide();
-    }, 5000);
-    return () => clearInterval(slideInterval);
-  }, []);
+  //   useEffect(() => {
+  //     const slideInterval = setInterval(() => {
+  //       autoSlide();
+  //     }, 1000);
+  //     return () => clearInterval(slideInterval);
+  //   }, []);
 
-  setInterval(() => {
-    const nextSlideIndex = (currentIndex + 1) % slides.length;
-    goToSlide(nextSlideIndex);
-  }, 3000); 
+  //   function autoSlide(){
 
+  //     console.log(currentIndex);
+  //     const nextSlideIndex = (currentIndex + 1);
+  //     goToSlide(nextSlideIndex);
+  //     setCurrentIndex(nextSlideIndex);
+
+  // }
+
+  // useEffect(() => {
+  //   if (!autoSlide) return;
+  //   const slideInterval = setInterval(next, autoSlideInterval);
+  //   return () => clearInterval(slideInterval);
+  // }, []);
 
   return (
     <section className="max-w-[1400px] h-[780px] w-full m-auto py-16 relative group">
-      {/* IMAGE */}
-      <div className="flex">
+      
+      {/* TEXT */}
+      <div className="flex ">
         <div className="flex flex-col pr-14">
           <h3 className="pb-4">{slides[currentIndex].title}</h3>
           <p className="text-justify">{slides[currentIndex].description}</p>
@@ -67,9 +80,11 @@ const CarouselHome = ({}) => {
             </button>
           </div>
         </div>
+
+        {/* IMAGE */}
         <img
           src={slides[currentIndex].url}
-          className="w-[920px] h-[480px] bg-center bg-no-repeat"
+          className="w-2/3 -mt-80 bg-center bg-no-repeat"
         />
       </div>
 
@@ -85,6 +100,7 @@ const CarouselHome = ({}) => {
           </div>
         ))}
       </div>
+
     </section>
   );
 };
