@@ -6,14 +6,20 @@ const CarouselHome = ({}) => {
     {
       url: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png",
       alt: "Image 1",
+      title: "Mac",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a sapien sed metus eleifend egestas. Curabitur posuere, felis eu rhoncus facilisis, elit massa lobortis lectus, eu pharetra orci neque in nulla. "
     },
     {
       url: "https://w7.pngwing.com/pngs/5/744/png-transparent-macbook-pro-macbook-air-laptop-macbook-electronics-netbook-computer.png",
       alt: "Image 1",
+      title: "MacBook",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a sapien sed metus eleifend egestas. Curabitur posuere, felis eu rhoncus facilisis, elit massa lobortis lectus, eu pharetra orci neque in nulla. "
     },
     {
       url: "https://www.vhv.rs/dpng/d/7-72850_new-mobile-phone-png-transparent-png.png",
       alt: "Image 1",
+      title: "IPhone",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a sapien sed metus eleifend egestas. Curabitur posuere, felis eu rhoncus facilisis, elit massa lobortis lectus, eu pharetra orci neque in nulla. "
     },
   ];
 
@@ -24,12 +30,13 @@ const CarouselHome = ({}) => {
   };
   return (
     <div className="max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group">
+
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className="w-full h-full bg-center bg-cover duration-500"
+        className="w-full h-full bg-center bg-cover"
       ></div>
 
-      <div className="flex top-4 justify-center py-2">
+      <div className="flex top-4 justify-end py-2">
         {slides.map((slide, slideIndex) => (
           <div
             key={slideIndex}
