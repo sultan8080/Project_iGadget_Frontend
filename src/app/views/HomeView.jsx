@@ -17,20 +17,14 @@ const HomeView = () => {
     { src: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png", alt: "Image 1" },
   ];
   
-
   return (
     <div className="max-w-screen mx-24">
       <h2 className="uppercase">
         Les <span className="text-[#349CA2]">nouveautés</span>
         <br /> actuelles du shop
       </h2>
-      
-      <div className="w-full">
 
-      <CarouselHome
-        slides={slides}
-      />
-      </div>
+      <CarouselHome/>
 
       {isAdmin && (
         <button
