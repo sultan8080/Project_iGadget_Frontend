@@ -12,9 +12,9 @@ const HomeView = () => {
   const navigate = useNavigate();
 
   const slides = [
-    { src: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png", alt: "Image 1" },
-    { src: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png", alt: "Image 1" },
-    { src: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png", alt: "Image 1" },
+    { url: "https://help.apple.com/assets/613FDE81C88FF868634BFD43/613FDE85C88FF868634BFD52/fr_FR/7d204cd60ff1fce24cf6d11f24cd210a.png", alt: "Image 1" },
+    { url: "https://w7.pngwing.com/pngs/5/744/png-transparent-macbook-pro-macbook-air-laptop-macbook-electronics-netbook-computer.png", alt: "Image 1" },
+    { url: "https://www.vhv.rs/dpng/d/7-72850_new-mobile-phone-png-transparent-png.png", alt: "Image 1" },
   ];
   
   return (
@@ -24,7 +24,11 @@ const HomeView = () => {
         <br /> actuelles du shop
       </h2>
 
-      <CarouselHome/>
+      {/* <CarouselHome/> */}
+
+      <div className="max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative">
+        <div style={{backgroundImage: `url(${slides[0].url})`}} className="w-full h-full rounded-2xl bg-center bg-cover duration-500"></div>
+      </div>
 
       {isAdmin && (
         <button
