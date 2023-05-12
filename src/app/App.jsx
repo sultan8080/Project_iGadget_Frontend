@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import Navbar from './components/layouts/Navbar';
+import NavbarHome from './components/layouts/NavbarHome';
 import { selectIsLogged, signIn } from './redux-store/authenticationSlice';
 import Routes from './routes/Routes';
 import { getToken } from './services/tokenServices';
@@ -41,7 +42,8 @@ const App = () => {
         <BrowserRouter>
             <div className="flex h-full cursor-default relative flex-col bg-white">
                 {isLogged && <IdleTimerCustom />}
-                <Navbar />
+                {/* <Navbar /> */}
+                <NavbarHome />
                 <main className="mt-24 grow">
                     <Routes />
                 </main>

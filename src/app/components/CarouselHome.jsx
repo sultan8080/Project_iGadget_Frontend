@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RxDotFilled } from "react-icons/rx";
 
 const CarouselHome = ({}) => {
@@ -31,6 +31,20 @@ const CarouselHome = ({}) => {
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      autoSlide();
+    }, 5000);
+    return () => clearInterval(slideInterval);
+  }, []);
+
+  setInterval(() => {
+    const nextSlideIndex = (currentIndex + 1) % slides.length;
+    goToSlide(nextSlideIndex);
+  }, 3000); 
+
+
   return (
     <section className="max-w-[1400px] h-[780px] w-full m-auto py-16 relative group">
       {/* IMAGE */}
