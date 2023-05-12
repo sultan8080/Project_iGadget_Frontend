@@ -31,6 +31,10 @@ const HomeView = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex);
+  };
+
   return (
     <div className="max-w-screen mx-24">
       <h2 className="uppercase">
@@ -48,7 +52,11 @@ const HomeView = () => {
 
         <div className="flex top-4 justify-center py-2">
           {slides.map((slide, slideIndex) => (
-            <div>
+            <div
+              key={slideIndex}
+              onClick={() => goToSlide(slideIndex)}
+              className="text-2xl cursor-pointer"
+            >
               <RxDotFilled />
             </div>
           ))}
