@@ -13,8 +13,17 @@ module.exports = {
                     DEFAULT: '#ed7410',
                     dark: '#bf5d0d',
                 },
+                theme: {
+                    primary: '#3495A2', // blue
+                    secondary: '#87D9D4', // light blue
+                    third: '#F6B20C' // orange
+                }
             },
         },
     },
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        // require('@tailwindcss/dropdown'),
+    ],
+    
 };
