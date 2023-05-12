@@ -89,12 +89,12 @@ const CarouselHome = ({
       </div>
 
       {/* DOT */}
-      <div className="flex top-4 justify-end py-2">
+      <div className="flex justify-end">
         {slides.map((slide, slideIndex) => (
           <div
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
-            className="text-2xl cursor-pointer"
+            className="text-2xl cursor-pointer -mb-20"
           >
             <RxDotFilled />
           </div>
