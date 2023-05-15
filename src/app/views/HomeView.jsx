@@ -8,8 +8,6 @@ import { selectHasRole } from "../redux-store/authenticationSlice";
 
 import CarouselHome from "../components/CarouselHome";
 
-import formeaccueil from '../assets/formeaccueil.svg';
-
 const HomeView = () => {
   const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
   const navigate = useNavigate();
