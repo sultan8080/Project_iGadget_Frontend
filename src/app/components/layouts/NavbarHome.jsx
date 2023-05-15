@@ -18,15 +18,16 @@ const NavbarHome = () => {
       <div
         style={{
           backgroundImage: `url(${formeaccueil})`,
+          backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          width: "70rem",
-          height: "63rem",
+          width: "75rem",
+          height: "58rem",
           position: "absolute",
           right: "0",
         }}
       ></div>
       <nav className="flex flex-col justify-end relative">
-        <div class="flex flex-wrap items-center justify-between ml-28">
+        <div class="flex flex-wrap items-center justify-between ml-32">
           <a href="#" class="flex items-center">
             <img
               src="src/app/assets/logo_iGadget.png"
