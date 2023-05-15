@@ -16,12 +16,12 @@ const HomeView = () => {
 
   return (
     <div className="max-w-[1400px] mx-24">
-      {/* <h2 className="uppercase">
+      <h2 className="uppercase">
         Les <span className="text-[#349CA2]">nouveautés</span>
         <br /> actuelles du shop
       </h2>
 
-      <CarouselHome/> */}
+      <CarouselHome/>
 
       {isAdmin && (
         <button

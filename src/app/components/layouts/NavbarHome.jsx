@@ -15,26 +15,26 @@ const NavbarHome = () => {
 
   return (
     <>
-    <div
-          style={{
-            backgroundImage: `url(${formeaccueil})`,
-            backgroundSize: "cover",
-            width: "70rem",
-            height: "63rem",
-            position: 'absolute',
-            right: '0'
-          }}
-        ></div>
-    <nav className="flex flex-col justify-end relative">
-      <div class="flex flex-wrap items-center justify-between ml-28">
-        <a href="#" class="flex items-center">
-          <img
-            src="src/app/assets/logo_iGadget.png"
-            class="h-16 mr-3"
-            alt="logo"
-          />
-        </a>
-        
+      <div
+        style={{
+          backgroundImage: `url(${formeaccueil})`,
+          backgroundSize: "cover",
+          width: "70rem",
+          height: "63rem",
+          position: "absolute",
+          right: "0",
+        }}
+      ></div>
+      <nav className="flex flex-col justify-end relative">
+        <div class="flex flex-wrap items-center justify-between ml-28">
+          <a href="#" class="flex items-center">
+            <img
+              src="src/app/assets/logo_iGadget.png"
+              class="h-16 mr-3"
+              alt="logo"
+            />
+          </a>
+
           <div className="w-3/5 pr-20 pl-40 py-12">
             <button
               data-collapse-toggle="navbar-dropdown"
@@ -210,8 +210,7 @@ const NavbarHome = () => {
             </form>
           </div>
         </div>
-      
-    </nav>
+      </nav>
     </>
   );
 };
