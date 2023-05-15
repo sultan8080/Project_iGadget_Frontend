@@ -8,6 +8,9 @@ import {
   URL_REGISTER,
 } from "../../constants/urls/urlFrontEnd";
 
+import formeaccueil from '../../assets/formeaccueil.svg';
+
+
 const NavbarHome = () => {
   const isLoggued = useSelector(selectIsLogged);
 
@@ -22,7 +25,8 @@ const NavbarHome = () => {
           />
         </a>
 
-        <div className="bg-gradient-to-r from-[#3495A2] to-[#87D9D4] rounded-bl-full w-3/5 pr-20 pl-40 py-12">
+        {/* <div className="bg-[src/app/assets/formeaccueil.svg] bg-fixed w-3/5 pr-20 pl-40 py-12"> */}
+        <div style={{ backgroundImage: `url(${formeaccueil})`, backgroundPosition: 'right', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
