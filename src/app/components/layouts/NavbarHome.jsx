@@ -26,7 +26,7 @@ const NavbarHome = () => {
         </a>
 
         {/* <div className="bg-[src/app/assets/formeaccueil.svg] bg-fixed w-3/5 pr-20 pl-40 py-12"> */}
-        <div style={{ backgroundImage: `url(${formeaccueil})`, backgroundPosition: 'right', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+        <div className="h-1080p" style={{ backgroundImage: `url(${formeaccueil})`, backgroundPosition: 'right', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
