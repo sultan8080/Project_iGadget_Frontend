@@ -58,10 +58,10 @@ const CarouselHome = ({
   // }, []);
 
   return (
-    <section className="max-w-[1400px] h-[780px] w-full m-auto py-16 relative group">
+    <section className="h-[780px] w-full m-auto py-16 relative group">
       
       {/* TEXT */}
-      <div className="flex ">
+      <div className="flex">
         <div className="flex flex-col pr-14">
           <h3 className="pb-4">{slides[currentIndex].title}</h3>
           <p className="text-justify">{slides[currentIndex].description}</p>
@@ -94,7 +94,7 @@ const CarouselHome = ({
           <div
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
-            className="text-2xl cursor-pointer -mb-20"
+            className="text-2xl cursor-pointer"
           >
             <RxDotFilled />
           </div>
