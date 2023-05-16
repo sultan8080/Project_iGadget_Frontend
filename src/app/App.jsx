@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter,useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import Navbar from "./components/layouts/Navbar";
@@ -19,10 +19,10 @@ const contextClass = {
   dark: "bg-white-600 font-gray-300",
 };
 
-const IfHomeView = () => {
-  const location = useLocation();
-  return location.pathname === "/";
-};
+// const IfHomeView = () => {
+//   const location = useLocation();
+//   return location.pathname === "/";
+// };
 
 /**
  * Component RouteWithNavigation
@@ -41,18 +41,18 @@ const App = () => {
     setIsLogin(false);
   }, []);
 
-  const isHomePage = IfHomeView();
+  // const isHomePage = IfHomeView();
 
   if (isLogin) return null;
 
   return (
-    <BrowserRouter>
+    
       <div className="flex h-full cursor-default relative flex-col bg-white">
         {isLogged && <IdleTimerCustom />}
 
         {/* <Navbar /> */}
-        {isHomePage() ? <NavbarHome /> : <Navbar />}
-
+        {/* {isHomePage() ? <NavbarHome /> : <Navbar />} */}
+        <NavbarHome />
         <main className="mt-24 grow">
           <Routes />
         </main>
@@ -70,7 +70,7 @@ const App = () => {
         <Footer />
         
       </div>
-    </BrowserRouter>
+    
   );
 };
 
