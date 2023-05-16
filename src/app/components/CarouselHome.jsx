@@ -58,7 +58,7 @@ const CarouselHome = ({
   // }, []);
 
   return (
-    <section className="h-[780px] w-full m-auto py-16 relative group">
+    <section className="h-[780px] w-full m-auto py-16 relative transition-500">
       
       {/* TEXT */}
       <div className="flex">
