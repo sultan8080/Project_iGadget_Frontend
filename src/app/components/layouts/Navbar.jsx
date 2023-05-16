@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex flex-col justify-end">
-      <div class="flex flex-wrap items-center justify-between ml-28">
+      <div class="flex flex-wrap items-center justify-between ml-32">
         <a href="#" class="flex items-center">
           <img
             src="src/app/assets/logo_iGadget.png"
@@ -22,7 +22,7 @@ const Navbar = () => {
           />
         </a>
 
-        <div className="bg-gradient-to-r from-[#3495A2] to-[#87D9D4] rounded-bl-full w-3/5 pr-20 pl-40 py-12">
+        <div className="bg-gradient-to-r from-[#3495A2] to-[#87D9D4] rounded-bl-full w-2/3 pr-20 pl-40 py-12">
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
