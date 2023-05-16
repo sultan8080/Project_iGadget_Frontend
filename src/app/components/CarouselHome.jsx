@@ -35,28 +35,6 @@ const CarouselHome = ({
     setCurrentIndex(slideIndex);
   };
 
-  //   useEffect(() => {
-  //     const slideInterval = setInterval(() => {
-  //       autoSlide();
-  //     }, 1000);
-  //     return () => clearInterval(slideInterval);
-  //   }, []);
-
-  //   function autoSlide(){
-
-  //     console.log(currentIndex);
-  //     const nextSlideIndex = (currentIndex + 1);
-  //     goToSlide(nextSlideIndex);
-  //     setCurrentIndex(nextSlideIndex);
-
-  // }
-
-  // useEffect(() => {
-  //   if (!autoSlide) return;
-  //   const slideInterval = setInterval(next, autoSlideInterval);
-  //   return () => clearInterval(slideInterval);
-  // }, []);
-
   return (
     <section className="w-full m-auto relative transition-500">
       
