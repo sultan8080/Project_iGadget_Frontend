@@ -150,7 +150,7 @@ const NavbarHome = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="/basket"
                     class="flex items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
                   >
                     <svg
