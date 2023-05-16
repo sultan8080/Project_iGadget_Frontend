@@ -15,10 +15,14 @@ const AsideBasket = () => {
 
       <hr />
 
-      <p className="mt-3 text-sm text-gray-500">
+      <p className="mt-3 text-sm text-gray-500 flex justify-between">
         <span>Total de la commande</span>
         <span>1 228</span>
       </p>
+
+      <div className="flex justify-center">
+        <button className="btn btn-primary mt-12">Terminer ma commande</button>
+      </div>
     </aside>
   );
 };
