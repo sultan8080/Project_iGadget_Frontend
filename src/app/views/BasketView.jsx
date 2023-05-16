@@ -33,7 +33,7 @@ const products = [
 
 const BasketView = () => {
   return (
-    <main className="flex justify-around">
+    <main className="flex justify-evenly">
       {/* <EmptyBasket /> */}
 
       <section className="w-1/3">

@@ -2,7 +2,7 @@ import React from "react";
 
 const AsideBasket = () => {
   return (
-    <aside className="border w-1/4 p-3 h-auto">
+    <aside className="border w-1/4 p-3 h-[17rem]">
       <p className="mt-3 text-gray-500 flex justify-between">
         <span>Valeur de la commande</span>
         <span>1 228 €</span>
