@@ -58,10 +58,10 @@ const CarouselHome = ({
   // }, []);
 
   return (
-    <section className="h-[780px] w-full m-auto py-16 relative transition-500">
+    <section className="h-[780px] w-full m-auto relative transition-500">
       
       {/* TEXT */}
-      <div className="flex">
+      <div className="flex items-center">
         <div className="flex flex-col pr-14">
           <h3 className="pb-4">{slides[currentIndex].title}</h3>
           <p className="text-justify">{slides[currentIndex].description}</p>
@@ -84,7 +84,7 @@ const CarouselHome = ({
         {/* IMAGE */}
         <img
           src={slides[currentIndex].url}
-          className="w-2/3 -mt-80 bg-center bg-no-repeat"
+          className="w-2/3 bg-center bg-no-repeat"
         />
       </div>
 
