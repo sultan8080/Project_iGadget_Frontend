@@ -1,7 +1,7 @@
-import React from 'react'
-import EmptyBasket from '../components/EmptyBasket'
-import AsideBasket from '../components/AsideBasket'
-import CardBasket from '../components/cards/CardBasket';
+import React from "react";
+import EmptyBasket from "../components/EmptyBasket";
+import AsideBasket from "../components/AsideBasket";
+import CardBasket from "../components/cards/CardBasket";
 
 const products = [
   {
@@ -33,24 +33,24 @@ const products = [
 
 const BasketView = () => {
   return (
-    <main className='flex justify-around'>
+    <main className="flex justify-around">
       {/* <EmptyBasket /> */}
-      
-      <section className='w-1/3'>
-      <div className="mt-8">
-      <div className="flow-root">
-        <ul role="list" className="-my-6">
-          {products.map((product) => (
-            <CardBasket key={product.id} product={product}/>
-          ))}
-        </ul>
-      </div>
-    </div>
+
+      <section className="w-1/3">
+        <div className="mt-8">
+          <div className="flow-root">
+            <ul role="list" className="-my-6">
+              {products.map((product) => (
+                <CardBasket key={product.id} product={product} />
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
 
       <AsideBasket />
     </main>
-  )
-}
+  );
+};
 
-export default BasketView
+export default BasketView;
