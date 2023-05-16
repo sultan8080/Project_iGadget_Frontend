@@ -4,25 +4,25 @@ module.exports = {
         extend: {
             colors: {
                 primary: {
-                    light: '#4da6ff',
-                    DEFAULT: '#3495A2',
-                    dark: '#0066cc',
+                    light: '#53B3B5',
+                    DEFAULT: '#349CA2',
+                    dark: '#2C8186',
                 },
                 secondary: {
-                    light: '#f39e58',
+                    light: '#9BF4EE',
                     DEFAULT: '#87D9D4',
-                    dark: '#bf5d0d',
+                    dark: '#70BFBA',
                 },
                 third: {
-                    light: '#f39e58',
+                    light: '#FFC63A',
                     DEFAULT: '#F6B20C',
-                    dark: '#bf5d0d',
-                },
+                    dark: '#DB9F0D',
+                }
             },
         },
     },
     plugins: [
         require('@tailwindcss/forms'),
     ],
-    
+
 };
