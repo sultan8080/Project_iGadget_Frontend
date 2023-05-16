@@ -19,7 +19,7 @@ const NavbarHome = () => {
         style={{
           backgroundImage: `url(${formeaccueil})`,
           backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          backgroundPositionX: "right",
           width: "75rem",
           height: "58rem",
           position: "absolute",

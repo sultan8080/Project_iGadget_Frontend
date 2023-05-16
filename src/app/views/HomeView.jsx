@@ -21,6 +21,21 @@ const HomeView = () => {
 
       <CarouselHome/>
 
+      {/* Juste pour voir le bas du svg : */}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       {isAdmin && (
         <button
           className="btn btn-primary"
