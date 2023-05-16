@@ -19,10 +19,10 @@ const contextClass = {
   dark: "bg-white-600 font-gray-300",
 };
 
-// const IfHomeView = () => {
-//   const location = useLocation();
-//   return location.pathname === "/";
-// };
+const IfHomeView = () => {
+  const location = useLocation();
+  return location.pathname === "/";
+};
 
 /**
  * Component RouteWithNavigation
@@ -41,36 +41,33 @@ const App = () => {
     setIsLogin(false);
   }, []);
 
-  // const isHomePage = IfHomeView();
+  const isHomePage = IfHomeView;
 
   if (isLogin) return null;
 
   return (
-    
-      <div className="flex h-full cursor-default relative flex-col bg-white">
-        {isLogged && <IdleTimerCustom />}
+    <div className="flex h-full cursor-default relative flex-col bg-white">
+      {isLogged && <IdleTimerCustom />}
 
-        {/* <Navbar /> */}
-        {/* {isHomePage() ? <NavbarHome /> : <Navbar />} */}
-        <NavbarHome />
-        <main className="mt-24 grow">
-          <Routes />
-        </main>
+      {/* <Navbar /> */}
+      {isHomePage() ? <NavbarHome /> : <Navbar />}
 
-        <ToastContainer
-          toastClassName={({ type }) =>
-            contextClass[type || "default"] +
-            " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
-          }
-          bodyClassName={() => "text-sm font-white font-med block p-3"}
-          position="bottom-left"
-          autoClose={3000}
-        />
+      <main className="mt-24 grow">
+        <Routes />
+      </main>
 
-        <Footer />
-        
-      </div>
-    
+      <ToastContainer
+        toastClassName={({ type }) =>
+          contextClass[type || "default"] +
+          " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
+        }
+        bodyClassName={() => "text-sm font-white font-med block p-3"}
+        position="bottom-left"
+        autoClose={3000}
+      />
+
+      <Footer />
+    </div>
   );
 };
 
