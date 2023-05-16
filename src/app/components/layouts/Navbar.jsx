@@ -13,8 +13,8 @@ const Navbar = () => {
 
   return (
     <nav className="flex flex-col justify-end">
-      <div class="flex flex-wrap items-center justify-between ml-28">
-        <a href="#" class="flex items-center">
+      <div class="flex flex-wrap items-center justify-between ml-32">
+        <a href="/" class="flex items-center">
           <img
             src="src/app/assets/logo_iGadget.png"
             class="h-16 mr-3"
@@ -22,7 +22,7 @@ const Navbar = () => {
           />
         </a>
 
-        <div className="bg-gradient-to-r from-[#3495A2] to-[#87D9D4] rounded-bl-full w-3/5 pr-20 pl-40 py-12">
+        <div className="bg-gradient-to-r from-[#3495A2] to-[#87D9D4] rounded-bl-full w-2/3 pr-20 pl-40 py-12">
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
@@ -136,7 +136,7 @@ const Navbar = () => {
 
               <li>
                 <a
-                  href="#"
+                  href="/basket"
                   class="flex items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
                 >
                   <svg
