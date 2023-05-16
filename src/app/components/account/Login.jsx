@@ -30,20 +30,14 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full max-w-md space-y-8 rounded-md bg-white p-4 py-12 px-4 shadow sm:px-6 lg:px-8">
-      <div>
-        <div className="flex justify-center">
-          <img
-            className="h-12 w-auto cursor-pointer sm:h-10"
-            src="https://insy2s.com/insy2s/images/Logo-insy2s-INLINE-2021.svg"
-            alt=""
-            width={200}
-            height={60}
-          />
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">
-          Sign in to your account
+    <div className="w-full max-w-md space-y-4 rounded-md bg-white p-4 py-12 px-4 shadow sm:px-6 lg:px-8">
+      <div className="text-center">
+        <h2 className="mt-1 text-center text-3xl font-bold text-primary">
+          CONNEXION
         </h2>
+        <small className="text-center">
+          Inscrivez-vous pour ne plus passer à côté des occasions
+        </small>
       </div>
 
       <hr />
@@ -55,29 +49,29 @@ const Login = () => {
         }}
         onSubmit={handleLogin}
       >
-        <Form className="mt-8 space-y-6">
+        <Form className="mt-5 space-y-6">
           <div className="flex flex-col space-y-3 rounded-md shadow-sm">
             <Field
               type="text"
               name="username"
-              placeholder="Login"
+              placeholder="Votre email"
               autoComplete="username"
               className="input"
             />
             <Field
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="votre mot de passe"
               autoComplete="current-password"
               className="input"
             />
           </div>
 
-          <div className="mt-3 flex items-center justify-between">
+          <div className=" flex items-center justify-between">
             <div className="text-sm">
               <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-primary-dark hover:text-primary">
-                  Forgot your password?
+                <span className="cursor-pointer font-medium text-theme-primary hover:text-theme-primary">
+                  Mot de passe oublié?
                 </span>
               </Link>
             </div>
@@ -90,17 +84,23 @@ const Login = () => {
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <LockClosedIcon
-                  className="h-5 w-5 text-primary-dark group-hover:text-primary-light"
+                  className="h-5 w-5 text-white group-hover:text-light"
                   aria-hidden="true"
                 />
               </span>
-              Sign in
+              Je me connecte
+            </button>
+            <button
+              type="submit"
+              className="btn btn-third-outline mt-3 group py-2 relative w-full"
+            >
+              Pas de Compte? Je m'inscris..
             </button>
           </div>
           {errorLog && (
             <div className="flex justify-center">
               <small className="text-sm italic text-red-600">
-                Login/Password incorrect(s)
+                Identifiant/Mot de passe incorrect(s)
               </small>
             </div>
           )}
