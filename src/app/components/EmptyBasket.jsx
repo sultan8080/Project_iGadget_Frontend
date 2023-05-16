@@ -24,7 +24,7 @@ const EmptyBasket = () => {
       <h4 className="mt-10">Oh non...</h4>
       <h3 className="font-bold mt-4">Votre panier est vide</h3>
 
-      <button className="mt-16 focus:outline-none text-white bg-theme-third hover:bg-theme-third focus:ring-4 focus:ring-theme-third font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+      <button className="mt-16 btn btn-third">
         Continuer mes achats
       </button>
     </div>
