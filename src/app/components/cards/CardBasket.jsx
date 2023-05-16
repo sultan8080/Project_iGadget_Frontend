@@ -34,7 +34,7 @@ const CardBasket = () => {
       <div className="flow-root">
         <ul role="list" className="-my-6">
           {products.map((product) => (
-            <li key={product.id} className="flex p-6 border mb-12">
+            <li key={product.id} className="flex p-6 mb-12 border">
               <div className="h-48 w-52 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 object-cover">
                 <img
                   src={product.imageSrc}
