@@ -28,7 +28,7 @@ const NavbarHome = () => {
       ></div>
       <nav className="flex flex-col justify-end relative">
         <div class="flex flex-wrap items-center justify-between ml-32">
-          <a href="#" class="flex items-center">
+          <a href="/" class="flex items-center">
             <img
               src="src/app/assets/logo_iGadget.png"
               class="h-16 mr-3"

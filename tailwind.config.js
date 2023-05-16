@@ -5,25 +5,24 @@ module.exports = {
             colors: {
                 primary: {
                     light: '#4da6ff',
-                    DEFAULT: '#0B84FF',
+                    DEFAULT: '#3495A2',
                     dark: '#0066cc',
                 },
                 secondary: {
                     light: '#f39e58',
-                    DEFAULT: '#ed7410',
+                    DEFAULT: '#87D9D4',
                     dark: '#bf5d0d',
                 },
-                theme: {
-                    primary: '#3495A2', // blue
-                    secondary: '#87D9D4', // light blue
-                    third: '#F6B20C' // orange
-                }
+                third: {
+                    light: '#f39e58',
+                    DEFAULT: '#F6B20C',
+                    dark: '#bf5d0d',
+                },
             },
         },
     },
     plugins: [
         require('@tailwindcss/forms'),
-        // require('@tailwindcss/dropdown'),
     ],
     
 };
