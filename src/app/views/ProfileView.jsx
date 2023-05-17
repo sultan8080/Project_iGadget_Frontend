@@ -69,12 +69,12 @@ const ProfileView = () => {
         <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
           <div className="flex flex-col">
             <h5 className="mb-6">Mes Commandes</h5>
-            {userData.map((data, index) => (
-              <React.Fragment key={index}>
-                <span className="font-bold">{data.label}</span>
-                <span>{data.value}</span>
-              </React.Fragment>
-            ))}
+            <span className="font-bold ">En cours</span>
+            <span className="text-gray-500">2 articles</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-gray-500">22-03-2023</span>
+            <span className="text-gray-500">1 228,00 €</span>
           </div>
           <button className="btn btn-primary">Accéder aux commandes</button>
         </section>
