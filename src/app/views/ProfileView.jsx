@@ -19,9 +19,9 @@ const ProfileView = () => {
         />
       </div>
 
-      <h3>Bonjour Juline !</h3>
+      <h3 className="-mt-12 ml-56 mb-4">Bonjour Juline !</h3>
 
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mb-24">
         
         <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
           <div className="flex flex-col">
@@ -35,9 +35,10 @@ const ProfileView = () => {
           </div>
           <button className="btn btn-secondary">Metttre à jour</button>
         </section>
+        
         <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
           <div className="flex flex-col">
-            <h5 className="mb-6">Mes Coordonnées</h5>
+            <h5 className="mb-6">Mon Carnet D'adresses</h5>
             {userData.map((data, index) => (
               <React.Fragment key={index}>
                 <span className="font-bold">{data.label}</span>
@@ -47,9 +48,10 @@ const ProfileView = () => {
           </div>
           <button className="btn btn-secondary">Metttre à jour</button>
         </section>
+
         <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
           <div className="flex flex-col">
-            <h5 className="mb-6">Mes Coordonnées</h5>
+            <h5 className="mb-6">Confidentialité</h5>
             {userData.map((data, index) => (
               <React.Fragment key={index}>
                 <span className="font-bold">{data.label}</span>
@@ -59,9 +61,10 @@ const ProfileView = () => {
           </div>
           <button className="btn btn-secondary">Metttre à jour</button>
         </section>
+
         <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
           <div className="flex flex-col">
-            <h5 className="mb-6">Mes Coordonnées</h5>
+            <h5 className="mb-6">Mes Commandes</h5>
             {userData.map((data, index) => (
               <React.Fragment key={index}>
                 <span className="font-bold">{data.label}</span>
