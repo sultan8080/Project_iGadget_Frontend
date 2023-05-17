@@ -7,6 +7,7 @@ import AdminHomeView from "../views/AdminHomeView";
 import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
 import { PrivateRoute } from "./PrivateRoute";
+import BasketView from "../views/BasketView";
 import ProductView from "../views/ProductView";
 
 /**
@@ -35,7 +36,6 @@ const Routes = () => {
         }
       />
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
-      <Route path={URL.URL_PRODUCT} element={<ProductView />} />
     </RoutesContainer>
   );
 };
