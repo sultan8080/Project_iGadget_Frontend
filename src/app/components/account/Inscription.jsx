@@ -6,14 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
-import { authenticate } from "./../../api/backend/account";
+import { authenticate } from "../../api/backend/account";
 
 /**
  * Component Login
  *
  * @author Peter Mollet
  */
-const Login = () => {
+const Inscription = () => {
   const [errorLog, setErrorLog] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Login = () => {
     <div className="w-full max-w-md space-y-4 rounded-md bg-white p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8">
       <div className="text-center">
         <h2 className="mt-1 text-center text-3xl font-bold text-primary">
-          CONNEXION
+          INSCRIPTION
         </h2>
         <small className="text-center">
           Inscrivez-vous pour ne plus passer à côté des occasions
@@ -110,4 +110,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Inscription;
