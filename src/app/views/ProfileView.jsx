@@ -21,10 +21,11 @@ const ProfileView = () => {
 
       <h3>Bonjour Juline !</h3>
 
-      <div className="flex justify-evenly">
-        <section className="flex items-end w-2/3">
+      <div className="flex flex-col items-center">
+        
+        <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
           <div className="flex flex-col">
-            <h5>Mes Coordonnées</h5>
+            <h5 className="mb-6">Mes Coordonnées</h5>
             {userData.map((data, index) => (
               <React.Fragment key={index}>
                 <span className="font-bold">{data.label}</span>
@@ -34,6 +35,43 @@ const ProfileView = () => {
           </div>
           <button className="btn btn-secondary">Metttre à jour</button>
         </section>
+        <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
+          <div className="flex flex-col">
+            <h5 className="mb-6">Mes Coordonnées</h5>
+            {userData.map((data, index) => (
+              <React.Fragment key={index}>
+                <span className="font-bold">{data.label}</span>
+                <span>{data.value}</span>
+              </React.Fragment>
+            ))}
+          </div>
+          <button className="btn btn-secondary">Metttre à jour</button>
+        </section>
+        <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
+          <div className="flex flex-col">
+            <h5 className="mb-6">Mes Coordonnées</h5>
+            {userData.map((data, index) => (
+              <React.Fragment key={index}>
+                <span className="font-bold">{data.label}</span>
+                <span>{data.value}</span>
+              </React.Fragment>
+            ))}
+          </div>
+          <button className="btn btn-secondary">Metttre à jour</button>
+        </section>
+        <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
+          <div className="flex flex-col">
+            <h5 className="mb-6">Mes Coordonnées</h5>
+            {userData.map((data, index) => (
+              <React.Fragment key={index}>
+                <span className="font-bold">{data.label}</span>
+                <span>{data.value}</span>
+              </React.Fragment>
+            ))}
+          </div>
+          <button className="btn btn-secondary">Metttre à jour</button>
+        </section>
+
       </div>
     </>
   );
