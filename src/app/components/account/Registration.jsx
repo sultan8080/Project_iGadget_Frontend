@@ -13,7 +13,7 @@ import { authenticate } from "../../api/backend/account";
  *
  * @author Peter Mollet
  */
-const Inscription = () => {
+const Registration = () => {
   const [errorLog, setErrorLog] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -110,4 +110,4 @@ const Inscription = () => {
   );
 };
 
-export default Inscription;
+export default Registration;
