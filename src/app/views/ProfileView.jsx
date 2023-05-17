@@ -45,7 +45,10 @@ const ProfileView = () => {
                 <span>62 000 Rouvroy</span>
                 <span>France</span>
               </p>
-
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex">
               <p className="flex flex-col">
                 <span>Adresse de facturation</span>
                 <span>26 rue d'acheville</span>
