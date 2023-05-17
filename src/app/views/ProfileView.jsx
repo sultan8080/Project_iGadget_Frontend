@@ -11,7 +11,7 @@ const ProfileView = () => {
   return (
     <>
       <div class="h-32 overflow-hidden bg-primary"></div>
-      <div class="ml-14 w-36 h-36 relative -mt-16 border-8 border-white rounded-full overflow-hidden">
+      <div class="ml-40 w-36 h-36 relative -mt-16 border-8 border-white rounded-full overflow-hidden">
         <img
           class="object-cover object-center h-32"
           src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
@@ -19,7 +19,7 @@ const ProfileView = () => {
         />
       </div>
 
-      <h3 className="-mt-12 ml-56 mb-4">Bonjour Juline !</h3>
+      <h3 className="-mt-12 ml-80 mb-4">Bonjour Juline !</h3>
 
       <div className="flex flex-col items-center mb-24">
         <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
