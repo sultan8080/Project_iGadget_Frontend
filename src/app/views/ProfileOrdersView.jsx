@@ -11,7 +11,7 @@ const orders = [
     price: "1 228,00",
     pictures: [
       "src/app/assets/test/WatchSE_argent_3.png",
-      "src/app/assets/test/WatchSE_argent_3.png",
+      "src/app/assets/test/MacBookPro_gris_3.png",
     ],
   },
   {
