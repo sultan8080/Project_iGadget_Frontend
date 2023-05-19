@@ -8,11 +8,10 @@ import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
 import { PrivateRoute } from "./PrivateRoute";
 import BasketView from "../views/BasketView";
-<<<<<<< HEAD
+
 import RegistrationView from "../views/RegistrationView";
-=======
+
 import ProfileView from "../views/ProfileView";
->>>>>>> e24328e982a5721aff6b23a3cd3323245e775cab
 
 /**
  * Routes of the application
@@ -41,11 +40,10 @@ const Routes = () => {
       />
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_BASKET} element={<BasketView />} />
-<<<<<<< HEAD
+
       <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
-=======
+
       <Route path={URL.URL_PROFILE} element={<ProfileView />} />
->>>>>>> e24328e982a5721aff6b23a3cd3323245e775cab
     </RoutesContainer>
   );
 };
