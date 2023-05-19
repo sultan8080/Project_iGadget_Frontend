@@ -11,7 +11,7 @@ import { authenticate } from "./../../api/backend/account";
 /**
  * Component Login
  *
- * @author Peter Mollet
+ * @author Peter et Sultan
  */
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
