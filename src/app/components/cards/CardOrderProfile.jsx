@@ -2,24 +2,27 @@ import React from "react";
 
 const CardOrderProfile = ({ order }) => {
   return (
-    <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
-      <div className="flex flex-col">
+    <section className="flex items-end border p-6  w-2/3 mt-6">
+      <div className="flex flex-col w-5/6">
         <span className="font-bold ">{order.status}</span>
         <span className="text-gray-500">2 article(s)</span>
-        {/* Checking if order.picture is an array using  */}
 
-        {Array.isArray(order.pictures) ? {/* If yes => */} ( 
-          order.pictures.map((picture, index) => ( 
-            <img
-              key={index}
-              src={picture}
-              className="w-1/5"
-              alt={`Picture ${index}`}
-            />
-          ))
-        ) : {/* If no => */} (
-          <img src={order.pictures} className="w-1/5" alt="Order Picture" />
-        )}
+        <div className="flex">
+          {/* Checking if order.picture is an array using Array.isArray() */}
+          {Array.isArray(order.pictures) ? (
+            order.pictures.map((picture, index) => (
+              <img
+                key={index}
+                src={picture}
+                className="w-1/5"
+                alt={`Picture ${index}`}
+              />
+            ))
+          ) : (
+            <img src={order.pictures} className="w-1/5" alt="Order Picture" />
+          )}
+
+        </div>
       </div>
       <div className="flex flex-col text-gray-500">
         <span>{order.date}</span>
