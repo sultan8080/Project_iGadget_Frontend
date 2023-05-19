@@ -12,6 +12,7 @@ import BasketView from "../views/BasketView";
 import RegistrationView from "../views/RegistrationView";
 
 import ProfileView from "../views/ProfileView";
+import ProfileOrdersView from "../views/ProfileOrdersView";
 
 /**
  * Routes of the application
@@ -44,6 +45,7 @@ const Routes = () => {
       <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
 
       <Route path={URL.URL_PROFILE} element={<ProfileView />} />
+      <Route path={URL.URL_PROFILE_ORDERS} element={<ProfileOrdersView />} />
     </RoutesContainer>
   );
 };
