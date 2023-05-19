@@ -11,7 +11,7 @@ import { authenticate } from "../../api/backend/account";
 /**
  * Component Login
  *
- * @author Peter Mollet
+ * @author Sultan
  */
 const Registration = () => {
   const [errorLog, setErrorLog] = useState(false);
@@ -58,10 +58,10 @@ const Registration = () => {
         onSubmit={handleRegister}
       >
         <Form className="mt-4 space-y-6">
-          <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 rounded-md shadow-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 rounded-md shadow-sm">
             <div className="">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Prénom*
+                Prénom <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="text"
@@ -73,7 +73,7 @@ const Registration = () => {
 
             <div className="">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Nom*
+                Nom <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="text"
@@ -84,7 +84,7 @@ const Registration = () => {
             </div>
             <div className="">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Email
+                Email <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="text"
@@ -95,7 +95,7 @@ const Registration = () => {
             </div>
             <div className="">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Mot de passe*
+                Mot de passe <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="password"
@@ -106,7 +106,8 @@ const Registration = () => {
             </div>
             <div className="">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Confirmer le mot de passe*
+                Confirmer le mot de passe{" "}
+                <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="password"
@@ -117,7 +118,7 @@ const Registration = () => {
             </div>
             <div className="">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Adresse
+                Adresse <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="text"
@@ -128,7 +129,7 @@ const Registration = () => {
             </div>
             <div className="">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Code Postal
+                Code Postal <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="text"
@@ -139,7 +140,7 @@ const Registration = () => {
             </div>
             <div className="">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Téléphone
+                Téléphone <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="text"
@@ -150,7 +151,7 @@ const Registration = () => {
             </div>
             <div className="">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Ville
+                Ville <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="text"
