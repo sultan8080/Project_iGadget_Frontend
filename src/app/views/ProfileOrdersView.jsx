@@ -1,6 +1,23 @@
 import React from "react";
 
-
+const data = [
+  {
+    id: 1,
+    status: "En cours",
+    href: "#",
+    nb_article: 2,
+    date: "22-03-2023",
+    price: "1 228,00"
+  },
+  {
+    id: 2,
+    status: "Colis livré",
+    href: "#",
+    nb_article: 2,
+    date: "22-03-2023",
+    price: "1 228,00"
+  },
+];
 
 const ProfileOrdersView = () => {
   return (
