@@ -2,7 +2,7 @@ import React from "react";
 
 const CardOrderProfile = ({ order }) => {
   return (
-    <section className="flex items-end border p-6  w-2/3 mt-6 cursor-pointer">
+    <section className="flex items-end border p-6  w-2/3 mt-6 cursor-pointer justify-between">
       <div className="flex flex-col w-5/6">
         <span className="font-bold text-2xl">{order.status}</span>
         <span className="text-gray-500">2 article(s)</span>
