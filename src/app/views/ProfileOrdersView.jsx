@@ -1,21 +1,27 @@
 import React from "react";
+import CardOrderProfile from "../components/cards/CardOrderProfile";
 
-const data = [
+const orders = [
   {
     id: 1,
     status: "En cours",
     href: "#",
     nb_article: 2,
     date: "22-03-2023",
-    price: "1 228,00"
+    price: "1 228,00",
+    pictures: [
+      "src/app/assets/test/WatchSE_argent_3.png",
+      "src/app/assets/test/WatchSE_argent_3.png",
+    ],
   },
   {
     id: 2,
     status: "Colis livré",
     href: "#",
-    nb_article: 2,
-    date: "22-03-2023",
-    price: "1 228,00"
+    nb_article: 1,
+    date: "18-01-2023",
+    price: "159,00",
+    pictures: "src/app/assets/test/WatchSE_argent_3.png",
   },
 ];
 
@@ -34,30 +40,9 @@ const ProfileOrdersView = () => {
       <h2 className="text-center">Mes commandes</h2>
 
       <div className="flex flex-col items-center mb-24">
-        <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
-          <div className="flex flex-col">
-            <span className="font-bold ">En cours</span>
-            <span className="text-gray-500">2 article(s)</span>
-          </div>
-          <div className="flex flex-col text-gray-500">
-            <span>22-03-2023</span>
-            <span>1 228,00 €</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </div>
-        </section>
+        {orders.map((order) => (
+          <CardOrderProfile key={order.id} order={order}/>
+        ))}
       </div>
     </>
   );

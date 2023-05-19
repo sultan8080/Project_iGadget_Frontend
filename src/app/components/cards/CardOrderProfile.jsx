@@ -1,0 +1,41 @@
+import React from 'react'
+
+
+const CardOrderProfile = ({ order }) => {
+  return (
+    <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
+    <div className="flex flex-col">
+      <span className="font-bold ">{order.status}</span>
+      <span className="text-gray-500">2 article(s)</span>
+      {order.pictures.map((picture, index) => (
+        <img
+          key={index}
+          src={picture}
+          className="w-1/5"
+          alt={`Picture ${index}`}
+        />
+      ))}
+    </div>
+    <div className="flex flex-col text-gray-500">
+      <span>{order.date}</span>
+      <span>{order.price} €</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </div>
+  </section>
+  )
+}
+
+export default CardOrderProfile
