@@ -40,9 +40,7 @@ const Routes = () => {
       />
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_BASKET} element={<BasketView />} />
-
       <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
-
       <Route path={URL.URL_PROFILE} element={<ProfileView />} />
     </RoutesContainer>
   );
