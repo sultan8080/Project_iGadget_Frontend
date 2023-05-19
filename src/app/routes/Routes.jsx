@@ -8,6 +8,7 @@ import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
 import { PrivateRoute } from "./PrivateRoute";
 import BasketView from "../views/BasketView";
+import ProductView from "../views/ProductView";
 
 import RegistrationView from "../views/RegistrationView";
 
@@ -42,6 +43,7 @@ const Routes = () => {
       <Route path={URL.URL_BASKET} element={<BasketView />} />
       <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
       <Route path={URL.URL_PROFILE} element={<ProfileView />} />
+      <Route path={URL.URL_PRODUCT} element={<ProductView />} />
     </RoutesContainer>
   );
 };
