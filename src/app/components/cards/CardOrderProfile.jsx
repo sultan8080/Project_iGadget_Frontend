@@ -6,8 +6,10 @@ const CardOrderProfile = ({ order }) => {
       <div className="flex flex-col">
         <span className="font-bold ">{order.status}</span>
         <span className="text-gray-500">2 article(s)</span>
-        {Array.isArray(order.pictures) ? (
-          order.pictures.map((picture, index) => (
+        {/* Checking if order.picture is an array using  */}
+
+        {Array.isArray(order.pictures) ? {/* If yes => */} ( 
+          order.pictures.map((picture, index) => ( 
             <img
               key={index}
               src={picture}
@@ -15,7 +17,7 @@ const CardOrderProfile = ({ order }) => {
               alt={`Picture ${index}`}
             />
           ))
-        ) : (
+        ) : {/* If no => */} (
           <img src={order.pictures} className="w-1/5" alt="Order Picture" />
         )}
       </div>
