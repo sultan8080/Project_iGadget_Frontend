@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
 import Login from "../components/account/Login";
 import { selectIsLogged } from "../redux-store/authenticationSlice";
-import Inscription from "../components/account/Inscription";
+import Registration from "../components/account/Registration";
 
 /**
  * View/Page Login
  *
  * @author Peter Mollet
  */
-const LoginView = () => {
+const RegistrationView = () => {
   const navigate = useNavigate();
   const isAuthenticated = useSelector(selectIsLogged);
 
@@ -21,10 +21,10 @@ const LoginView = () => {
   }, []);
 
   return (
-    <div className="flex h-full items-center justify-center">
-      <Inscription className="" />
+    <div className="flex h-full items-center pb-10 justify-center">
+      <Registration className="" />
     </div>
   );
 };
 
-export default LoginView;
+export default RegistrationView;

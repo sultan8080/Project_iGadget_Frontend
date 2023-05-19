@@ -8,6 +8,7 @@ import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
 import { PrivateRoute } from "./PrivateRoute";
 import BasketView from "../views/BasketView";
+import RegistrationView from "../views/RegistrationView";
 
 /**
  * Routes of the application
@@ -36,6 +37,7 @@ const Routes = () => {
       />
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_BASKET} element={<BasketView />} />
+      <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
     </RoutesContainer>
   );
 };
