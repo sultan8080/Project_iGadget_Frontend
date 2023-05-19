@@ -1,10 +1,9 @@
 import React from 'react';
-import Product from '../components/layouts/Product';
+import Product from '../components/Product';
 
 const ProductView = () => {
     return (
         <div>
-            <h1>Produit</h1>
             <Product />
         </div>
     );

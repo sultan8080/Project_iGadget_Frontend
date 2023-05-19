@@ -36,6 +36,7 @@ const Routes = () => {
         }
       />
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
+      <Route path={URL.URL_PRODUCT} element={<ProductView />} />
     </RoutesContainer>
   );
 };
