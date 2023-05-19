@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+
+
 
 const ProfileOrdersView = () => {
   return (
     <>
-    <div class="h-32 overflow-hidden bg-primary"></div>
+      <div class="h-32 overflow-hidden bg-primary"></div>
       <div class="ml-40 w-36 h-36 relative -mt-16 border-8 border-white rounded-full overflow-hidden">
         <img
           class="object-cover object-center h-32"
@@ -11,27 +13,37 @@ const ProfileOrdersView = () => {
           alt="Woman looking front"
         />
       </div>
-      <h1 className=''>Mes commandes</h1>
+
+      <h2 className="text-center">Mes commandes</h2>
 
       <div className="flex flex-col items-center mb-24">
-
         <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
           <div className="flex flex-col">
-            <h5 className="mb-6">Mes Commandes</h5>
             <span className="font-bold ">En cours</span>
-            <span className="text-gray-500">2 articles</span>
+            <span className="text-gray-500">2 article(s)</span>
           </div>
-          <div className="flex flex-col">
-            <span className="text-gray-500">22-03-2023</span>
-            <span className="text-gray-500">1 228,00 €</span>
+          <div className="flex flex-col text-gray-500">
+            <span>22-03-2023</span>
+            <span>1 228,00 €</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           </div>
-          <button className="btn btn-primary"><a href="/profile-orders">Accéder aux commandes</a></button>
         </section>
-
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default ProfileOrdersView
+export default ProfileOrdersView;
