@@ -21,7 +21,7 @@ const RegistrationView = () => {
   }, []);
 
   return (
-    <div className="flex h-full items-center justify-center">
+    <div className="flex h-full items-center pb-10 justify-center">
       <Registration className="" />
     </div>
   );

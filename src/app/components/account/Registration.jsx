@@ -18,7 +18,7 @@ const Registration = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogin = (values) => {
+  const handleRegister = (values) => {
     authenticate(values)
       .then((res) => {
         if (res.status === 200 && res.data.id_token) {
@@ -30,50 +30,145 @@ const Registration = () => {
   };
 
   return (
-    <div className="w-full max-w-md space-y-4 rounded-md bg-white p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8">
+    <div className="min-width: 100%;">
       <div className="text-center">
-        <h2 className="mt-1 text-center text-3xl font-bold text-primary">
+        <h4 className="mt-1 text-center  font-bold text-primary">
           INSCRIPTION
-        </h2>
-        <small className="text-center">
+        </h4>
+        <small className="text-center my-1">
           Inscrivez-vous pour ne plus passer à côté des occasions
         </small>
       </div>
 
-      <hr />
+      <hr className="my-5" />
 
       <Formik
         initialValues={{
-          username: "",
+          firstname: "",
+          lastname: "",
+          address: "",
+          postcode: "",
+          userphoto: "",
+          phone: "",
+          city: "",
+          email: "",
           password: "",
+          passwordConfirmation: "",
         }}
-        onSubmit={handleLogin}
+        onSubmit={handleRegister}
       >
-        <Form className="mt-5 space-y-6">
-          <div className="flex flex-col space-y-3 rounded-md shadow-sm">
-            <Field
-              type="text"
-              name="username"
-              placeholder="Votre email"
-              autoComplete="username"
-              className="input"
-            />
-            <Field
-              type="password"
-              name="password"
-              placeholder="votre mot de passe"
-              autoComplete="current-password"
-              className="input"
-            />
-          </div>
+        <Form className="mt-4 space-y-6">
+          <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 rounded-md shadow-sm">
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Prénom*
+              </label>
+              <Field
+                type="text"
+                name="firstname"
+                autoComplete="firstname"
+                className="input"
+              />
+            </div>
 
-          <div className=" flex items-center justify-between">
-            <div className="text-sm">
-              <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-theme-primary hover:text-theme-primary">
-                  Mot de passe oublié?
-                </span>
-              </Link>
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Nom*
+              </label>
+              <Field
+                type="text"
+                name="lastname"
+                autoComplete="lastname"
+                className="input"
+              />
+            </div>
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Email
+              </label>
+              <Field
+                type="text"
+                name="email"
+                autoComplete="email"
+                className="input"
+              />
+            </div>
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Mot de passe*
+              </label>
+              <Field
+                type="password"
+                name="password"
+                autoComplete="current-password"
+                className="input"
+              />
+            </div>
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Confirmer le mot de passe*
+              </label>
+              <Field
+                type="password"
+                name="passwordConfirmation"
+                autoComplete="current-password"
+                className="input"
+              />
+            </div>
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Adresse
+              </label>
+              <Field
+                type="text"
+                name="address"
+                autoComplete="address"
+                className="input"
+              />
+            </div>
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Code Postal
+              </label>
+              <Field
+                type="text"
+                name="postcode"
+                autoComplete="postcode"
+                className="input"
+              />
+            </div>
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Téléphone
+              </label>
+              <Field
+                type="text"
+                name="phone"
+                autoComplete="phone"
+                className="input"
+              />
+            </div>
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Ville
+              </label>
+              <Field
+                type="text"
+                name="city"
+                autoComplete="city"
+                className="input"
+              />
+            </div>
+            <div className="">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+                Votre Photo (jpg, png, jpeg)
+              </label>
+              <Field
+                type="file"
+                name="userphoto"
+                autoComplete="userphoto"
+                className="input"
+              />
             </div>
           </div>
 
@@ -88,13 +183,13 @@ const Registration = () => {
                   aria-hidden="true"
                 />
               </span>
-              Je me connecte
+              Je m'inscris
             </button>
             <button
               type="submit"
               className="btn btn-third-outline mt-3 group py-2 relative w-full"
             >
-              Pas de Compte? Je m'inscris..
+              Déjà un compe? Je me connecte...
             </button>
           </div>
           {errorLog && (
