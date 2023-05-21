@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { Formik, Form, useField } from "formik";
 
-export default function FormInput({ label, ...props }) {
+export default function FormModel({ label, ...props }) {
   const [field, meta] = useField(props);
   return (
     <div>
@@ -12,7 +12,7 @@ export default function FormInput({ label, ...props }) {
         {label}
       </label>
       <span className="text-red-600"> {props.icon} </span>
-      <input className="" {...field} {...props} />
+      <input className="" {...field}{...props} />
       {meta.touched && meta.error ? (
         <small className="error text-red-600">{meta.error}</small>
       ) : null}

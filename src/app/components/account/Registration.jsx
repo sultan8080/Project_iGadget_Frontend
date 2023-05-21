@@ -6,10 +6,7 @@ import { useDispatch } from "react-redux";
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { URL_HOME } from "../../constants/urls/urlFrontEnd";
-import { signIn } from "../../redux-store/authenticationSlice";
-import { authenticate } from "../../api/backend/account";
-import FormInput from "../form/formInput";
+import FormModel from "../form/FormModel";
 
 /**
  * Component User Registration Form
@@ -100,7 +97,7 @@ const Registration = () => {
         <Form className="mt-4 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 rounded-md shadow-sm">
             <div>
-              <FormInput
+              <FormModel
                 label="Prénom"
                 name="firstName"
                 type="text"
@@ -109,7 +106,7 @@ const Registration = () => {
               />
             </div>
             <div>
-              <FormInput
+              <FormModel
                 label="Nom"
                 name="lastName"
                 type="text"
@@ -118,7 +115,7 @@ const Registration = () => {
               />
             </div>
             <div>
-              <FormInput
+              <FormModel
                 label="Email"
                 name="email"
                 type="email"
@@ -127,7 +124,7 @@ const Registration = () => {
               />
             </div>
             <div>
-              <FormInput
+              <FormModel
                 label="Mot de passe"
                 name="password"
                 type="password"
@@ -136,7 +133,7 @@ const Registration = () => {
               />
             </div>
             <div>
-              <FormInput
+              <FormModel
                 label="Confirmer le mot de passe"
                 name="passwordConfirmation"
                 type="password"
@@ -146,7 +143,7 @@ const Registration = () => {
             </div>
 
             <div>
-              <FormInput
+              <FormModel
                 label="Adresse"
                 name="address"
                 type="text"
@@ -156,7 +153,7 @@ const Registration = () => {
             </div>
 
             <div>
-              <FormInput
+              <FormModel
                 label="Code Postal"
                 name="postCode"
                 type="text"
@@ -166,7 +163,7 @@ const Registration = () => {
             </div>
 
             <div>
-              <FormInput
+              <FormModel
                 label="Téléphone"
                 name="phone"
                 type="text"
@@ -175,7 +172,7 @@ const Registration = () => {
               />
             </div>
             <div>
-              <FormInput
+              <FormModel
                 label="Ville"
                 name="city"
                 type="text"

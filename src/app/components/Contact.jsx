@@ -3,6 +3,7 @@ import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import FormModel from "./form/FormModel";
 
 /**
  * Component Login
@@ -40,56 +41,46 @@ const Contact = () => {
       >
         <Form className="mt-4 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-md shadow-sm">
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Prénom <span className="text-red-600"> * </span>
-              </label>
-              <Field
+            <div>
+              <FormModel
+                label="Prénom"
+                name="firstName"
                 type="text"
-                name="firstname"
-                autoComplete="firstname"
+                icon="*"
                 className="input"
               />
             </div>
 
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Nom <span className="text-red-600"> * </span>
-              </label>
-              <Field
+            <div>
+              <FormModel
+                label="Nom"
+                name="lastName"
                 type="text"
-                name="lastname"
-                autoComplete="lastname"
+                icon="*"
                 className="input"
               />
             </div>
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Email
-                <span className="text-red-600"> * </span>
-              </label>
-              <Field
-                type="text"
+            <div>
+              <FormModel
+                label="Email"
                 name="email"
-                autoComplete="email"
+                type="text"
+                icon="*"
                 className="input"
               />
             </div>
 
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Téléphone
-              </label>
-              <Field
-                type="text"
+            <div>
+              <FormModel
+                label="Téléphone"
                 name="phone"
-                autoComplete="phone"
+                type="text"
                 className="input"
               />
             </div>
 
             <div className="sm:col-span-2">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
                 Votre demande <span className="text-red-600"> * </span>
               </label>
               <Field
