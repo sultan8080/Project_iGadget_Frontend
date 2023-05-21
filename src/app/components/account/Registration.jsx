@@ -84,12 +84,14 @@ const Registration = () => {
             ),
           postCode: Yup.number()
             .required("Code Postale Obligatoire")
-            .typeError("Uniquement des chiffres, Exemple: 02200"),
-          //  .test(
+            .typeError("Uniquement des chiffres, Exemple: 02200")
+           .min(5, '5 chiffres obligatoire, Exemple : 02200')
+           .max(5, '5 chiffres obligatoire, Exemple : 02200'),
+          //  test(
           //   "len",
           //   "5 chiffres obligatoire, Exemple : 02200",
-          //   (val) => val.toString().length === 5
-          // )
+          //   val => val.length === 5
+          // ),
         })}
         onSubmit={handleRegister}
       >
