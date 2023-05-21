@@ -68,7 +68,7 @@ const Registration = () => {
             )
             .required("Mot de Passe confirmation Obligatoire"),
           city: Yup.string().required("Ville Obligatoire"),
-          phone: Yup.string().required("Phone Obligatoire"),
+          phone: Yup.number().required("Phone Obligatoire").typeError("Uniquement des chiffres"),
           address: Yup.string().required("Adresse Obligatoire"),
           userPhoto: Yup.mixed()
             .nullable()

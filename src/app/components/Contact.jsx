@@ -1,9 +1,10 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import FormModel from "./form/FormModel";
+import * as Yup from "yup";
 
 /**
  * Component Login
@@ -15,7 +16,12 @@ const Contact = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleContact = (values) => {};
+  const handleContact =  (values, { setSubmitting }) => {
+    setTimeout(() => {
+      alert(JSON.stringify(values, null, 2));
+      setSubmitting(false);
+    }, 400);
+  };;
 
   return (
     <div className="min-width: 100%;">
@@ -30,13 +36,26 @@ const Contact = () => {
 
       <Formik
         initialValues={{
-          firstname: "",
-          lastname: "",
+          firstName: "",
+          lastName: "",
           email: "",
           phone: "",
           city: "",
           message: "",
         }}
+        validationSchema={Yup.object({
+          firstName: Yup.string().required("Prénom  Obligatoire"),
+          lastName: Yup.string().required("Nom Obligatoire"),
+          email: Yup.string()
+            .email("Adresse e-mail invalide")
+            .required("Email Obligatoire"),
+          phone: Yup.number()
+            .notRequired()
+            .typeError("Uniquement des chiffres"),
+          message: Yup.string()
+            .required("Vous devez écrire votre message")
+            .max(500, " Maximum 500 caractères autorisé"),
+        })}
         onSubmit={handleContact}
       >
         <Form className="mt-4 space-y-6">
@@ -80,7 +99,7 @@ const Contact = () => {
             </div>
 
             <div className="sm:col-span-2">
-               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
+              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
                 Votre demande <span className="text-red-600"> * </span>
               </label>
               <Field
@@ -91,6 +110,9 @@ const Contact = () => {
                 rows="2"
                 className="input"
               />
+              <small className="text-red-600">
+                <ErrorMessage name="message" />
+              </small>
             </div>
           </div>
 
