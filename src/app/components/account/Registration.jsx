@@ -1,5 +1,5 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form, ErrorMessage, useField } from "formik";
 import * as Yup from "yup";
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
 import { authenticate } from "../../api/backend/account";
+import FormInput from "../form/formInput";
+
 
 /**
  * Component User Registration Form
@@ -30,6 +32,7 @@ const Registration = () => {
       })
       .catch(() => setErrorLog(true));
   };
+
 
   const FILE_SIZE = 100 * 1024;
   const SUPPORTED_FORMATS = ["jpg", "jpeg", "png"];
@@ -61,8 +64,8 @@ const Registration = () => {
           passwordConfirmation: "",
         }}
         validationSchema={Yup.object({
-          firstName: Yup.string().required("Nom Obligatoire"),
-          lastName: Yup.string().required("Prénom Obligatoire"),
+          firstName: Yup.string().required("Prénom  Obligatoire"),
+          lastName: Yup.string().required("Nom Obligatoire"),
           email: Yup.string()
             .email("Adresse e-mail invalide")
             .required("Champ Obligatoire"),
@@ -101,97 +104,94 @@ const Registration = () => {
       >
         <Form className="mt-4 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 rounded-md shadow-sm">
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="firstName">
-                Prénom <span className="text-red-600"> * </span>
-              </label>
-              <Field type="text" name="firstName" className="input" />
-              <small className="text-red-600">
-                <ErrorMessage name="firstName" />
-              </small>
-            </div>
-
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="lastName">
-                Nom <span className="text-red-600"> * </span>
-              </label>
-              <Field type="text" name="lastName" className="input" />
-              <small className="text-red-600">
-                <ErrorMessage name="lastName" />
-              </small>
-            </div>
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Email <span className="text-red-600"> * </span>
-              </label>
-              <Field type="email" name="email" className="input" />
-              <small className="text-red-600">
-                <ErrorMessage name="email" />
-              </small>
-            </div>
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Mot de passe <span className="text-red-600"> * </span>
-              </label>
-              <Field type="password" name="password" className="input" />
-              <small className="text-red-600">
-                <ErrorMessage name="password" />
-              </small>
-            </div>
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Confirmer le mot de passe{" "}
-                <span className="text-red-600"> * </span>
-              </label>
-              <Field
-                type="password"
-                name="passwordConfirmation"
+            <div>
+              <FormInput
+                label="Prénom"
+                name="firstName"
+                type="text"
+                icon="*"
                 className="input"
               />
-              <small className="text-red-600">
-                <ErrorMessage name="passwordConfirmation" />
-              </small>
             </div>
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="address">
-                Adresse <span className="text-red-600"> * </span>
-              </label>
-              <Field type="text" name="address" className="input" />
+            <div>
+              <FormInput
+                label="Nom"
+                name="lastName"
+                type="text"
+                icon="*"
+                className="input"
+              />
+            </div>
+            <div>
+              <FormInput
+                label="Email"
+                name="email"
+                type="email"
+                icon="*"
+                className="input"
+              />
+            </div>
+            <div>
+              <FormInput
+                label="Mot de passe"
+                name="password"
+                type="password"
+                icon="*"
+                className="input"
+              />
+            </div>
+            <div>
+              <FormInput
+                label="Confirmer le mot de passe"
+                name="passwordConfirmation"
+                type="password"
+                icon="*"
+                className="input"
+              />
+            </div>
 
-              <small className="text-red-600">
-                <ErrorMessage name="address" />
-              </small>
+            <div>
+              <FormInput
+                label="Adresse"
+                name="address"
+                type="text"
+                icon="*"
+                className="input"
+              />
             </div>
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="postCode">
-                Code Postal <span className="text-red-600"> * </span>
-              </label>
-              <Field type="text" name="postCode" className="input" />
-              <small className="text-red-600">
-                <ErrorMessage name="postCode" />
-              </small>
+
+            <div>
+              <FormInput
+                label="Code Postal"
+                name="postCode"
+                type="text"
+                icon="*"
+                className="input"
+              />
             </div>
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="phone">
-                Téléphone <span className="text-red-600"> * </span>
-              </label>
-              <Field type="text" name="phone" className="input" />
-              <small className="text-red-600">
-                <ErrorMessage name="phone" />
-              </small>
+
+            <div>
+              <FormInput
+                label="Téléphone"
+                name="phone"
+                type="text"
+                icon="*"
+                className="input"
+              />
             </div>
-            <div className="">
-              <label className=" my-4 py-0 text-gray-600" htmlFor="city">
-                Ville <span className="text-red-600"> * </span>
-              </label>
-              <Field type="text" name="city" className="input" />
-              <small className="text-red-600">
-                <ErrorMessage name="city" />
-              </small>
+            <div>
+              <FormInput
+                label="Ville"
+                name="city"
+                type="text"
+                icon="*"
+                className="input"
+              />
             </div>
-            <div className="">
+
+            <div>
               <label className=" my-4 py-0 text-gray-600" htmlFor="userPhoto">
-                Votre Photo (jpg, png, jpeg)(100kb)
+                Votre Photo ( jpg/png/jpeg - 100kb )
               </label>
               <Field
                 type="file"
