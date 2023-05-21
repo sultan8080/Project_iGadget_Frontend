@@ -11,7 +11,6 @@ import { signIn } from "../../redux-store/authenticationSlice";
 import { authenticate } from "../../api/backend/account";
 import FormInput from "../form/formInput";
 
-
 /**
  * Component User Registration Form
  *
@@ -22,17 +21,12 @@ const Registration = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleRegister = (values) => {
-    authenticate(values)
-      .then((res) => {
-        if (res.status === 200 && res.data.id_token) {
-          dispatch(signIn(res.data.id_token));
-          navigate(URL_HOME);
-        }
-      })
-      .catch(() => setErrorLog(true));
+  const handleRegister = (values, { setSubmitting }) => {
+    setTimeout(() => {
+      alert(JSON.stringify(values, null, 2));
+      setSubmitting(false);
+    }, 400);
   };
-
 
   const FILE_SIZE = 100 * 1024;
   const SUPPORTED_FORMATS = ["jpg", "jpeg", "png"];
@@ -47,9 +41,7 @@ const Registration = () => {
           Inscrivez-vous pour ne plus passer à côté des occasions
         </small>
       </div>
-
       <hr className="my-5" />
-
       <Formik
         initialValues={{
           firstName: "",
@@ -68,17 +60,19 @@ const Registration = () => {
           lastName: Yup.string().required("Nom Obligatoire"),
           email: Yup.string()
             .email("Adresse e-mail invalide")
-            .required("Champ Obligatoire"),
-          password: Yup.string().required("Mot de passe Obligatoire"),
+            .required("Email Obligatoire"),
+          password: Yup.string()
+            .required("Mot de passe Obligatoire")
+            .min(6, "Au moins six caractères "),
           passwordConfirmation: Yup.string()
             .oneOf(
               [Yup.ref("password"), null],
               "Le mot de passe doit être identique"
             )
-            .required("Champ Obligatoire"),
-          city: Yup.string().required("Champ Obligatoire"),
-          phone: Yup.string().required("Champ Obligatoire"),
-          address: Yup.string().required("Champ Obligatoire"),
+            .required("Mot de Passe confirmation Obligatoire"),
+          city: Yup.string().required("Ville Obligatoire"),
+          phone: Yup.string().required("Phone Obligatoire"),
+          address: Yup.string().required("Adresse Obligatoire"),
           userPhoto: Yup.mixed()
             .nullable()
             .notRequired()
@@ -95,10 +89,11 @@ const Registration = () => {
               (value) =>
                 !value || (value && SUPPORTED_FORMATS.includes(value.type))
             ),
-          postCode: Yup.string()
-            .min(5)
-            .max(5, "Doit être composé de 5 chiffres, exemple : 02200")
-            .required("Champ Obligatoire"),
+          postCode: Yup.number()
+            .required("Code Postale Obligatoire")
+            .typeError("Uniquement des chiffres, Exemple: 02200")
+            .min(5, "5 chiffres obligatoire, Exemple : 02200")
+            .max(5, "5 chiffres obligatoire, Exemple : 02200"),
         })}
         onSubmit={handleRegister}
       >
