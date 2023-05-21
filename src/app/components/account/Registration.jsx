@@ -3,9 +3,7 @@ import { Formik, Field, Form, ErrorMessage, useField } from "formik";
 import * as Yup from "yup";
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-
 import { Link, useNavigate } from "react-router-dom";
-
 import FormModel from "../form/FormModel";
 
 /**
@@ -14,10 +12,6 @@ import FormModel from "../form/FormModel";
  * @author Sultan
  */
 const Registration = () => {
-  const [errorLog, setErrorLog] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const handleRegister = (values, { setSubmitting }) => {
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));
@@ -68,7 +62,9 @@ const Registration = () => {
             )
             .required("Mot de Passe confirmation Obligatoire"),
           city: Yup.string().required("Ville Obligatoire"),
-          phone: Yup.number().required("Phone Obligatoire").typeError("Uniquement des chiffres"),
+          phone: Yup.number()
+            .required("Phone Obligatoire")
+            .typeError("Uniquement des chiffres"),
           address: Yup.string().required("Adresse Obligatoire"),
           userPhoto: Yup.mixed()
             .nullable()
@@ -88,9 +84,12 @@ const Registration = () => {
             ),
           postCode: Yup.number()
             .required("Code Postale Obligatoire")
-            .typeError("Uniquement des chiffres, Exemple: 02200")
-            .min(5, "5 chiffres obligatoire, Exemple : 02200")
-            .max(5, "5 chiffres obligatoire, Exemple : 02200"),
+            .typeError("Uniquement des chiffres, Exemple: 02200"),
+          //  .test(
+          //   "len",
+          //   "5 chiffres obligatoire, Exemple : 02200",
+          //   (val) => val.toString().length === 5
+          // )
         })}
         onSubmit={handleRegister}
       >
@@ -210,20 +209,13 @@ const Registration = () => {
               </span>
               Je m'inscris
             </button>
-            <button
-              type="submit"
-              className="btn btn-third-outline mt-3 group py-2 relative w-full"
-            >
-              Déjà un compe? Je me connecte...
-            </button>
+
+            <Link to="/login">
+              <span className="btn btn-third-outline mt-3 group py-2 relative w-full">
+                Déjà un compte? Je me connecte...
+              </span>
+            </Link>
           </div>
-          {errorLog && (
-            <div className="flex justify-center">
-              <small className="text-sm italic text-red-600">
-                Identifiant/Mot de passe incorrect(s)
-              </small>
-            </div>
-          )}
         </Form>
       </Formik>
     </div>

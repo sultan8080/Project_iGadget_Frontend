@@ -3,6 +3,7 @@ import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
@@ -47,7 +48,11 @@ const Login = () => {
           username: "",
           password: "",
         }}
-        onSubmit={handleLogin}
+        validationSchema={Yup.object({
+          username: Yup.string()
+            .email("Adresse e-mail invalide")
+            .required("Email Obligatoire"),
+        })}
       >
         <Form className="mt-5 space-y-6">
           <div className="flex flex-col space-y-3 rounded-md shadow-sm">
@@ -70,7 +75,7 @@ const Login = () => {
           <div className=" flex items-center justify-between">
             <div className="text-sm">
               <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-theme-primary hover:text-theme-primary">
+                <span className="cursor-pointer font-medium text-third-dark hover:text-primary">
                   Mot de passe oublié?
                 </span>
               </Link>
@@ -80,6 +85,7 @@ const Login = () => {
           <div>
             <button
               type="submit"
+              onSubmit={handleLogin}
               className="btn btn-primary group relative w-full"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -90,12 +96,12 @@ const Login = () => {
               </span>
               Je me connecte
             </button>
-            <button
-              type="submit"
-              className="btn btn-third-outline mt-3 group py-2 relative w-full"
-            >
-              Pas de Compte? Je m'inscris..
-            </button>
+
+            <Link to="/register">
+              <span className="btn btn-third-outline mt-3 group py-2 relative w-full">
+                Pas de Compte? Je m'inscris..
+              </span>
+            </Link>
           </div>
           {errorLog && (
             <div className="flex justify-center">

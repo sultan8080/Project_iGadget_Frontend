@@ -1,27 +1,21 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
 import FormModel from "./form/FormModel";
 import * as Yup from "yup";
 
 /**
  * Component Login
  *
- * @author Peter et SULTAN
+ * @author Sultan
  */
 const Contact = () => {
-  const [errorLog, setErrorLog] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleContact =  (values, { setSubmitting }) => {
+  const handleContact = (values, { setSubmitting }) => {
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));
       setSubmitting(false);
     }, 400);
-  };;
+  };
 
   return (
     <div className="min-width: 100%;">
@@ -100,13 +94,13 @@ const Contact = () => {
 
             <div className="sm:col-span-2">
               <label className=" my-4 py-0 text-gray-600" htmlFor="email">
-                Votre demande <span className="text-red-600"> * </span>
+                Votre demande ( max 500 caractères){" "}
+                <span className="text-red-600"> * </span>
               </label>
               <Field
                 type="text"
                 name="message"
                 component="textarea"
-                autoComplete="message"
                 rows="2"
                 className="input"
               />
@@ -116,27 +110,18 @@ const Contact = () => {
             </div>
           </div>
 
-          <div>
-            <button
-              type="submit"
-              className="btn btn-primary group relative w-full"
-            >
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <LockClosedIcon
-                  className="h-5 w-5 text-white group-hover:text-light"
-                  aria-hidden="true"
-                />
-              </span>
-              Enovyer
-            </button>
-          </div>
-          {errorLog && (
-            <div className="flex justify-center">
-              <small className="text-sm italic text-red-600">
-                Identifiant/Mot de passe incorrect(s)
-              </small>
-            </div>
-          )}
+          <button
+            type="submit"
+            className="btn btn-primary group relative w-full"
+          >
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+              <LockClosedIcon
+                className="h-5 w-5 text-white group-hover:text-light"
+                aria-hidden="true"
+              />
+            </span>
+            Enovyer
+          </button>
         </Form>
       </Formik>
     </div>
