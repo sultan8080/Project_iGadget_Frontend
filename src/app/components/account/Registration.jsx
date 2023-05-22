@@ -47,25 +47,25 @@ const Registration = () => {
           passwordConfirmation: "",
         }}
         validationSchema={Yup.object({
-          firstName: Yup.string().required("Prénom  Obligatoire"),
-          lastName: Yup.string().required("Nom Obligatoire"),
+          firstName: Yup.string().required("Prénom  obligatoire"),
+          lastName: Yup.string().required("Nom obligatoire"),
           email: Yup.string()
             .email("Adresse e-mail invalide")
-            .required("Email Obligatoire"),
+            .required("Email obligatoire"),
           password: Yup.string()
-            .required("Mot de passe Obligatoire")
+            .required("Mot de passe obligatoire")
             .min(6, "Au moins six caractères "),
           passwordConfirmation: Yup.string()
             .oneOf(
               [Yup.ref("password"), null],
               "Le mot de passe doit être identique"
             )
-            .required("Mot de Passe confirmation Obligatoire"),
-          city: Yup.string().required("Ville Obligatoire"),
+            .required("Mot de Passe confirmation obligatoire"),
+          city: Yup.string().required("Ville obligatoire"),
           phone: Yup.number()
-            .required("Phone Obligatoire")
+            .required("Numéro téléphone obligatoire")
             .typeError("Uniquement des chiffres"),
-          address: Yup.string().required("Adresse Obligatoire"),
+          address: Yup.string().required("Adresse obligatoire"),
           userPhoto: Yup.mixed()
             .nullable()
             .notRequired()
@@ -96,9 +96,9 @@ const Registration = () => {
               }
             ),
 
-          postCode: Yup.number()
-            .required("Code Postale Obligatoire")
-            .typeError("Uniquement des chiffres, Exemple: 02200")
+          postCode: Yup.string()
+            .required("Code Postale obligatoire")
+            .length(5, "Uniquement 5 chiffres, Exemple: 02200")
         })}
         onSubmit={handleRegister}
       >

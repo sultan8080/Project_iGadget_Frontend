@@ -12,7 +12,7 @@ import { authenticate } from "./../../api/backend/account";
 /**
  * Component Login
  *
- * @author Peter et Sultan
+ * @author Peter
  */
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
