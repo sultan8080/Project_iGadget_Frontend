@@ -21,7 +21,7 @@ const HomeView = () => {
 
       <CarouselHome/>
 
-      {/* Juste pour voir le bas du svg, vous pouvez l'enlever */}
+      {/* Juste pour voir le bas du svg, vous pouvez les enlever (les br) */}
       <br />
       <br />
       <br />
