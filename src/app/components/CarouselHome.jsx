@@ -68,9 +68,10 @@ const CarouselHome = () => {
         {/* IMAGE */}
         <img
           src={slides[currentIndex].url}
-          className="w-2/4 bg-center bg-no-repeat -mt-20"
+          className="w-2/4 bg-center bg-no-repeat -mt-20 transition"
           alt="product img"
         />
+
       </div>
 
       {/* DOT */}
