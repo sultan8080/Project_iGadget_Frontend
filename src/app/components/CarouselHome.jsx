@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RxDotFilled } from "react-icons/rx";
 
-const CarouselHome = ({ 
-  // autoSlide = true, 
-  // autoSlideInterval = 3000 
-}) => {
+const CarouselHome = () => {
   const slides = [
     {
       url: "src/app/assets/test/MacBookPro_gris_3.png",
@@ -35,6 +32,15 @@ const CarouselHome = ({
     setCurrentIndex(slideIndex);
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      setCurrentIndex(nextIndex);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, slides.length]);
+
   return (
     <section className="w-full m-auto relative transition-500">
       
@@ -63,6 +69,7 @@ const CarouselHome = ({
         <img
           src={slides[currentIndex].url}
           className="w-2/4 bg-center bg-no-repeat -mt-20"
+          alt="product img"
         />
       </div>
 
