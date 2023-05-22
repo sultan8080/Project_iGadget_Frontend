@@ -14,7 +14,7 @@ const HomeView = () => {
 
   return (
     <div className="flex flex-col max-w-[1600px] mx-auto">
-      <h2 className="uppercase font-bold absolute">
+      <h2 className="uppercase font-bold absolute mt-16">
         Les <span className="text-[#349CA2]">nouveautés</span>
         <br /> actuelles du shop
       </h2>
