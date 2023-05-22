@@ -1,5 +1,5 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import { authenticate } from "./../../api/backend/account";
 /**
  * Component Login
  *
- * @author Peter
+ * @author Peter et sultan
  */
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
@@ -20,6 +20,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = (values) => {
+    console.log("message");
     authenticate(values)
       .then((res) => {
         if (res.status === 200 && res.data.id_token) {
@@ -52,7 +53,10 @@ const Login = () => {
           username: Yup.string()
             .email("Adresse e-mail invalide")
             .required("Email Obligatoire"),
+          password: Yup.string()
+            .required("Mot de passe obligatoire")
         })}
+        onSubmit={handleLogin}
       >
         <Form className="mt-5 space-y-6">
           <div className="flex flex-col space-y-3 rounded-md shadow-sm">
@@ -63,6 +67,9 @@ const Login = () => {
               autoComplete="username"
               className="input"
             />
+            <small className="text-red-600">
+              <ErrorMessage name="username" />
+            </small>
             <Field
               type="password"
               name="password"
@@ -70,6 +77,9 @@ const Login = () => {
               autoComplete="current-password"
               className="input"
             />
+            <small className="text-red-600">
+              <ErrorMessage name="password" />
+            </small>
           </div>
 
           <div className=" flex items-center justify-between">
@@ -85,7 +95,6 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              onSubmit={handleLogin}
               className="btn btn-primary group relative w-full"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
