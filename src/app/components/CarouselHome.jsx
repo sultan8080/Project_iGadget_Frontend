@@ -41,8 +41,8 @@ const CarouselHome = ({
       {/* TEXT */}
       <div className="flex items-center">
         <div className="flex flex-col pr-14">
-          <h3 className="pb-4">{slides[currentIndex].title}</h3>
-          <p className="text-justify">{slides[currentIndex].description}</p>
+          <h2 className="pb-4">{slides[currentIndex].title}</h2>
+          <p className="text-justify text-3xl">{slides[currentIndex].description}</p>
           <div className="flex mt-6">
             <button
               type="button"
@@ -62,7 +62,7 @@ const CarouselHome = ({
         {/* IMAGE */}
         <img
           src={slides[currentIndex].url}
-          className="w-2/3 bg-center bg-no-repeat"
+          className="w-2/4 bg-center bg-no-repeat -mt-20"
         />
       </div>
 
