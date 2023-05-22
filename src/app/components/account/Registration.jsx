@@ -77,21 +77,28 @@ const Registration = () => {
                 : true;
             })
             .test(
-              "FILE_FORMAT",
-              "Format de votre photo non autorisé.",
-              (value) =>
-                !value || (value && SUPPORTED_FORMATS.includes(value.type))
+              "is-file-of-correct-type",
+              "Format de votre photo non autorisé",
+              () => {
+                let valid = true;
+                const files = photoUpload?.current?.files;
+                if (files) {
+                  const fileArr = Array.from(files);
+                  fileArr.forEach((file) => {
+                    const type = file.type.split("/")[1];
+                    const validTypes = ["jpeg", "png", "jpg"];
+                    if (!validTypes.includes(type)) {
+                      valid = false;
+                    }
+                  });
+                }
+                return valid;
+              }
             ),
+
           postCode: Yup.number()
             .required("Code Postale Obligatoire")
             .typeError("Uniquement des chiffres, Exemple: 02200")
-           .min(5, '5 chiffres obligatoire, Exemple : 02200')
-           .max(5, '5 chiffres obligatoire, Exemple : 02200'),
-          //  test(
-          //   "len",
-          //   "5 chiffres obligatoire, Exemple : 02200",
-          //   val => val.length === 5
-          // ),
         })}
         onSubmit={handleRegister}
       >
