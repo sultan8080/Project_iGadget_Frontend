@@ -14,6 +14,7 @@ import RegistrationView from "../views/RegistrationView";
 import ContactView from "../views/ContactView";
 
 import ProfileView from "../views/ProfileView";
+import ProfileOrdersView from "../views/ProfileOrdersView";
 
 /**
  * Routes of the application
@@ -45,6 +46,7 @@ const Routes = () => {
       <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
       <Route path={URL.URL_CONTACT} element={<ContactView />} />
       <Route path={URL.URL_PROFILE} element={<ProfileView />} />
+      <Route path={URL.URL_PROFILE_ORDERS} element={<ProfileOrdersView />} />
       <Route path={URL.URL_PRODUCT} element={<ProductView />} />
     </RoutesContainer>
   );

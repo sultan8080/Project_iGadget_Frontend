@@ -79,7 +79,7 @@ const ProfileView = () => {
             <span className="text-gray-500">22-03-2023</span>
             <span className="text-gray-500">1 228,00 €</span>
           </div>
-          <button className="btn btn-primary">Accéder aux commandes</button>
+          <button className="btn btn-primary"><a href="/profile-orders">Accéder aux commandes</a></button>
         </section>
 
       </div>

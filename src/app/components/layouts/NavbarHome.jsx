@@ -36,7 +36,7 @@ const NavbarHome = () => {
             />
           </a>
 
-          <div className="w-3/5 pr-20 pl-40 py-12">
+          <div className="w-3/5 pr-20 pl-60 py-12">
             <button
               data-collapse-toggle="navbar-dropdown"
               type="button"
