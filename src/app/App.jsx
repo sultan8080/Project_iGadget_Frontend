@@ -52,7 +52,7 @@ const App = () => {
       {/* <Navbar /> */}
       {isHomePage() ? <NavbarHome /> : <Navbar />}
 
-      <main className="mt-24 grow">
+      <main className="mt-24 grow max-w-[1400px] mx-auto">
         <Routes />
       </main>
 
