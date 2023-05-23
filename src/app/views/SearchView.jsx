@@ -1,22 +1,23 @@
 import React from "react";
 
+const productData = {
+    title: "PixelWave 14",
+    description:
+      "Le PixelWave 14 avec Dynamic Island. SOS d’urgence par satellite. Détection des accidents. Appareil photo 48 Mpx innovant. Et puce A16 Bionic.",
+    img: "src/app/assets/test/PixelWave_blanc.png"
+  };
+
 const SearchView = () => {
   return (
     <section className="flex flex-col">
-      <span>
-        Accueil <span className="red-arrow">&gt;</span> Catégories{" "}
-        <span className="red-arrow">&gt;</span> Téléphones
-      </span>
 
       <div className="border flex h-60 items-center mt-8">
-        <img src="src/app/assets/test/PixelWave_blanc.png" className="w-64" />
+        <img src={productData.img} className="w-64" />
 
         <div className="px-16 w-2/3">
-          <span className="text-3xl font-bold pb-6">PixelWave 14</span>
+          <span className="text-3xl font-bold pb-6">{productData.title}</span>
           <p>
-            Le PixelWave 14 avec Dynamic Island. SOS d’urgence par satellite.
-            Détection des accidents. Appareil photo 48 Mpx innovant. Et puce A16
-            Bionic.
+          {productData.description}
           </p>
         </div>
 
