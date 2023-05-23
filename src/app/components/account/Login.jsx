@@ -1,8 +1,9 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
@@ -11,7 +12,7 @@ import { authenticate } from "./../../api/backend/account";
 /**
  * Component Login
  *
- * @author Peter et Sultan
+ * @author Peter et sultan
  */
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
@@ -19,6 +20,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = (values) => {
+    console.log("message");
     authenticate(values)
       .then((res) => {
         if (res.status === 200 && res.data.id_token) {
@@ -47,6 +49,13 @@ const Login = () => {
           username: "",
           password: "",
         }}
+        validationSchema={Yup.object({
+          username: Yup.string()
+            .email("Adresse e-mail invalide")
+            .required("Email Obligatoire"),
+          password: Yup.string()
+            .required("Mot de passe obligatoire")
+        })}
         onSubmit={handleLogin}
       >
         <Form className="mt-5 space-y-6">
@@ -58,6 +67,9 @@ const Login = () => {
               autoComplete="username"
               className="input"
             />
+            <small className="text-red-600">
+              <ErrorMessage name="username" />
+            </small>
             <Field
               type="password"
               name="password"
@@ -65,12 +77,15 @@ const Login = () => {
               autoComplete="current-password"
               className="input"
             />
+            <small className="text-red-600">
+              <ErrorMessage name="password" />
+            </small>
           </div>
 
           <div className=" flex items-center justify-between">
             <div className="text-sm">
               <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-theme-primary hover:text-theme-primary">
+                <span className="cursor-pointer font-medium text-third-dark hover:text-primary">
                   Mot de passe oublié?
                 </span>
               </Link>
@@ -90,12 +105,12 @@ const Login = () => {
               </span>
               Je me connecte
             </button>
-            <button
-              type="submit"
-              className="btn btn-third-outline mt-3 group py-2 relative w-full"
-            >
-              Pas de Compte? Je m'inscris..
-            </button>
+
+            <Link to="/register">
+              <span className="btn btn-third-outline mt-3 group py-2 relative w-full">
+                Pas de Compte? Je m'inscris..
+              </span>
+            </Link>
           </div>
           {errorLog && (
             <div className="flex justify-center">
