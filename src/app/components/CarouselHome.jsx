@@ -42,7 +42,7 @@ const CarouselHome = () => {
   }, [currentIndex, slides.length]);
 
   return (
-    <section className="w-full m-auto relative transition-500">
+    <section className="w-full m-auto relative">
       
       {/* TEXT */}
       <div className="flex items-center">
@@ -68,7 +68,7 @@ const CarouselHome = () => {
         {/* IMAGE */}
         <img
           src={slides[currentIndex].url}
-          className="w-2/4 bg-center bg-no-repeat -mt-20 transition"
+          className="w-2/4 bg-center bg-no-repeat -mt-20"
           alt="product img"
         />
 
