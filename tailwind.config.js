@@ -19,6 +19,24 @@ module.exports = {
                     dark: '#DB9F0D',
                 }
             },
+            keyframes: {
+                'appear': {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateX(+100px)'
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'translateX(0)'
+                    },
+                },
+                
+
+            },
+            animation: {
+                'appear': 'appear 1s ',
+                
+            }
         },
     },
     plugins: [
