@@ -52,7 +52,7 @@ const App = () => {
 
       {isLogin ? null : (
         <>
-          <main className="mt-24 grow max-w-[1400px] mx-auto">
+          <main className="mt-24 grow">
             <Routes />
           </main>
 
