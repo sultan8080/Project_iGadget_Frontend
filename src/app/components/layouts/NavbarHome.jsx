@@ -21,7 +21,7 @@ const NavbarHome = () => {
           backgroundRepeat: "no-repeat",
           backgroundPositionX: "right",
           width: "75rem",
-          height: "58rem",
+          height: "65rem",
           position: "absolute",
           right: "0",
         }}
@@ -204,11 +204,12 @@ const NavbarHome = () => {
                   type="text"
                   id="simple-search"
                   className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full pl-10 p-2.5"
-                  placeholder="Téléphone"
+                  placeholder="Recherche"
                   required
                 />
               </div>
             </form>
+            
           </div>
         </div>
       </nav>
