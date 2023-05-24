@@ -27,11 +27,11 @@ const NavbarHome = () => {
         }}
       ></div>
       <nav className="flex flex-col justify-end relative">
-        <div class="flex flex-wrap items-center justify-between ml-32">
-          <a href="/" class="flex items-center">
+        <div className="flex flex-wrap items-center justify-between ml-32">
+          <a href="/" className="flex items-center">
             <img
               src="src/app/assets/logo_iGadget.png"
-              class="h-16 mr-3"
+              className="h-16 mr-3"
               alt="logo"
             />
           </a>
@@ -40,13 +40,13 @@ const NavbarHome = () => {
             <button
               data-collapse-toggle="navbar-dropdown"
               type="button"
-              class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
               aria-controls="navbar-dropdown"
               aria-expanded="false"
             >
-              <span class="sr-only">Open main menu</span>
+              <span className="sr-only">Open main menu</span>
               <svg
-                class="w-6 h-6"
+                className="w-6 h-6"
                 aria-hidden="true"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -60,17 +60,17 @@ const NavbarHome = () => {
               </svg>
             </button>
 
-            <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-              <ul class="flex flex-col justify-between text-xl font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
+            <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+              <ul className="flex flex-col justify-between text-xl font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
                 <li className="flex items-center">
                   <button
                     id="dropdownNavbarLink"
                     data-dropdown-toggle="dropdownNavbar"
-                    class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:p-0 md:w-auto"
+                    className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:p-0 md:w-auto"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -78,7 +78,7 @@ const NavbarHome = () => {
                     </svg>
                     <span className="pl-2">Store </span>
                     <svg
-                      class="w-5 h-5 ml-1"
+                      className="w-5 h-5 ml-1"
                       aria-hidden="true"
                       fill="currentColor"
                       viewBox="0 0 20 20"
@@ -94,32 +94,32 @@ const NavbarHome = () => {
 
                   <div
                     id="dropdownNavbar"
-                    class="z-10 hidden font-normal divide-y divide-gray-100 rounded-lg shadow w-44"
+                    className="z-10 hidden font-normal divide-y divide-gray-100 rounded-lg shadow w-44"
                   >
                     <ul
-                      class="py-2 text-sm text-gray-700"
+                      className="py-2 text-sm text-gray-700"
                       aria-labelledby="dropdownLargeButton"
                     >
                       <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                           Dashboard
                         </a>
                       </li>
                       <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                           Settings
                         </a>
                       </li>
                       <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                           Earnings
                         </a>
                       </li>
                     </ul>
-                    <div class="py-1">
+                    <div className="py-1">
                       <a
                         href="#"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Sign out
                       </a>
@@ -130,11 +130,11 @@ const NavbarHome = () => {
                 <li>
                   <a
                     href="/profile"
-                    class="flex items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
+                    className="flex items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -151,11 +151,11 @@ const NavbarHome = () => {
                 <li>
                   <a
                     href="/basket"
-                    class="flex items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
+                    className="flex items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -172,7 +172,7 @@ const NavbarHome = () => {
                 <li>
                   <a
                     href="#"
-                    class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
+                    className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
                   >
                     Besoin d'aide
                   </a>
@@ -180,15 +180,15 @@ const NavbarHome = () => {
               </ul>
             </div>
 
-            <form class="flex items-center mt-5">
-              <label for="simple-search" class="sr-only">
+            <form className="flex items-center mt-5">
+              <label for="simple-search" className="sr-only">
                 Search
               </label>
-              <div class="relative w-full">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <div className="relative w-full">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg
                     aria-hidden="true"
-                    class="w-5 h-5 text-gray-500"
+                    className="w-5 h-5 text-gray-500"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +203,7 @@ const NavbarHome = () => {
                 <input
                   type="text"
                   id="simple-search"
-                  class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full pl-10 p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full pl-10 p-2.5"
                   placeholder="Téléphone"
                   required
                 />
