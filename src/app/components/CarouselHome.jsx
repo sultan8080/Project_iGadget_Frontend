@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RxDotFilled } from "react-icons/rx";
 
-const CarouselHome = ({ 
+const CarouselHome = ({
   // autoSlide = true, 
   // autoSlideInterval = 3000 
 }) => {
@@ -37,12 +37,12 @@ const CarouselHome = ({
 
   return (
     <section className="w-full m-auto relative transition-500">
-      
+
       {/* TEXT */}
       <div className="flex items-center">
         <div className="flex flex-col pr-14">
           <h2 className="pb-4">{slides[currentIndex].title}</h2>
-          <p className="text-justify text-3xl">{slides[currentIndex].description}</p>
+          <p className="text-justify">{slides[currentIndex].description}</p>
           <div className="flex mt-6">
             <button
               type="button"
