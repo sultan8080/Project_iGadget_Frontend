@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import CardSearch from "../components/cards/CardSearch";
+import { SearchContext } from '../App';
 
 const productData = [
   {
@@ -26,15 +27,17 @@ const productData = [
 ];
 
 const SearchView = () => {
+  const searchContext = useContext(SearchContext);
+
   return (
     <div className="flex flex-col items-center">
       <section className="flex flex-col">
-        {productData.map((product) => (
+        {searchContext.searchResults.map((result) => (
           <CardSearch 
-            key={product.id}
-            title={product.title}
-            description={product.description}
-            img={product.img}
+            key={result.id}
+            title={result.title}
+            description={result.description}
+            img={result.img}
           />
         ))}
       </section>

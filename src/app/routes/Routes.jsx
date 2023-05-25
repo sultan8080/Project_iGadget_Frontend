@@ -16,6 +16,7 @@ import ContactView from "../views/ContactView";
 import ProfileView from "../views/ProfileView";
 import ProfileOrdersView from "../views/ProfileOrdersView";
 import SearchView from "../views/SearchView";
+import SearchInput from "../components/layouts/SearchInput";
 
 /**
  * Routes of the application
@@ -24,6 +25,11 @@ import SearchView from "../views/SearchView";
  * @author Peter Mollet
  */
 const Routes = () => {
+
+  const handleSearchResults = (results) => {
+    setSearchResults(results);
+  };
+
   return (
     <RoutesContainer>
       <Route
@@ -50,6 +56,7 @@ const Routes = () => {
       <Route path={URL.URL_PROFILE_ORDERS} element={<ProfileOrdersView />} />
       <Route path={URL.URL_PRODUCT} element={<ProductView />} />
       <Route path={URL.URL_SEARCH} element={<SearchView />} />
+      <Route path={URL.URL_SEARCH_RESULTS} element={<SearchInput onSearch={handleSearchResults} />} />
     </RoutesContainer>
   );
 };

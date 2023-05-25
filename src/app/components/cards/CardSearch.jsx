@@ -1,13 +1,13 @@
 import React from "react";
 
-const CardSearch = (product) => {
+const CardSearch = (result) => {
   return (
     <div className="border flex h-60 items-center mt-8">
-      <img src={product.img} className="w-64" />
+      <img src={result.img} className="w-64" />
 
       <div className="px-16 w-2/3">
-        <span className="text-3xl font-bold pb-6">{product.title}</span>
-        <p>{product.description}</p>
+        <span className="text-3xl font-bold pb-6">{result.title}</span>
+        <p>{result.description}</p>
       </div>
 
       <div className="flex flex-col">
