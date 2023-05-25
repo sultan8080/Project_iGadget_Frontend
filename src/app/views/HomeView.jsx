@@ -7,6 +7,9 @@ import { URL_ADMIN_HOME } from "../constants/urls/urlFrontEnd";
 import { selectHasRole } from "../redux-store/authenticationSlice";
 
 import CarouselHome from "../components/CarouselHome";
+import BestsallersView from "./BestsallersView";
+import Bestsallers from "../components/Bestsallers";
+
 
 const HomeView = () => {
   const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
@@ -19,21 +22,12 @@ const HomeView = () => {
         <br /> actuelles du shop
       </h2>
 
-      <CarouselHome/>
+      <CarouselHome />
 
+
+      <Bestsallers />
       {/* Juste pour voir le bas du svg, vous pouvez les enlever (les br) */}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+
 
 
       {isAdmin && (
