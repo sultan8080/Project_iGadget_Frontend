@@ -7,7 +7,7 @@ const Product = () => {
                 <img src="src/app/assets/test/PixelWave_blanc.png" alt="photo produit" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
             </div>
             <form className="flex-auto p-6">
-                <div class="flex flex-wrap">
+                <div className="flex flex-wrap">
                     <h1 className="flex-auto text-4xl font-semibold text-slate-900">
                         PixelWave 14
                     </h1>
