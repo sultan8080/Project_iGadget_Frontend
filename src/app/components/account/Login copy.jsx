@@ -22,12 +22,12 @@ const Login = () => {
   const handleLogin = (values) => {
     authenticate(values)
       .then((res) => {
-        if (res.status === 200 && res.data.token) {
-          dispatch(signIn(res.data.token));
-
+        if (res.status === 200 && res.data.id_token) {
+          dispatch(signIn(res.data.id_token));
+          navigate(URL_HOME);
         }
       })
-      .catch((err) => console.log(err));
+      .catch(() => setErrorLog(true));
   };
 
   return (
@@ -52,7 +52,8 @@ const Login = () => {
           username: Yup.string()
             .email("Adresse e-mail invalide")
             .required("Email Obligatoire"),
-          password: Yup.string().required("Mot de passe obligatoire"),
+          password: Yup.string()
+            .required("Mot de passe obligatoire")
         })}
         onSubmit={handleLogin}
       >
