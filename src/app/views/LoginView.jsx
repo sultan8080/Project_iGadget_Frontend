@@ -20,6 +20,7 @@ const LoginView = () => {
   const userRole = useSelector(selectHasRole);
   useEffect(() => {
     if (isAuthenticated) {
+      navigate(URL_HOME);
     }
   }, []);
 
