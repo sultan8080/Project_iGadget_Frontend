@@ -9,3 +9,6 @@ export const URL_CONTACT = '/contact';
 export const URL_LIST = '/simple-list';
 export const URL_PRODUCT = '/product';
 
+
+export const URL_SEARCH = '/search';
+
