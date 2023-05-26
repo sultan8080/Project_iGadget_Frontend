@@ -18,7 +18,7 @@ const SearchInput = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   
-    axios.get('http://localhost:8000/api/products', {
+    axios.get(`http://localhost:8000/api/products?name=${searchTerm}`, {
       params: {
         name: searchTerm
       }
@@ -28,9 +28,6 @@ const SearchInput = () => {
         searchContext.setSearchResults(data.results);
         navigate("/search");
       })
-      // .catch((error) => {
-        
-      // });
   };
 
   return (
