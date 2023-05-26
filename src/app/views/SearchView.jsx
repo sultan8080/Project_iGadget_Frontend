@@ -2,30 +2,6 @@ import React, { useContext } from "react";
 import CardSearch from "../components/cards/CardSearch";
 import { SearchContext } from "../App";
 
-// const productData = [
-//   {
-//     id: 1,
-//     title: "PixelWave 14",
-//     description:
-//       "Le PixelWave 14 avec Dynamic Island. SOS d’urgence par satellite. Détection des accidents. Appareil photo 48 Mpx innovant. Et puce A16 Bionic.",
-//     img: "src/app/assets/test/PixelWave_blanc.png",
-//   },
-//   {
-//     id: 2,
-//     title: "PixelWave 14",
-//     description:
-//       "Le PixelWave 14 avec Dynamic Island. SOS d’urgence par satellite. Détection des accidents. Appareil photo 48 Mpx innovant. Et puce A16 Bionic.",
-//     img: "src/app/assets/test/PixelWave_blanc.png",
-//   },
-//   {
-//     id: 3,
-//     title: "PixelWave 14",
-//     description:
-//       "Le PixelWave 14 avec Dynamic Island. SOS d’urgence par satellite. Détection des accidents. Appareil photo 48 Mpx innovant. Et puce A16 Bionic.",
-//     img: "src/app/assets/test/PixelWave_blanc.png",
-//   },
-// ];
-
 const SearchView = () => {
   const searchContext = useContext(SearchContext);
 
