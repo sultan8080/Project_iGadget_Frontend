@@ -8,24 +8,23 @@ const SearchView = () => {
 
   return (
     <div className="flex flex-col items-center">
-      {(searchResults && searchResults.length >= 0) ? (
+      {searchResults && searchResults.length >= 0 ? (
         <>
           <section className="flex flex-col">
             {searchResults.map((result) => (
-                <CardSearch
-                  key={result.id}
-                  title={result.title}
-                  description={result.description}
-                  img={result.img}
-                />
-              ))}
+              <CardSearch
+                key={result.id}
+                title={result.title}
+                description={result.description}
+                img={result.img}
+              />
+            ))}
           </section>
           <button className="btn btn-third my-12">Afficher plus</button>
         </>
       ) : (
         <p>Aucun résultat trouvé.</p>
       )}
-          {/* <button className="btn btn-third my-12" onClick={() => console.log(searchResults)}> plus</button> */}
     </div>
   );
 };

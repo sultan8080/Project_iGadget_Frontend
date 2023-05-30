@@ -2,10 +2,10 @@ import React from "react";
 
 const CardSearch = (result) => {
   return (
-    <div className="border flex h-60 items-center mt-8">
+    <div className="border flex h-60 items-center justify-around mt-8">
       <img src={result.img} className="w-64" />
 
-      <div className="px-16 w-2/3">
+      <div className="px-24 w-2/3">
         <span className="text-3xl font-bold pb-6">{result.title}</span>
         <p>{result.description}</p>
       </div>
