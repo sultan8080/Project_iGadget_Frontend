@@ -6,6 +6,7 @@ import axios from "axios";
 
 const SearchInput = () => {
   const searchContext = useContext(SearchContext);
+  const { searchResults, setSearchResults } = searchContext;
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -23,7 +24,13 @@ const SearchInput = () => {
       .then((response) => {
         const data = response.data;
         console.log("Data:", data);
-        searchContext.setSearchResults(data.results);
+        console.log("Data:", data['hydra:member']);
+        if (data['hydra:member']){
+          console.log('====================================');
+          console.log();
+          setSearchResults(data['hydra:member']);
+          console.log('====================================');
+        }
         navigate("/search");
       })
       .catch((error) => {
