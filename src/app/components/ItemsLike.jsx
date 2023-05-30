@@ -11,10 +11,6 @@ const ItemsLike = () => {
             <div className="flex-auto p-12 items-end">
                 <hr className="border-solid border-2 border-gray-700" />
             </div>
-        <div>
-
-
-        </div>
         </div>
     );
 };
