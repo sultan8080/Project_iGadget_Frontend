@@ -1,6 +1,7 @@
 import React from "react";
 import DecouvrezProduits from "../components/all_categories/DecouvrezProduits";
 
+
 export default function AllCategoriesView() {
   return (
     <div className="flex flex-col ">
@@ -10,7 +11,7 @@ export default function AllCategoriesView() {
         Découvrez les produits <br />
         qui <span className="text-secondary">VOUS</span> correspondent
       </div>
-      <DecouvrezProduits />
+      <DecouvrezProduits EchoSphere="EchoSphere_noir_2.png" />
 
       <div className="bg-secondary">fqsdf</div>
       <div className="bg-third">fqsdf</div>
