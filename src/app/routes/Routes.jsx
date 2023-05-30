@@ -16,6 +16,7 @@ import ContactView from "../views/ContactView";
 
 import ProfileView from "../views/ProfileView";
 import ProfileOrdersView from "../views/ProfileOrdersView";
+import SearchView from "../views/SearchView";
 
 /**
  * Routes of the application
