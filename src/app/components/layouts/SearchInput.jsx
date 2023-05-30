@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { SearchContext } from '../../App';
+import { SearchContext } from "../../App";
 
-import axios from 'axios';
+import axios from "axios";
 
 const SearchInput = () => {
   const searchContext = useContext(SearchContext);
@@ -17,17 +17,18 @@ const SearchInput = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
-    axios.get(`http://localhost:8000/api/products?name=${searchTerm}`, {
-      params: {
-        name: searchTerm
-      }
-    })
+
+    axios
+      .get(`http://localhost:8000/api/products?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
+        console.log("Data:", data);
         searchContext.setSearchResults(data.results);
         navigate("/search");
       })
+      .catch((error) => {
+        console.log("Error:", error);
+      });
   };
 
   return (
