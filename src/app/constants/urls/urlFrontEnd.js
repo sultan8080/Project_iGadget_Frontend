@@ -11,4 +11,5 @@ export const URL_PRODUCT = '/product';
 
 
 export const URL_SEARCH = '/search';
+export const URL_CATEGORY_ITEMS = '/category-items';
 
