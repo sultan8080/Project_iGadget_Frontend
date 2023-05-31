@@ -7,10 +7,13 @@ const CardSearch = (result) => {
   useEffect(() => {
     const loadImage = async () => {
       try {
-        const imageId = result.img[0].split("/").pop(); // Récupérer l'ID de l'image depuis l'URL
-        const response = await axios.get(`http://localhost:8000/api/product_images/${imageId}`, {
-          responseType: "blob",
-        });
+        const imageId = result.img[0].split("/").pop();
+        const response = await axios.get(
+          `http://localhost:8000/api/product_images/${imageId}`,
+          {
+            responseType: "blob",
+          }
+        );
         const imgUrl = URL.createObjectURL(response.data);
         setResultImage(imgUrl);
       } catch (error) {
@@ -20,7 +23,7 @@ const CardSearch = (result) => {
 
     loadImage();
   }, [result.img]);
-  
+
   return (
     <div className="border flex h-60 items-center justify-around mt-8">
       {resultImage && <img src={resultImage} className="w-64" />}
