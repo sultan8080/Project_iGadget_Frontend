@@ -1,5 +1,6 @@
 import React from "react";
 import DecouvrezProduits from "../components/all_categories/DecouvrezProduits";
+import CategoryLists from "../components/all_categories/CategoryLists";
 
 
 export default function AllCategoriesView() {
@@ -11,7 +12,8 @@ export default function AllCategoriesView() {
         Découvrez les produits <br />
         qui <span className="text-secondary">VOUS</span> correspondent
       </div>
-      <DecouvrezProduits EchoSphere="EchoSphere_noir_2.png" />
+      <DecouvrezProduits/>
+      <CategoryLists/>
 
       <div className="bg-secondary">fqsdf</div>
       <div className="bg-third">fqsdf</div>
