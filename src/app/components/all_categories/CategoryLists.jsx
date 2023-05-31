@@ -34,8 +34,10 @@ const CategoryDesc = [
   },
   {
     Title: "Les accessoires",
-    img: "src/app/assets/produits/category_photo/block-5.png",
-    description:"Tous nos accessoires sont fabriqués à partir de matériaux de haute qualité pour garantir leur durabilité et leur fonctionnalité. Que vous soyez à la recherche d'un accessoire pratique ou esthétique ou d’un chargeur. Tout ce qu'il vous faut pour personnaliser votre téléphone et votre montre selon vos préférences."},
+    img: "src/app/assets/produits/category_photo/block-6.png",
+    description:
+      "Tous nos accessoires sont fabriqués à partir de matériaux de haute qualité pour garantir leur durabilité et leur fonctionnalité. Que vous soyez à la recherche d'un accessoire pratique ou esthétique ou d’un chargeur. Tout ce qu'il vous faut pour personnaliser votre téléphone et votre montre selon vos préférences.",
+  },
 ];
 
 function CategoryLists() {
@@ -75,8 +77,8 @@ function CategoryLists() {
       </div>
 
       {/* Ordinateur*/}
-      <div className="grid grid-cols-12  text-white  bg-primary-light mt-10">
-        <div className="lg:col-span-4 md:col-span-5 col-span-12 lg:pl-10 xl:pl-15 sm:pl-5 pl-3 flex justify-start">
+      <div className="grid grid-cols-12 text-white  bg-primary-light mt-10">
+        <div className="lg:col-span-4 md:col-span-5 col-span-12 lg:pl-10 xl:pl-15 sm:pl-5 pl-3 flex justify-start md:order-first order-last ">
           <img
             className="object-contain lg:pl-10 xl:pl-20 sm:pl-5 "
             src={CategoryDesc[1].img}
@@ -142,7 +144,7 @@ function CategoryLists() {
 
       {/* Montres*/}
       <div className="grid grid-cols-12  text-white  bg-primary-light mt-10">
-        <div className="lg:col-span-4 md:col-span-5 col-span-12 lg:pl-10 xl:pl-15 sm:pl-5 pl-3 flex justify-start">
+        <div className="lg:col-span-4 md:col-span-5 col-span-12 lg:pl-10 xl:pl-15 sm:pl-5 pl-3 flex justify-start md:order-first order-last">
           <img
             className="object-contain lg:pl-10 xl:pl-20 sm:pl-5 "
             src={CategoryDesc[3].img}
@@ -207,12 +209,12 @@ function CategoryLists() {
       </div>
 
       {/* Les Accessoires*/}
-      <div className="grid grid-cols-12  text-white  bg-primary-light mt-10">
-        <div className="lg:col-span-4 md:col-span-5 col-span-12 lg:pl-10 xl:pl-15 sm:pl-5 pl-3 flex justify-start">
+      <div className="grid grid-cols-12  text-white  bg-primary-light mt-10 mb-10">
+        <div className="lg:col-span-4 md:col-span-5 col-span-12 lg:pl-10 xl:pl-15 sm:pl-5 pl-3 flex justify-start md:order-first order-last">
           <img
             className="object-contain lg:pl-10 xl:pl-20 sm:pl-5 "
             src={CategoryDesc[5].img}
-            alt="photo ordinateur"
+            alt="photo Accessoires"
             width={500}
           />
         </div>
@@ -237,6 +239,13 @@ function CategoryLists() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="grid grid-flow-col md:grid-flow-row">
+        <div className="bg-primary p-10">01</div>
+        <div className="bg-third p-10 ">02</div>
+        <div className="bg-primary p-10">03</div>
+        <div className="bg-third p-10">04</div>
       </div>
     </div>
   );
