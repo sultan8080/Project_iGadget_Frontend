@@ -16,7 +16,7 @@ const SearchView = () => {
                 key={result.id}
                 title={result.title}
                 description={result.description}
-                img={result.img}
+                img={result.productimages}
               />
             ))}
           </section>

@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const CardSearch = (result) => {
+  const [resultImage, setResultImage] = useState(null);
+
+  useEffect(() => {
+    const loadImage = async () => {
+      try {
+        const imageId = result.img[0].split("/").pop(); // Récupérer l'ID de l'image depuis l'URL
+        const response = await axios.get(`http://localhost:8000/api/product_images/${imageId}`, {
+          responseType: "blob",
+        });
+        const imgUrl = URL.createObjectURL(response.data);
+        setResultImage(imgUrl);
+      } catch (error) {
+        console.log("Error loading image:", error);
+      }
+    };
+
+    loadImage();
+  }, [result.img]);
+  
   return (
     <div className="border flex h-60 items-center justify-around mt-8">
-      <img src={result.img} className="w-64" />
+      {resultImage && <img src={resultImage} className="w-64" />}
 
       <div className="px-24 w-2/3">
         <span className="text-3xl font-bold pb-6">{result.title}</span>

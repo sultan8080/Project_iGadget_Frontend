@@ -23,6 +23,7 @@ const SearchInput = () => {
       .get(`http://localhost:8000/api/products?name=${searchTerm}&expand=productimages`)
       .then((response) => {
         const data = response.data;
+        console.log("data:", data);
         if (data['hydra:member']){
           setSearchResults(data['hydra:member']);
         }
