@@ -20,16 +20,11 @@ const SearchInput = () => {
     event.preventDefault();
 
     axios
-      .get(`http://localhost:8000/api/products?name=${searchTerm}`)
+      .get(`http://localhost:8000/api/products?name=${searchTerm}&expand=productimages`)
       .then((response) => {
         const data = response.data;
-        console.log("Data:", data);
-        console.log("Data:", data['hydra:member']);
         if (data['hydra:member']){
-          console.log('====================================');
-          console.log();
           setSearchResults(data['hydra:member']);
-          console.log('====================================');
         }
         navigate("/search");
       })
