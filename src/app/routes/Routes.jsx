@@ -16,6 +16,8 @@ import ContactView from "../views/ContactView";
 
 import ProfileView from "../views/ProfileView";
 import ProfileOrdersView from "../views/ProfileOrdersView";
+import AllCategoriesView from "../views/AllCategoriesView";
+
 import SearchView from "../views/SearchView";
 import SearchInput from "../components/layouts/SearchInput";
 
@@ -59,6 +61,7 @@ const Routes = () => {
       <Route path={URL.URL_SEARCH} element={<SearchView />} />
       <Route path={URL.URL_CATEGORY_ITEMS} element={<CategoryItemsView />} />
       <Route path={URL.URL_SEARCH_RESULTS} element={<SearchInput onSearch={handleSearchResults} />} />
+      <Route path={URL.URL_ALL_CATEGORIES} element={<AllCategoriesView />} />
     </RoutesContainer>
   );
 };
