@@ -9,6 +9,7 @@ import LoginView from "../views/LoginView";
 import { PrivateRoute } from "./PrivateRoute";
 import BasketView from "../views/BasketView";
 import ProductView from "../views/ProductView";
+import CategoryItemsView from "../views/CategoryItemsView";
 
 import RegistrationView from "../views/RegistrationView";
 import ContactView from "../views/ContactView";
@@ -50,6 +51,7 @@ const Routes = () => {
       <Route path={URL.URL_PROFILE_ORDERS} element={<ProfileOrdersView />} />
       <Route path={URL.URL_PRODUCT} element={<ProductView />} />
       <Route path={URL.URL_SEARCH} element={<SearchView />} />
+      <Route path={URL.URL_CATEGORY_ITEMS} element={<CategoryItemsView />} />
     </RoutesContainer>
   );
 };

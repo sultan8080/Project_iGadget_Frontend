@@ -45,7 +45,6 @@ const App = () => {
 
   return (
     <div className="flex h-full cursor-default relative flex-col bg-white">
-      {isLogged && <IdleTimerCustom />}
 
       {/* <Navbar /> */}
       {isHomePage() ? <NavbarHome /> : <Navbar />}
