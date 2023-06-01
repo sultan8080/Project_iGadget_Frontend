@@ -39,7 +39,7 @@ const Footer = () => {
               <span className="ml-4">|</span>
             </li>
             <li>
-              <a href="#" className="ml-4 hover:underline">
+              <a href="/contact" className="ml-4 hover:underline">
                 Contact
               </a>
             </li>
