@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -9,6 +9,8 @@ import { selectIsLogged, signIn } from "./redux-store/authenticationSlice";
 import Routes from "./routes/Routes";
 import { getToken } from "./services/tokenServices";
 import Footer from "./components/layouts/Footer";
+
+export const SearchContext = createContext();
 
 const contextClass = {
   success: "bg-green-600",
@@ -43,34 +45,37 @@ const App = () => {
 
   const isHomePage = IfHomeView;
 
+  const [searchResults, setSearchResults] = useState([]);
+
   return (
-    <div className="flex h-full cursor-default relative flex-col bg-white">
+    <SearchContext.Provider value={{ searchResults, setSearchResults }}>
+      <div className="flex h-full cursor-default relative flex-col bg-white">
+        {isLogged && <IdleTimerCustom />}
 
-      {/* <Navbar /> */}
-      {isHomePage() ? <NavbarHome /> : <Navbar />}
+        {isHomePage() ? <NavbarHome /> : <Navbar />}
 
-      {isLogin ? null : (
-        <>
-          <main className="mt-24 grow">
-            <Routes />
-          </main>
+        {isLogin ? null : (
+          <>
+            <main className="mt-24 grow">
+              <Routes />
+            </main>
 
-          <ToastContainer
-            toastClassName={({ type }) =>
-              contextClass[type || "default"] +
-              " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
-            }
-            bodyClassName={() => "text-sm font-white font-med block p-3"}
-            position="bottom-left"
-            autoClose={3000}
-          />
+            <ToastContainer
+              toastClassName={({ type }) =>
+                contextClass[type || "default"] +
+                " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
+              }
+              bodyClassName={() => "text-sm font-white font-med block p-3"}
+              position="bottom-left"
+              autoClose={3000}
+            />
 
-          <Footer />
-        </>
-      )}
-    </div>
+            <Footer />
+          </>
+        )}
+      </div>
+    </SearchContext.Provider>
   );
 };
-
 
 export default App;
