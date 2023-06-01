@@ -62,6 +62,7 @@ const Routes = () => {
       <Route path={URL.URL_CATEGORY_ITEMS} element={<CategoryItemsView />} />
       <Route path={URL.URL_SEARCH_RESULTS} element={<SearchInput onSearch={handleSearchResults} />} />
       <Route path={URL.URL_ALL_CATEGORIES} element={<AllCategoriesView />} />
+      <Route path={URL.URL_LIST} element={<AllCategoriesView />} />
     </RoutesContainer>
   );
 };
