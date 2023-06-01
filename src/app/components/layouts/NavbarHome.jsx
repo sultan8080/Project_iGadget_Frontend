@@ -61,7 +61,10 @@ const NavbarHome = () => {
               </svg>
             </button>
 
-            <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+            <div
+              className="hidden w-full md:block md:w-auto"
+              id="navbar-dropdown"
+            >
               <ul className="flex flex-col justify-between text-xl font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
                 <li className="flex items-center">
                   <button
@@ -77,7 +80,12 @@ const NavbarHome = () => {
                     >
                       <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                     </svg>
-                    <span className="pl-2">Store </span>
+                    <a
+                      href="/all-categories"
+                      className="block px-4 py-2"
+                    >
+                      Store
+                    </a>
                     <svg
                       className="w-5 h-5 ml-1"
                       aria-hidden="true"
@@ -102,17 +110,26 @@ const NavbarHome = () => {
                       aria-labelledby="dropdownLargeButton"
                     >
                       <li>
-                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
                           Dashboard
                         </a>
                       </li>
                       <li>
-                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
                           Settings
                         </a>
                       </li>
                       <li>
-                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
                           Earnings
                         </a>
                       </li>
@@ -182,7 +199,6 @@ const NavbarHome = () => {
             </div>
 
             <SearchInput />
-            
           </div>
         </div>
       </nav>
