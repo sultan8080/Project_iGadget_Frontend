@@ -1,35 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 
-const CardSearch = (result) => {
-  const [resultImage, setResultImage] = useState(null);
-
-  useEffect(() => {
-    const loadImage = async () => {
-      try {
-        const imageId = result.img[0].split("/").pop();
-        const response = await axios.get(
-          `http://localhost:8000/api/product_images/${imageId}`,
-          {
-            responseType: "blob",
-          }
-        );
-        const imgUrl = URL.createObjectURL(response.data);
-        setResultImage(imgUrl);
-      } catch (error) {
-        console.log("Error loading image:", error);
-      }
-    };
-
-    loadImage();
-  }, [result.img]);
-
+const CardSearch = ({result}) => {
   return (
     <div className="border flex h-60 items-center justify-around mt-8">
-      {resultImage && <img src={resultImage} className="w-64" />}
+      {/* Image pour test le CSS : */}
+      <img src="src/app/assets/test/AuroraMax_rose.png" className="w-64" />
 
       <div className="px-24 w-2/3">
-        <span className="text-3xl font-bold pb-6">Nom = {result.name}</span>
+        <span className="text-3xl font-bold pb-6">{result.name}</span>
         <p>{result.description}</p>
       </div>
 
