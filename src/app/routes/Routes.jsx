@@ -9,6 +9,7 @@ import LoginView from "../views/LoginView";
 import { PrivateRoute } from "./PrivateRoute";
 import BasketView from "../views/BasketView";
 import ProductView from "../views/ProductView";
+import CategoryItemsView from "../views/CategoryItemsView";
 
 import RegistrationView from "../views/RegistrationView";
 import ContactView from "../views/ContactView";
@@ -16,6 +17,8 @@ import ContactView from "../views/ContactView";
 import ProfileView from "../views/ProfileView";
 import ProfileOrdersView from "../views/ProfileOrdersView";
 import AllCategoriesView from "../views/AllCategoriesView";
+
+import SearchView from "../views/SearchView";
 
 /**
  * Routes of the application

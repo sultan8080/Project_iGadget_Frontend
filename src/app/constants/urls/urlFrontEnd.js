@@ -12,4 +12,5 @@ export const URL_ALL_CATEGORIES = '/all-categories';
 
 
 export const URL_SEARCH = '/search';
+export const URL_CATEGORY_ITEMS = '/category-items';
 
