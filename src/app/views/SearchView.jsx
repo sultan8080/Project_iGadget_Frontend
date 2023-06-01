@@ -8,7 +8,7 @@ const SearchView = () => {
 
   return (
     <div className="flex flex-col items-center">
-      {searchResults && searchResults.length >= 0 ? (
+      {searchResults && searchResults.length > 0 ? (
         <>
           <section className="flex flex-col">
             {searchResults.map((result) => (
