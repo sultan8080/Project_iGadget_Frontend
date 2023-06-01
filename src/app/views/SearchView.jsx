@@ -17,7 +17,6 @@ const SearchView = () => {
                 result={{
                   name: result.name,
                   description: result.description,
-                  img: result.productimages,
                 }}
               />
             ))}

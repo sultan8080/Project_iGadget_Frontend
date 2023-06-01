@@ -20,7 +20,7 @@ const SearchInput = () => {
     event.preventDefault();
 
     axios
-      .get(`http://localhost:8000/api/products?name=${searchTerm}&expand=productimages`)
+      .get(`http://localhost:8000/api/products?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
         console.log("data:", data);
