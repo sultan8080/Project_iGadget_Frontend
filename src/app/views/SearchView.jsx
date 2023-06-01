@@ -14,7 +14,7 @@ const SearchView = () => {
             {searchResults.map((result) => (
               <CardSearch
                 key={result.id}
-                title={result.title}
+                title={result.name}
                 description={result.description}
                 img={result.productimages}
               />

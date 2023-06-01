@@ -9,7 +9,7 @@ const CardSearch = (result) => {
       try {
         const imageId = result.img[0].split("/").pop();
         const response = await axios.get(
-          `http://localhost:8000/api/product_images/${imageId}`,
+          `http://localhost:8000/api/product_images/${imageId}&expand=productimages`,
           {
             responseType: "blob",
           }
@@ -29,7 +29,7 @@ const CardSearch = (result) => {
       {resultImage && <img src={resultImage} className="w-64" />}
 
       <div className="px-24 w-2/3">
-        <span className="text-3xl font-bold pb-6">{result.title}</span>
+        <span className="text-3xl font-bold pb-6">{result.name}</span>
         <p>{result.description}</p>
       </div>
 
