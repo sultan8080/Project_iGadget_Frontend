@@ -9,6 +9,7 @@ import { selectHasRole } from "../redux-store/authenticationSlice";
 import CarouselHome from "../components/CarouselHome";
 import BestsallersView from "./BestsallersView";
 import Bestsallers from "../components/Bestsallers";
+import Offres from "../components/Offres";
 
 
 const HomeView = () => {
@@ -26,6 +27,8 @@ const HomeView = () => {
 
 
       <Bestsallers />
+
+      <Offres />
       {/* Juste pour voir le bas du svg, vous pouvez les enlever (les br) */}
 
 
