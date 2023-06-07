@@ -3,13 +3,13 @@ import React from 'react';
 const Bestsallers = () => {
     return (
         /**1er block */
-        <main className="bestsallers max-w-[1900px] mx-auto">
+        <main className="bestsallers max-w-[1800px] mx-auto">
             <div className="titre ">
                 <h1 className="text-center uppercase font-bold mt-2"> Les <span className=" text-[#F6B20C]"> Bestsellers </span></h1>
                 <h4 className="text-center mt-2">Nos produits ont du succès !</h4>
             </div>
             <div className=" grid grid-cols-2 ">
-                <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_gauche.svg')] bg-no-repeat flex justify-center bg-[length:34%] bg-[left_calc(40%)_top_calc(42px)]">
+                <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_gauche.svg')] bg-no-repeat flex justify-center bg-[length:31%] bg-[left_calc(40%)_top_calc(42px)]">
                     <img src="./src/app/assets/produits/téléphones/AuroraMax_blanc.png" alt="" width={600} />
 
                 </div>
@@ -61,14 +61,14 @@ const Bestsallers = () => {
                             </button>
                         </div>
                     </div>
-                    <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_droite.svg')] bg-no-repeat flex justify-center bg-[length:34%] bg-[left_calc(61%)_top_calc(0px)]">
+                    <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_droite.svg')] bg-no-repeat flex justify-center bg-[length:31%] bg-[left_calc(61%)_top_calc(0px)]">
                         <img src="./src/app/assets/produits/montres/Watch_blanc.png" alt="" width={450} />
 
                     </div>
                 </div>
             </main>
             <div className=" grid grid-cols-2 ">
-                <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_gauche.svg')] bg-no-repeat flex justify-center bg-[length:34%] bg-[left_calc(40%)_top_calc(42px)]">
+                <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_gauche.svg')] bg-no-repeat flex justify-center bg-[length:31%] bg-[left_calc(40%)_top_calc(42px)]">
                     <img src="./src/app/assets/produits/audios/SoundScape_blanc.png" alt="" width={600} />
 
                 </div>
