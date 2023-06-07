@@ -127,7 +127,7 @@ const Navbar = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="pl-2"> Mon compte</span>
+                  <span className="pl-2 whitespace-nowrap"> Mon compte</span>
                 </a>
               </li>
 
@@ -148,14 +148,14 @@ const Navbar = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="pl-2">Mon panier</span>
+                  <span className="pl-2 whitespace-nowrap">Mon panier</span>
                 </a>
               </li>
 
               <li>
                 <a
                   href="#"
-                  className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
+                  className="whitespace-nowrap block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
                 >
                   Besoin d'aide
                 </a>
