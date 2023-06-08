@@ -3,6 +3,7 @@ import { selectIsLogged, signOut } from "../redux-store/authenticationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
+import Page404 from "../components/page_404/page404";
 
 const ProfileView = () => {
   const userData = [
@@ -114,7 +115,11 @@ const ProfileView = () => {
       </>
     );
   }
-  return <div></div>;
+  return (
+    <div>
+      <Page404 />
+    </div>
+  );
 };
 
 export default ProfileView;
