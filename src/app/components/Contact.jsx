@@ -43,13 +43,13 @@ const Contact = () => {
               /^s*\S[a-z][\s\S]+$/,
               "Uniquement valide caractères autorisés"
             )
-            .required("Nom  obligatoire"),
+            .required("Prénom obligatoire"),
           lastName: Yup.string()
             .matches(
               /^s*\S[a-z][\s\S]+$/,
               "Uniquement valide caractères autorisés"
             )
-            .required("Prénom  obligatoire"),
+            .required(" Nom obligatoire"),
           email: Yup.string()
             .email("Adresse e-mail invalide")
             .required("Email Obligatoire"),
