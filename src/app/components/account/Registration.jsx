@@ -18,17 +18,18 @@ import { URL_BACK_REGISTRATION } from "../../constants/urls/urlBackEnd";
 const Registration = () => {
   const navigate = useNavigate();
   const handleRegister = (values) => {
-    apiBackEnd.post(URL_BACK_REGISTRATION, {
-      firstname: values.firstName,
-      lastname: values.lastName,
-      address: values.address,
-      codepostal: values.postCode,
-      user_photo: values.userPhoto,
-      phone: values.phone,
-      city: values.city,
-      email: values.email,
-      password: values.password,
-    })
+    apiBackEnd
+      .post(URL_BACK_REGISTRATION, {
+        firstname: values.firstName,
+        lastname: values.lastName,
+        address: values.address,
+        codepostal: values.postCode,
+        user_photo: values.userPhoto,
+        phone: values.phone,
+        city: values.city,
+        email: values.email,
+        password: values.password,
+      })
       .then(function (response) {
         alert("new user successfully added");
         navigate(URL_HOME);
@@ -66,8 +67,18 @@ const Registration = () => {
           passwordConfirmation: "",
         }}
         validationSchema={Yup.object({
-          firstName: Yup.string().required("Prénom  obligatoire"),
-          lastName: Yup.string().required("Nom obligatoire"),
+          firstName: Yup.string()
+            .matches(
+              /^s*\S[a-z][\s\S]+$/,
+              "Uniquement valide caractères autorisés"
+            )
+            .required("Prénom  obligatoire"),
+          lastName: Yup.string()
+            .matches(
+              /^s*\S[a-z][\s\S]+$/,
+              "Uniquement valide caractères autorisés"
+            )
+            .required("Prénom  obligatoire"),
           email: Yup.string()
             .email("Adresse e-mail invalide")
             .required("Email obligatoire"),
