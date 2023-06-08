@@ -10,11 +10,6 @@ import {
 import SearchInput from "./SearchInput";
 import MainNav from "./MainNav";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-
 const Navbar = () => {
   const isLoggued = useSelector(selectIsLogged);
 
