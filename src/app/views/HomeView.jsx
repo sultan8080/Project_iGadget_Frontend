@@ -30,7 +30,7 @@ const HomeView = () => {
 
 
 
-      {isAdmin && (
+      {!isAdmin && (
         <button
           className="btn btn-primary"
           onClick={() => navigate(URL_ADMIN_HOME)}
