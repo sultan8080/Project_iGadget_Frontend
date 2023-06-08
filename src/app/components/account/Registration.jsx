@@ -7,7 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 import FormModel from "../form/FormModel";
 import axios from "axios";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
-import UsersUrl from "../../api/backend/UsersUrl";
+import apiBackEnd from "../../api/backend/api.Backend";
+import { URL_BACK_REGISTRATION } from "../../constants/urls/urlBackEnd";
 
 /**
  * Component User Registration Form
@@ -17,7 +18,7 @@ import UsersUrl from "../../api/backend/UsersUrl";
 const Registration = () => {
   const navigate = useNavigate();
   const handleRegister = (values) => {
-    UsersUrl.post("/users", {
+    apiBackEnd.post(URL_BACK_REGISTRATION, {
       firstname: values.firstName,
       lastname: values.lastName,
       address: values.address,
