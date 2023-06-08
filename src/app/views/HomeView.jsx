@@ -12,7 +12,8 @@ import Bestsallers from "../components/Bestsallers";
 
 
 const HomeView = () => {
-  const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
+  // const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
+  // const isUser = useSelector((state) => selectHasRole(state, ROLE_USER));
   const navigate = useNavigate();
 
   return (
@@ -28,16 +29,14 @@ const HomeView = () => {
       <Bestsallers />
       {/* Juste pour voir le bas du svg, vous pouvez les enlever (les br) */}
 
-
-
-      {!isAdmin && (
+      {/* {isAdmin && (
         <button
           className="btn btn-primary"
           onClick={() => navigate(URL_ADMIN_HOME)}
         >
           Admin
         </button>
-      )}
+      )} */}
     </div>
   );
 };

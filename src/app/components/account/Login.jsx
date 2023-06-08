@@ -1,13 +1,18 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
-import { URL_PROFILE } from "../../constants/urls/urlFrontEnd";
-import { signIn } from "../../redux-store/authenticationSlice";
+import {
+  URL_ADMIN_HOME,
+  URL_DASHBOARD_ADMIN,
+  URL_PROFILE,
+} from "../../constants/urls/urlFrontEnd";
+import { selectHasRole, signIn } from "../../redux-store/authenticationSlice";
 import { authenticate } from "./../../api/backend/account";
+import { ROLE_ADMIN, ROLE_USER } from "../../constants/rolesConstant";
 
 /**
  * Component Login
@@ -16,6 +21,9 @@ import { authenticate } from "./../../api/backend/account";
  */
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
+  
+  const isUser = useSelector((state) => selectHasRole(state, ROLE_USER));
+  const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,7 +32,12 @@ const Login = () => {
       .then((res) => {
         if (res.status === 200 && res.data.token) {
           dispatch(signIn(res.data.token));
-          navigate(URL_PROFILE);
+          {
+            isAdmin && navigate(URL_DASHBOARD_ADMIN);
+          }
+          {
+            isUser && navigate(URL_PROFILE);
+          }
         }
       })
       .catch(() => setErrorLog(true));
