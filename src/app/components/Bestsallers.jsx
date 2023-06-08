@@ -22,13 +22,13 @@ const Bestsallers = () => {
                     <div className="button flex justify-end mr-36">
                         <button
                             type="button"
-                            class="text-white bg-[#F6B20C] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                            className="text-white bg-[#F6B20C] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
                         >
                             Je shop
                         </button>
                         <button
                             type="button"
-                            class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#F6B20C] focus:outline-none bg-white rounded-full border border-[#F6B20C] focus:z-10 focus:ring-4"
+                            className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#F6B20C] focus:outline-none bg-white rounded-full border border-[#F6B20C] focus:z-10 focus:ring-4"
                         >
                             Détails du produit
                         </button>
@@ -49,13 +49,13 @@ const Bestsallers = () => {
                         <div className="button flex pl-36 ">
                             <button
                                 type="button"
-                                class="text-white bg-[#F6B20C] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                                className="text-white bg-[#F6B20C] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
                             >
                                 Je shop
                             </button>
                             <button
                                 type="button"
-                                class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#F6B20C] focus:outline-none bg-white rounded-full border border-[#F6B20C] focus:z-10 focus:ring-4"
+                                className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#F6B20C] focus:outline-none bg-white rounded-full border border-[#F6B20C] focus:z-10 focus:ring-4"
                             >
                                 Détails du produit
                             </button>
@@ -81,13 +81,13 @@ const Bestsallers = () => {
                     <div className="button flex justify-end mr-36">
                         <button
                             type="button"
-                            class="text-white bg-[#F6B20C] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                            className="text-white bg-[#F6B20C] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
                         >
                             Je shop
                         </button>
                         <button
                             type="button"
-                            class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#F6B20C] focus:outline-none bg-white rounded-full border border-[#F6B20C] focus:z-10 focus:ring-4"
+                            className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#F6B20C] focus:outline-none bg-white rounded-full border border-[#F6B20C] focus:z-10 focus:ring-4"
                         >
                             Détails du produit
                         </button>
@@ -97,7 +97,7 @@ const Bestsallers = () => {
             <div className="button flex  justify-center">
                 <button
                     type="button"
-                    class="text-white bg-[#87D9D4] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 "
+                    className="text-white bg-[#87D9D4] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 "
                 >
                     Voir tout nos produits
                 </button>
