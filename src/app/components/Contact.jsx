@@ -38,8 +38,18 @@ const Contact = () => {
           message: "",
         }}
         validationSchema={Yup.object({
-          firstName: Yup.string().required("Prénom  Obligatoire"),
-          lastName: Yup.string().required("Nom Obligatoire"),
+          firstName: Yup.string()
+            .matches(
+              /^s*\S[a-z][\s\S]+$/,
+              "Uniquement valide caractères autorisés"
+            )
+            .required("Nom  obligatoire"),
+          lastName: Yup.string()
+            .matches(
+              /^s*\S[a-z][\s\S]+$/,
+              "Uniquement valide caractères autorisés"
+            )
+            .required("Prénom  obligatoire"),
           email: Yup.string()
             .email("Adresse e-mail invalide")
             .required("Email Obligatoire"),
