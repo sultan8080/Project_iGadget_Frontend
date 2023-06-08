@@ -1,49 +1,57 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
-import { URL_HOME } from "../../constants/urls/urlFrontEnd";
-import { signIn } from "../../redux-store/authenticationSlice";
+import {
+  URL_ADMIN_HOME,
+  URL_DASHBOARD_ADMIN,
+  URL_PROFILE,
+} from "../../constants/urls/urlFrontEnd";
+import { selectHasRole, signIn } from "../../redux-store/authenticationSlice";
 import { authenticate } from "./../../api/backend/account";
+import { ROLE_ADMIN, ROLE_USER } from "../../constants/rolesConstant";
 
 /**
  * Component Login
  *
- * @author Peter Mollet
+ * @author Peter et sultan
  */
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
+  
+  const isUser = useSelector((state) => selectHasRole(state, ROLE_USER));
+  const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = (values) => {
     authenticate(values)
       .then((res) => {
-        if (res.status === 200 && res.data.id_token) {
-          dispatch(signIn(res.data.id_token));
-          navigate(URL_HOME);
+        if (res.status === 200 && res.data.token) {
+          dispatch(signIn(res.data.token));
+          {
+            isAdmin && navigate(URL_DASHBOARD_ADMIN);
+          }
+          {
+            isUser && navigate(URL_PROFILE);
+          }
         }
       })
       .catch(() => setErrorLog(true));
   };
 
   return (
-    <div className="w-full max-w-md space-y-8 rounded-md bg-white p-4 py-12 px-4 shadow sm:px-6 lg:px-8">
-      <div>
-        <div className="flex justify-center">
-          <img
-            className="h-12 w-auto cursor-pointer sm:h-10"
-            src="https://insy2s.com/insy2s/images/Logo-insy2s-INLINE-2021.svg"
-            alt=""
-            width={200}
-            height={60}
-          />
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">
-          Sign in to your account
+    <div className="w-full max-w-md space-y-4 rounded-md bg-white p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8">
+      <div className="text-center">
+        <h2 className="mt-1 text-center text-3xl font-bold text-primary">
+          CONNEXION
         </h2>
+        <small className="text-center">
+          Inscrivez-vous pour ne plus passer à côté des occasions
+        </small>
       </div>
 
       <hr />
@@ -53,31 +61,43 @@ const Login = () => {
           username: "",
           password: "",
         }}
+        validationSchema={Yup.object({
+          username: Yup.string()
+            .email("Adresse e-mail invalide")
+            .required("Email Obligatoire"),
+          password: Yup.string().required("Mot de passe obligatoire"),
+        })}
         onSubmit={handleLogin}
       >
-        <Form className="mt-8 space-y-6">
+        <Form className="mt-5 space-y-6">
           <div className="flex flex-col space-y-3 rounded-md shadow-sm">
             <Field
               type="text"
               name="username"
-              placeholder="Login"
+              placeholder="Votre email"
               autoComplete="username"
               className="input"
             />
+            <small className="text-red-600">
+              <ErrorMessage name="username" />
+            </small>
             <Field
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="votre mot de passe"
               autoComplete="current-password"
               className="input"
             />
+            <small className="text-red-600">
+              <ErrorMessage name="password" />
+            </small>
           </div>
 
-          <div className="mt-3 flex items-center justify-between">
+          <div className=" flex items-center justify-between">
             <div className="text-sm">
               <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-primary-dark hover:text-primary">
-                  Forgot your password?
+                <span className="cursor-pointer font-medium text-third-dark hover:text-primary">
+                  Mot de passe oublié?
                 </span>
               </Link>
             </div>
@@ -90,17 +110,23 @@ const Login = () => {
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <LockClosedIcon
-                  className="h-5 w-5 text-primary-dark group-hover:text-primary-light"
+                  className="h-5 w-5 text-white group-hover:text-light"
                   aria-hidden="true"
                 />
               </span>
-              Sign in
+              Je me connecte
             </button>
+
+            <Link to="/register">
+              <span className="btn btn-third-outline mt-3 group py-2 relative w-full">
+                Pas de Compte? Je m'inscris..
+              </span>
+            </Link>
           </div>
           {errorLog && (
             <div className="flex justify-center">
               <small className="text-sm italic text-red-600">
-                Login/Password incorrect(s)
+                Identifiant/Mot de passe incorrect(s)
               </small>
             </div>
           )}
