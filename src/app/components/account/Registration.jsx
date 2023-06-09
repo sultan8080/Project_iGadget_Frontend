@@ -2,13 +2,12 @@ import { LockClosedIcon } from "@heroicons/react/solid";
 import { Formik, Field, Form, ErrorMessage, useField } from "formik";
 import * as Yup from "yup";
 import React, { useState, useRef } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import FormModel from "../form/FormModel";
-import axios from "axios";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import apiBackEnd from "../../api/backend/api.Backend";
 import { URL_BACK_REGISTRATION } from "../../constants/urls/urlBackEnd";
+import { toast } from "react-toastify";
 
 /**
  * Component User Registration Form
@@ -31,11 +30,15 @@ const Registration = () => {
         password: values.password,
       })
       .then(function (response) {
-        alert("new user successfully added");
+        toast.success("Succès! nouvel utilisateur ajouté !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         navigate(URL_HOME);
       })
       .catch(function (error) {
-        alert("Something went wrong");
+        toast.error("Erreur! quelque chose ne va pas !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       });
   };
 
