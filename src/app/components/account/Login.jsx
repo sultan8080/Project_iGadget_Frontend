@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
+
 
 import {
   URL_ADMIN_HOME,
@@ -32,6 +34,9 @@ const Login = () => {
       .then((res) => {
         if (res.status === 200 && res.data.token) {
           dispatch(signIn(res.data.token));
+          toast.success("Connexion réussie ! Bienvenue à bord!", {
+            position: toast.POSITION.TOP_CENTER,
+          });
           {
             isAdmin && navigate(URL_DASHBOARD_ADMIN);
           }
@@ -40,7 +45,13 @@ const Login = () => {
           }
         }
       })
-      .catch(() => setErrorLog(true));
+      // .catch(() => setErrorLog(true));
+      .catch(function (error) {
+        // setErrorLog(true);
+        toast.error("Identifiant/Mot de passe incorrect(s)", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      });
   };
 
   return (
@@ -123,13 +134,13 @@ const Login = () => {
               </span>
             </Link>
           </div>
-          {errorLog && (
+          {/* {errorLog && (
             <div className="flex justify-center">
               <small className="text-sm italic text-red-600">
                 Identifiant/Mot de passe incorrect(s)
               </small>
             </div>
-          )}
+          )} */}
         </Form>
       </Formik>
     </div>
