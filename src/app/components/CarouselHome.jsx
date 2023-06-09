@@ -73,7 +73,7 @@ const CarouselHome = () => {
                   {/* IMAGE */}
                   <img
                     src={item.url}
-                    className="w-2/4 bg-center bg-no-repeat -mt-20 "
+                    style={{ width: "50%", height: "auto", margin: "0 auto" }}
                     alt="product img"
                   />
 
