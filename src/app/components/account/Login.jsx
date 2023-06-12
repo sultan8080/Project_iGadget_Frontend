@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
 
 import {
   URL_ADMIN_HOME,
@@ -21,7 +22,7 @@ import { ROLE_ADMIN, ROLE_USER } from "../../constants/rolesConstant";
  */
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
-  
+
   const isUser = useSelector((state) => selectHasRole(state, ROLE_USER));
   const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ const Login = () => {
       .then((res) => {
         if (res.status === 200 && res.data.token) {
           dispatch(signIn(res.data.token));
+          toast.success("Connexion réussie ! Bienvenue à bord!", {
+            position: toast.POSITION.TOP_CENTER,
+          });
           {
             isAdmin && navigate(URL_DASHBOARD_ADMIN);
           }
@@ -40,7 +44,13 @@ const Login = () => {
           }
         }
       })
-      .catch(() => setErrorLog(true));
+      // .catch(() => setErrorLog(true));
+      .catch(function (error) {
+        // setErrorLog(true);
+        toast.error("Identifiant/Mot de passe incorrect(s)", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      });
   };
 
   return (
@@ -75,7 +85,7 @@ const Login = () => {
               type="text"
               name="username"
               placeholder="Votre email"
-              autoComplete="username"
+              // autoComplete="username"
               className="input"
             />
             <small className="text-red-600">
@@ -85,7 +95,7 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="votre mot de passe"
-              autoComplete="current-password"
+              // autoComplete="current-password"
               className="input"
             />
             <small className="text-red-600">
@@ -123,13 +133,13 @@ const Login = () => {
               </span>
             </Link>
           </div>
-          {errorLog && (
+          {/* {errorLog && (
             <div className="flex justify-center">
               <small className="text-sm italic text-red-600">
                 Identifiant/Mot de passe incorrect(s)
               </small>
             </div>
-          )}
+          )} */}
         </Form>
       </Formik>
     </div>

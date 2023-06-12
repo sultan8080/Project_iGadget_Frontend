@@ -2,13 +2,12 @@ import { LockClosedIcon } from "@heroicons/react/solid";
 import { Formik, Field, Form, ErrorMessage, useField } from "formik";
 import * as Yup from "yup";
 import React, { useState, useRef } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import FormModel from "../form/FormModel";
-import axios from "axios";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import apiBackEnd from "../../api/backend/api.Backend";
 import { URL_BACK_REGISTRATION } from "../../constants/urls/urlBackEnd";
+import { toast } from "react-toastify";
 
 /**
  * Component User Registration Form
@@ -18,23 +17,28 @@ import { URL_BACK_REGISTRATION } from "../../constants/urls/urlBackEnd";
 const Registration = () => {
   const navigate = useNavigate();
   const handleRegister = (values) => {
-    apiBackEnd.post(URL_BACK_REGISTRATION, {
-      firstname: values.firstName,
-      lastname: values.lastName,
-      address: values.address,
-      codepostal: values.postCode,
-      user_photo: values.userPhoto,
-      phone: values.phone,
-      city: values.city,
-      email: values.email,
-      password: values.password,
-    })
+    apiBackEnd
+      .post(URL_BACK_REGISTRATION, {
+        firstname: values.firstName,
+        lastname: values.lastName,
+        address: values.address,
+        codepostal: values.postCode,
+        user_photo: values.userPhoto,
+        phone: values.phone,
+        city: values.city,
+        email: values.email,
+        password: values.password,
+      })
       .then(function (response) {
-        alert("new user successfully added");
+        toast.success("Succès! nouvel utilisateur ajouté !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         navigate(URL_HOME);
       })
       .catch(function (error) {
-        alert("Something went wrong");
+        toast.error("Erreur! quelque chose ne va pas !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       });
   };
 
@@ -66,8 +70,18 @@ const Registration = () => {
           passwordConfirmation: "",
         }}
         validationSchema={Yup.object({
-          firstName: Yup.string().required("Prénom  obligatoire"),
-          lastName: Yup.string().required("Nom obligatoire"),
+          firstName: Yup.string()
+            .matches(
+              /^s*\S[a-z][\s\S]+$/,
+              "Uniquement valide caractères autorisés"
+            )
+            .required("Prénom  obligatoire"),
+          lastName: Yup.string()
+            .matches(
+              /^s*\S[a-z][\s\S]+$/,
+              "Uniquement valide caractères autorisés"
+            )
+            .required("Prénom  obligatoire"),
           email: Yup.string()
             .email("Adresse e-mail invalide")
             .required("Email obligatoire"),
