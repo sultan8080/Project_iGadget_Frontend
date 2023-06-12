@@ -103,15 +103,7 @@ const Login = () => {
             </small>
           </div>
 
-          <div className=" flex items-center justify-between">
-            <div className="text-sm">
-              <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-third-dark hover:text-primary">
-                  Mot de passe oublié?
-                </span>
-              </Link>
-            </div>
-          </div>
+        
 
           <div>
             <button
@@ -133,6 +125,13 @@ const Login = () => {
               </span>
             </Link>
           </div>
+
+          <Link to="/forget-password">
+            <small className="mt-3  py-2 text-primary text-right ">
+              Mot de passe oublié ?
+            </small>
+          </Link>
+
           {/* {errorLog && (
             <div className="flex justify-center">
               <small className="text-sm italic text-red-600">
