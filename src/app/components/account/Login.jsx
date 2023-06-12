@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 
-
 import {
   URL_ADMIN_HOME,
   URL_DASHBOARD_ADMIN,
@@ -23,7 +22,7 @@ import { ROLE_ADMIN, ROLE_USER } from "../../constants/rolesConstant";
  */
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
-  
+
   const isUser = useSelector((state) => selectHasRole(state, ROLE_USER));
   const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
   const dispatch = useDispatch();
@@ -86,7 +85,7 @@ const Login = () => {
               type="text"
               name="username"
               placeholder="Votre email"
-              autoComplete="username"
+              // autoComplete="username"
               className="input"
             />
             <small className="text-red-600">
@@ -96,7 +95,7 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="votre mot de passe"
-              autoComplete="current-password"
+              // autoComplete="current-password"
               className="input"
             />
             <small className="text-red-600">
