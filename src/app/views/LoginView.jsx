@@ -4,10 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
 import Login from "./../components/account/Login";
-import {
-  selectHasRole,
-  selectIsLogged,
-} from "./../redux-store/authenticationSlice";
+import { selectIsLogged } from "./../redux-store/authenticationSlice";
 
 /**
  * View/Page Login
@@ -17,11 +14,9 @@ import {
 const LoginView = () => {
   const navigate = useNavigate();
   const isAuthenticated = useSelector(selectIsLogged);
-  const userRole = useSelector(selectHasRole);
+
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate(URL_HOME);
-    }
+    if (isAuthenticated) navigate(URL_HOME);
   }, []);
 
   return (

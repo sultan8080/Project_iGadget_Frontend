@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RxDotFilled } from "react-icons/rx";
 
-
 const slides = [
   {
     url: "src/app/assets/test/MacBookPro_gris_3.png",
@@ -39,14 +38,16 @@ const CarouselHome = () => {
   }, [currentIndex]);
 
   return (
-    <div className="container  ">
-      <section className="w-full m-auto relative ">
+    <div className="container">
+      <section className="w-full m-auto relative">
+        
         {slides.map((item, index) => (
           <React.Fragment key={index}>
-            {/* TEXT */}
             {index === currentIndex && (
               <div className="animate-appear">
                 <div className="flex items-center">
+                  
+                  {/* TEXT */}
                   <div className="w-full">
                     <div className="flex flex-col pr-14">
                       <h2 className="pb-4">{item.title}</h2>
@@ -74,6 +75,7 @@ const CarouselHome = () => {
                   <div className="w-full">
                     <img src={item.url} alt="product img" />
                   </div>
+
                 </div>
               </div>
             )}
@@ -92,6 +94,7 @@ const CarouselHome = () => {
             </div>
           ))}
         </div>
+
       </section>
     </div>
   );

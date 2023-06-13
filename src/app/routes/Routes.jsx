@@ -28,7 +28,6 @@ import SearchInput from "../components/layouts/SearchInput";
  * @author Peter Mollet
  */
 const Routes = () => {
-
   const handleSearchResults = (results) => {
     setSearchResults(results);
   };
@@ -60,9 +59,13 @@ const Routes = () => {
       <Route path={URL.URL_PRODUCT} element={<ProductView />} />
       <Route path={URL.URL_SEARCH} element={<SearchView />} />
       <Route path={URL.URL_CATEGORY_ITEMS} element={<CategoryItemsView />} />
-      <Route path={URL.URL_SEARCH_RESULTS} element={<SearchInput onSearch={handleSearchResults} />} />
+      <Route
+        path={URL.URL_SEARCH_RESULTS}
+        element={<SearchInput onSearch={handleSearchResults} />}
+      />
       <Route path={URL.URL_ALL_CATEGORIES} element={<AllCategoriesView />} />
       <Route path={URL.URL_LIST} element={<AllCategoriesView />} />
+      <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminHomeView />} />
     </RoutesContainer>
   );
 };

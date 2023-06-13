@@ -2,6 +2,7 @@ export const URL_HOME = '/';
 export const URL_LOGIN = '/login';
 export const URL_BASKET = '/basket';
 export const URL_PROFILE = '/profile';
+export const URL_DASHBOARD_ADMIN = '/dashboard_admin';
 export const URL_PROFILE_ORDERS = '/profile-orders';
 export const URL_ADMIN_HOME = '/admin';
 export const URL_REGISTER = '/register';
