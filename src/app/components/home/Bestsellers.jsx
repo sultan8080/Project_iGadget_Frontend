@@ -1,5 +1,6 @@
 import React from "react";
 import CardBestSellers from "../cards/CardBestSellers";
+import CardBestSellersLeft from "../cards/CardBestSellersLeft";
 
 const products = [
   {
@@ -45,7 +46,7 @@ const Bestsellers = () => {
             </>
           ) : (
             <>
-              <CardBestSellers product={product}/>
+              <CardBestSellersLeft product={product}/>
               
               <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_droite.svg')] bg-no-repeat flex justify-center bg-[length:31%] bg-[left_calc(61%)_top_calc(0px)]">
                 <img src={product.image} alt={product.title} width={450} />
