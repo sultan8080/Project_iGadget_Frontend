@@ -25,10 +25,10 @@ const products = [
 const Bestsellers = () => {
 
   return (
-    <main className="bestsallers max-w-[1800px] mx-auto">
+    <section className="bestsallers max-w-[1800px] mx-auto mt-12">
       <div className="titre">
         <h1 className="text-center uppercase font-bold mt-2">
-          Les <span className="text-[#F6B20C]"> Bestsellers </span>
+          Les <span className="text-third"> Bestsellers </span>
         </h1>
         <h4 className="text-center mt-2">Nos produits ont du succès !</h4>
       </div>
@@ -59,13 +59,13 @@ const Bestsellers = () => {
         
         <button
           type="button"
-          className="text-white bg-[#87D9D4] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-16"
+          className="text-white bg-secondary focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-16"
         >
           Voir tous nos produits
         </button>
 
       </div>
-    </main>
+    </section>
   );
 };
 
