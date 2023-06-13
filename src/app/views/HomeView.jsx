@@ -6,10 +6,10 @@ import { ROLE_ADMIN } from "../constants/rolesConstant";
 import { URL_ADMIN_HOME } from "../constants/urls/urlFrontEnd";
 import { selectHasRole } from "../redux-store/authenticationSlice";
 
-import CarouselHome from "../components/CarouselHome";
-import BestsallersView from "./BestsallersView";
-import Bestsallers from "../components/Bestsallers";
-import Offres from "../components/Offres";
+import CarouselHome from "../components/home/CarouselHome";
+import BestsellersView from "./BestsallersView";
+import Bestsellers from "../components/home/Bestsellers";
+import Offres from "../components/home/Offres";
 
 
 const HomeView = () => {
@@ -26,7 +26,7 @@ const HomeView = () => {
 
       <CarouselHome />
 
-      <Bestsallers />
+      <Bestsellers />
 
       <Offres />
 
