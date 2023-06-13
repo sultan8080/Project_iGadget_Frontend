@@ -26,19 +26,19 @@ const Bestsellers = () => {
 
   return (
     <section className="bestsallers max-w-[1800px] mx-auto mt-12">
-      <div className="titre">
+      <div>
         <h1 className="text-center uppercase font-bold mt-2">
           Les <span className="text-third"> Bestsellers </span>
         </h1>
-        <h4 className="text-center mt-2">Nos produits ont du succès !</h4>
+        <h4 className="text-center mt-2 mb-16">Nos produits ont du succès !</h4>
       </div>
 
       {products.map((product, index) => (
-        <div className="grid grid-cols-2" key={index}>
+        <div className="grid grid-cols-2 items-center" key={index}>
           {index % 2 === 0 ? (
             <>
               <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_gauche.svg')] bg-no-repeat flex justify-center bg-[length:31%] bg-[left_calc(40%)_top_calc(42px)]">
-                <img src={product.image} alt="" width={600} />
+                <img src={product.image} alt={product.title} width={600} />
               </div>
 
               <CardBestSellers product={product}/>
@@ -48,7 +48,7 @@ const Bestsellers = () => {
               <CardBestSellers product={product}/>
               
               <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_droite.svg')] bg-no-repeat flex justify-center bg-[length:31%] bg-[left_calc(61%)_top_calc(0px)]">
-                <img src={product.image} alt="" width={450} />
+                <img src={product.image} alt={product.title} width={450} />
               </div>
             </>
           )}
@@ -56,14 +56,12 @@ const Bestsellers = () => {
       ))}
 
       <div className="button flex justify-center">
-        
         <button
           type="button"
           className="text-white bg-secondary focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-16"
         >
           Voir tous nos produits
         </button>
-
       </div>
     </section>
   );
