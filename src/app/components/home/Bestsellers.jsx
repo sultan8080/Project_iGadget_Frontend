@@ -23,6 +23,7 @@ const products = [
 ];
 
 const Bestsellers = () => {
+
   return (
     <main className="bestsallers max-w-[1800px] mx-auto">
       <div className="titre">
@@ -40,12 +41,12 @@ const Bestsellers = () => {
                 <img src={product.image} alt="" width={600} />
               </div>
 
-              <CardBestSellers />
+              <CardBestSellers product={product}/>
             </>
           ) : (
             <>
-              <CardBestSellers />
-
+              <CardBestSellers product={product}/>
+              
               <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_droite.svg')] bg-no-repeat flex justify-center bg-[length:31%] bg-[left_calc(61%)_top_calc(0px)]">
                 <img src={product.image} alt="" width={450} />
               </div>
@@ -55,12 +56,14 @@ const Bestsellers = () => {
       ))}
 
       <div className="button flex justify-center">
+        
         <button
           type="button"
-          className="text-white bg-[#87D9D4] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 "
+          className="text-white bg-[#87D9D4] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-16"
         >
           Voir tous nos produits
         </button>
+
       </div>
     </main>
   );
