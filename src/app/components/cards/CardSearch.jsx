@@ -1,6 +1,6 @@
 import React from "react";
 
-const CardSearch = ({result}) => {
+const CardSearch = ({ result }) => {
   return (
     <div className="border flex h-60 items-center justify-around mt-8">
       {/* Image pour test le CSS : */}
