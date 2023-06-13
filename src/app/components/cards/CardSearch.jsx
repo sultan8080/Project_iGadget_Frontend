@@ -4,7 +4,7 @@ const CardSearch = ({result}) => {
   return (
     <div className="border flex h-60 items-center justify-around mt-8">
       {/* Image pour test le CSS : */}
-      {/* <img src="src/app/assets/test/AuroraMax_rose.png" className="w-64" /> */}
+      <img src="src/app/assets/test/AuroraMax_rose.png" className="w-64" />
 
       <div className="px-24 w-2/3">
         <span className="text-3xl font-bold pb-6">{result.name}</span>

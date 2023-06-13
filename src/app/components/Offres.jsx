@@ -65,13 +65,13 @@ const Offres = ({
                             <div className="button flex pl-36 gap-4 pt-10">
                                 <button
                                     type="button"
-                                    class="text-white bg-[#349CA2] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                                    className="text-white bg-[#349CA2] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
                                 >
                                     Je shop a prix reduit !
                                 </button>
                                 <button
                                     type="button"
-                                    class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#349CA2] focus:outline-none bg-white rounded-full border border-[] focus:z-10 focus:ring-4 "
+                                    className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#349CA2] focus:outline-none bg-white rounded-full border border-[] focus:z-10 focus:ring-4 "
                                 >
                                     Détails du produit
                                 </button>
