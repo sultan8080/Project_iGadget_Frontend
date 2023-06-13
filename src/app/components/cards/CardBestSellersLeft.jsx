@@ -11,7 +11,7 @@ const CardBestSellersLeft = ({ product }) => {
         />
       </div>
       <p className="text-justify pt-50 pb-5">{product.description}</p>
-      <div className="button flex justify-end mr-36">
+      <div className="button flex mr-36">
         <button
           type="button"
           className="text-white bg-third focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
