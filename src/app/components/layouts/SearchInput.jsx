@@ -23,7 +23,7 @@ const SearchInput = () => {
       .get(`http://localhost:8000/api/products?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
-        console.log("data:", data);
+        console.log("résultat de Axios : ", data);
         if (data['hydra:member']){
           setSearchResults(data['hydra:member']);
         }
