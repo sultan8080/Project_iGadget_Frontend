@@ -3,13 +3,14 @@ import React from "react";
 const CardSearch = ({ result }) => {
   return (
     <div className="border flex h-60 items-center justify-around mt-8">
+
       {result.productimages && result.productimages.length > 0 ? (
-        <img src={result.productimages[0]} className="w-64" alt="Product" />
+        <img src={result.productimages[1].image_name} className="w-64" alt={result.name} />
       ) : (
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
           className="w-64 p-4"
-          alt="Product"
+          alt={result.name}
         />
       )}
 
