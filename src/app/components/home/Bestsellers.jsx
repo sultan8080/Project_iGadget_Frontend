@@ -4,20 +4,26 @@ import CardBestSellersLeft from "../cards/CardBestSellersLeft";
 
 const products = [
   {
+    id: 1,
     title: "PixelWave14",
     image: "./src/app/assets/produits/téléphones/AuroraMax_blanc.png",
+    price: 900,
     description:
       "Découvrez le PixelWave 14 ! Avec son design élégant et ses fonctionnalités avancées, il vous permettra de rester connecté en toute simplicité. Profitez d'un écran de qualité supérieure, d'une batterie durable et d'un appareil photo haute résolution pour capturer tous les moments importants de votre vie. Découvrez une nouvelle manière de communiquer !",
   },
   {
+    id: 2,
     title: "Nexus Watch",
     image: "./src/app/assets/produits/montres/Watch_blanc.png",
+    price: 600,
     description:
       "Découvrez la Nexus Watch pour les personnes modernes et actives ! Grâce à son design épuré, vous pouvez suivre votre activité physique, recevoir des notifications de vos applications préférées et rester connecté avec vos contacts en un seul coup d'œil. Ne manquez jamais un appel important ou une réunion. Profitez dès maintenant des avantages de la technologie portable.",
   },
   {
+    id: 3,
     title: "SoundScape",
     image: "./src/app/assets/produits/audios/SoundScape_blanc.png",
+    price: 300,
     description:
       "Découvrez notre dernier casque sans fil SoundScape ! Profitez d un son cristallin et d une liberté de mouvement totale grâce à sa technologie Bluetooth. Écoutez votre musique préférée ou prenez des appels en toute simplicité. Avec son design moderne et sa batterie longue durée, ce casque est le compagnon parfait pour vos déplacements. Commandez le vôtre dès maintenant !",
   },
