@@ -24,6 +24,11 @@ const SearchInput = () => {
       .get(URL_BACK_SEARCH + `?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
+
+        console.log('====================================');
+        console.log(data);
+        console.log('====================================');
+        
         if (data){
           setSearchResults(data);
         }
@@ -33,23 +38,6 @@ const SearchInput = () => {
         console.log("Error:", error);
       });
   };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   axios
-  //     .get(`http://localhost:8000/api/products?name=${searchTerm}`)
-  //     .then((response) => {
-  //       const data = response.data;
-  //       if (data){
-  //         setSearchResults(data);
-  //       }
-  //       navigate("/search");
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error:", error);
-  //     });
-  // };
 
   return (
     <form onSubmit={handleSubmit} className="flex items-center mt-5">
