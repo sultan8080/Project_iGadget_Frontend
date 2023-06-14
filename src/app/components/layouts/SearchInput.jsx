@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
+import apiBackEnd from "../../api/backend/api.Backend";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../App";
+import { URL_BACK_SEARCH } from "../../constants/urls/urlBackEnd";
 
-import axios from "axios";
 
 const SearchInput = () => {
   const searchContext = useContext(SearchContext);
@@ -19,13 +20,17 @@ const SearchInput = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios
-      .get(`http://localhost:8000/api/products?name=${searchTerm}`)
+    apiBackEnd
+      .get(URL_BACK_SEARCH + `?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
-        console.log("résultat de Axios : ", data);
-        if (data['hydra:member']){
-          setSearchResults(data['hydra:member']);
+
+        console.log('====================================');
+        console.log(data);
+        console.log('====================================');
+        
+        if (data){
+          setSearchResults(data);
         }
         navigate("/search");
       })
