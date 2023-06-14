@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
+import apiBackEnd from "../../api/backend/api.Backend";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../App";
+import { URL_BACK_SEARCH } from "../../constants/urls/urlBackEnd";
 
-import axios from "axios";
 
 const SearchInput = () => {
   const searchContext = useContext(SearchContext);
@@ -19,8 +20,8 @@ const SearchInput = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios
-      .get(`http://localhost:8000/api/products?name=${searchTerm}`)
+    apiBackEnd
+      .get(URL_BACK_SEARCH + `?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
         if (data){
@@ -32,6 +33,23 @@ const SearchInput = () => {
         console.log("Error:", error);
       });
   };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  //   axios
+  //     .get(`http://localhost:8000/api/products?name=${searchTerm}`)
+  //     .then((response) => {
+  //       const data = response.data;
+  //       if (data){
+  //         setSearchResults(data);
+  //       }
+  //       navigate("/search");
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error:", error);
+  //     });
+  // };
 
   return (
     <form onSubmit={handleSubmit} className="flex items-center mt-5">
