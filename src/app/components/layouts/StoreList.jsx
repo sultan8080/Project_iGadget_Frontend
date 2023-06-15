@@ -1,13 +1,24 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
+import axios from "axios";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const StoreList = () => {
+  const [menuItems, setMenuItems] = useState([]);
 
-  const menuItems = ["Téléphones", "Ordinateurs", "Tablettes", "Montres", "Audio", "Accessoires"];
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/api/categories")
+      .then((response) => {
+        setMenuItems(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching menu items:", error);
+      });
+  }, []);
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -52,8 +63,8 @@ const StoreList = () => {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {menuItems.map((menuItem, index) => (
-              <Menu.Item key={index}>
+            {menuItems.map((menuItem) => (
+              <Menu.Item key={menuItem.id}>
                 {({ active }) => (
                   <a
                     href="#"
@@ -62,7 +73,7 @@ const StoreList = () => {
                       "block px-4 py-2 text-sm"
                     )}
                   >
-                    {menuItem}
+                    {menuItem.name}
                   </a>
                 )}
               </Menu.Item>

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import axios from 'axios';
 import apiBackEnd from "../../api/backend/api.Backend";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../App";
@@ -19,19 +20,38 @@ const SearchInput = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+  
     apiBackEnd
       .get(URL_BACK_SEARCH + `?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
-
-        console.log('====================================');
-        console.log(data);
-        console.log('====================================');
-        
-        if (data){
+  
+        if (data) {
           setSearchResults(data);
+  
+          if (data.length > 0) {
+            const productId = data[0].id;
+            axios
+              .get(`/api/products/${productId}/productimages`)
+              .then((response) => {
+                const images = response.data;
+  
+                const updatedResults = data.map((result) => {
+                  const productImages = images.filter(
+                    (image) => image.products.id === result.id
+                  );
+  
+                  return { ...result, productImages };
+                });
+  
+                setSearchResults(updatedResults);
+              })
+              .catch((error) => {
+                console.log("Error:", error);
+              });
+          }
         }
+  
         navigate("/search");
       })
       .catch((error) => {
