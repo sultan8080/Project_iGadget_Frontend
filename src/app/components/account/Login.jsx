@@ -47,6 +47,7 @@ const Login = () => {
       // .catch(() => setErrorLog(true));
       .catch(function (error) {
         // setErrorLog(true);
+        console.log(error);
         toast.error("Identifiant/Mot de passe incorrect(s)", {
           position: toast.POSITION.TOP_CENTER,
         });
@@ -103,16 +104,6 @@ const Login = () => {
             </small>
           </div>
 
-          <div className=" flex items-center justify-between">
-            <div className="text-sm">
-              <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-third-dark hover:text-primary">
-                  Mot de passe oublié?
-                </span>
-              </Link>
-            </div>
-          </div>
-
           <div>
             <button
               type="submit"
@@ -133,6 +124,13 @@ const Login = () => {
               </span>
             </Link>
           </div>
+
+          <Link to="/forgot-password">
+            <small className="mt-3  py-2 text-primary text-right ">
+              Mot de passe oublié ?
+            </small>
+          </Link>
+
           {/* {errorLog && (
             <div className="flex justify-center">
               <small className="text-sm italic text-red-600">

@@ -20,6 +20,10 @@ import AllCategoriesView from "../views/AllCategoriesView";
 import SearchView from "../views/SearchView";
 
 import SearchInput from "../components/layouts/SearchInput";
+import ForgotPasswordView from "../views/ForgotPasswordView";
+import ResetPasswordView from "../views/ResetPasswordView";
+
+
 
 /**
  * Routes of the application
@@ -66,6 +70,9 @@ const Routes = () => {
       <Route path={URL.URL_ALL_CATEGORIES} element={<AllCategoriesView />} />
       <Route path={URL.URL_LIST} element={<AllCategoriesView />} />
       <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminHomeView />} />
+      <Route path={URL.URL_FORGOT_PASSWORD} element={<ForgotPasswordView />} />
+      <Route path="/reset-password/:token" element={<ResetPasswordView />} /> 
+
     </RoutesContainer>
   );
 };
