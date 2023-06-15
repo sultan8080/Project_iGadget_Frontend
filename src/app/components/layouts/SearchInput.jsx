@@ -47,7 +47,7 @@ const SearchInput = () => {
                 setSearchResults(updatedResults);
               })
               .catch((error) => {
-                console.log("Error:", error);
+                console.log("Error search :", error);
               });
           }
         }
