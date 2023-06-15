@@ -13,4 +13,5 @@ export const URL_CATEGORY_ITEMS = '/category-items';
 export const URL_SEARCH = '/search';
 export const URL_SEARCH_RESULTS = '/search-results';
 export const URL_FORGOT_PASSWORD = '/forgot-password';
+export const URL_RESET_PASSWORD = '/reset-password/:token';
 
