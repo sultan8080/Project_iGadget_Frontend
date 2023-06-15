@@ -1,11 +1,19 @@
 import React from "react";
+import apiBackEnd from "../../api/backend/api.Backend";
+import {
+  URL_BACK_NO_API,
+  URL_BACK_PRODUCT_IMG,
+} from "../../constants/urls/urlBackEnd";
 
 const CardSearch = ({ result }) => {
   return (
     <div className="border flex h-60 items-center justify-around mt-8">
-
       {result.productimages && result.productimages.length > 0 ? (
-        <img src={result.productimages[1].image_name} className="w-64" alt={result.name} />
+        <img
+          src={URL_BACK_NO_API + URL_BACK_PRODUCT_IMG + "image-1.png"}
+          className="w-64 p-4"
+          alt="test"
+        />
       ) : (
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
