@@ -2,14 +2,13 @@ import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 const menuItems = [
-    { name: "Mon compte", url: "/profile" },
-    { name: "Mes commandes", url: "/profile-orders" },
-    
+  { name: "Mon compte", url: "/profile" },
+  { name: "Mes commandes", url: "/profile-orders" },
 ];
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
+  return classes.filter(Boolean).join(" ");
+}
 
 const AccountList = () => {
   return (
@@ -59,8 +58,8 @@ const AccountList = () => {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {menuItems.map((menuItem) => (
-              <Menu.Item key={menuItem.id}>
+            {menuItems.map((menuItem, index) => (
+              <Menu.Item key={index}>
                 {({ active }) => (
                   <a
                     href={menuItem.url}
@@ -74,8 +73,6 @@ const AccountList = () => {
                 )}
               </Menu.Item>
             ))}
-
-            <button className="btn btn-third my-12 px-4 text-sm">Déconnexion</button>
           </div>
         </Menu.Items>
       </Transition>
