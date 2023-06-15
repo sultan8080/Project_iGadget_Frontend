@@ -28,7 +28,7 @@ const AccountList = () => {
             />
           </svg>
           <a href="/profile" className="block px-4 py-2 whitespace-nowrap">
-            Prénom
+            Juline
           </a>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,9 @@
 import React from "react";
 import StoreList from "./StoreList";
 import AccountList from "./AccountList";
+import { getToken } from "../../services/tokenServices";
+
+const token = getToken();
 
 const MainNav = () => {
   return (
@@ -30,13 +33,32 @@ const MainNav = () => {
 
       <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
         <ul className="flex flex-col justify-between items-center text-xl font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
-          
           <li className="flex items-center">
             <StoreList />
           </li>
 
           <li>
-            <AccountList />
+            {token ? (
+              <AccountList />
+            ) : (
+              <div className="text-white flex items-center justify-between">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <a href="/login" className="block px-4 py-2 whitespace-nowrap">
+                  Mon compte
+                </a>
+              </div>
+            )}
           </li>
 
           <li>
