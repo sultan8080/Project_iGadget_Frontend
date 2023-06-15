@@ -3,7 +3,7 @@ import axios from 'axios';
 import apiBackEnd from "../../api/backend/api.Backend";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../App";
-import { URL_BACK_SEARCH } from "../../constants/urls/urlBackEnd";
+import { URL_BACK_PRODUCTS, URL_BACK_PRODUCTIMAGES } from "../../constants/urls/urlBackEnd";
 
 
 const SearchInput = () => {
@@ -22,7 +22,7 @@ const SearchInput = () => {
     event.preventDefault();
   
     apiBackEnd
-      .get(URL_BACK_SEARCH + `?name=${searchTerm}`)
+      .get(URL_BACK_PRODUCTS + `?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
         console.log("Data search :", data);
@@ -31,9 +31,11 @@ const SearchInput = () => {
           setSearchResults(data);
   
           if (data.length > 0) {
-            const productId = data[0].id;
+            // console.log("Data search :", data[0].productimages[0].image_name);
+
+            const productId = data[0].productimages[0].image_name;
             axios
-              .get(`/api/products/${productId}/productimages`)
+              .get(URL_BACK_PRODUCTS + `/${productId}` + URL_BACK_PRODUCTIMAGES)
               .then((response) => {
                 const images = response.data;
   
