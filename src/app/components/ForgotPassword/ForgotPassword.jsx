@@ -1,35 +1,42 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 import apiBackEnd from "../../api/backend/api.Backend";
-import { URL_BACK_FORGET_PASSWORD } from "../../constants/urls/urlBackEnd";
+import { URL_BACK_FORGOT_PASSWORD } from "../../constants/urls/urlBackEnd";
 
 /**
- * Component Login
+ * Component forgotPassword
  *
  * @author sultan
  */
-const ForgetPassword = () => {
-
-  const handleForgetPassword = (values) => {
-    apiBackEnd.post(URL_BACK_FORGET_PASSWORD, {
-      email: values.email,
-    })
+const ForgotPassword = () => {
+  const handleForgotPassword = (values) => {
+    apiBackEnd
+      .post(URL_BACK_FORGOT_PASSWORD, {
+        email: values.username,
+      })
       .then((res) => {
+        console.log(res);
         if (res.status === 200) {
-          toast.success("An email a été envoyé !", {
-            position: toast.POSITION.TOP_CENTER,
-          });     
+          toast.success(
+            "Un email a été envoyé contenant un lien pour réinitiliser votre mot de passe !",
+            {
+              position: toast.POSITION.TOP_CENTER,
+            }
+          );
         }
       })
       // .catch(() => setErrorLog(true));
       .catch(function (error) {
-        toast.error("Désolé ! Email non trouvé", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        toast.error(
+          "Désolé ! Email non trouvé ou vous avez démender deux fois, Verifier votre boite email",
+          {
+            position: toast.POSITION.TOP_CENTER,
+          }
+        );
       });
   };
 
@@ -53,7 +60,7 @@ const ForgetPassword = () => {
             .email("Adresse e-mail invalide")
             .required("Email Obligatoire"),
         })}
-        onSubmit={handleForgetPassword}
+        onSubmit={handleForgotPassword}
       >
         <Form className="mt-5 space-y-6">
           <div className="flex flex-col space-y-3 rounded-md shadow-sm">
@@ -97,4 +104,4 @@ const ForgetPassword = () => {
   );
 };
 
-export default ForgetPassword;
+export default ForgotPassword;

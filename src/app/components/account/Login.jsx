@@ -103,8 +103,6 @@ const Login = () => {
             </small>
           </div>
 
-        
-
           <div>
             <button
               type="submit"
@@ -126,7 +124,7 @@ const Login = () => {
             </Link>
           </div>
 
-          <Link to="/forget-password">
+          <Link to="/forgot-password">
             <small className="mt-3  py-2 text-primary text-right ">
               Mot de passe oublié ?
             </small>
