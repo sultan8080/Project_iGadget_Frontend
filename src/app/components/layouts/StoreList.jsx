@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import axios from "axios";
+import apiBackEnd from "../../api/backend/api.Backend";
+import { URL_BACK_CATEGORIES } from "../../constants/urls/urlBackEnd";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -10,8 +11,8 @@ const StoreList = () => {
   const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/api/categories")
+    apiBackEnd
+      .get(URL_BACK_CATEGORIES)
       .then((response) => {
         const sortedItems = response.data.sort((a, b) =>
           a.name.localeCompare(b.name)
