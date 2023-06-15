@@ -25,6 +25,7 @@ const SearchInput = () => {
       .get(URL_BACK_SEARCH + `?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
+        console.log("Data search :", data);
   
         if (data) {
           setSearchResults(data);
