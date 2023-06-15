@@ -1,31 +1,32 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import FormModel from "../form/FormModel";
-import axios from "axios";
+import apiBackEnd from "../../api/backend/api.Backend";
+import { URL_BACK_RESET_PASSWORD } from "../../constants/urls/urlBackEnd";
+import { URL_LOGIN } from "../../constants/urls/urlFrontEnd";
 
 /**
- * Component forgotPassword
+ * Component resetPassword
  *
  * @author sultan
  */
 const ResetPassword = ({ token }) => {
+  const navigate = useNavigate();
   const handleResetPassword = (values) => {
-    axios
-      .post(
-        `http://127.0.0.1:8000/api/reset-password/reset-password/${token}`,
-        {
-          password: values.password,
-        }
-      )
+    apiBackEnd
+      .post(URL_BACK_RESET_PASSWORD+`${token}`, {
+        password: values.password,
+      })
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
           toast.success("Votre mot de passe a été réinitialisé avec succès !", {
             position: toast.POSITION.TOP_CENTER,
           });
+          navigate(URL_LOGIN);
         }
       })
       .catch(function (error) {

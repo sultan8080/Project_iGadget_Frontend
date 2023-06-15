@@ -1,11 +1,12 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 import apiBackEnd from "../../api/backend/api.Backend";
 import { URL_BACK_FORGOT_PASSWORD } from "../../constants/urls/urlBackEnd";
+import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 
 /**
  * Component forgotPassword
@@ -13,6 +14,7 @@ import { URL_BACK_FORGOT_PASSWORD } from "../../constants/urls/urlBackEnd";
  * @author sultan
  */
 const ForgotPassword = () => {
+  const navigate = useNavigate();
   const handleForgotPassword = (values) => {
     apiBackEnd
       .post(URL_BACK_FORGOT_PASSWORD, {
@@ -27,6 +29,7 @@ const ForgotPassword = () => {
               position: toast.POSITION.TOP_CENTER,
             }
           );
+          navigate(URL_HOME);
         }
       })
       // .catch(() => setErrorLog(true));

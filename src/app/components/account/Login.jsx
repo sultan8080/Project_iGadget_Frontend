@@ -47,6 +47,7 @@ const Login = () => {
       // .catch(() => setErrorLog(true));
       .catch(function (error) {
         // setErrorLog(true);
+        console.log(error);
         toast.error("Identifiant/Mot de passe incorrect(s)", {
           position: toast.POSITION.TOP_CENTER,
         });
