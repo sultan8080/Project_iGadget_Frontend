@@ -51,7 +51,7 @@ const App = () => {
   return (
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
       <div className="flex h-full cursor-default relative flex-col bg-white overflow-x-hidden">
-        {isLogged && <IdleTimerCustom />}
+        {/* {isLogged && <IdleTimerCustom />} */}
         
         {isHomePage() ? <NavbarHome /> : <Navbar />}
 

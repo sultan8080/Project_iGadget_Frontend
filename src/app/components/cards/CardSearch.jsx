@@ -10,7 +10,7 @@ const CardSearch = ({ result }) => {
     <div className="border flex h-60 items-center justify-around mt-8">
       {result.image_name && result.image_name.length > 0 ? (
         <img
-          src={URL_BACK_NO_API + URL_BACK_PRODUCT_IMG + "image-1.png"}
+          src={URL_BACK_NO_API + URL_BACK_PRODUCT_IMG + result.imageName}
           className="w-64 p-4"
           alt={result.name}
         />
@@ -36,7 +36,7 @@ const CardSearch = ({ result }) => {
         </button>
         <button
           type="button"
-          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-secondary focus:outline-none bg-white rounded-full border border-[#87D9D4] focus:z-10 focus:ring-4 focus:ring-gray-200 whitespace-nowrap"
+          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-secondary focus:outline-none bg-white rounded-full border border-secondary focus:z-10 focus:ring-4 focus:ring-gray-200 whitespace-nowrap"
         >
           Voir le produit
         </button>
