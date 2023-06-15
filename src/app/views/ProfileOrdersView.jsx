@@ -49,9 +49,9 @@ const ProfileOrdersView = () => {
       <div className="h-32 overflow-hidden bg-primary"></div>
 
       <div className="flex ml-40">
-        <span className="text-4xl mr-8 mt-2">
+        <a href="/profile" className="text-4xl mr-8 mt-2">
           <BsArrowReturnLeft />
-        </span>
+        </a>
         <div className="w-36 h-36 relative -mt-16 border-8 border-white rounded-full overflow-hidden">
           <img
             className="object-cover object-center h-32"
