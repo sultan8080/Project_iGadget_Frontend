@@ -13,7 +13,10 @@ const StoreList = () => {
     axios
       .get("http://127.0.0.1:8000/api/categories")
       .then((response) => {
-        setMenuItems(response.data);
+        const sortedItems = response.data.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+        setMenuItems(sortedItems);
       })
       .catch((error) => {
         console.error("Error fetching menu items:", error);
