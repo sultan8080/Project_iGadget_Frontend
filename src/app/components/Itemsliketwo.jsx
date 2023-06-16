@@ -1,12 +1,12 @@
 import React from 'react';
 
-const ItemsLike = () => {
+const Itemsliketwo = () => {
     return (
         <div className="flex font-sans">
             <div className="flex-none relative">
                 <h4 className="flex-auto items-center p-6">
                     <strong>  
-                 Donnez votre avis !
+                    Les articles qui pourraient vous plaire
                  </strong>
                 </h4>
             </div>
@@ -17,4 +17,5 @@ const ItemsLike = () => {
     );
 };
 
-export default ItemsLike;
+
+export default Itemsliketwo;
