@@ -30,28 +30,28 @@ const SearchInput = () => {
         if (data) {
           setSearchResults(data);
   
-          if (data.length > 0) {
-            // console.log("Data search :", data[0].productimages[0].image_name);
+          if (data.length > 0 && data[0].hasOwnProperty('productimages') && data[0].productimages.length > 0) {
+            console.log("Data search de Xavier :", data[0].productimages[0].image_name);
 
-            const productId = data[0].productimages[0].image_name;
-            axios
-              .get(URL_BACK_PRODUCTS + `/${productId}` + URL_BACK_PRODUCTIMAGES)
-              .then((response) => {
-                const images = response.data;
+            const product_image = data[0].productimages[0].image_name;
+            // axios
+            //   .get(URL_BACK_PRODUCTS + `/${productId}` + URL_BACK_PRODUCTIMAGES)
+            //   .then((response) => {
+            //     const images = response.data;
   
-                const updatedResults = data.map((result) => {
-                  const productImages = images.filter(
-                    (image) => image.products.id === result.id
-                  );
+            //     const updatedResults = data.map((result) => {
+            //       const productImages = images.filter(
+            //         (image) => image.products.id === result.id
+            //       );
   
-                  return { ...result, productImages };
-                });
+            //       return { ...result, productImages };
+            //     });
   
-                setSearchResults(updatedResults);
-              })
-              .catch((error) => {
-                console.log("Error search :", error);
-              });
+            //     setSearchResults(updatedResults);
+            //   })
+              // .catch((error) => {
+              //   console.log("Error search :", error);
+              // });
           }
         }
   

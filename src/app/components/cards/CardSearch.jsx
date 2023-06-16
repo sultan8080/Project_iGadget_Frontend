@@ -1,5 +1,4 @@
 import React from "react";
-import apiBackEnd from "../../api/backend/api.Backend";
 import {
   URL_BACK_NO_API,
   URL_BACK_UPLOADS_MEDIA,
@@ -8,9 +7,13 @@ import {
 const CardSearch = ({ result }) => {
   return (
     <div className="border flex h-60 items-center justify-around mt-8">
-      {result.productimages.image_name && result.productimages.image_name.length > 0 ? (
+      {result.productimages ? (
         <img
-          src={URL_BACK_NO_API + URL_BACK_UPLOADS_MEDIA + result.productimages[0].image_name}
+          src={
+            URL_BACK_NO_API +
+            URL_BACK_UPLOADS_MEDIA +
+            result.productimages
+          }
           className="w-64 p-4"
           alt={result.name}
         />
@@ -37,6 +40,11 @@ const CardSearch = ({ result }) => {
         <button
           type="button"
           className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-secondary focus:outline-none bg-white rounded-full border border-secondary focus:z-10 focus:ring-4 focus:ring-gray-200 whitespace-nowrap"
+          onClick={() => {
+              console.log(
+                'result de la carte : ', result
+              );
+            }}
         >
           Voir le produit
         </button>
