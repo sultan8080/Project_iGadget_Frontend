@@ -1,16 +1,19 @@
 import React from "react";
-import apiBackEnd from "../../api/backend/api.Backend";
 import {
   URL_BACK_NO_API,
-  URL_BACK_PRODUCT_IMG,
+  URL_BACK_UPLOADS_MEDIA,
 } from "../../constants/urls/urlBackEnd";
 
 const CardSearch = ({ result }) => {
   return (
     <div className="border flex h-60 items-center justify-around mt-8">
-      {result.image_name && result.image_name.length > 0 ? (
+      {result.productimages ? (
         <img
-          src={URL_BACK_NO_API + URL_BACK_PRODUCT_IMG + result.imageName}
+          src={
+            URL_BACK_NO_API +
+            URL_BACK_UPLOADS_MEDIA +
+            result.productimages
+          }
           className="w-64 p-4"
           alt={result.name}
         />

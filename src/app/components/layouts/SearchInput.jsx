@@ -3,7 +3,7 @@ import axios from 'axios';
 import apiBackEnd from "../../api/backend/api.Backend";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../App";
-import { URL_BACK_SEARCH } from "../../constants/urls/urlBackEnd";
+import { URL_BACK_PRODUCTS, URL_BACK_PRODUCTIMAGES } from "../../constants/urls/urlBackEnd";
 
 
 const SearchInput = () => {
@@ -22,34 +22,15 @@ const SearchInput = () => {
     event.preventDefault();
   
     apiBackEnd
-      .get(URL_BACK_SEARCH + `?name=${searchTerm}`)
+      .get(URL_BACK_PRODUCTS + `?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
-        console.log("Data search :", data);
   
         if (data) {
           setSearchResults(data);
   
-          if (data.length > 0) {
-            const productId = data[0].id;
-            axios
-              .get(`/api/products/${productId}/productimages`)
-              .then((response) => {
-                const images = response.data;
-  
-                const updatedResults = data.map((result) => {
-                  const productImages = images.filter(
-                    (image) => image.products.id === result.id
-                  );
-  
-                  return { ...result, productImages };
-                });
-  
-                setSearchResults(updatedResults);
-              })
-              .catch((error) => {
-                console.log("Error search :", error);
-              });
+          if (data.length > 0 && data[0].hasOwnProperty('productimages') && data[0].productimages.length > 0) {
+            const product_image = data[0].productimages[0].image_name;
           }
         }
   
