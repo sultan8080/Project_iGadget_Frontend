@@ -28,6 +28,10 @@ const slides = [
 const CarouselHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       const nextIndex = (currentIndex + 1) % slides.length;
