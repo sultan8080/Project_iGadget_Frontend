@@ -20,26 +20,13 @@ const SearchView = () => {
                     description: result.description,
                     productimages: result.productimages[0]
                       ? result.productimages[0].image_name
-                      : "toto",
+                      : "",
                   }}
                 />
-                <div>
-                  {result.productimages[0]
-                    ? result.productimages[0].image_name
-                    : "toto"}
-                </div>
               </>
             ))}
           </section>
-          <button
-            className="btn btn-third my-12"
-            onClick={() => {
-              console.log(
-                "searchResults : ",
-                searchResults[0].productimages[0].image_name
-              );
-            }}
-          >
+          <button className="btn btn-third my-12">
             Afficher plus
           </button>
         </>
