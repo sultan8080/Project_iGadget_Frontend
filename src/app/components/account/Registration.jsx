@@ -6,8 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import FormModel from "../form/FormModel";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import apiBackEnd from "../../api/backend/api.Backend";
-import { URL_BACK_REGISTRATION } from "../../constants/urls/urlBackEnd";
+import { URL_BACK_VERIFY_EMAIL } from "../../constants/urls/urlBackEnd";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 /**
  * Component User Registration Form
@@ -18,7 +19,7 @@ const Registration = () => {
   const navigate = useNavigate();
   const handleRegister = (values) => {
     apiBackEnd
-      .post(URL_BACK_REGISTRATION, {
+      .post(URL_BACK_VERIFY_EMAIL, {
         firstname: values.firstName,
         lastname: values.lastName,
         address: values.address,
@@ -30,12 +31,16 @@ const Registration = () => {
         password: values.password,
       })
       .then(function (response) {
-        toast.success("Succès! nouvel utilisateur ajouté !", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        toast.success(
+          "Votre compte à bien été crée, Veuillez vérifier vos emails pour l'activer.",
+          {
+            position: toast.POSITION.TOP_CENTER,
+          }
+        );
         navigate(URL_HOME);
       })
       .catch(function (error) {
+        // console.log(error);
         toast.error("Erreur! quelque chose ne va pas !", {
           position: toast.POSITION.TOP_CENTER,
         });
