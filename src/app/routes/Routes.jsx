@@ -38,23 +38,29 @@ const Routes = () => {
 
   return (
     <RoutesContainer>
-      <Route path={URL.URL_HOME} element={<HomeView/>}/>
+      <Route path={URL.URL_HOME} element={<HomeView />} />
       <Route
-        path={URL.URL_ADMIN_HOME}
+        path={URL.URL_DASHBOARD_ADMIN}
         element={
-          <PrivateRoute roles={[ROLE_ADMIN]}>
-            <AdminHomeView />
+          <PrivateRoute>
+            {" "}
+            <AdminHomeView />{" "}
           </PrivateRoute>
         }
       />
-       <Route path={URL.URL_DASHBOARD_ADMIN} element={<PrivateRoute> <AdminHomeView />
-       </PrivateRoute> } />
-
+      <Route
+        path={URL.URL_PROFILE}
+        element={
+          <PrivateRoute>
+            {" "}
+            <ProfileView />{" "}
+          </PrivateRoute>
+        }
+      />
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_BASKET} element={<BasketView />} />
       <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
       <Route path={URL.URL_CONTACT} element={<ContactView />} />
-      <Route path={URL.URL_PROFILE} element={<ProfileView />} />
       <Route path={URL.URL_PROFILE_ORDERS} element={<ProfileOrdersView />} />
       <Route path={URL.URL_PRODUCT} element={<ProductView />} />
       <Route path={URL.URL_SEARCH} element={<SearchView />} />
@@ -65,11 +71,9 @@ const Routes = () => {
       />
       <Route path={URL.URL_ALL_CATEGORIES} element={<AllCategoriesView />} />
       <Route path={URL.URL_LIST} element={<AllCategoriesView />} />
-     
+
       <Route path={URL.URL_FORGOT_PASSWORD} element={<ForgotPasswordView />} />
       <Route path={URL.URL_PAGE_404} element={<Page404View />} />
-
-      
       <Route path="/reset-password/:token" element={<ResetPasswordView />} />
       <Route
         path="/email-verification/success"

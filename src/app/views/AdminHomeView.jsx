@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectIsLogged, signOut } from "../redux-store/authenticationSlice";
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
-import Page404 from "../components/page_404/page404";
 
 const AdminHomeView = () => {
   const dispatch = useDispatch();
