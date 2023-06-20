@@ -34,7 +34,7 @@ const CarouselHome = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000);
+    }, 30000000);
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -47,6 +47,7 @@ const CarouselHome = () => {
             {index === currentIndex && (
               <div className="animate-appear">
                 <div className="flex items-center">
+                  
                   {/* TEXT */}
                   <div className="w-full">
                     <div className="flex flex-col pr-14">
@@ -72,7 +73,7 @@ const CarouselHome = () => {
                   </div>
 
                   {/* IMAGE */}
-                  <div className="w-full">
+                  <div className="w-3/5">
                     {item.productimages.length > 0 && item.productimages[0].image_name ? (
                       <img
                         src={
@@ -109,6 +110,7 @@ const CarouselHome = () => {
             </div>
           ))}
         </div>
+        
       </section>
     </div>
   );
