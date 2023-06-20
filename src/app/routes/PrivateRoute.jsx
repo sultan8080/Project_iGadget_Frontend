@@ -1,9 +1,12 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Navigate, useLocation } from 'react-router-dom';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Navigate, useLocation } from "react-router-dom";
 
-import { URL_HOME, URL_LOGIN } from '../constants/urls/urlFrontEnd';
-import { selectHasRole, selectIsLogged } from '../redux-store/authenticationSlice';
+import { URL_HOME, URL_LOGIN } from "../constants/urls/urlFrontEnd";
+import {
+  selectHasRole,
+  selectIsLogged,
+} from "../redux-store/authenticationSlice";
 
 /**
  * Component PriveRoute
@@ -16,15 +19,16 @@ import { selectHasRole, selectIsLogged } from '../redux-store/authenticationSlic
  * @author Peter Mollet
  */
 export const PrivateRoute = ({ children, roles }) => {
-    const location = useLocation();
-    const isAuthenticated = useSelector(selectIsLogged);
-    const hasRole = useSelector((state) => selectHasRole(state, roles));
+  const location = useLocation();
+  const isAuthenticated = useSelector(selectIsLogged);
+  const hasRole = useSelector((state) => selectHasRole(state, roles));
 
-    // Si non connecter redirection vers la page de connexion, désactiver
-    // if (!isAuthenticated)
-    //     return <Navigate replace to={URL_LOGIN} state={{ from: location }} />;
+  // Si non connecter redirection vers la page de connexion, désactiver
+  // if (!isAuthenticated)
+  //     return <Navigate replace to={URL_LOGIN} state={{ from: location }} />;
 
-    if (roles && !hasRole) return <Navigate replace to={{ pathname: URL_HOME }} />;
+  if (roles && !hasRole)
+    return <Navigate replace to={{ pathname: URL_HOME }} />;
 
-    return children;
+  return children;
 };

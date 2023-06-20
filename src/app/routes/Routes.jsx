@@ -22,8 +22,7 @@ import SearchView from "../views/SearchView";
 import SearchInput from "../components/layouts/SearchInput";
 import ForgotPasswordView from "../views/ForgotPasswordView";
 import ResetPasswordView from "../views/ResetPasswordView";
-
-
+import EmailVeriferView from "../views/EmailVeriferView";
 
 /**
  * Routes of the application
@@ -71,8 +70,11 @@ const Routes = () => {
       <Route path={URL.URL_LIST} element={<AllCategoriesView />} />
       <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminHomeView />} />
       <Route path={URL.URL_FORGOT_PASSWORD} element={<ForgotPasswordView />} />
-      <Route path="/reset-password/:token" element={<ResetPasswordView />} /> 
-
+      <Route path="/reset-password/:token" element={<ResetPasswordView />} />
+      <Route
+        path="/email-verification/success"
+        element={<EmailVeriferView />}
+      />
     </RoutesContainer>
   );
 };

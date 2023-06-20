@@ -23,9 +23,6 @@ const ProfileView = () => {
     navigate(URL_HOME);
   };
 
-  // {isLoggedIn && (
-  //   navigate(URL_HOME)
-  // )}
   if (isLoggedIn) {
     return (
       <>
