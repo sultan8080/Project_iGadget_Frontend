@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import FormModel from "../form/FormModel";
-import { apiBackEnd } from "../../api/backend/api.Backend";
+import apiBackEnd from "../../api/backend/api.Backend";
 import { URL_BACK_RESET_PASSWORD } from "../../constants/urls/urlBackEnd";
 import { URL_LOGIN } from "../../constants/urls/urlFrontEnd";
 

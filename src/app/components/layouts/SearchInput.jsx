@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from 'axios';
-import { apiBackEnd } from "../../api/backend/api.Backend";
+import apiBackEnd from "../../api/backend/api.Backend";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../App";
 import { URL_BACK_PRODUCTS, URL_BACK_PRODUCTIMAGES } from "../../constants/urls/urlBackEnd";

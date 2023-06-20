@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RxDotFilled } from "react-icons/rx";
-import { backEnd } from "../../api/backend/api.Backend";
+import apiBackEnd from "../../api/backend/api.Backend";
 import {
   URL_BACK_LATEST_PRODUCTS,
   URL_BACK_UPLOADS_MEDIA,
@@ -16,7 +16,7 @@ const CarouselHome = () => {
   };
 
   const carouselData = () => {
-    backEnd
+    apiBackEnd
       .get(URL_BACK_LATEST_PRODUCTS)
       .then((response) => {
         const data = response.data;

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 
-import { apiBackEnd } from "../../api/backend/api.Backend";
+import apiBackEnd from "../../api/backend/api.Backend";
 import { URL_BACK_FORGOT_PASSWORD } from "../../constants/urls/urlBackEnd";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 
