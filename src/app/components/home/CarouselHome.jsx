@@ -61,13 +61,13 @@ const CarouselHome = () => {
                       <div className="flex mt-6">
                         <button
                           type="button"
-                          className="text-white bg-[#87D9D4] focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                          className="text-white bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
                         >
                           Je shop
                         </button>
                         <button
                           type="button"
-                          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#87D9D4] focus:outline-none bg-white rounded-full border border-[#87D9D4] focus:z-10 focus:ring-4 focus:ring-gray-200"
+                          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-secondary focus:outline-none bg-white rounded-full border border-secondary focus:z-10 focus:ring-4 focus:ring-gray-200"
                         >
                           Détails du produit
                         </button>
