@@ -71,14 +71,10 @@ const Routes = () => {
       />
       <Route path={URL.URL_ALL_CATEGORIES} element={<AllCategoriesView />} />
       <Route path={URL.URL_LIST} element={<AllCategoriesView />} />
-
       <Route path={URL.URL_FORGOT_PASSWORD} element={<ForgotPasswordView />} />
       <Route path={URL.URL_PAGE_404} element={<Page404View />} />
-      <Route path="/reset-password/:token" element={<ResetPasswordView />} />
-      <Route
-        path="/email-verification/success"
-        element={<EmailVeriferView />}
-      />
+      <Route path={URL.URL_RESET_PASSWORD} element={<ResetPasswordView />} />
+      <Route path={URL.URL_EMAIL_VERIFICATION} element={<EmailVeriferView />} />
     </RoutesContainer>
   );
 };
