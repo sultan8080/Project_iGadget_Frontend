@@ -20,9 +20,6 @@ const CarouselHome = () => {
       .get(URL_BACK_LATEST_PRODUCTS)
       .then((response) => {
         const data = response.data;
-        console.log("====================================");
-        console.log("data : ", data);
-        console.log("====================================");
         setSlides(data);
       })
       .catch((error) => {
@@ -36,17 +33,16 @@ const CarouselHome = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % slides.length;
-      setCurrentIndex(nextIndex);
-    }, 7000);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [slides]);
 
   return (
     <div className="container">
       <section className="w-full m-auto relative">
-        {slides.map((item, index) => (
+        {slides.length > 0 && slides.map((item, index) => (
           <React.Fragment key={index}>
             {index === currentIndex && (
               <div className="animate-appear">
