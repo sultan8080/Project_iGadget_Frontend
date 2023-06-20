@@ -5,7 +5,7 @@ import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import FormModel from "../form/FormModel";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
-import apiBackEnd from "../../api/backend/api.Backend";
+import { apiBackEnd } from "../../api/backend/api.Backend";
 import { URL_BACK_REGISTRATION } from "../../constants/urls/urlBackEnd";
 import { toast } from "react-toastify";
 

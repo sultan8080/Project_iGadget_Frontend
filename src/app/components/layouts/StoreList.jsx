@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import apiBackEnd from "../../api/backend/api.Backend";
+import { apiBackEnd } from "../../api/backend/api.Backend";
 import { URL_BACK_CATEGORIES } from "../../constants/urls/urlBackEnd";
 
 function classNames(...classes) {
