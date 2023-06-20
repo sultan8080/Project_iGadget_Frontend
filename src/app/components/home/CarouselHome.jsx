@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { RxDotFilled } from "react-icons/rx";
 import { backEnd } from "../../api/backend/api.Backend";
-import { URL_BACK_LATEST_PRODUCTS, URL_BACK_UPLOADS_MEDIA } from "../../constants/urls/urlBackEnd";
+import {
+  URL_BACK_LATEST_PRODUCTS,
+  URL_BACK_UPLOADS_MEDIA,
+  URL_BACK_NO_API,
+} from "../../constants/urls/urlBackEnd";
 
 const CarouselHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slides, setSlides] = useState([]);
-
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
@@ -17,6 +20,9 @@ const CarouselHome = () => {
       .get(URL_BACK_LATEST_PRODUCTS)
       .then((response) => {
         const data = response.data;
+        console.log("====================================");
+        console.log("data : ", data);
+        console.log("====================================");
         setSlides(data);
       })
       .catch((error) => {
@@ -71,15 +77,24 @@ const CarouselHome = () => {
 
                   {/* IMAGE */}
                   <div className="w-full">
-                    <img
-                      src={
-                        backEnd +
-                        URL_BACK_UPLOADS_MEDIA +
-                        item.productimages
-                      }
-                      alt="product img"
-                    />
+                    {item.productimages.length > 0 && item.productimages[0].image_name ? (
+                      <img
+                        src={
+                          URL_BACK_NO_API +
+                          URL_BACK_UPLOADS_MEDIA +
+                          item.productimages[0].image_name
+                        }
+                        alt={item.name}
+                      />
+                    ) : (
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                        className="w-64 p-4"
+                        alt={item.name}
+                      />
+                    )}
                   </div>
+                  
                 </div>
               </div>
             )}
