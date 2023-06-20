@@ -34,7 +34,7 @@ const CarouselHome = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 30000000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -73,7 +73,7 @@ const CarouselHome = () => {
                   </div>
 
                   {/* IMAGE */}
-                  <div className="w-3/5">
+                  <div className="w-full">
                     {item.productimages.length > 0 && item.productimages[0].image_name ? (
                       <img
                         src={
