@@ -36,7 +36,7 @@ const ProfileView = () => {
           <button
             type="button"
             onClick={handleLogOut}
-            class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium rounded-full border btn-red"
+            className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium rounded-full border btn-red"
           >
             Déconnecter
           </button>
