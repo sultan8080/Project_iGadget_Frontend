@@ -7,7 +7,6 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 import {
-  URL_ADMIN_HOME,
   URL_DASHBOARD_ADMIN,
   URL_PROFILE,
 } from "../../constants/urls/urlFrontEnd";
@@ -35,7 +34,16 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  
+  useEffect(() => {
+    if (isAdmin) {
+      navigate(URL_DASHBOARD_ADMIN);
+    } else {
+      if (isUser) {
+        navigate(URL_PROFILE);
+      }
+    }
+  }, [isAdmin, isUser]);
 
   const handleLogin = (values) => {
     authenticate(values)
@@ -48,9 +56,12 @@ const Login = () => {
               position: toast.POSITION.TOP_CENTER,
             });
           } else {
-            toast.error("Votre email n'a pas été vérifié, Voir votre boite e-mail", {
-              position: toast.POSITION.TOP_CENTER,
-            });
+            toast.error(
+              "Votre email n'a pas été vérifié, Voir votre boite e-mail",
+              {
+                position: toast.POSITION.TOP_CENTER,
+              }
+            );
           }
         }
       })
