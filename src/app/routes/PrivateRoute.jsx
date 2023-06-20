@@ -2,7 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 
-import { URL_HOME, URL_LOGIN } from "../constants/urls/urlFrontEnd";
+import {
+  URL_HOME,
+  URL_LOGIN,
+  URL_PAGE_404,
+} from "../constants/urls/urlFrontEnd";
 import {
   selectHasRole,
   selectIsLogged,
@@ -24,8 +28,8 @@ export const PrivateRoute = ({ children, roles }) => {
   const hasRole = useSelector((state) => selectHasRole(state, roles));
 
   // Si non connecter redirection vers la page de connexion, désactiver
-  // if (!isAuthenticated)
-  //     return <Navigate replace to={URL_LOGIN} state={{ from: location }} />;
+  if (!isAuthenticated)
+    return <Navigate replace to={URL_PAGE_404} state={{ from: location }} />;
 
   if (roles && !hasRole)
     return <Navigate replace to={{ pathname: URL_HOME }} />;

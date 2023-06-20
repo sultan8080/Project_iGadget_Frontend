@@ -23,6 +23,7 @@ import SearchInput from "../components/layouts/SearchInput";
 import ForgotPasswordView from "../views/ForgotPasswordView";
 import ResetPasswordView from "../views/ResetPasswordView";
 import EmailVeriferView from "../views/EmailVeriferView";
+import Page404View from "../views/Page404View";
 
 /**
  * Routes of the application
@@ -37,14 +38,7 @@ const Routes = () => {
 
   return (
     <RoutesContainer>
-      <Route
-        path={URL.URL_HOME}
-        element={
-          <PrivateRoute>
-            <HomeView />
-          </PrivateRoute>
-        }
-      />
+      <Route path={URL.URL_HOME} element={<HomeView/>}/>
       <Route
         path={URL.URL_ADMIN_HOME}
         element={
@@ -53,6 +47,9 @@ const Routes = () => {
           </PrivateRoute>
         }
       />
+       <Route path={URL.URL_DASHBOARD_ADMIN} element={<PrivateRoute> <AdminHomeView />
+       </PrivateRoute> } />
+
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_BASKET} element={<BasketView />} />
       <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
@@ -68,8 +65,11 @@ const Routes = () => {
       />
       <Route path={URL.URL_ALL_CATEGORIES} element={<AllCategoriesView />} />
       <Route path={URL.URL_LIST} element={<AllCategoriesView />} />
-      <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminHomeView />} />
+     
       <Route path={URL.URL_FORGOT_PASSWORD} element={<ForgotPasswordView />} />
+      <Route path={URL.URL_PAGE_404} element={<Page404View />} />
+
+      
       <Route path="/reset-password/:token" element={<ResetPasswordView />} />
       <Route
         path="/email-verification/success"
