@@ -22,8 +22,8 @@ import SearchView from "../views/SearchView";
 import SearchInput from "../components/layouts/SearchInput";
 import ForgotPasswordView from "../views/ForgotPasswordView";
 import ResetPasswordView from "../views/ResetPasswordView";
-
-
+import EmailVeriferView from "../views/EmailVeriferView";
+import Page404View from "../views/Page404View";
 
 /**
  * Routes of the application
@@ -38,19 +38,22 @@ const Routes = () => {
 
   return (
     <RoutesContainer>
+      <Route path={URL.URL_HOME} element={<HomeView />} />
       <Route
-        path={URL.URL_HOME}
+        path={URL.URL_DASHBOARD_ADMIN}
         element={
           <PrivateRoute>
-            <HomeView />
+            {" "}
+            <AdminHomeView />{" "}
           </PrivateRoute>
         }
       />
       <Route
-        path={URL.URL_ADMIN_HOME}
+        path={URL.URL_PROFILE}
         element={
-          <PrivateRoute roles={[ROLE_ADMIN]}>
-            <AdminHomeView />
+          <PrivateRoute>
+            {" "}
+            <ProfileView />{" "}
           </PrivateRoute>
         }
       />
@@ -58,7 +61,6 @@ const Routes = () => {
       <Route path={URL.URL_BASKET} element={<BasketView />} />
       <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
       <Route path={URL.URL_CONTACT} element={<ContactView />} />
-      <Route path={URL.URL_PROFILE} element={<ProfileView />} />
       <Route path={URL.URL_PROFILE_ORDERS} element={<ProfileOrdersView />} />
       <Route path={URL.URL_PRODUCT} element={<ProductView />} />
       <Route path={URL.URL_SEARCH} element={<SearchView />} />
@@ -69,10 +71,10 @@ const Routes = () => {
       />
       <Route path={URL.URL_ALL_CATEGORIES} element={<AllCategoriesView />} />
       <Route path={URL.URL_LIST} element={<AllCategoriesView />} />
-      <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminHomeView />} />
       <Route path={URL.URL_FORGOT_PASSWORD} element={<ForgotPasswordView />} />
-      <Route path="/reset-password/:token" element={<ResetPasswordView />} /> 
-
+      <Route path={URL.URL_PAGE_404} element={<Page404View />} />
+      <Route path={URL.URL_RESET_PASSWORD} element={<ResetPasswordView />} />
+      <Route path={URL.URL_EMAIL_VERIFICATION} element={<EmailVeriferView />} />
     </RoutesContainer>
   );
 };
