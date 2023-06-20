@@ -103,7 +103,7 @@ const CarouselHome = () => {
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className="text-4rem cursor-pointer"
+              className="cursor-pointer text-4xl"
             >
               <RxDotFilled />
             </div>
