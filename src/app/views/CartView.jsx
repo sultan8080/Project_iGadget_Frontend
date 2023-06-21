@@ -2,7 +2,7 @@ import React from "react";
 import EmptyBasket from "../components/EmptyBasket";
 import AsideCart from "../components/AsideCart";
 import CardCart from '../components/cards/CardBasket';
-
+import { useSelector } from 'react-redux'
 
 const products = [
   {
@@ -18,6 +18,8 @@ const products = [
       "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
   },
 ];
+
+const cart = useSelector((state) => state.cart)
 
 const CartView = () => {
   return (
