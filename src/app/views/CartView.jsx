@@ -1,7 +1,8 @@
 import React from "react";
 import EmptyBasket from "../components/EmptyBasket";
 import AsideCart from "../components/AsideCart";
-import CardBasket from "../components/cards/CardBasket";
+import CardCart from '../components/cards/CardBasket';
+
 
 const products = [
   {
@@ -28,7 +29,7 @@ const CartView = () => {
           <div className="flow-root">
             <ul role="list" className="-my-6">
               {products.map((product) => (
-                <CardBasket key={product.id} product={product} />
+                <CardCart key={product.id} product={product} />
               ))}
             </ul>
           </div>

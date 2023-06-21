@@ -1,6 +1,6 @@
 import React from "react";
 
-const CardBasket = ({ product }) => {
+const CardCart = ({ product }) => {
   return (
     <li key={product.id} className="flex p-6 mb-12 border">
       <div className="h-48 w-52 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 object-cover">
@@ -57,4 +57,4 @@ const CardBasket = ({ product }) => {
   );
 };
 
-export default CardBasket;
+export default CardCart;
