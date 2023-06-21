@@ -9,6 +9,7 @@ import { selectIsLogged, signIn } from "./redux-store/authenticationSlice";
 import Routes from "./routes/Routes";
 import { getToken } from "./services/tokenServices";
 import Footer from "./components/layouts/Footer";
+import "react-toastify/dist/ReactToastify.css";
 
 export const SearchContext = createContext();
 
@@ -49,8 +50,9 @@ const App = () => {
 
   return (
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
-      <div className="flex h-full cursor-default relative flex-col bg-white">
-
+      <div className="flex h-full cursor-default relative flex-col bg-white overflow-x-hidden">
+        {/* {isLogged && <IdleTimerCustom />} */}
+        
         {isHomePage() ? <NavbarHome /> : <Navbar />}
 
         {isLogin ? null : (
@@ -59,7 +61,7 @@ const App = () => {
               <Routes />
             </main>
 
-            <ToastContainer
+            {/* <ToastContainer
               toastClassName={({ type }) =>
                 contextClass[type || "default"] +
                 " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
@@ -67,11 +69,13 @@ const App = () => {
               bodyClassName={() => "text-sm font-white font-med block p-3"}
               position="bottom-left"
               autoClose={3000}
-            />
+            /> */}
 
+            <ToastContainer />
             <Footer />
           </>
         )}
+        
       </div>
     </SearchContext.Provider>
   );

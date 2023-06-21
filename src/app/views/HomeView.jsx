@@ -6,9 +6,10 @@ import { ROLE_ADMIN } from "../constants/rolesConstant";
 import { URL_ADMIN_HOME } from "../constants/urls/urlFrontEnd";
 import { selectHasRole } from "../redux-store/authenticationSlice";
 
-import CarouselHome from "../components/CarouselHome";
-import BestsallersView from "./BestsallersView";
-import Bestsallers from "../components/Bestsallers";
+import CarouselHome from "../components/home/CarouselHome";
+import BestsellersView from "./BestsallersView";
+import Bestsellers from "../components/home/Bestsellers";
+import Offres from "../components/home/Offres";
 
 
 const HomeView = () => {
@@ -17,7 +18,7 @@ const HomeView = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col max-w-[1400px] mx-auto">
+    <div className="flex flex-col max-w-[1600px] mx-auto">
       <h2 className="uppercase font-bold absolute mt-6">
         Les <span className="text-[#349CA2]">nouveautés</span>
         <br /> actuelles du shop
@@ -25,9 +26,9 @@ const HomeView = () => {
 
       <CarouselHome />
 
+      <Bestsellers />
 
-      <Bestsallers />
-      {/* Juste pour voir le bas du svg, vous pouvez les enlever (les br) */}
+      <Offres />
 
       {/* {isAdmin && (
         <button

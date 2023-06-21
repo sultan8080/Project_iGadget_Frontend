@@ -1,18 +1,24 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { Field, Form, Formik, ErrorMessage } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
 
 import {
-  URL_ADMIN_HOME,
   URL_DASHBOARD_ADMIN,
   URL_PROFILE,
 } from "../../constants/urls/urlFrontEnd";
-import { selectHasRole, signIn } from "../../redux-store/authenticationSlice";
+import {
+  selectHasRole,
+  selectIsVerified,
+  signIn,
+} from "../../redux-store/authenticationSlice";
 import { authenticate } from "./../../api/backend/account";
 import { ROLE_ADMIN, ROLE_USER } from "../../constants/rolesConstant";
+import { getPayloadToken } from "../../services/tokenServices";
+import { isAfter } from "date-fns";
 
 /**
  * Component Login
@@ -21,26 +27,49 @@ import { ROLE_ADMIN, ROLE_USER } from "../../constants/rolesConstant";
  */
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
-  
+
+  const isVerfiedEmail = useSelector((state) => selectIsVerified(state));
   const isUser = useSelector((state) => selectHasRole(state, ROLE_USER));
   const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (isAdmin) {
+      navigate(URL_DASHBOARD_ADMIN);
+    } else {
+      if (isUser) {
+        navigate(URL_PROFILE);
+      }
+    }
+  }, [isAdmin, isUser]);
 
   const handleLogin = (values) => {
     authenticate(values)
       .then((res) => {
         if (res.status === 200 && res.data.token) {
-          dispatch(signIn(res.data.token));
-          {
-            isAdmin && navigate(URL_DASHBOARD_ADMIN);
-          }
-          {
-            isUser && navigate(URL_PROFILE);
+          const emailVerification = getPayloadToken(res.data.token);
+          if (emailVerification.isVerified) {
+            dispatch(signIn(res.data.token));
+            toast.success("Connexion réussie ! Bienvenue à bord!", {
+              position: toast.POSITION.TOP_CENTER,
+            });
+          } else {
+            toast.error(
+              "Votre email n'a pas été vérifié, Voir votre boite e-mail",
+              {
+                position: toast.POSITION.TOP_CENTER,
+              }
+            );
           }
         }
       })
-      .catch(() => setErrorLog(true));
+      .catch(function (error) {
+        toast.error("Identifiant/Mot de passe incorrect(s)", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      });
   };
 
   return (
@@ -75,7 +104,7 @@ const Login = () => {
               type="text"
               name="username"
               placeholder="Votre email"
-              autoComplete="username"
+              // autoComplete="username"
               className="input"
             />
             <small className="text-red-600">
@@ -85,22 +114,12 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="votre mot de passe"
-              autoComplete="current-password"
+              // autoComplete="current-password"
               className="input"
             />
             <small className="text-red-600">
               <ErrorMessage name="password" />
             </small>
-          </div>
-
-          <div className=" flex items-center justify-between">
-            <div className="text-sm">
-              <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-third-dark hover:text-primary">
-                  Mot de passe oublié?
-                </span>
-              </Link>
-            </div>
           </div>
 
           <div>
@@ -123,13 +142,20 @@ const Login = () => {
               </span>
             </Link>
           </div>
-          {errorLog && (
+
+          <Link to="/forgot-password">
+            <small className="mt-3  py-2 text-primary text-right ">
+              Mot de passe oublié ?
+            </small>
+          </Link>
+
+          {/* {errorLog && (
             <div className="flex justify-center">
               <small className="text-sm italic text-red-600">
                 Identifiant/Mot de passe incorrect(s)
               </small>
             </div>
-          )}
+          )} */}
         </Form>
       </Formik>
     </div>

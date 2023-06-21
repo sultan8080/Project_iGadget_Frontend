@@ -3,7 +3,6 @@ import { selectIsLogged, signOut } from "../redux-store/authenticationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
-import Page404 from "../components/page_404/page404";
 
 const ProfileView = () => {
   const userData = [
@@ -13,8 +12,6 @@ const ProfileView = () => {
     { label: "Téléphone", value: "06 54 92 49 35" },
   ];
 
-  const isLoggedIn = useSelector((state) => selectIsLogged(state));
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,11 +19,7 @@ const ProfileView = () => {
     dispatch(signOut());
     navigate(URL_HOME);
   };
-
-  // {isLoggedIn && (
-  //   navigate(URL_HOME)
-  // )}
-  if (isLoggedIn) {
+  
     return (
       <>
         <div className="h-32 overflow-hidden bg-primary"></div>
@@ -43,7 +36,7 @@ const ProfileView = () => {
           <button
             type="button"
             onClick={handleLogOut}
-            class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium rounded-full border btn-red"
+            className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium rounded-full border btn-red"
           >
             Déconnecter
           </button>
@@ -115,11 +108,6 @@ const ProfileView = () => {
       </>
     );
   }
-  return (
-    <div>
-      <Page404 />
-    </div>
-  );
-};
+;
 
 export default ProfileView;
