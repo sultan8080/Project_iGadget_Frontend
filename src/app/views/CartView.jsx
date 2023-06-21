@@ -1,7 +1,8 @@
 import React from "react";
 import EmptyBasket from "../components/EmptyBasket";
-import AsideBasket from "../components/AsideBasket";
-import CardBasket from "../components/cards/CardBasket";
+import AsideCart from "../components/AsideCart";
+import CardCart from '../components/cards/CardBasket';
+
 
 const products = [
   {
@@ -16,22 +17,9 @@ const products = [
     imageAlt:
       "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
   },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    ref: "1077446094",
-    price: "$32.00",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
 ];
 
-const BasketView = () => {
+const CartView = () => {
   return (
     <main className="flex justify-evenly mb-24">
       {/* <EmptyBasket /> */}
@@ -41,16 +29,16 @@ const BasketView = () => {
           <div className="flow-root">
             <ul role="list" className="-my-6">
               {products.map((product) => (
-                <CardBasket key={product.id} product={product} />
+                <CardCart key={product.id} product={product} />
               ))}
             </ul>
           </div>
         </div>
       </section>
 
-      <AsideBasket />
+      <AsideCart />
     </main>
   );
 };
 
-export default BasketView;
+export default CartView;
