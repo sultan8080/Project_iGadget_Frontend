@@ -74,70 +74,82 @@ const Registration = () => {
           password: "",
           passwordConfirmation: "",
         }}
-        // validationSchema={Yup.object({
-        //   firstName: Yup.string()
-        //     .matches(
-        //       /^s*\S[a-z][\s\S]+$/,
-        //       "Uniquement valide caractères autorisés"
-        //     )
-        //     .required("Prénom  obligatoire"),
-        //   lastName: Yup.string()
-        //     .matches(
-        //       /^s*\S[a-z][\s\S]+$/,
-        //       "Uniquement valide caractères autorisés"
-        //     )
-        //     .required("Prénom  obligatoire"),
-        //   email: Yup.string()
-        //     .email("Adresse e-mail invalide")
-        //     .required("Email obligatoire"),
-        //   password: Yup.string()
-        //     .required("Mot de passe obligatoire")
-        //     .min(6, "Au moins six caractères "),
-        //   passwordConfirmation: Yup.string()
-        //     .oneOf(
-        //       [Yup.ref("password"), null],
-        //       "Le mot de passe doit être identique"
-        //     )
-        //     .required("Mot de Passe confirmation obligatoire"),
-        //   city: Yup.string().required("Ville obligatoire"),
-        //   phone: Yup.number()
-        //     .required("Numéro téléphone obligatoire")
-        //     .typeError("Uniquement des chiffres"),
-        //   address: Yup.string().required("Adresse obligatoire"),
-        //   userPhoto: Yup.mixed()
-        //     .nullable()
-        //     .notRequired()
-        //     .test("FILE_SIZE", "Votre photo est trop volumineux", (value) => {
-        //       return value && photoUpload.current
-        //         ? photoUpload.current.files[0].size <= FILE_SIZE
-        //           ? true
-        //           : false
-        //         : true;
-        //     })
-        //     .test(
-        //       "is-file-of-correct-type",
-        //       "Format de votre photo non autorisé",
-        //       () => {
-        //         let valid = true;
-        //         const files = photoUpload?.current?.files;
-        //         if (files) {
-        //           const fileArr = Array.from(files);
-        //           fileArr.forEach((file) => {
-        //             const type = file.type.split("/")[1];
-        //             const validTypes = ["jpeg", "png", "jpg"];
-        //             if (!validTypes.includes(type)) {
-        //               valid = false;
-        //             }
-        //           });
-        //         }
-        //         return valid;
-        //       }
-        //     ),
+        validationSchema={Yup.object({
+          firstName: Yup.string()
+            .test("no-numbers", "Uniquement les lettres", function (value) {
+              return /^[^0-9]*$/.test(value);
+            })
+            .matches(
+              /^[A-Za-z][A-Za-z\s]*[A-Za-z]$/,
+              "Vérifiez votre espace blanc"
+            )
+            .required("Prénom obligatoire"),
+          lastName: Yup.string()
+            .test("no-numbers", "Uniquement les lettres", function (value) {
+              return /^[^0-9]*$/.test(value);
+            })
+            .matches(
+              /^[A-Za-z][A-Za-z\s]*[A-Za-z]$/,
+              "Vérifiez votre espace blanc"
+            )
+            .required("Nom  obligatoire"),
+          email: Yup.string()
+            .email("Adresse e-mail invalide")
+            .required("Email obligatoire"),
+          password: Yup.string()
+            .required("Mot de passe obligatoire")
+            .min(6, "Au moins six caractères "),
+          passwordConfirmation: Yup.string()
+            .oneOf(
+              [Yup.ref("password"), null],
+              "Le mot de passe doit être identique"
+            )
+            .required("Mot de Passe confirmation obligatoire"),
+          city: Yup.string().required("Ville obligatoire"),
+          phone: Yup.string()
+            .required("Numéro téléphone obligatoire")
+            .matches(/^\d{10}$/, "Uniquement 10 chiffres: 0634586253")
+            .test("valid-number", "Uniquement des chiffres", function (value) {
+              if (value) {
+                return /^\d+$/.test(value);
+              }
+              return true;
+            }),
+          address: Yup.string().required("Adresse obligatoire"),
+          userPhoto: Yup.mixed()
+            .nullable()
+            .notRequired()
+            .test("FILE_SIZE", "Votre photo est trop volumineux", (value) => {
+              return value && photoUpload.current
+                ? photoUpload.current.files[0].size <= FILE_SIZE
+                  ? true
+                  : false
+                : true;
+            })
+            .test(
+              "is-file-of-correct-type",
+              "Format de votre photo non autorisé",
+              () => {
+                let valid = true;
+                const files = photoUpload?.current?.files;
+                if (files) {
+                  const fileArr = Array.from(files);
+                  fileArr.forEach((file) => {
+                    const type = file.type.split("/")[1];
+                    const validTypes = ["jpeg", "png", "jpg"];
+                    if (!validTypes.includes(type)) {
+                      valid = false;
+                    }
+                  });
+                }
+                return valid;
+              }
+            ),
 
-        //   postCode: Yup.string()
-        //     .required("Code Postale obligatoire")
-        //     .length(5, "Uniquement 5 chiffres, Exemple: 02200"),
-        // })}
+          postCode: Yup.string()
+            .required("Postale Code obligatoire")
+            .matches(/^\d{5}$/, "Uniquement 5 chiffres, Exemple: 02200"),
+        })}
         onSubmit={handleRegister}
       >
         <Form className="mt-4 space-y-6">
