@@ -1,6 +1,6 @@
 import React from "react";
 import EmptyBasket from "../components/EmptyBasket";
-import AsideBasket from "../components/AsideBasket";
+import AsideCart from "../components/AsideCart";
 import CardBasket from "../components/cards/CardBasket";
 
 const products = [
@@ -35,7 +35,7 @@ const CartView = () => {
         </div>
       </section>
 
-      <AsideBasket />
+      <AsideCart />
     </main>
   );
 };
