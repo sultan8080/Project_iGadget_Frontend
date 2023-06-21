@@ -9,7 +9,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import AdminHomeView from "../views/AdminHomeView";
 import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
-import BasketView from "../views/BasketView";
+import CartView from "../views/CartView";
 import ProductView from "../views/ProductView";
 import CategoryItemsView from "../views/CategoryItemsView";
 import RegistrationView from "../views/RegistrationView";
@@ -58,7 +58,7 @@ const Routes = () => {
         }
       />
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
-      <Route path={URL.URL_BASKET} element={<BasketView />} />
+      <Route path={URL.URL_CART} element={<CartView />} />
       <Route path={URL.URL_REGISTER} element={<RegistrationView />} />
       <Route path={URL.URL_CONTACT} element={<ContactView />} />
       <Route path={URL.URL_PROFILE_ORDERS} element={<ProfileOrdersView />} />

@@ -16,22 +16,9 @@ const products = [
     imageAlt:
       "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
   },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    ref: "1077446094",
-    price: "$32.00",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
 ];
 
-const BasketView = () => {
+const CartView = () => {
   return (
     <main className="flex justify-evenly mb-24">
       {/* <EmptyBasket /> */}
@@ -53,4 +40,4 @@ const BasketView = () => {
   );
 };
 
-export default BasketView;
+export default CartView;
