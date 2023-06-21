@@ -1,15 +1,6 @@
 import React from "react";
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../redux-store/cartSlice.js';
 
 const CardBestSellers = ({ product }) => {
-
-  const dispath = useDispatch();
-
-  const handleAddToCart = (product) => {
-    dispath(addToCart(product));
-  }
-
   return (
     <div>
       <div className="flex gap-24 pt-4">
@@ -24,7 +15,6 @@ const CardBestSellers = ({ product }) => {
         <button
           type="button"
           className="text-white bg-third focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
-          onClick= {() => handleToCart(product) }
         >
           Je shop
         </button>
