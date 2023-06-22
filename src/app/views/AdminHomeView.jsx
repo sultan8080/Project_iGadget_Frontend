@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectIsLogged, signOut } from "../redux-store/authenticationSlice";
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
+import AdminDashboardHeader from "../components/Admin/AdminDashboardHeader";
 
 const AdminHomeView = () => {
   const dispatch = useDispatch();
@@ -13,15 +14,16 @@ const AdminHomeView = () => {
     navigate(URL_HOME);
   };
   return (
-    <div className=" text-center">
-      <h1 className="mb-10"> Hi, I'am Admin</h1>
-      <button
+    <div className="antialiased bg-gray-50">
+      <AdminDashboardHeader />
+      {/* <button
         type="button"
         onClick={handleLogOut}
         className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium rounded-full border btn-red"
       >
         Déconnecter
-      </button>
+      </button> */}
+ 
     </div>
   );
 };

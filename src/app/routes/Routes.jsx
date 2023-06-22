@@ -39,6 +39,9 @@ const Routes = () => {
   return (
     <RoutesContainer>
       <Route path={URL.URL_HOME} element={<HomeView />} />
+      {/* <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminHomeView />} />
+      <Route path={URL.URL_PROFILE} element={<ProfileView />} /> */}
+
       <Route
         path={URL.URL_DASHBOARD_ADMIN}
         element={
