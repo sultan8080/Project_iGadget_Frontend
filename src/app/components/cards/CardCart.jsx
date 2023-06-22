@@ -1,12 +1,21 @@
 import React from "react";
+import {
+  URL_BACK_LATEST_PRODUCTS,
+  URL_BACK_UPLOADS_MEDIA,
+  URL_BACK_NO_API,
+} from "../../constants/urls/urlBackEnd";
 
 const CardCart = ({ product, removeFromCart }) => {
   return (
     <li key={product.id} className="flex p-6 mb-12 border">
       <div className="h-48 w-52 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 object-cover">
         <img
-          src={product.imageSrc}
-          alt={product.imageAlt}
+          src={
+            URL_BACK_NO_API +
+            URL_BACK_UPLOADS_MEDIA +
+            product.productimages[0].image_name
+          }
+          alt={product.name}
           className="h-full w-full object-cover object-center"
         />
       </div>
@@ -38,7 +47,7 @@ const CardCart = ({ product, removeFromCart }) => {
           </div>
           <p className="">{product.price}</p>
           <p className="mt-3 text-sm text-gray-500">
-            Référence : {product.ref}
+            Référence : {product.reference}
           </p>
           <p className="mt-1 text-sm text-gray-500">
             Couleur : {product.color}
