@@ -8,10 +8,10 @@ import CardCart from "../components/cards/CardCart";
 const CartView = ({ cart, removeItem }) => {
   const calculateTotalPrice = () => {
     const totalPrice = cart.reduce(
-      (total, product) => total + product.price,
+      (total, product) => total + product.price * product.quantity,
       0
     );
-    return totalPrice.toFixed(2); 
+    return totalPrice.toFixed(2);
   };
 
   return (
@@ -36,7 +36,7 @@ const CartView = ({ cart, removeItem }) => {
               </div>
             </div>
           </section>
-          <AsideCart totalPrice={calculateTotalPrice()}/>
+          <AsideCart totalPrice={calculateTotalPrice()} />
         </>
       )}
     </main>

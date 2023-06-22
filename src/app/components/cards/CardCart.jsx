@@ -4,6 +4,7 @@ import {
   URL_BACK_UPLOADS_MEDIA,
   URL_BACK_NO_API,
 } from "../../constants/urls/urlBackEnd";
+import CustomNumberInput from "../CustomNumberInput";
 
 const CardCart = ({ product, removeFromCart }) => {
   return (
@@ -54,14 +55,7 @@ const CardCart = ({ product, removeFromCart }) => {
           </p>
         </div>
 
-        {/* Quantity */}
-        <div className="flex items-center justify-between w-full pt-1">
-          <select className="py-2 border border-gray-200 mr-6 focus:outline-none">
-            <option>01</option>
-            <option>02</option>
-            <option>03</option>
-          </select>
-        </div>
+        <CustomNumberInput key={product.id} product={product} />
       </div>
     </li>
   );
