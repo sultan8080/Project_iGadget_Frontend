@@ -11,6 +11,7 @@ import {
 const CarouselHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slides, setSlides] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
 
   const goToSlide = (index) => {
@@ -22,14 +23,15 @@ const CarouselHome = () => {
       .get(URL_BACK_LATEST_PRODUCTS)
       .then((response) => {
         const data = response.data;
-        console.log('====================================');
-        console.log('data : ', data);
-        console.log('====================================');
         setSlides(data);
       })
       .catch((error) => {
         console.error("Erreur carousel home page :", error);
       });
+  };
+
+  const handleClick = (product) => {
+    console.log('product : ', product)
   };
 
 
@@ -65,6 +67,7 @@ const CarouselHome = () => {
                           <button
                             type="button"
                             className="text-white bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                            onClick={() => handleClick(item)}
                           >
                             Je shop
                           </button>
