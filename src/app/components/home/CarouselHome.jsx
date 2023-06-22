@@ -6,9 +6,10 @@ import {
   URL_BACK_UPLOADS_MEDIA,
   URL_BACK_NO_API,
 } from "../../constants/urls/urlBackEnd";
+import { connect } from 'react-redux';
+import { addToCart } from '../path/to/cartSlice';
 
-
-const CarouselHome = () => {
+const CarouselHome = ({ selectedProducts, addToCart }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slides, setSlides] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
@@ -31,7 +32,7 @@ const CarouselHome = () => {
   };
 
   const handleClick = (product) => {
-    console.log('product : ', product)
+    addToCart(product);
   };
 
 
@@ -125,4 +126,10 @@ const CarouselHome = () => {
   );
 };
 
-export default CarouselHome;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (product) => dispatch(addToCart(product)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CarouselHome);
