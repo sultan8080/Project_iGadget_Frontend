@@ -4,8 +4,12 @@ import { removeItem } from "../redux-store/cartSlice";
 import EmptyBasket from "../components/EmptyBasket";
 import AsideCart from "../components/AsideCart";
 import CardCart from "../components/cards/CardCart";
+import { useSelector } from 'react-redux';
 
-const CartView = ({ cart, removeItem }) => {
+const CartView = ({ removeItem }) => {
+  const cart = useSelector(state => state.cart.cart);
+  console.log('cart dans cart view : ', state.cart);
+
   return (
     <main className="flex justify-evenly mb-24">
       {cart.length === 0 ? (
@@ -34,16 +38,10 @@ const CartView = ({ cart, removeItem }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    cart: state.cart.cart, 
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     removeItem: (productId) => dispatch(removeItem(productId)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartView);
+export default connect(null, mapDispatchToProps)(CartView);

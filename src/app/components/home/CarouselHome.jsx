@@ -6,13 +6,12 @@ import {
   URL_BACK_UPLOADS_MEDIA,
   URL_BACK_NO_API,
 } from "../../constants/urls/urlBackEnd";
-import { connect } from 'react-redux';
-import { addToCart } from '../../redux-store/cartSlice';
+import { connect } from "react-redux";
+import { addToCart } from "../../redux-store/cartSlice";
 
 const CarouselHome = ({ selectedProducts, addToCart }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slides, setSlides] = useState([]);
-
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
@@ -32,8 +31,8 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
 
   const handleClick = (product) => {
     addToCart(product);
+    console.log("addToCart : ", addToCart);
   };
-
 
   useEffect(() => {
     carouselData();
@@ -119,13 +118,13 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
             </div>
           ))}
         </div>
-
       </section>
     </div>
   );
 };
 
 const mapDispatchToProps = (dispatch) => {
+  console.log("dispatch", dispatch);
   return {
     addToCart: (product) => dispatch(addToCart(product)),
   };
