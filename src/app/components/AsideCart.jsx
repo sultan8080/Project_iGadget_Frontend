@@ -1,11 +1,11 @@
 import React from "react";
 
-const AsideCart = () => {
+const AsideCart = ({ totalPrice }) => {
   return (
     <aside className="border w-1/4 p-3 h-[17rem]">
       <p className="mt-3 text-gray-500 flex justify-between">
         <span>Valeur de la commande</span>
-        <span>1 228 €</span>
+        <span>{totalPrice}</span>
       </p>
 
       <p className="my-3 text-gray-500 flex justify-between">
@@ -17,7 +17,7 @@ const AsideCart = () => {
 
       <p className="mt-3 text-gray-500 flex justify-between font-bold">
         <span>Total de la commande</span>
-        <span>1 228 €</span>
+        <span>{totalPrice}</span>
       </p>
 
       <div className="flex justify-center">

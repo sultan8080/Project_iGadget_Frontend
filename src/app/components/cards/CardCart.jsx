@@ -1,12 +1,22 @@
 import React from "react";
+import {
+  URL_BACK_LATEST_PRODUCTS,
+  URL_BACK_UPLOADS_MEDIA,
+  URL_BACK_NO_API,
+} from "../../constants/urls/urlBackEnd";
+import CustomNumberInput from "../CustomNumberInput";
 
-const CardCart = ({ product }) => {
+const CardCart = ({ product, removeFromCart }) => {
   return (
     <li key={product.id} className="flex p-6 mb-12 border">
       <div className="h-48 w-52 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 object-cover">
         <img
-          src={product.imageSrc}
-          alt={product.imageAlt}
+          src={
+            URL_BACK_NO_API +
+            URL_BACK_UPLOADS_MEDIA +
+            product.productimages[0].image_name
+          }
+          alt={product.name}
           className="h-full w-full object-cover object-center"
         />
       </div>
@@ -19,6 +29,7 @@ const CardCart = ({ product }) => {
             </h3>
             <button
               type="button"
+              onClick={removeFromCart}
               className="font-medium text-grey-500 hover:text-grey-300 ml-16"
             >
               <svg
@@ -37,21 +48,14 @@ const CardCart = ({ product }) => {
           </div>
           <p className="">{product.price}</p>
           <p className="mt-3 text-sm text-gray-500">
-            Référence : {product.ref}
+            Référence : {product.reference}
           </p>
           <p className="mt-1 text-sm text-gray-500">
             Couleur : {product.color}
           </p>
         </div>
 
-        {/* Quantity */}
-        <div className="flex items-center justify-between w-full pt-1">
-          <select className="py-2 border border-gray-200 mr-6 focus:outline-none">
-            <option>01</option>
-            <option>02</option>
-            <option>03</option>
-          </select>
-        </div>
+        <CustomNumberInput key={product.id} product={product} />
       </div>
     </li>
   );
