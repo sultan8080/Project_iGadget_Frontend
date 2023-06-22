@@ -1,6 +1,6 @@
 import React from "react";
 
-const CardCart = ({ product }) => {
+const CardCart = ({ product, removeFromCart }) => {
   return (
     <li key={product.id} className="flex p-6 mb-12 border">
       <div className="h-48 w-52 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 object-cover">
@@ -19,6 +19,7 @@ const CardCart = ({ product }) => {
             </h3>
             <button
               type="button"
+              onClick={removeFromCart}
               className="font-medium text-grey-500 hover:text-grey-300 ml-16"
             >
               <svg

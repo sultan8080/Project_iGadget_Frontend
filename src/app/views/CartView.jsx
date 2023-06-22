@@ -1,43 +1,49 @@
 import React from "react";
+import { connect } from "react-redux";
+import { removeItem } from "../redux-store/cartSlice";
 import EmptyBasket from "../components/EmptyBasket";
 import AsideCart from "../components/AsideCart";
-import CardCart from '../components/cards/CardCart';
+import CardCart from "../components/cards/CardCart";
 
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    ref: "1077446003",
-    price: "$90.00",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-];
-
-const CartView = () => {
+const CartView = ({ cart, removeItem }) => {
   return (
     <main className="flex justify-evenly mb-24">
-      {/* <EmptyBasket /> */}
-
-      <section className="w-1/3">
-        <div className="mt-8">
-          <div className="flow-root">
-            <ul role="list" className="-my-6">
-              {products.map((product) => (
-                <CardCart key={product.id} product={product} />
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <AsideCart />
+      {cart.length === 0 ? (
+        <EmptyBasket />
+      ) : (
+        <>
+          <section className="w-1/3">
+            <div className="mt-8">
+              <div className="flow-root">
+                <ul role="list" className="-my-6">
+                  {cart.map((product) => (
+                    <CardCart
+                      key={product.id}
+                      product={product}
+                      removeFromCart={() => removeItem(product.id)}
+                    />
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+          <AsideCart />
+        </>
+      )}
     </main>
   );
 };
 
-export default CartView;
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cart.cart, 
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeItem: (productId) => dispatch(removeItem(productId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartView);

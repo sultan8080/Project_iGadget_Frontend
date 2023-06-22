@@ -24,9 +24,12 @@ const EmptyBasket = () => {
       <h4 className="mt-10">Oh non...</h4>
       <h3 className="font-bold mt-4">Votre panier est vide</h3>
 
-      <button className="mt-16 btn btn-third">
-        Continuer mes achats
-      </button>
+      <a href="/all-categories">
+        <button className="mt-16 btn btn-third">
+          Continuer mes achats
+        </button>
+      </a>
+      
     </div>
   );
 };

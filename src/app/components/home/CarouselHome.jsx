@@ -7,12 +7,11 @@ import {
   URL_BACK_NO_API,
 } from "../../constants/urls/urlBackEnd";
 import { connect } from 'react-redux';
-import { addToCart } from '../path/to/cartSlice';
+import { addToCart } from '../../redux-store/cartSlice';
 
 const CarouselHome = ({ selectedProducts, addToCart }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slides, setSlides] = useState([]);
-  const [selectedProducts, setSelectedProducts] = useState([]);
 
 
   const goToSlide = (index) => {
