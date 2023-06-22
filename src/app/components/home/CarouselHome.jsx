@@ -6,15 +6,12 @@ import {
   URL_BACK_UPLOADS_MEDIA,
   URL_BACK_NO_API,
 } from "../../constants/urls/urlBackEnd";
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../redux-store/cartSlice';
 
 
 const CarouselHome = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slides, setSlides] = useState([]);
 
-  const dispatch = useDispatch();
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
@@ -68,16 +65,6 @@ const CarouselHome = () => {
                           <button
                             type="button"
                             className="text-white bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
-                            onClick={() =>
-                              dispatch(
-                                addToCart({
-                                  id,
-                                  name,
-                                  image_name,
-                                  price,
-                                })
-                              )
-                            }
                           >
                             Je shop
                           </button>
@@ -129,6 +116,7 @@ const CarouselHome = () => {
             </div>
           ))}
         </div>
+
       </section>
     </div>
   );
