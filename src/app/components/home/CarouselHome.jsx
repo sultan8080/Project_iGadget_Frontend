@@ -31,7 +31,6 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
 
   const handleClick = (product) => {
     addToCart(product);
-    console.log("addToCart : ", addToCart);
   };
 
   useEffect(() => {
@@ -125,7 +124,6 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  console.log("dispatch", dispatch);
   return {
     addToCart: (product) => dispatch(addToCart(product)),
   };

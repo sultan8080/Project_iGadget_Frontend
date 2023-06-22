@@ -12,7 +12,6 @@ const cartSlice = createSlice({
         itemInCart.quantity++;
       } else {
         state.cart = [...state.cart, { ...action.payload, quantity: 1 }];
-        console.log('cart dans cartSlice : ', state.cart);
       }
     },
     incrementQuantity: (state, action) => {
