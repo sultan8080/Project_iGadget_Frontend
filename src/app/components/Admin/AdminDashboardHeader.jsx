@@ -224,7 +224,9 @@ function AdminDashboardHeader() {
               aria-expanded="false"
               data-dropdown-toggle="dropdown"
             >
-              <span className="font-semibold pr-3 md:inline hidden">Hi, SULTAN </span>
+              <span className="font-semibold pr-3 md:inline hidden">
+                SULTAN NUR
+              </span>
               <img
                 className="w-8 h-8 rounded-full"
                 src="src/app/assets/avatar/1.jpg"
