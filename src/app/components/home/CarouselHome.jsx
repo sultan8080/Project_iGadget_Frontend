@@ -118,6 +118,7 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
             </div>
           ))}
         </div>
+        
       </section>
     </div>
   );
