@@ -1,8 +1,19 @@
 import React from "react";
 import { AiOutlineMenuFold, AiFillEye } from "react-icons/ai";
 import { BsFillBellFill, BsFillChatSquareDotsFill } from "react-icons/bs";
+import { signOut } from "../../redux-store/authenticationSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 
 function AdminDashboardHeader() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    dispatch(signOut());
+    navigate(URL_HOME);
+  };
   return (
     <div>
       <nav className="bg-white border-b border-gray-200 px-4 py-2.5 fixed left-0 right-0 top-0 z-50">
@@ -208,66 +219,50 @@ function AdminDashboardHeader() {
 
             <button
               type="button"
-              className="flex mx-3 text-sm bg-gray-100 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300"
+              className="flex mx-3 text-sm items-center md:mr-0  focus:ring-gray-100"
               id="user-menu-button"
               aria-expanded="false"
               data-dropdown-toggle="dropdown"
             >
-              <span className="sr-only">Open user menu</span>
+              <span className="font-semibold pr-3 md:inline hidden">Hi, SULTAN </span>
               <img
                 className="w-8 h-8 rounded-full"
-                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
+                src="src/app/assets/avatar/1.jpg"
                 alt="user photo"
               />
             </button>
             {/* Dropdown menu */}
             <div
-              className="hidden z-50 my-4 w-56 text-base list-none bg-white divide-y shadow rounded-xl"
+              className="hidden z-50 my-4 w-56 list-none text-white bg-primary shadow rounded-sm"
               id="dropdown"
             >
-              <div className="py-3 px-4 bg-secondary">
-                <span className="block text-sm font-semibold text-black">
-                  Sultan NUR
-                </span>
-                <span className="block text-sm text-gray-900 truncate">
-                  sultan@iGadget.fr
-                </span>
-              </div>
-              <ul
-                className="py-1 text-gray-700 dark:text-gray-300"
-                aria-labelledby="dropdown"
-              >
+              <ul className="py-1" aria-labelledby="dropdown">
                 <li>
                   <a
                     href="#"
-                    className="block py-2 px-4 text-sm text-black hover:bg-gray-300"
+                    className="block py-2 px-4 text-sm hover:bg-primary-dark"
                   >
                     Mon Profile
                   </a>
                 </li>
+                <hr />
                 <li>
                   <a
                     href="#"
-                    className="block py-2 px-4 text-sm text-black hover:bg-gray-300"
+                    className="block py-2 px-4 text-sm hover:bg-primary-dark"
                   >
                     Changer le Mot de passe
                   </a>
                 </li>
               </ul>
-
-              <ul
-                className="py-2 text-white bg-primary"
-                aria-labelledby="dropdown"
+              <hr />
+              <button
+                type="button"
+                onClick={handleLogOut}
+                className="px-4 py-2 hover:bg-primary-dark text-left w-full"
               >
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-4 text-sm hover:bg-primary-dark dark:hover:text-white"
-                  >
-                    Déconnecter
-                  </a>
-                </li>
-              </ul>
+                Déconnecter
+              </button>
             </div>
           </div>
         </div>
