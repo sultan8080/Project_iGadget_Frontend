@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { incrementQuantity, decrementQuantity } from '../redux-store/cartSlice';
+import { useSpring, animated } from 'react-spring';
 
 const CustomNumberInput = ({ product }) => {
   const [value, setValue] = useState(1);
   const dispatch = useDispatch();
-  const cartItem = useSelector(state => state.cart.cart.find(item => item.id === product.id));
 
   const decrement = () => {
-    if (value > 1) {
-      dispatch(decrementQuantity(product.id));
-      setValue((prevValue) => prevValue - 1);
-    }
+    dispatch(decrementQuantity(product.id));
+    setValue((prevValue) => prevValue - 1);
   };
 
   const increment = () => {
@@ -19,9 +17,10 @@ const CustomNumberInput = ({ product }) => {
     setValue((prevValue) => prevValue + 1);
   };
 
-  useEffect(() => {
-    setValue(cartItem.quantity);
-  }, [cartItem]);
+  const animationProps = useSpring({
+    transform: `scale(${value === 1 ? 1 : 1.2})`,
+    config: { tension: 200, friction: 20 }
+  });
 
   return (
     <div className="custom-number-input h-10 w-32">
@@ -33,12 +32,13 @@ const CustomNumberInput = ({ product }) => {
         >
           <span className="m-auto text-2xl font-thin">−</span>
         </button>
-        <input
+        <animated.input
           type="number"
           className="focus:outline-none text-center w-full font-semibold text-md hover:text-black focus:text-black md:text-base cursor-default flex items-center text-gray-700 outline-none"
           name="custom-input-number"
           value={value}
           readOnly
+          style={animationProps}
         />
         <button
           data-action="increment"

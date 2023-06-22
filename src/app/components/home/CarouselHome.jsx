@@ -46,8 +46,8 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
   }, [slides]);
 
   return (
-    <div className="container">
-      <section className="w-full m-auto relative">
+    <div className="container h-[804px] ml-40 -mt-20">
+      <section className="w-full m-auto relative flex flex-col h-full justify-end">
         {slides.length > 0 &&
           slides.map((item, index) => (
             <React.Fragment key={index}>
