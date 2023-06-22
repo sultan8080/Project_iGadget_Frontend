@@ -6,6 +6,14 @@ import AsideCart from "../components/AsideCart";
 import CardCart from "../components/cards/CardCart";
 
 const CartView = ({ cart, removeItem }) => {
+  const calculateTotalPrice = () => {
+    const totalPrice = cart.reduce(
+      (total, product) => total + product.price,
+      0
+    );
+    return totalPrice.toFixed(2); 
+  };
+
   return (
     <main className="flex justify-evenly mb-24">
       {cart.length === 0 ? (
@@ -28,7 +36,7 @@ const CartView = ({ cart, removeItem }) => {
               </div>
             </div>
           </section>
-          <AsideCart />
+          <AsideCart totalPrice={calculateTotalPrice()}/>
         </>
       )}
     </main>
