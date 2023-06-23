@@ -40,14 +40,14 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [slides]);
 
   return (
-    <div className="container">
-      <section className="w-full m-auto relative">
+    <div className="container h-[804px] ml-40 -mt-36">
+      <section className="w-full m-auto relative flex flex-col h-full justify-end">
         {slides.length > 0 &&
           slides.map((item, index) => (
             <React.Fragment key={index}>
@@ -61,6 +61,7 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
                         <p className="text-justify text-3xl ">
                           {item.description}
                         </p>
+
                         <div className="flex mt-6">
                           <button
                             type="button"
@@ -69,6 +70,7 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
                           >
                             Je shop
                           </button>
+
                           <button
                             type="button"
                             className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-secondary focus:outline-none bg-white rounded-full border border-secondary focus:z-10 focus:ring-4 focus:ring-gray-200"
@@ -76,6 +78,7 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
                             Détails du produit
                           </button>
                         </div>
+
                       </div>
                     </div>
 
@@ -107,12 +110,12 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
           ))}
 
         {/* DOT */}
-        <div className="flex justify-end">
+        <div className="flex justify-end mr-40 -mt-20">
           {slides.map((slide, slideIndex) => (
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className="cursor-pointer text-4xl"
+              className="cursor-pointer text-4xl text-gray-600"
             >
               <RxDotFilled />
             </div>
