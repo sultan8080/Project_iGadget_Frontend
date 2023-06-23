@@ -12,6 +12,9 @@ const ProfileOrdersView = () => {
       .get(URL_BACK_USERS_ORDERS)
       .then((response) => {
         const data = response.data;
+        console.log('====================================');
+        console.log('data orders : ', data);
+        console.log('====================================');
         setOrders(data);
       })
       .catch((error) => {

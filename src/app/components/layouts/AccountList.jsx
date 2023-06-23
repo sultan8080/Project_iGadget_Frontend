@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 const menuItems = [
-  { name: "Mon compte", url: "/profile" },
+  { name: "Mon compte", url: "/profil/:id" },
   { name: "Mes commandes", url: "/profile-orders" },
 ];
 

@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { selectIsLogged, signOut } from "../redux-store/authenticationSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
+import apiBackEnd from "../api/backend/api.Backend";
+import { URL_BACK_REGISTRATION } from "../constants/urls/urlBackEnd";
 
 const ProfileView = () => {
-  const userData = [
-    { label: "Prénom", value: "Juline" },
-    { label: "Nom", value: "nomDeFamille" },
-    { label: "Email", value: "juline@gmail.com" },
-    { label: "Téléphone", value: "06 54 92 49 35" },
-  ];
+  const [usersProfile, setUsersProfile] = useState([]);
+  const { id } = useParams();
+
+  const carouselData = () => {
+    apiBackEnd
+      .get(URL_BACK_REGISTRATION)
+      .then((response) => {
+        const data = response.data;
+        console.log('====================================');
+        console.log('profile data',data);
+        console.log('====================================');
+        setUsersProfile(data);
+      })
+      .catch((error) => {
+        console.error("Error user profile page :", error);
+      });
+  };
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,7 +45,7 @@ const ProfileView = () => {
         </div>
 
         <div className="flex justify-around">
-          <h3 className="-mt-12 ml-80 mb-4">Bonjour Juline !</h3>
+          <h3 className="-mt-12 ml-80 mb-4">Bonjour { usersProfile.firstname }</h3>
           <button
             type="button"
             onClick={handleLogOut}
@@ -46,12 +59,19 @@ const ProfileView = () => {
           <section className="flex items-end justify-between border p-6  w-2/3 mt-6">
             <div className="flex flex-col">
               <h5 className="mb-6">Mes Coordonnées</h5>
-              {userData.map((data, index) => (
-                <React.Fragment key={index}>
-                  <span className="font-bold">{data.label}</span>
-                  <span>{data.value}</span>
-                </React.Fragment>
-              ))}
+              
+                {/* 
+                <span className="font-bold">Prénom</span>
+                <span>{data.value}</span>
+                <span className="font-bold">Nom</span>
+                <span>{data.value}</span>
+                <span className="font-bold">Email</span>
+                <span>{data.value}</span>
+                <span className="font-bold">Téléphone</span>
+                <span>{data.value}</span> 
+                */}
+              
+              
             </div>
             <button className="btn btn-secondary">Metttre à jour</button>
           </section>
