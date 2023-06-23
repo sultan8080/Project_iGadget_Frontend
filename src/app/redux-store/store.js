@@ -1,13 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import authenticationReducer from './authenticationSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import authenticationReducer from "./authenticationSlice";
 import { cartReducer } from "./cartSlice";
-import storage from 'redux-persist/lib/storage';
-import { persistStore, persistReducer } from 'redux-persist'
+import storage from "redux-persist/lib/storage";
+import { persistStore, persistReducer } from "redux-persist";
 
 const persistConfig = {
-    key: 'root',
-    storage,
-}
+  key: "root",
+  storage,
+};
 
 const persistedReducer = persistReducer(persistConfig, cartReducer);
 
@@ -17,11 +17,14 @@ const persistedReducer = persistReducer(persistConfig, cartReducer);
  * @author Peter Mollet
  */
 export const store = configureStore({
-    reducer: {
-        auth: authenticationReducer,
-        cart: persistedReducer,
-    }, 
-})
+  reducer: {
+    auth: authenticationReducer,
+    cart: persistedReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
 
 export const persistor = persistStore(store);
-  
