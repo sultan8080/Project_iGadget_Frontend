@@ -8,7 +8,6 @@ const CardOrderProfile = ({ order }) => {
         <span className="text-gray-500">2 article(s)</span>
 
         <div className="flex">
-          {/* Checking if order.picture is an array using Array.isArray() */}
           {Array.isArray(order.pictures) ? (
             order.pictures.map((picture, index) => (
               <img

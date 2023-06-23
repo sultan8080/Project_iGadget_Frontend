@@ -1,49 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CardOrderProfile from "../components/cards/CardOrderProfile";
 import { BsArrowReturnLeft } from "react-icons/bs";
-
-const orders = [
-  {
-    id: 1,
-    status: "En cours",
-    nb_article: 2,
-    date: "22-03-2023",
-    price: "1 228,00",
-    pictures: [
-      "src/app/assets/test/WatchSE_argent_3.png",
-      "src/app/assets/test/MacBookPro_gris_3.png",
-    ],
-  },
-  {
-    id: 2,
-    status: "Colis livré",
-    nb_article: 1,
-    date: "18-01-2023",
-    price: "159,00",
-    pictures: "src/app/assets/test/WatchSE_argent_3.png",
-  },
-  {
-    id: 3,
-    status: "Colis livré",
-    nb_article: 1,
-    date: "18-01-2023",
-    price: "159,00",
-    pictures: "src/app/assets/test/WatchSE_argent_3.png",
-  },
-];
-
-const ordersReturns = [
-  {
-    id: 1,
-    status: "Returns effectué",
-    nb_article: 2,
-    date: "22-03-2023",
-    price: "1 228,00",
-    pictures: "src/app/assets/test/EchoSphere_noir_3.png"
-  }
-];
+import apiBackEnd from "../api/backend/api.Backend";
+import { URL_BACK_USERS_ORDERS } from "../constants/urls/urlBackEnd";
 
 const ProfileOrdersView = () => {
+  const [orders, setOrders] = useState([]);
+  
+  const ordersData = () => {
+    apiBackEnd
+      .get(URL_BACK_USERS_ORDERS)
+      .then((response) => {
+        const data = response.data;
+        setOrders(data);
+      })
+      .catch((error) => {
+        console.error("Erreur order profile page :", error);
+      });
+  };
+
+  useEffect(() => {
+    ordersData();
+  }, []);
+
   return (
     <>
       <div className="h-32 overflow-hidden bg-primary"></div>
@@ -69,12 +48,12 @@ const ProfileOrdersView = () => {
         ))}
       </div>
 
-      <h2 className="text-center">Mes retours</h2>
+      {/* <h2 className="text-center">Mes retours</h2>
       <div className="flex flex-col items-center mb-24">
         {ordersReturns.map((orderReturn) => (
           <CardOrderProfile key={orderReturn.id} order={orderReturn} />
         ))}
-      </div>
+      </div> */}
 
     </>
   );
