@@ -37,7 +37,6 @@ export const cartItemCountSelector = (state) => {
   return state.cart.cart.length;
 };
 
-
 export const {
   addToCart,
   incrementQuantity,
