@@ -40,7 +40,7 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -61,6 +61,7 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
                         <p className="text-justify text-3xl ">
                           {item.description}
                         </p>
+
                         <div className="flex mt-6">
                           <button
                             type="button"
@@ -69,6 +70,7 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
                           >
                             Je shop
                           </button>
+
                           <button
                             type="button"
                             className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-secondary focus:outline-none bg-white rounded-full border border-secondary focus:z-10 focus:ring-4 focus:ring-gray-200"
@@ -76,6 +78,7 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
                             Détails du produit
                           </button>
                         </div>
+
                       </div>
                     </div>
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { incrementQuantity, decrementQuantity } from '../redux-store/cartSlice';
-import { useSpring, animated } from 'react-spring';
 
 const CustomNumberInput = ({ product }) => {
   const [value, setValue] = useState(1);
@@ -16,11 +15,6 @@ const CustomNumberInput = ({ product }) => {
     dispatch(incrementQuantity(product.id));
     setValue((prevValue) => prevValue + 1);
   };
-
-  const animationProps = useSpring({
-    transform: `scale(${value === 1 ? 1 : 1.2})`,
-    config: { tension: 200, friction: 20 }
-  });
 
   return (
     <div className="custom-number-input h-10 w-32">
@@ -38,7 +32,6 @@ const CustomNumberInput = ({ product }) => {
           name="custom-input-number"
           value={value}
           readOnly
-          style={animationProps}
         />
         <button
           data-action="increment"
