@@ -36,8 +36,8 @@ const CardOrderProfile = ({ order }) => {
           strokeWidth="2"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M9 5l7 7-7 7"
           />
         </svg>
