@@ -46,7 +46,7 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
   }, [slides]);
 
   return (
-    <div className="container h-[804px] ml-40 -mt-20">
+    <div className="container h-[804px] ml-40 -mt-36">
       <section className="w-full m-auto relative flex flex-col h-full justify-end">
         {slides.length > 0 &&
           slides.map((item, index) => (
@@ -107,12 +107,12 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
           ))}
 
         {/* DOT */}
-        <div className="flex justify-end">
+        <div className="flex justify-end mr-40 -mt-20">
           {slides.map((slide, slideIndex) => (
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className="cursor-pointer text-4xl"
+              className="cursor-pointer text-4xl text-gray-600"
             >
               <RxDotFilled />
             </div>
