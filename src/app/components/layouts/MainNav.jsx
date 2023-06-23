@@ -2,10 +2,15 @@ import React from "react";
 import StoreList from "./StoreList";
 import AccountList from "./AccountList";
 import { getToken } from "../../services/tokenServices";
+import { connect } from "react-redux";
+import { cartItemCountSelector } from "../../redux-store/cartSlice";
+import { useSelector } from "react-redux";
+
 
 const token = getToken();
 
 const MainNav = () => {
+  const cartItemCount = useSelector((state) => state.cart.cart.length);
   return (
     <>
       <button
@@ -79,6 +84,7 @@ const MainNav = () => {
                 />
               </svg>
               <span className="pl-2 whitespace-nowrap">Mon panier</span>
+              <span className="pl-2 whitespace-nowrap">{cartItemCount}</span>
             </a>
           </li>
 
