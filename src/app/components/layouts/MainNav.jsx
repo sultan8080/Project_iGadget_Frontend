@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { cartItemCountSelector } from "../../redux-store/cartSlice";
 import { useSelector } from "react-redux";
 
-
 const token = getToken();
 
 const MainNav = () => {
@@ -69,7 +68,7 @@ const MainNav = () => {
           <li>
             <a
               href="/cart"
-              className="flex items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
+              className="flex relative items-center py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +83,14 @@ const MainNav = () => {
                 />
               </svg>
               <span className="pl-2 whitespace-nowrap">Mon panier</span>
-              <span className="pl-2 whitespace-nowrap">{cartItemCount}</span>
+
+              {cartItemCount == 0 ? (
+                ""
+              ) : (
+                <span className="whitespace-nowrap absolute bg-third rounded-full text-white w-6 h-6 -bottom-3 -right-7 flex items-center justify-center text-sm">
+                  {cartItemCount}
+                </span>
+              )}
             </a>
           </li>
 
