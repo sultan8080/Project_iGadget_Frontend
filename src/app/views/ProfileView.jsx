@@ -23,7 +23,6 @@ const ProfileView = () => {
           const userInfo = userData.find(
             (userInfo) => userInfo.email === user.username
           );
-          console.log("userInfo", userInfo);
           setUserInfo(userInfo);
         }
       } catch (error) {
@@ -53,8 +52,8 @@ const ProfileView = () => {
         />
       </div>
 
-      <div className="flex justify-around">
-      <h3 className="-mt-12 ml-80 mb-4">Bonjour {userInfo && userInfo.firstname}</h3>
+      <div className="flex justify-between mx-80">
+        <h3>Bonjour {userInfo && userInfo.firstname}</h3>
 
         <button
           type="button"
@@ -66,70 +65,70 @@ const ProfileView = () => {
       </div>
 
       <div className="flex flex-col items-center mb-24">
-          <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
-            <div className="flex flex-col">
-              <h5 className="mb-6">Mes Coordonnées</h5>
-                <span className="font-bold">Prénom</span>
-                <span>{userInfo && userInfo.firstname}</span>
-                <span className="font-bold">Nom</span>
-                <span>{userInfo && userInfo.lastname}</span>
-                <span className="font-bold">Email</span>
-                <span>{userInfo && userInfo.email}</span>
-                <span className="font-bold">Téléphone</span>
-                <span>{userInfo && userInfo.phone}</span> 
-            </div>
-            <button className="btn btn-secondary">Metttre à jour</button>
+        <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
+          <div className="flex flex-col">
+            <h5 className="mb-6">Mes Coordonnées</h5>
+            <span className="font-bold">Prénom</span>
+            <span>{userInfo && userInfo.firstname}</span>
+            <span className="font-bold">Nom</span>
+            <span>{userInfo && userInfo.lastname}</span>
+            <span className="font-bold">Email</span>
+            <span>{userInfo && userInfo.email}</span>
+            <span className="font-bold">Téléphone</span>
+            <span>{userInfo && userInfo.phone}</span>
           </div>
-
-          <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
-            <div className="flex flex-col">
-              <h5 className="mb-6">Mon Carnet D'adresses</h5>
-              <div className="flex">
-                <p className="flex flex-col">
-                  <span>Adresse de livraison</span>
-                  <span>26 rue d'acheville</span>
-                  <span>62 000 Rouvroy</span>
-                  <span>France</span>
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex">
-                <p className="flex flex-col">
-                  <span>Adresse de facturation</span>
-                  <span>26 rue d'acheville</span>
-                  <span>62 000 Rouvroy</span>
-                  <span>France</span>
-                </p>
-              </div>
-            </div>
-            <button className="btn btn-secondary">Metttre à jour</button>
-          </div>
-
-          <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
-            <div className="flex flex-col">
-              <h5 className="mb-6">Confidentialité</h5>
-              <span>Mot de passe</span>
-              <span>*******************</span>
-            </div>
-            <button className="btn btn-secondary">Metttre à jour</button>
-          </div>
-
-          <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
-            <div className="flex flex-col">
-              <h5 className="mb-6">Mes Commandes</h5>
-              <span className="font-bold ">En cours</span>
-              <span className="text-gray-500">2 articles</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-gray-500">22-03-2023</span>
-              <span className="text-gray-500">1 228,00 €</span>
-            </div>
-            <button className="btn btn-primary">
-              <a href="/profile-orders">Accéder aux commandes</a>
-            </button>
-          </div>
+          <button className="btn btn-secondary">Metttre à jour</button>
         </div>
+
+        <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
+          <div className="flex flex-col">
+            <h5 className="mb-6">Mon Carnet D'adresses</h5>
+            <div className="flex">
+              <p className="flex flex-col">
+                <span>Adresse de livraison</span>
+                <span>26 rue d'acheville</span>
+                <span>62 000 Rouvroy</span>
+                <span>France</span>
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex">
+              <p className="flex flex-col">
+                <span>Adresse de facturation</span>
+                <span>26 rue d'acheville</span>
+                <span>62 000 Rouvroy</span>
+                <span>France</span>
+              </p>
+            </div>
+          </div>
+          <button className="btn btn-secondary">Metttre à jour</button>
+        </div>
+
+        <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
+          <div className="flex flex-col">
+            <h5 className="mb-6">Confidentialité</h5>
+            <span>Mot de passe</span>
+            <span>*******************</span>
+          </div>
+          <button className="btn btn-secondary">Metttre à jour</button>
+        </div>
+
+        <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
+          <div className="flex flex-col">
+            <h5 className="mb-6">Mes Commandes</h5>
+            <span className="font-bold ">En cours</span>
+            <span className="text-gray-500">2 articles</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-gray-500">22-03-2023</span>
+            <span className="text-gray-500">1 228,00 €</span>
+          </div>
+          <button className="btn btn-primary">
+            <a href="/profile-orders">Accéder aux commandes</a>
+          </button>
+        </div>
+      </div>
     </>
   );
 };
