@@ -3,7 +3,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
 const menuItems = [
-  { name: "Mon compte", url: "/profil/:id" },
+  { name: "Mon compte", url: "/profil" },
   { name: "Mes commandes", url: "/profile-orders" },
 ];
 
