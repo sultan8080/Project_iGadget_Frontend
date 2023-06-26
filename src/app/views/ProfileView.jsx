@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
 import apiBackEnd from "../api/backend/api.Backend";
-import { URL_BACK_PROFILE } from "../constants/urls/urlBackEnd";
+import { URL_BACK_REGISTRATION } from "../constants/urls/urlBackEnd";
 
 
 const ProfileView = () => {
@@ -12,6 +12,23 @@ const ProfileView = () => {
   const navigate = useNavigate();
   
   const user = useSelector(selectUser);
+  const [userInfo, setUserInfo] = useState(null);
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const response = await apiBackEnd.get(URL_BACK_REGISTRATION);
+        const userData = response.data;
+        console.log(userData)
+        setUserInfo(userData);
+      } catch (error) {
+        console.log("Erreur lors de la récupération des informations de l'utilisateur :", error);
+      }
+    };
+  
+    fetchUserInfo();
+  }, []);
+  
 
   const handleLogOut = () => {
     dispatch(signOut());
