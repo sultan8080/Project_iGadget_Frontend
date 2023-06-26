@@ -86,9 +86,9 @@ const ProfileView = () => {
             <div className="flex">
               <p className="flex flex-col">
                 <span>Adresse de livraison</span>
-                <span>26 rue d'acheville</span>
-                <span>62 000 Rouvroy</span>
-                <span>France</span>
+                <span>{userInfo && userInfo.address}</span>
+                <span>{userInfo && userInfo.codepostal}</span>
+                <span>{userInfo && userInfo.city}</span>
               </p>
             </div>
           </div>
@@ -96,9 +96,9 @@ const ProfileView = () => {
             <div className="flex">
               <p className="flex flex-col">
                 <span>Adresse de facturation</span>
-                <span>26 rue d'acheville</span>
-                <span>62 000 Rouvroy</span>
-                <span>France</span>
+                <span>{userInfo && userInfo.address}</span>
+                <span>{userInfo && userInfo.codepostal}</span>
+                <span>{userInfo && userInfo.city}</span>
               </p>
             </div>
           </div>
