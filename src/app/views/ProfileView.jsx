@@ -6,11 +6,10 @@ import { URL_HOME } from "../constants/urls/urlFrontEnd";
 import apiBackEnd from "../api/backend/api.Backend";
 import { URL_BACK_REGISTRATION } from "../constants/urls/urlBackEnd";
 
-
 const ProfileView = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const user = useSelector(selectUser);
   const [userInfo, setUserInfo] = useState(null);
 
@@ -19,16 +18,24 @@ const ProfileView = () => {
       try {
         const response = await apiBackEnd.get(URL_BACK_REGISTRATION);
         const userData = response.data;
-        console.log(userData)
-        setUserInfo(userData);
+
+        if (user && user.username) {
+          const userInfo = userData.find(
+            (userInfo) => userInfo.email === user.username
+          );
+          console.log("userInfo", userInfo);
+          setUserInfo(userInfo);
+        }
       } catch (error) {
-        console.log("Erreur lors de la récupération des informations de l'utilisateur :", error);
+        console.log(
+          "Erreur lors de la récupération des informations de l'utilisateur :",
+          error
+        );
       }
     };
-  
+
     fetchUserInfo();
   }, []);
-  
 
   const handleLogOut = () => {
     dispatch(signOut());
@@ -47,7 +54,8 @@ const ProfileView = () => {
       </div>
 
       <div className="flex justify-around">
-        <h3 className="-mt-12 ml-80 mb-4">Bonjour {user.username}</h3>
+      <h3 className="-mt-12 ml-80 mb-4">Bonjour {userInfo && userInfo.firstname}</h3>
+
         <button
           type="button"
           onClick={handleLogOut}
@@ -57,18 +65,18 @@ const ProfileView = () => {
         </button>
       </div>
 
-      {/* <div className="flex flex-col items-center mb-24">
+      <div className="flex flex-col items-center mb-24">
           <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
             <div className="flex flex-col">
               <h5 className="mb-6">Mes Coordonnées</h5>
                 <span className="font-bold">Prénom</span>
-                <span>{data.value}</span>
+                <span>{userInfo && userInfo.firstname}</span>
                 <span className="font-bold">Nom</span>
-                <span>{data.value}</span>
+                <span>{userInfo && userInfo.lastname}</span>
                 <span className="font-bold">Email</span>
-                <span>{data.value}</span>
+                <span>{userInfo && userInfo.email}</span>
                 <span className="font-bold">Téléphone</span>
-                <span>{data.value}</span> 
+                <span>{userInfo && userInfo.phone}</span> 
             </div>
             <button className="btn btn-secondary">Metttre à jour</button>
           </div>
@@ -121,7 +129,7 @@ const ProfileView = () => {
               <a href="/profile-orders">Accéder aux commandes</a>
             </button>
           </div>
-        </div> */}
+        </div>
     </>
   );
 };
