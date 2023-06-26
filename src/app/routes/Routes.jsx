@@ -63,7 +63,6 @@ const Routes = () => {
       <Route path={URL.URL_CONTACT} element={<ContactView />} />
       <Route path={URL.URL_PROFILE_ORDERS} element={<ProfileOrdersView />} />
       <Route path={URL.URL_PRODUCT} element={<ProductView />} />
-      <Route path={URL.URL_PROFILE} element={<ProfileView />} />
       <Route path={URL.URL_SEARCH} element={<SearchView />} />
       <Route path={URL.URL_CATEGORY_ITEMS} element={<CategoryItemsView />} />
       <Route
