@@ -1,67 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { selectIsLogged, signOut } from "../redux-store/authenticationSlice";
+import { signOut, selectUser } from "../redux-store/authenticationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
 import apiBackEnd from "../api/backend/api.Backend";
 import { URL_BACK_PROFILE } from "../constants/urls/urlBackEnd";
 
-const ProfileView = () => {
-  const [usersProfile, setUsersProfile] = useState([]);
-  const { id } = useParams();
-  
-  const profileData = () => {
-    apiBackEnd
-      .get(URL_BACK_PROFILE)
-      .then((response) => {
-        const data = response.data;
-        console.log('====================================');
-        console.log('profile data : ', data);
-        console.log('====================================');
-        setUsersProfile(data);
-      })
-      .catch((error) => {
-        console.error("Error user profile page :", error);
-      });
-  };
 
+const ProfileView = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
+  const user = useSelector(selectUser);
 
   const handleLogOut = () => {
     dispatch(signOut());
     navigate(URL_HOME);
   };
-  
-    return (
-      <>
-        <div className="h-32 overflow-hidden bg-primary"></div>
-        <div className="ml-40 w-36 h-36 relative -mt-16 border-8 border-white rounded-full overflow-hidden">
-          <img
-            className="object-cover object-center h-32"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-            alt="Woman looking front"
-          />
-        </div>
 
-        <div className="flex justify-around">
-          <h3 className="-mt-12 ml-80 mb-4">Bonjour { usersProfile.firstname }</h3>
-          <button onClick={profileData}>Data</button>
-          <button
-            type="button"
-            onClick={handleLogOut}
-            className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium rounded-full border btn-red"
-          >
-            Déconnecter
-          </button>
-        </div>
+  return (
+    <>
+      <div className="h-32 overflow-hidden bg-primary"></div>
+      <div className="ml-40 w-36 h-36 relative -mt-16 border-8 border-white rounded-full overflow-hidden">
+        <img
+          className="object-cover object-center h-32"
+          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+          alt="Woman looking front"
+        />
+      </div>
 
-        {/* <div className="flex flex-col items-center mb-24">
+      <div className="flex justify-around">
+        <h3 className="-mt-12 ml-80 mb-4">Bonjour {user.username}</h3>
+        <button
+          type="button"
+          onClick={handleLogOut}
+          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium rounded-full border btn-red"
+        >
+          Déconnecter
+        </button>
+      </div>
+
+      {/* <div className="flex flex-col items-center mb-24">
           <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
             <div className="flex flex-col">
               <h5 className="mb-6">Mes Coordonnées</h5>
-              
-                
                 <span className="font-bold">Prénom</span>
                 <span>{data.value}</span>
                 <span className="font-bold">Nom</span>
@@ -70,9 +52,6 @@ const ProfileView = () => {
                 <span>{data.value}</span>
                 <span className="font-bold">Téléphone</span>
                 <span>{data.value}</span> 
-               
-              
-              
             </div>
             <button className="btn btn-secondary">Metttre à jour</button>
           </div>
@@ -126,9 +105,8 @@ const ProfileView = () => {
             </button>
           </div>
         </div> */}
-      </>
-    );
-  }
-;
+    </>
+  );
+};
 
 export default ProfileView;
