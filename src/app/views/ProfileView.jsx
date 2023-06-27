@@ -49,7 +49,7 @@ const ProfileView = () => {
           className="object-cover object-center h-32"
           src={
             userInfo && userInfo.user_photo
-              ? userInfo.user_photo
+              ? `http://127.0.0.1:8000/uploads/avatar/` + userInfo.user_photo
               : "https://spring.uli.org/wp-content/themes/uli-conference-3/img/no-speaker-image.png"
           }
           alt={ userInfo && userInfo.user_photo }
