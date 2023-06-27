@@ -9,5 +9,6 @@ export const URL_BACK_CATEGORIES = '/categories';
 export const URL_BACK_LATEST_PRODUCTS = '/products_latest';
 export const URL_BACK_USERS_ORDERS = '/users/{id}/orders';
 export const URL_BACK_UPLOADS_MEDIA = '/uploads/media/';
+export const URL_BACK_UPLOADS_AVATAR = '/uploads/avatar/';
 export const URL_BACK_NO_API = 'http://127.0.0.1:8000';
 export const URL_BACK_VERIFY_EMAIL = '/registration';

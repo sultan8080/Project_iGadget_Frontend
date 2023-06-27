@@ -1,56 +1,80 @@
 import React, { useState, useEffect } from "react";
 import CardOrderProfile from "../components/cards/CardOrderProfile";
 import { BsArrowReturnLeft } from "react-icons/bs";
+import { signOut, selectUser } from "../redux-store/authenticationSlice";
 import apiBackEnd from "../api/backend/api.Backend";
-import { URL_BACK_USERS_ORDERS } from "../constants/urls/urlBackEnd";
+import { URL_BACK_REGISTRATION } from "../constants/urls/urlBackEnd";
+import ProfileHeader from "../components/ProfileHeader";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 const ProfileOrdersView = () => {
-  const [orders, setOrders] = useState([]);
-  
-  const ordersData = () => {
-    apiBackEnd
-      .get(URL_BACK_USERS_ORDERS)
-      .then((response) => {
-        const data = response.data;
-        console.log('====================================');
-        console.log('data orders : ', data);
-        console.log('====================================');
-        setOrders(data);
-      })
-      .catch((error) => {
-        console.error("Erreur order profile page :", error);
-      });
-  };
+  // const [orders, setOrders] = useState([]);
+
+  // const ordersData = () => {
+  //   apiBackEnd
+  //     .get(URL_BACK_USERS_ORDERS)
+  //     .then((response) => {
+  //       const data = response.data;
+  //       console.log("====================================");
+  //       console.log("data orders : ", data);
+  //       console.log("====================================");
+  //       setOrders(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Erreur order profile page :", error);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   const userId = 10; // Remplacez par l'id de l'utilisateur connecté
+  //   ordersData(userId);
+  // }, []);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [userInfo, setUserInfo] = useState(null);
+  const user = useSelector(selectUser);
 
   useEffect(() => {
-    const userId = 10; // Remplacez par l'id de l'utilisateur connecté
-    ordersData(userId);
+    const fetchUserInfo = async () => {
+      try {
+        const response = await apiBackEnd.get(URL_BACK_REGISTRATION);
+        const userData = response.data;
+
+        if (user && user.username) {
+          const userInfo = userData.find(
+            (userInfo) => userInfo.email === user.username
+          );
+          setUserInfo(userInfo);
+        }
+      } catch (error) {
+        console.log(
+          "Erreur lors de la récupération des informations de l'utilisateur :",
+          error
+        );
+      }
+    };
+
+    fetchUserInfo();
   }, []);
 
   return (
     <>
-      <div className="h-32 overflow-hidden bg-primary"></div>
-
-      <div className="flex ml-40">
-        <a href="/profile" className="text-4xl mr-8 mt-2">
+      {/* <a href="/profil" className="text-4xl mr-8 mt-2">
           <BsArrowReturnLeft />
-        </a>
-        <div className="w-36 h-36 relative -mt-16 border-8 border-white rounded-full overflow-hidden">
-          <img
-            className="object-cover object-center h-32"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-            alt="Woman looking front"
-          />
-        </div>
-      </div>
+        </a> */}
+      <ProfileHeader userInfo={userInfo} />
 
       <h2 className="text-center">Mes commandes</h2>
 
-      <div className="flex flex-col items-center mb-24">
+      {/* <div className="flex flex-col items-center mb-24">
         {orders.map((order) => (
           <CardOrderProfile key={order.id} order={order} />
         ))}
-      </div>
+      </div> */}
 
       {/* <h2 className="text-center">Mes retours</h2>
       <div className="flex flex-col items-center mb-24">
@@ -58,7 +82,6 @@ const ProfileOrdersView = () => {
           <CardOrderProfile key={orderReturn.id} order={orderReturn} />
         ))}
       </div> */}
-
     </>
   );
 };

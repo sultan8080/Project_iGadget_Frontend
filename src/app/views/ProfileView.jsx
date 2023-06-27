@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { URL_HOME } from "../constants/urls/urlFrontEnd";
 import apiBackEnd from "../api/backend/api.Backend";
-import { URL_BACK_REGISTRATION } from "../constants/urls/urlBackEnd";
+import {
+  URL_BACK_REGISTRATION
+} from "../constants/urls/urlBackEnd";
+import ProfileHeader from "../components/ProfileHeader";
 
 const ProfileView = () => {
   const dispatch = useDispatch();
@@ -43,18 +46,7 @@ const ProfileView = () => {
 
   return (
     <>
-      <div className="h-32 overflow-hidden bg-primary"></div>
-      <div className="ml-40 w-36 h-36 relative -mt-16 border-8 border-white rounded-full overflow-hidden">
-        <img
-          className="object-cover object-center h-32"
-          src={
-            userInfo && userInfo.user_photo
-              ? `http://127.0.0.1:8000/uploads/avatar/` + userInfo.user_photo
-              : "https://spring.uli.org/wp-content/themes/uli-conference-3/img/no-speaker-image.png"
-          }
-          alt={ userInfo && userInfo.user_photo }
-        />
-      </div>
+      <ProfileHeader userInfo={userInfo} />
 
       <div className="flex justify-between mx-80">
         <h3>Bonjour {userInfo && userInfo.firstname}</h3>
