@@ -5,8 +5,10 @@ import { signOut } from "../../redux-store/authenticationSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
+import logo from "../../assets/logo_iGadget.png";
+import userPhoto from "../../assets/avatar/1.jpg";
 
-function AdminDashboardHeader() {
+function AdminHeader() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -15,8 +17,8 @@ function AdminDashboardHeader() {
     navigate(URL_HOME);
   };
   return (
-    <div>
-      <nav className="bg-white border-b border-gray-200 px-4 py-2.5 fixed left-0 right-0 top-0 z-50">
+    <div className="">
+      <nav className="border-b px-4 py-2.5 fixed left-0 right-0 top-0 z-50 lg:order-2 bg-gradient-to-l from-[#0c6e7a] via-[#ffffff] to-[#ffffff]  h-15 shadow-md ">
         <div className="flex flex-wrap justify-between items-center">
           <div className="flex justify-start items-center">
             <button
@@ -28,20 +30,16 @@ function AdminDashboardHeader() {
               <AiOutlineMenuFold />
             </button>
             <a href="/" className="flex items-center justify-between mr-4">
-              <img
-                src="src/app/assets/logo_iGadget.png"
-                className="h-8 mr-3"
-                alt="iGadget logo"
-              />
+              <img src={logo} className="h-10 mr-3" alt="iGadget logo" />
             </a>
           </div>
 
-          <div className="flex items-center lg:order-2">
+          <div className="flex items-center ">
             {/* Notifications */}
             <button
               type="button"
               data-dropdown-toggle="notification-dropdown"
-              className="p-2 mr-1 text-third rounded-lg hover:bg-secondary-light focus:ring-1 focus:ring-third"
+              className="p-2 mr-1 text-white rounded-lg hover:bg-primary-light focus:ring-1 focus:ring-white"
             >
               <BsFillBellFill />
             </button>
@@ -50,7 +48,7 @@ function AdminDashboardHeader() {
               className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white divide-y divide-gray-100 shadow-lg rounded-xl"
               id="notification-dropdown"
             >
-              <div className="block py-2 px-4 text-base font-medium text-center text-black bg-secondary">
+              <div className="block py-2 px-4 text-base font-medium text-center text-white bg-primary">
                 Notifications
               </div>
               <div>
@@ -130,7 +128,7 @@ function AdminDashboardHeader() {
             <button
               type="button"
               data-dropdown-toggle="messages-dropdown"
-              className="p-2 mr-1 text-third rounded-lg hover:bg-secondary-light focus:ring-1 focus:ring-third"
+              className="p-2 mr-1 text-white rounded-lg hover:bg-primary-light focus:ring-1 focus:ring-white"
             >
               <BsFillChatSquareDotsFill />
             </button>
@@ -139,7 +137,7 @@ function AdminDashboardHeader() {
               className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white divide-y divide-gray-100 shadow-lg rounded-xl"
               id="messages-dropdown"
             >
-              <div className="block py-2 px-4 text-base font-medium text-center text-black bg-secondary">
+              <div className="block py-2 px-4 text-base font-medium text-center text-white bg-primary">
                 Messages
               </div>
               <div>
@@ -224,25 +222,25 @@ function AdminDashboardHeader() {
               aria-expanded="false"
               data-dropdown-toggle="dropdown"
             >
-              <span className="font-semibold pr-3 md:inline hidden">
+              <span className="font-semibold text-white pr-3 md:inline hidden">
                 SULTAN NUR
               </span>
               <img
                 className="w-8 h-8 rounded-full"
-                src="src/app/assets/avatar/1.jpg"
+                src={userPhoto}
                 alt="user photo"
               />
             </button>
             {/* Dropdown menu */}
             <div
-              className="hidden z-50 my-4 w-56 list-none text-white bg-primary shadow rounded-sm"
+              className="hidden z-50 my-4 list-none text-white bg-primary-dark shadow rounded-sm"
               id="dropdown"
             >
-              <ul className="py-1" aria-labelledby="dropdown">
+              <ul className="py-1 w-30" aria-labelledby="dropdown">
                 <li>
                   <a
                     href="#"
-                    className="block py-2 px-4 text-sm hover:bg-primary-dark"
+                    className="block py-2 px-4 text-sm hover:bg-primary"
                   >
                     Mon Profile
                   </a>
@@ -251,7 +249,7 @@ function AdminDashboardHeader() {
                 <li>
                   <a
                     href="#"
-                    className="block py-2 px-4 text-sm hover:bg-primary-dark"
+                    className="block py-2 px-4 text-sm hover:bg-primary"
                   >
                     Changer le Mot de passe
                   </a>
@@ -273,4 +271,4 @@ function AdminDashboardHeader() {
   );
 }
 
-export default AdminDashboardHeader;
+export default AdminHeader;

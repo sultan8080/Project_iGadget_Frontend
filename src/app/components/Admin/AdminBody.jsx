@@ -1,219 +1,99 @@
 import React from "react";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineDown,
-  AiOutlinePlus,
-  AiFillEye,
-} from "react-icons/ai";
-import {
-  BsFillClipboard2PulseFill,
-  BsFillChatSquareDotsFill,
-} from "react-icons/bs";
-
-import { FaSignOutAlt } from "react-icons/fa";
-
-import { VscTypeHierarchySub } from "react-icons/vsc";
-import { FaUsers, FaShoppingBasket } from "react-icons/fa";
-import { MdAssignmentReturn } from "react-icons/md";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { signOut } from "../../redux-store/authenticationSlice";
-import { URL_HOME } from "../../constants/urls/urlFrontEnd";
+import { BiSquare } from "react-icons/bi";
 
 function AdminBody() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleLogOut = () => {
-    dispatch(signOut());
-    navigate(URL_HOME);
-  };
   return (
     <>
-      {/* Sidebar */}
-
-      <aside
-        className="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-primary-dark border-r border-gray-200 md:translate-x-0"
-        aria-label="Sidenav"
-        id="drawer-navigation"
-      >
-        <div className="overflow-y-auto py-5 px-3 h-full">
-          <div>
-            <a
-              href="#"
-              className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-primary group"
-            >
-              <BsFillClipboard2PulseFill />
-              <span className="ml-3">Tableau de bord</span>
-            </a>
+      <main className="p-4">
+        <div className=" dark:border-gray-600 h-screen mb-4">
+          <div className="grid grid-cols-2 gap-8">
+            <div>
+              <div className="flex items-center mb-2">
+                <span>
+                  <BiSquare />
+                </span>
+                <div className="text-lg pl-3">REVENUS</div>
+              </div>
+              <div className="flex justify-between border border-gray-500 p-5">
+                <div>
+                  <div className="text-sm"> LA SEMAINE DERNIÈRE </div>
+                  <div className="text-2xl font-semi bold mt-1">00000,000€</div>
+                </div>
+                <div>
+                  <div className="text-sm"> LE MOIS DERNIÈRE </div>
+                  <div className="text-2xl font-semi bold mt-1">00000,000€</div>
+                </div>
+                <div>
+                  <div className="text-sm"> LA ANNÉE DERNIÈRE </div>
+                  <div className="text-2xl font-semi bold mt-1">00000,000€</div>
+                </div>
+              </div>
+              <div className="flex items-center mb-2 mt-5">
+                <span>
+                  <BiSquare />
+                </span>
+                <div className="text-lg pl-3">COMMANDES</div>
+              </div>
+              <div className="flex justify-between border border-gray-500 p-5">
+                <div>
+                  <div className="text-sm"> EN COURS </div>
+                  <div className="text-2xl font-semi bold mt-1">00000</div>
+                </div>
+                <div>
+                  <div className="text-sm"> LIVRAISON </div>
+                  <div className="text-2xl font-semi bold mt-1">00000</div>
+                </div>
+                <div>
+                  <div className="text-sm"> ANNULÉE </div>
+                  <div className="text-2xl font-semi bold mt-1">00000</div>
+                </div>
+              </div>
+              <div className="flex items-center mb-2 mt-5">
+                <span>
+                  <BiSquare />
+                </span>
+                <div className="text-lg pl-3">VENTES</div>
+              </div>
+              <div className="flex justify-between border border-gray-500 p-5">
+                <div>
+                  <div className="text-sm"> CET SEMAINE </div>
+                  <div className="text-2xl font-semi bold mt-1">00000,000€</div>
+                </div>
+                <div>
+                  <div className="text-sm"> LA SEMAINE DERNIÈRE </div>
+                  <div className="text-2xl font-semi bold mt-1">00000,000€</div>
+                </div>
+                <div>
+                  <div className="text-sm"> LE MOIS DERNIÈR </div>
+                  <div className="text-2xl font-semi bold mt-1">00000,000€</div>
+                </div>
+              </div>
+            </div>
+            <div className="">
+              <div className="flex items-center mb-2">
+                <span>
+                  <BiSquare />
+                </span>
+                <div className="text-lg pl-3">REVENUS</div>
+              </div>
+              <div className="flex justify-between border border-gray-500 p-5">
+                <div>
+                  <div className="text-sm"> LA SEMAINE DERNIÈRE </div>
+                  <div className="text-2xl font-semi bold mt-1">00000,000€</div>
+                </div>
+                <div>
+                  <div className="text-sm"> LE MOIS DERNIÈRE </div>
+                  <div className="text-2xl font-semi bold mt-1">00000,000€</div>
+                </div>
+                <div>
+                  <div className="text-sm"> LA ANNÉE DERNIÈRE </div>
+                  <div className="text-2xl font-semi bold mt-1">00000,000€</div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <ul className="space-y-2 pt-5 mt-5  border-t border-gray-400">
-            <li>
-              <button
-                type="button"
-                className="flex items-center p-2 w-full text-base font-medium rounded-lg transition duration-75 group text-white hover:bg-primary"
-                aria-controls="dropdown-pages"
-                data-collapse-toggle="dropdown-pages"
-              >
-                <AiOutlineShoppingCart />
-                <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  Produits
-                </span>
-                <AiOutlineDown />
-              </button>
-              <ul id="dropdown-pages" className="hidden py-2 space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-2 pl-11 w-full text-base font-medium rounded-lg transition duration-75 group  text-white hover:bg-primary"
-                  >
-                    <AiFillEye />
-                    <span className="pl-2">Voir Tous</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-2 pl-11 w-full text-base font-medium rounded-lg transition duration-75 group  text-white hover:bg-primary"
-                  >
-                    <AiOutlinePlus />
-                    <span className="pl-1">Ajouter Nouveau </span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <button
-                type="button"
-                className="flex items-center p-2 w-full text-base font-medium rounded-lg transition duration-75 group  text-white hover:bg-primary"
-                aria-controls="dropdown-category"
-                data-collapse-toggle="dropdown-category"
-              >
-                <VscTypeHierarchySub />
-                <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                  Categorie
-                </span>
-                <AiOutlineDown />
-              </button>
-              <ul id="dropdown-category" className="hidden py-2 space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-2 pl-11 w-full text-base font-medium rounded-lg transition duration-75 group text-white hover:bg-primary"
-                  >
-                    <AiFillEye />
-                    <span className="pl-2">Voir Tous</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-2 pl-11 w-full text-base font-medium rounded-lg transition duration-75 group text-white hover:bg-primary"
-                  >
-                    <AiOutlinePlus />
-                    <span className="pl-1">Ajouter Nouveau </span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <ul className="pt-5 mt-5 space-y-2 border-t border-gray-400">
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-base font-medium rounded-lg transition duration-75 group text-white hover:bg-primary"
-              >
-                <FaShoppingBasket />
-                <span className="flex-1 ml-3 whitespace-nowrap">
-                  Gestion de commandes
-                </span>
-              </a>
-            </li>
-            <li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center p-2 text-base font-medium rounded-lg transition duration-75 group text-white hover:bg-primary"
-                >
-                  <MdAssignmentReturn />
-                  <span className="flex-1 ml-3 whitespace-nowrap">
-                    Gestion de Retours
-                  </span>
-                </a>
-              </li>
-            </li>
-          </ul>
-
-          <ul className="pt-5 mt-5 space-y-2 border-t  border-gray-400">
-            <li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center p-2 text-base font-medium rounded-lg transition duration-75 group text-white hover:bg-primary"
-                >
-                  <BsFillChatSquareDotsFill />
-                  <span className="flex-1 ml-3 whitespace-nowrap">
-                    Messages
-                  </span>
-                  <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 dark:bg-primary-200 dark:text-primary-800">
-                    4
-                  </span>
-                </a>
-              </li>
-            </li>
-            <li>
-              <li>
-                <button
-                  type="button"
-                  className="flex items-center p-2 w-full text-base font-medium rounded-lg transition duration-75 group text-white hover:bg-primary"
-                  aria-controls="dropdown-users"
-                  data-collapse-toggle="dropdown-users"
-                >
-                  <FaUsers />
-                  <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    Utilisateurs
-                  </span>
-                  <AiOutlineDown />
-                </button>
-
-                <ul id="dropdown-users" className="hidden py-2 space-y-2">
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center p-2 pl-11 w-full text-base font-medium rounded-lg transition duration-75 group text-white hover:bg-primary"
-                    >
-                      <AiFillEye />
-                      <span className="pl-2">Voir Tous</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center p-2 pl-11 w-full text-base font-medium rounded-lg transition duration-75 group text-white hover:bg-primary"
-                    >
-                      <AiOutlinePlus />
-                      <span className="pl-1">Nouveau Admin</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </li>
-          </ul>
         </div>
-        <div className="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex items-center bg-primary">
-          <div className="font-semibold text-white">BIEVENUE, ADMIN</div>
-          <button
-            type="button"
-            onClick={handleLogOut}
-            className="px-4 py-2 hover:bg-primary-dark text-white text-left "
-          >
-            <FaSignOutAlt />
-          </button>
-        </div>
-      </aside>
-
+      </main>
     </>
   );
 }
