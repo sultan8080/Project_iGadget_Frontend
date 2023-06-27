@@ -23,7 +23,8 @@ const ProfileOrdersView = () => {
   };
 
   useEffect(() => {
-    ordersData();
+    const userId = 10; // Remplacez par l'id de l'utilisateur connecté
+    ordersData(userId);
   }, []);
 
   return (

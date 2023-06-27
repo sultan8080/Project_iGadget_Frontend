@@ -24,8 +24,8 @@ const CardOrderProfile = ({ order }) => {
         </div>
       </div>
       <div className="flex flex-col text-gray-500 items-end">
-        <span>{order.date}</span>
-        <span>{order.price} €</span>
+        <span>{order.orderDate}</span>
+        <span>100 €</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-10 w-10 mt-4"
