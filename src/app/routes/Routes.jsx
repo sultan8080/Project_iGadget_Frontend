@@ -26,6 +26,12 @@ import AdminUsers from "../components/Admin/Users/AdminUsers";
 import AdminRoutes from "./AdminRoutes";
 import AdminProducts from "../components/Admin/Products/AdminProducts";
 import AdminProductsEdit from "../components/Admin/Products/AdminProductsEdit";
+import AdminUsersEdit from "../components/Admin/Users/AdminUsersEdit";
+import AdminUsersNew from "../components/Admin/Users/AdminUsersNew";
+import AdminCategoriesNew from "../components/Admin/Category/AdminCategoriesNew";
+import AdminCategoriesEdit from "../components/Admin/Category/AdminCategoriesEdit";
+import AdminProductsNew from "../components/Admin/Products/AdminProductsNew";
+import AdminCategories from "../components/Admin/Category/AdminCategories";
 
 /**
  * Routes of the application
@@ -51,16 +57,45 @@ const Routes = () => {
           </PrivateRoute>
         }
       /> */}
+      {/* <Route path={URL.URL_DASHBOARD_ADMIN} element={<PrivateRoute> <AdminRoutes /> </PrivateRoute>}> */}
 
-      <Route path={URL.URL_DASHBOARD_ADMIN} element={<PrivateRoute> <AdminRoutes /> </PrivateRoute>}>
+      <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminRoutes />}>
         <Route index element={<AdminHomeView />} />
-
         <Route
           path={URL.URL_DASHBOARD_ADMIN_PRODUCTS}
           element={<AdminProducts />}
         />
-          <Route path={URL.URL_DASHBOARD_ADMIN_PRODUCTS_EDIT} element={<AdminProductsEdit />}/>
+        <Route
+          path={URL.URL_DASHBOARD_ADMIN_PRODUCTS_EDIT}
+          element={<AdminProductsEdit />}
+        />
+        <Route
+          path={URL.URL_DASHBOARD_ADMIN_PRODUCTS_CREATE}
+          element={<AdminProductsNew />}
+        />
+
         <Route path={URL.URL_DASHBOARD_ADMIN_USERS} element={<AdminUsers />} />
+        <Route
+          path={URL.URL_DASHBOARD_ADMIN_USERS_EDIT}
+          element={<AdminUsersEdit />}
+        />
+        <Route
+          path={URL.URL_DASHBOARD_ADMIN_USERS_CREATE}
+          element={<AdminUsersNew />}
+        />
+
+        <Route
+          path={URL.URL_DASHBOARD_ADMIN_CATEGORY}
+          element={<AdminCategories />}
+        />
+        <Route
+          path={URL.URL_DASHBOARD_ADMIN_CATEGORY_EDIT}
+          element={<AdminCategoriesEdit />}
+        />
+        <Route
+          path={URL.URL_DASHBOARD_ADMIN_CATEGORY_CREATE}
+          element={<AdminCategoriesNew />}
+        />
       </Route>
 
       {/* <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminRoutes />} /> */}

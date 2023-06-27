@@ -19,10 +19,14 @@ export const URL_EMAIL_VERIFICATION = "/email-verification/success";
 export const URL_DASHBOARD_ADMIN = '/dashboard-admin';
 export const URL_DASHBOARD_ADMIN_PRODUCTS = '/dashboard-admin/products';
 export const URL_DASHBOARD_ADMIN_PRODUCTS_EDIT = '/dashboard-admin/products/:id';
+export const URL_DASHBOARD_ADMIN_PRODUCTS_CREATE = '/dashboard-admin/products/new';
 
 export const URL_DASHBOARD_ADMIN_USERS = '/dashboard-admin/users';
+export const URL_DASHBOARD_ADMIN_USERS_EDIT = '/dashboard-admin/users/:id';
+export const URL_DASHBOARD_ADMIN_USERS_CREATE = '/dashboard-admin/users/new';
 
-
-
+export const URL_DASHBOARD_ADMIN_CATEGORY = '/dashboard-admin/category';
+export const URL_DASHBOARD_ADMIN_CATEGORY_EDIT = '/dashboard-admin/category/:id';
+export const URL_DASHBOARD_ADMIN_CATEGORY_CREATE = '/dashboard-admin/category/new';
 
 
