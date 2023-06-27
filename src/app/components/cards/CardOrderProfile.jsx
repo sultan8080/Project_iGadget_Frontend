@@ -1,6 +1,17 @@
 import React from "react";
 
 const CardOrderProfile = ({ order }) => {
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const formattedDate = formatDate(order.orderDate);
+
   return (
     <section className="flex items-end border p-6  w-2/3 mt-6 cursor-pointer justify-between">
       <div className="flex flex-col w-5/6">
@@ -24,7 +35,7 @@ const CardOrderProfile = ({ order }) => {
         </div>
       </div>
       <div className="flex flex-col text-gray-500 items-end">
-        <span>{order.orderDate}</span>
+        <span>{formattedDate}</span>
         <span>100 €</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"

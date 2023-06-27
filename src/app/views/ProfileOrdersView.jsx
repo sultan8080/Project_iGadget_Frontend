@@ -40,7 +40,7 @@ const ProfileOrdersView = () => {
   
   const fetchUserOrders = async (id) => {
     try {
-      const response = await apiBackEnd.get(`/users/${id}/orders`); // Utilisez apiBackEnd au lieu de axios.get
+      const response = await apiBackEnd.get(`/users/${id}/orders`);
       const userOrders = response.data;
       setOrders(userOrders);
     } catch (error) {
