@@ -8,35 +8,10 @@ import ProfileHeader from "../components/ProfileHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
-
 const ProfileOrdersView = () => {
-  // const [orders, setOrders] = useState([]);
-
-  // const ordersData = () => {
-  //   apiBackEnd
-  //     .get(URL_BACK_USERS_ORDERS)
-  //     .then((response) => {
-  //       const data = response.data;
-  //       console.log("====================================");
-  //       console.log("data orders : ", data);
-  //       console.log("====================================");
-  //       setOrders(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Erreur order profile page :", error);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   const userId = 10; // Remplacez par l'id de l'utilisateur connecté
-  //   ordersData(userId);
-  // }, []);
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const [userInfo, setUserInfo] = useState(null);
   const user = useSelector(selectUser);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -48,7 +23,9 @@ const ProfileOrdersView = () => {
           const userInfo = userData.find(
             (userInfo) => userInfo.email === user.username
           );
+          console.log(userInfo)
           setUserInfo(userInfo);
+          fetchUserOrders(userInfo.id);
         }
       } catch (error) {
         console.log(
@@ -60,21 +37,29 @@ const ProfileOrdersView = () => {
 
     fetchUserInfo();
   }, []);
+  
+  const fetchUserOrders = async (id) => {
+    try {
+      const response = await apiBackEnd.get(`/users/${id}/orders`); // Utilisez apiBackEnd au lieu de axios.get
+      const userOrders = response.data;
+      setOrders(userOrders);
+    } catch (error) {
+      console.log("Erreur lors de la récupération des commandes de l'utilisateur :", error);
+    }
+  };
+  
 
   return (
     <>
-      {/* <a href="/profil" className="text-4xl mr-8 mt-2">
-          <BsArrowReturnLeft />
-        </a> */}
       <ProfileHeader userInfo={userInfo} />
 
       <h2 className="text-center">Mes commandes</h2>
 
-      {/* <div className="flex flex-col items-center mb-24">
+      <div className="flex flex-col items-center mb-24">
         {orders.map((order) => (
           <CardOrderProfile key={order.id} order={order} />
         ))}
-      </div> */}
+      </div>
 
       {/* <h2 className="text-center">Mes retours</h2>
       <div className="flex flex-col items-center mb-24">
