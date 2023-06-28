@@ -9,7 +9,7 @@ const AdminRoutes = () => {
     <div>
       <AdminHeader />
       <AdminSideBar />
-      <div className="md:ml-64 pt-20 h-screen">
+      <div className="md:ml-72 md:mr-10 pt-20 h-screen">
         <Outlet />
       </div>
     </div>

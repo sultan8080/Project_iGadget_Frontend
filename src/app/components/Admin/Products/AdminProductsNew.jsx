@@ -2,6 +2,12 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+/**
+ * Component User Registration Form
+ *
+ * @author Sultan
+ */
+
 const AdminProductsNew = () => {
   // Define the initial form values
   const initialValues = {
@@ -12,7 +18,6 @@ const AdminProductsNew = () => {
     dimension: "",
     stock: false,
     createdAt: "",
-    productimages: [],
   };
 
   // Define validation schema using Yup

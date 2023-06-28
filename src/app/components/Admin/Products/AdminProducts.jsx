@@ -6,13 +6,21 @@ import DataTable from "react-data-table-component";
 import axios from "axios";
 import { array } from "yup";
 import { BsCheckSquareFill } from "react-icons/bs";
+import apiBackEnd from "../../../api/backend/api.Backend";
+import { URL_BACK_PRODUCTS } from "../../../constants/urls/urlBackEnd";
+
+/**
+ * Component new product
+ *
+ * @author Sultan
+ */
 
 export const AdminProducts = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/products")
+    apiBackEnd
+      .get(URL_BACK_PRODUCTS)
       .then((response) => {
         setData(response.data);
         console.log(data);
@@ -21,8 +29,6 @@ export const AdminProducts = () => {
         console.error("Error fetching data : ", error);
       });
   }, []);
-
-  // Sample data for the DataTable
 
   // Columns for the DataTable
   const columns = [
