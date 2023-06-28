@@ -12,3 +12,5 @@ export const URL_BACK_UPLOADS_MEDIA = '/uploads/media/';
 export const URL_BACK_UPLOADS_AVATAR = '/uploads/avatar/';
 export const URL_BACK_NO_API = 'http://127.0.0.1:8000';
 export const URL_BACK_VERIFY_EMAIL = '/registration';
+export const URL_BACK_END_ORDER_DETAILS = '/order_details/'
+export const URL_BACK_END_ORDER_STATUSES = '/order_statuses/'

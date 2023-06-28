@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import CardOrderProfile from "../components/cards/CardOrderProfile";
-import { BsArrowReturnLeft } from "react-icons/bs";
-import { signOut, selectUser } from "../redux-store/authenticationSlice";
 import apiBackEnd from "../api/backend/api.Backend";
-import { URL_BACK_REGISTRATION } from "../constants/urls/urlBackEnd";
+import { URL_BACK_REGISTRATION, URL_BACK_END_ORDER_DETAILS, URL_BACK_END_ORDER_STATUSES } from "../constants/urls/urlBackEnd";
 import ProfileHeader from "../components/ProfileHeader";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { selectUser } from "../redux-store/authenticationSlice";
 
 const ProfileOrdersView = () => {
   const [userInfo, setUserInfo] = useState(null);
-  const user = useSelector(selectUser);
   const [orders, setOrders] = useState([]);
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -23,7 +21,6 @@ const ProfileOrdersView = () => {
           const userInfo = userData.find(
             (userInfo) => userInfo.email === user.username
           );
-          console.log(userInfo)
           setUserInfo(userInfo);
           fetchUserOrders(userInfo.id);
         }
@@ -37,7 +34,7 @@ const ProfileOrdersView = () => {
 
     fetchUserInfo();
   }, []);
-  
+
   const fetchUserOrders = async (id) => {
     try {
       const response = await apiBackEnd.get(`/users/${id}/orders`);
@@ -47,6 +44,17 @@ const ProfileOrdersView = () => {
       console.log("Erreur lors de la récupération des commandes de l'utilisateur :", error);
     }
   };
+
+  // En cours developpement
+  // const fetchOrderDetails = async (orderDetailUrl) => {
+  //   try {
+  //     const response = await apiBackEnd.get(URL_BACK_END_ORDER_DETAILS);
+  //     const orderDetail = response.data;
+  //     console.log("Détails de la commande :", orderDetail);
+  //   } catch (error) {
+  //     console.log("Erreur lors de la récupération des détails de la commande :", error);
+  //   }
+  // };
   
 
   return (
@@ -60,15 +68,16 @@ const ProfileOrdersView = () => {
           <CardOrderProfile key={order.id} order={order} />
         ))}
       </div>
-
-      {/* <h2 className="text-center">Mes retours</h2>
-      <div className="flex flex-col items-center mb-24">
-        {ordersReturns.map((orderReturn) => (
-          <CardOrderProfile key={orderReturn.id} order={orderReturn} />
-        ))}
-      </div> */}
     </>
   );
 };
 
 export default ProfileOrdersView;
+
+
+{/* <h2 className="text-center">Mes retours</h2>
+<div className="flex flex-col items-center mb-24">
+  {ordersReturns.map((orderReturn) => (
+    <CardOrderProfile key={orderReturn.id} order={orderReturn} />
+  ))}
+</div> */}
