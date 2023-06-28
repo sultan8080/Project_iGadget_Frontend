@@ -3,11 +3,11 @@ import { BiSquare } from "react-icons/bi";
 import React, { useEffect, useState } from "react";
 import { RiEdit2Fill, RiDeleteBin5Fill, RiEyeFill } from "react-icons/ri";
 import DataTable from "react-data-table-component";
-import axios from "axios";
-import { array } from "yup";
 import { BsCheckSquareFill } from "react-icons/bs";
 import apiBackEnd from "../../../api/backend/api.Backend";
 import { URL_BACK_PRODUCTS } from "../../../constants/urls/urlBackEnd";
+import { selectToken } from "../../../redux-store/authenticationSlice";
+import { useSelector } from "react-redux";
 
 /**
  * Component new product
@@ -17,10 +17,16 @@ import { URL_BACK_PRODUCTS } from "../../../constants/urls/urlBackEnd";
 
 export const AdminProducts = () => {
   const [data, setData] = useState([]);
+  const token = useSelector(selectToken);
 
   useEffect(() => {
     apiBackEnd
-      .get(URL_BACK_PRODUCTS)
+      .get(URL_BACK_PRODUCTS, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
         setData(response.data);
         console.log(data);
@@ -140,9 +146,7 @@ export const AdminProducts = () => {
           <span>
             <BiSquare />
           </span>
-          <div className="text-lg pl-3">
-            TOUS LES PRODUITS (20 produits par page)
-          </div>
+          <div className="text-lg pl-3">TOUS LES PRODUITS</div>
         </div>
 
         <button
@@ -155,7 +159,6 @@ export const AdminProducts = () => {
       </div>
       <div style={{ overflowX: "auto" }}>
         <DataTable
-          // title="User Data"
           data={data}
           columns={columns}
           highlightOnHover
