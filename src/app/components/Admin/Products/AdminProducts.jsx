@@ -8,6 +8,7 @@ import apiBackEnd from "../../../api/backend/api.Backend";
 import { URL_BACK_PRODUCTS } from "../../../constants/urls/urlBackEnd";
 import { selectToken } from "../../../redux-store/authenticationSlice";
 import { useSelector } from "react-redux";
+import moment from "moment";
 
 /**
  * Component new product
@@ -46,26 +47,26 @@ export const AdminProducts = () => {
       sortable: true,
     },
     {
-      name: "Nom du Produit",
+      name: "NOM DU PRODUIT",
       selector: "name",
       sortable: true,
       width: "150px",
     },
     {
-      name: "Reference",
+      name: "REFERENCE",
       selector: "reference",
       sortable: true,
       width: "150px",
     },
-    { name: "Prix", selector: "price", width: "100px", sortable: true },
-    { name: "Description", selector: "description", width: "300px" },
-    { name: "Dimension", selector: "dimension", width: "150px" },
+    { name: "PRIX", selector: "price", width: "100px", sortable: true },
+    { name: "DESCRIPTION", selector: "description", width: "300px" },
+    { name: "DIMENSION", selector: "dimension", width: "150px" },
     {
-      name: "Disponibilité",
+      name: "DISPONIBILITÉ",
       width: "120px",
       selector: "stock",
       cell: (row) => (
-        <div className="text-center">
+        <div className="flex justify-center items-center">
           {row.stock ? (
             <span className=" text-primary">
               <BsCheckSquareFill />
@@ -79,9 +80,14 @@ export const AdminProducts = () => {
         </div>
       ),
     },
-    { name: "Date", selector: "createdAt", width: "100px" },
     {
-      name: "Image",
+      name: "DATE",
+      selector: "createdAt",
+      width: "100px",
+      cell: (row) => moment(row.date).format("DD-MM-YYYY"),
+    },
+    {
+      name: "IMAGE",
       selector: "productimages",
       width: "200px",
       cell: (row) => (
@@ -98,7 +104,7 @@ export const AdminProducts = () => {
       ),
     },
     {
-      name: "Actions",
+      name: "ACTIONS",
       width: "250px",
       cell: (row) => (
         <div className="flex">
@@ -135,8 +141,8 @@ export const AdminProducts = () => {
   // Handler for delete button click
   const handleDelete = (id) => {
     // Handle delete logic
-    console.log("Delete clicked for ID:", id);
-    setData((prevData) => prevData.filter((item) => item.id !== id));
+    // console.log("Delete clicked for ID:", id);
+    // setData((prevData) => prevData.filter((item) => item.id !== id));
   };
 
   return (

@@ -6,6 +6,7 @@ export const URL_BACK_CONFIRM_VERIFY_EMAIL = 'api/email-verify/';
 export const URL_BACK_PRODUCTS = '/products';
 export const URL_BACK_PRODUCTIMAGES = '/productimages';
 export const URL_BACK_CATEGORIES = '/categories';
+export const URL_BACK_USERS = '/users';
 
 export const URL_BACK_UPLOADS_MEDIA = '/uploads/media/';
 export const URL_BACK_NO_API = 'http://127.0.0.1:8000';

@@ -5,6 +5,9 @@ import { RiEdit2Fill, RiDeleteBin5Fill, RiEyeFill } from "react-icons/ri";
 import DataTable from "react-data-table-component";
 import apiBackEnd from "../../../api/backend/api.Backend";
 import { URL_BACK_CATEGORIES } from "../../../constants/urls/urlBackEnd";
+import { useSelector } from "react-redux";
+import { selectToken } from "../../../redux-store/authenticationSlice";
+import moment from "moment";
 
 /**
  * Component display categories
@@ -14,10 +17,16 @@ import { URL_BACK_CATEGORIES } from "../../../constants/urls/urlBackEnd";
 
 export const AdminCategories = () => {
   const [data, setData] = useState([]);
+  const token = useSelector(selectToken);
 
   useEffect(() => {
     apiBackEnd
-      .get(URL_BACK_CATEGORIES)
+      .get(URL_BACK_CATEGORIES, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
         setData(response.data);
         console.log(data);
@@ -36,14 +45,14 @@ export const AdminCategories = () => {
       sortable: true,
     },
     {
-      name: "Nom du catégorie",
+      name: "NOM DU CATÉGORIE",
       selector: "name",
       sortable: true,
     },
 
-    { name: "Date de création", selector: "createdAt" },
+    { name: "dATE DE CRÉATION", selector: "createdAt" },
     {
-      name: "Actions",
+      name: "ACTIONS",
       width: "250px",
       cell: (row) => (
         <div className="flex">
@@ -80,8 +89,8 @@ export const AdminCategories = () => {
   // Handler for delete button click
   const handleDelete = (id) => {
     // Handle delete logic
-    console.log("Delete clicked for ID:", id);
-    setData((prevData) => prevData.filter((item) => item.id !== id));
+    // console.log("Delete clicked for ID:", id);
+    // setData((prevData) => prevData.filter((item) => item.id !== id));
   };
 
   return (
