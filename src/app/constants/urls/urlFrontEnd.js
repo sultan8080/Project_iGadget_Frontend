@@ -29,4 +29,7 @@ export const URL_DASHBOARD_ADMIN_CATEGORY = '/dashboard-admin/category';
 export const URL_DASHBOARD_ADMIN_CATEGORY_EDIT = '/dashboard-admin/category/:id';
 export const URL_DASHBOARD_ADMIN_CATEGORY_CREATE = '/dashboard-admin/category/new';
 
+export const URL_DASHBOARD_ADMIN_PROFILE = '/dashboard-admin/profile';
+export const URL_DASHBOARD_ADMIN_CHANGEPASSWORD = '/dashboard-admin/change-password';
+
 

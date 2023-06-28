@@ -32,6 +32,8 @@ import AdminCategoriesNew from "../components/Admin/Category/AdminCategoriesNew"
 import AdminCategoriesEdit from "../components/Admin/Category/AdminCategoriesEdit";
 import AdminProductsNew from "../components/Admin/Products/AdminProductsNew";
 import AdminCategories from "../components/Admin/Category/AdminCategories";
+import ChangePassword from "../components/Admin/Profile/ChangePassword";
+import Profile from "../components/Admin/Profile/Profile";
 
 /**
  * Routes of the application
@@ -57,9 +59,16 @@ const Routes = () => {
           </PrivateRoute>
         }
       /> */}
-      <Route path={URL.URL_DASHBOARD_ADMIN} element={<PrivateRoute> <AdminRoutes /> </PrivateRoute>}>
-
-      {/* <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminRoutes />}> */}
+      <Route
+        path={URL.URL_DASHBOARD_ADMIN}
+        element={
+          <PrivateRoute>
+            {" "}
+            <AdminRoutes />{" "}
+          </PrivateRoute>
+        }
+      >
+        {/* <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminRoutes />}> */}
         <Route index element={<AdminHomeView />} />
         <Route
           path={URL.URL_DASHBOARD_ADMIN_PRODUCTS}
@@ -95,6 +104,11 @@ const Routes = () => {
         <Route
           path={URL.URL_DASHBOARD_ADMIN_CATEGORY_CREATE}
           element={<AdminCategoriesNew />}
+        />
+        <Route path={URL.URL_DASHBOARD_ADMIN_PROFILE} element={<Profile />} />
+        <Route
+          path={URL.URL_DASHBOARD_ADMIN_CHANGEPASSWORD}
+          element={<ChangePassword />}
         />
       </Route>
 

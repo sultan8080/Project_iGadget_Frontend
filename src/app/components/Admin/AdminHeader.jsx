@@ -3,7 +3,7 @@ import { AiOutlineMenuFold, AiFillEye } from "react-icons/ai";
 import { BsFillBellFill, BsFillChatSquareDotsFill } from "react-icons/bs";
 import { signOut } from "../../redux-store/authenticationSlice";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import logo from "../../assets/logo_iGadget.png";
 import userPhoto from "../../assets/avatar/1.jpg";
@@ -238,21 +238,21 @@ function AdminHeader() {
             >
               <ul className="py-1 w-30" aria-labelledby="dropdown">
                 <li>
-                  <a
-                    href="#"
+                  <NavLink
+                    to="/dashboard-admin/profile"
                     className="block py-2 px-4 text-sm hover:bg-primary"
                   >
                     Mon Profile
-                  </a>
+                  </NavLink>
                 </li>
                 <hr />
                 <li>
-                  <a
-                    href="#"
+                  <NavLink
+                    to="/dashboard-admin/change-password"
                     className="block py-2 px-4 text-sm hover:bg-primary"
                   >
                     Changer le Mot de passe
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
               <hr />
