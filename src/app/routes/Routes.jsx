@@ -57,9 +57,9 @@ const Routes = () => {
           </PrivateRoute>
         }
       /> */}
-      {/* <Route path={URL.URL_DASHBOARD_ADMIN} element={<PrivateRoute> <AdminRoutes /> </PrivateRoute>}> */}
+      <Route path={URL.URL_DASHBOARD_ADMIN} element={<PrivateRoute> <AdminRoutes /> </PrivateRoute>}>
 
-      <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminRoutes />}>
+      {/* <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminRoutes />}> */}
         <Route index element={<AdminHomeView />} />
         <Route
           path={URL.URL_DASHBOARD_ADMIN_PRODUCTS}

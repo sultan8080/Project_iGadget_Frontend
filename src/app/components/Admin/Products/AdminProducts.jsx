@@ -1,9 +1,11 @@
-import { AiFillPlusSquare } from "react-icons/ai";
+import { AiFillCloseSquare, AiFillPlusSquare } from "react-icons/ai";
 import { BiSquare } from "react-icons/bi";
 import React, { useEffect, useState } from "react";
 import { RiEdit2Fill, RiDeleteBin5Fill, RiEyeFill } from "react-icons/ri";
 import DataTable from "react-data-table-component";
 import axios from "axios";
+import { array } from "yup";
+import { BsCheckSquareFill } from "react-icons/bs";
 
 export const AdminProducts = () => {
   const [data, setData] = useState([]);
@@ -28,32 +30,80 @@ export const AdminProducts = () => {
       name: "ID",
       selector: "id",
       headerClass: "font-bold",
-      style: {
-        width: "20px",
-      }
+      width: "60px",
+      sortable: true,
     },
-    { name: "Nom du Produit", selector: "reference", headerClass: "font-bold", style: {
-      width: "30px",
-    } },
-    { name: "Reference", selector: "name", sortable: true },
-    { name: "Prix", selector: "price" },
-    { name: "Description", selector: "description" },
-    { name: "Dimension", selector: "dimension" },
-    { name: "Disponibilité", selector: "stock" },
-    { name: "Date", selector: "createdAt" },
-    { name: "Image", selector: "[productimages]" },
+    {
+      name: "Nom du Produit",
+      selector: "name",
+      sortable: true,
+      width: "150px",
+    },
+    {
+      name: "Reference",
+      selector: "reference",
+      sortable: true,
+      width: "150px",
+    },
+    { name: "Prix", selector: "price", width: "100px", sortable: true },
+    { name: "Description", selector: "description", width: "300px" },
+    { name: "Dimension", selector: "dimension", width: "150px" },
+    {
+      name: "Disponibilité",
+      width: "120px",
+      selector: "stock",
+      cell: (row) => (
+        <div className="text-center">
+          {row.stock ? (
+            <span className=" text-primary">
+              <BsCheckSquareFill />
+            </span>
+          ) : (
+            <span className="text-red">
+              <AiFillCloseSquare />
+            </span>
+          )}
+          {row.stock ? "oui" : "rupture"}
+        </div>
+      ),
+    },
+    { name: "Date", selector: "createdAt", width: "100px" },
+    {
+      name: "Image",
+      selector: "productimages",
+      width: "200px",
+      cell: (row) => (
+        <>
+          {row.productimages.map((image, index) => (
+            <img
+              key={index}
+              src={image.image_name}
+              alt={`Prduct Image ${index}`}
+              style={{ width: "50px", height: "50px" }}
+            />
+          ))}
+        </>
+      ),
+    },
     {
       name: "Actions",
+      width: "250px",
       cell: (row) => (
         <div className="flex">
-          <div className="btn btn-secondary" onClick={() => handleView(row)}>
+          <div
+            className="btn btn-secondary-dark m-1"
+            onClick={() => handleView(row)}
+          >
             <RiEyeFill />
           </div>
 
-          <div className="btn btn-third" onClick={() => handleEdit(row)}>
+          <div className="btn btn-third m-1" onClick={() => handleEdit(row)}>
             <RiEdit2Fill />
           </div>
-          <div className="btn btn-red" onClick={() => handleDelete(row.id)}>
+          <div
+            className="btn btn-red m-1 shadow-md"
+            onClick={() => handleDelete(row.id)}
+          >
             <RiDeleteBin5Fill />
           </div>
         </div>
@@ -97,12 +147,11 @@ export const AdminProducts = () => {
           Ajouter un nouveau Produit
         </button>
       </div>
-      <div>
+      <div style={{ overflowX: "auto" }}>
         <DataTable
           // title="User Data"
           data={data}
           columns={columns}
-          searchable
           highlightOnHover
           pagination
           striped
@@ -111,7 +160,6 @@ export const AdminProducts = () => {
           noDataComponent="No data found"
           selectableRowsComponentProps={{ inkDisabled: true }}
           selectableRowSelected={(row) => row.isSelected}
-          theme="solarized"
         />
       </div>
     </div>
