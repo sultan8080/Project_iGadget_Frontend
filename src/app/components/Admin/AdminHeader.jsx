@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import logo from "../../assets/logo_iGadget.png";
-import userPhoto from "../../assets/avatar/1.jpg";
+import userPhoto from "../../assets/avatar/Admin-Photo-1.jpg";
 
 function AdminHeader() {
   const dispatch = useDispatch();
