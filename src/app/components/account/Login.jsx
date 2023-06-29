@@ -12,7 +12,6 @@ import {
 } from "../../constants/urls/urlFrontEnd";
 import {
   selectHasRole,
-  selectIsVerified,
   signIn,
 } from "../../redux-store/authenticationSlice";
 import { authenticate } from "./../../api/backend/account";
@@ -28,7 +27,6 @@ import { isAfter } from "date-fns";
 const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
 
-  const isVerfiedEmail = useSelector((state) => selectIsVerified(state));
   const isUser = useSelector((state) => selectHasRole(state, ROLE_USER));
   const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
 

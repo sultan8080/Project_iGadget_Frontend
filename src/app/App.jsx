@@ -52,12 +52,13 @@ const App = () => {
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
       <div className="flex h-full cursor-default relative flex-col bg-white overflow-x-hidden">
         {/* {isLogged && <IdleTimerCustom />} */}
-        
+
         {isHomePage() ? <NavbarHome /> : <Navbar />}
 
         {isLogin ? null : (
           <>
-            <main className="mt-24 grow">
+            {/* <main className="mt-24 grow"></main> */}
+            <main>
               <Routes />
             </main>
 
@@ -75,7 +76,6 @@ const App = () => {
             <Footer />
           </>
         )}
-        
       </div>
     </SearchContext.Provider>
   );
