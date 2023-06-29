@@ -1,15 +1,18 @@
 import React from "react";
 import StoreList from "./StoreList";
 import AccountList from "./AccountList";
-import { getToken } from "../../services/tokenServices";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { cartItemCountSelector } from "../../redux-store/cartSlice";
 import { useSelector } from "react-redux";
-
-const token = getToken();
+import { Link } from "react-router-dom";
+import { selectIsLogged } from "../../redux-store/authenticationSlice";
 
 const MainNav = () => {
   const cartItemCount = useSelector((state) => state.cart.cart.length);
+
+  const isConnected = useSelector(selectIsLogged);
+ 
+
   return (
     <>
       <button
@@ -42,7 +45,7 @@ const MainNav = () => {
           </li>
 
           <li>
-            {token ? (
+            {isConnected ? (
               <AccountList />
             ) : (
               <div className="text-white flex items-center justify-between">
@@ -59,7 +62,7 @@ const MainNav = () => {
                   />
                 </svg>
                 <a href="/login" className="block px-4 py-2 whitespace-nowrap">
-                  Mon compte
+                  Se Connecter
                 </a>
               </div>
             )}
@@ -95,12 +98,12 @@ const MainNav = () => {
           </li>
 
           <li>
-            <a
-              href="#"
+            <Link
+              to="/contact"
               className="whitespace-nowrap block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 "
             >
               Besoin d'aide
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

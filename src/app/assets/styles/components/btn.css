@@ -7,7 +7,7 @@
 }
 
 .btn-primary {
-  @apply text-white bg-primary hover:bg-primary-light hover:text-white active:ring-primary;
+  @apply text-white bg-primary hover:bg-primary-light hover:text-white active:ring-primary hover:border-primary;
 }
 
 .btn-primary-dark {
@@ -18,13 +18,12 @@
   @apply text-white bg-third hover:bg-third-dark hover:text-white active:ring-third;
 }
 .btn-third-outline {
-  @apply text-third-dark border-third-light hover:border-third hover:text-white hover:bg-third active:ring-third;
+  @apply text-third-dark border-third-light bg-white hover:border-third hover:text-white hover:bg-third active:ring-third;
 }
 
 .btn-secondary {
   @apply text-white bg-secondary hover:bg-secondary-dark hover:text-white active:ring-secondary-light;
 }
-
 
 .btn-secondary-dark {
   @apply text-white bg-primary hover:bg-primary-dark hover:text-white active:ring-primary;

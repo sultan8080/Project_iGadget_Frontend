@@ -1,10 +1,14 @@
 import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "../../redux-store/authenticationSlice";
+import { URL_HOME } from "../../constants/urls/urlFrontEnd";
+import { useDispatch } from "react-redux";
 
 const menuItems = [
   { name: "Mon compte", url: "/profil" },
   { name: "Mes commandes", url: "/profile-orders" },
+  { name: "Déconnecter" },
 ];
 
 function classNames(...classes) {
@@ -12,6 +16,16 @@ function classNames(...classes) {
 }
 
 const AccountList = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    dispatch(signOut());
+    navigate(URL_HOME);
+  };
+
+  
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -28,8 +42,8 @@ const AccountList = () => {
               clipRule="evenodd"
             />
           </svg>
-          <a href="/profile" className="block px-4 py-2 whitespace-nowrap">
-            Juline
+          <a href="/profil" className="block px-4 py-2 whitespace-nowrap">
+            Rachael
           </a>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +73,7 @@ const AccountList = () => {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {menuItems.map((menuItem, index) => (
+            {menuItems.slice(0, 2).map((menuItem, index) => (
               <Menu.Item key={index}>
                 {({ active }) => (
                   <Link
@@ -74,6 +88,19 @@ const AccountList = () => {
                 )}
               </Menu.Item>
             ))}
+            <Menu.Item>
+              {({ active }) => (
+                <div
+                  className={classNames(
+                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    "block px-4 py-2 text-sm capitalize"
+                  )}
+                  onClick={handleLogOut}
+                >
+                  {menuItems[2].name}
+                </div>
+              )}
+            </Menu.Item>
           </div>
         </Menu.Items>
       </Transition>

@@ -6,7 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import FormModel from "../form/FormModel";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import apiBackEnd from "../../api/backend/api.Backend";
-import { URL_BACK_REGISTRATION, URL_BACK_VERIFY_EMAIL } from "../../constants/urls/urlBackEnd";
+import {
+  URL_BACK_REGISTRATION,
+  URL_BACK_VERIFY_EMAIL,
+} from "../../constants/urls/urlBackEnd";
 import { toast } from "react-toastify";
 import axios from "axios";
 

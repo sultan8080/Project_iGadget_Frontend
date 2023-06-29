@@ -30,16 +30,16 @@ module.exports = {
                         transform: 'translateX(0)'
                     },
                 },
-                
+
 
             },
             animation: {
                 'appear': 'appear 1s ',
-                
+
             }
         },
     },
-    
+
     plugins: [
         require('@tailwindcss/forms'),
         require("daisyui")

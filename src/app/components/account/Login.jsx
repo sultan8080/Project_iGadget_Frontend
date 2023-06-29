@@ -10,10 +10,7 @@ import {
   URL_DASHBOARD_ADMIN,
   URL_PROFILE,
 } from "../../constants/urls/urlFrontEnd";
-import {
-  selectHasRole,
-  signIn,
-} from "../../redux-store/authenticationSlice";
+import { selectHasRole, signIn } from "../../redux-store/authenticationSlice";
 import { authenticate } from "./../../api/backend/account";
 import { ROLE_ADMIN, ROLE_USER } from "../../constants/rolesConstant";
 import { getPayloadToken } from "../../services/tokenServices";
@@ -32,7 +29,7 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (isAdmin) {
       navigate(URL_DASHBOARD_ADMIN);

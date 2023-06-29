@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { signOut, selectUser } from "../redux-store/authenticationSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { URL_HOME } from "../constants/urls/urlFrontEnd";
+import { selectUser } from "../redux-store/authenticationSlice";
+import { useSelector } from "react-redux";
 import apiBackEnd from "../api/backend/api.Backend";
-import {
-  URL_BACK_REGISTRATION
-} from "../constants/urls/urlBackEnd";
+import { URL_BACK_REGISTRATION } from "../constants/urls/urlBackEnd";
 import ProfileHeader from "../components/ProfileHeader";
 
 const ProfileView = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const user = useSelector(selectUser);
   const [userInfo, setUserInfo] = useState(null);
 
@@ -39,25 +32,12 @@ const ProfileView = () => {
     fetchUserInfo();
   }, []);
 
-  const handleLogOut = () => {
-    dispatch(signOut());
-    navigate(URL_HOME);
-  };
-
   return (
     <>
       <ProfileHeader userInfo={userInfo} />
 
-      <div className="flex justify-between mx-80">
+      <div className="text-left mx-80">
         <h3>Bonjour {userInfo && userInfo.firstname}</h3>
-
-        <button
-          type="button"
-          onClick={handleLogOut}
-          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium rounded-full border btn-red"
-        >
-          Déconnecter
-        </button>
       </div>
 
       <div className="flex flex-col items-center mb-24">
