@@ -1,6 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-import { getPayloadToken, isTokenValid, setToken } from './..//services/tokenServices';
+import {
+  getPayloadToken,
+  isTokenValid,
+  setToken,
+} from "./..//services/tokenServices";
 
 /**
  * initial state: {
@@ -11,10 +15,10 @@ import { getPayloadToken, isTokenValid, setToken } from './..//services/tokenSer
  * @author Peter Mollet
  */
 const initialState = {
-    isAuthenticated: false,
-    token: null,
-    user: null,
-    isVerified: false,
+  isAuthenticated: false,
+  token: null,
+  user: null,
+  isVerified: false,
 };
 
 export const authenticationSlice = createSlice({
@@ -50,9 +54,9 @@ export const selectUser = (state) => state.auth.user;
 export const selectToken = (state) => state.auth.token;
 export const selectIsVerified = (state) => state.auth.isVerified;
 export const selectHasRole = (state, roles) => {
-    if (!roles || roles.length === 0) return true;
-    const user = state.auth.user;
-    if (!user) return false;
-    return user.roles.some((role) => roles.includes(role));
+  if (!roles || roles.length === 0) return true;
+  const user = state.auth.user;
+  if (!user) return false;
+  return user.roles.some((role) => roles.includes(role));
 };
 export default authenticationSlice.reducer;

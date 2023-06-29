@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 const menuItems = [
-  { name: "Mon compte", url: "/profile" },
+  { name: "Mon compte", url: "/profil" },
   { name: "Mes commandes", url: "/profile-orders" },
 ];
 
@@ -61,15 +62,15 @@ const AccountList = () => {
             {menuItems.map((menuItem, index) => (
               <Menu.Item key={index}>
                 {({ active }) => (
-                  <a
-                    href={menuItem.url}
+                  <Link
+                    to={menuItem.url}
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       "block px-4 py-2 text-sm capitalize"
                     )}
                   >
                     {menuItem.name}
-                  </a>
+                  </Link>
                 )}
               </Menu.Item>
             ))}

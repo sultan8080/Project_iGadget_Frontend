@@ -1,6 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
+import authenticationReducer from "./authenticationSlice";
+import { cartReducer } from "./cartSlice";
+import storage from "redux-persist/lib/storage";
+import { persistStore, persistReducer } from "redux-persist";
 
-import authenticationReducer from './authenticationSlice';
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, cartReducer);
 
 /**
  * To configure the store redux.
@@ -8,7 +18,14 @@ import authenticationReducer from './authenticationSlice';
  * @author Peter Mollet
  */
 export const store = configureStore({
-    reducer: {
-        auth: authenticationReducer,
-    },
+  reducer: {
+    auth: authenticationReducer,
+    cart: persistedReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
+
+export const persistor = persistStore(store);

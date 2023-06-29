@@ -1,65 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CardOrderProfile from "../components/cards/CardOrderProfile";
-import { BsArrowReturnLeft } from "react-icons/bs";
-
-const orders = [
-  {
-    id: 1,
-    status: "En cours",
-    nb_article: 2,
-    date: "22-03-2023",
-    price: "1 228,00",
-    pictures: [
-      "src/app/assets/test/WatchSE_argent_3.png",
-      "src/app/assets/test/MacBookPro_gris_3.png",
-    ],
-  },
-  {
-    id: 2,
-    status: "Colis livré",
-    nb_article: 1,
-    date: "18-01-2023",
-    price: "159,00",
-    pictures: "src/app/assets/test/WatchSE_argent_3.png",
-  },
-  {
-    id: 3,
-    status: "Colis livré",
-    nb_article: 1,
-    date: "18-01-2023",
-    price: "159,00",
-    pictures: "src/app/assets/test/WatchSE_argent_3.png",
-  },
-];
-
-const ordersReturns = [
-  {
-    id: 1,
-    status: "Returns effectué",
-    nb_article: 2,
-    date: "22-03-2023",
-    price: "1 228,00",
-    pictures: "src/app/assets/test/EchoSphere_noir_3.png"
-  }
-];
+import apiBackEnd from "../api/backend/api.Backend";
+import { URL_BACK_REGISTRATION, URL_BACK_END_ORDER_DETAILS, URL_BACK_END_ORDER_STATUSES } from "../constants/urls/urlBackEnd";
+import ProfileHeader from "../components/ProfileHeader";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from "../redux-store/authenticationSlice";
 
 const ProfileOrdersView = () => {
+  const [userInfo, setUserInfo] = useState(null);
+  const [orders, setOrders] = useState([]);
+  const user = useSelector(selectUser);
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const response = await apiBackEnd.get(URL_BACK_REGISTRATION);
+        const userData = response.data;
+
+        if (user && user.username) {
+          const userInfo = userData.find(
+            (userInfo) => userInfo.email === user.username
+          );
+          setUserInfo(userInfo);
+          fetchUserOrders(userInfo.id);
+        }
+      } catch (error) {
+        console.log(
+          "Erreur lors de la récupération des informations de l'utilisateur :",
+          error
+        );
+      }
+    };
+
+    fetchUserInfo();
+  }, []);
+
+  const fetchUserOrders = async (id) => {
+    try {
+      const response = await apiBackEnd.get(`/users/${id}/orders`);
+      const userOrders = response.data;
+      setOrders(userOrders);
+    } catch (error) {
+      console.log("Erreur lors de la récupération des commandes de l'utilisateur :", error);
+    }
+  };
+
+  // En cours developpement
+  // const fetchOrderDetails = async (orderDetailUrl) => {
+  //   try {
+  //     const response = await apiBackEnd.get(URL_BACK_END_ORDER_DETAILS);
+  //     const orderDetail = response.data;
+  //     console.log("Détails de la commande :", orderDetail);
+  //   } catch (error) {
+  //     console.log("Erreur lors de la récupération des détails de la commande :", error);
+  //   }
+  // };
+  
+
   return (
     <>
-      <div className="h-32 overflow-hidden bg-primary"></div>
-
-      <div className="flex ml-40">
-        <a href="/profile" className="text-4xl mr-8 mt-2">
-          <BsArrowReturnLeft />
-        </a>
-        <div className="w-36 h-36 relative -mt-16 border-8 border-white rounded-full overflow-hidden">
-          <img
-            className="object-cover object-center h-32"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-            alt="Woman looking front"
-          />
-        </div>
-      </div>
+      <ProfileHeader userInfo={userInfo} />
 
       <h2 className="text-center">Mes commandes</h2>
 
@@ -68,16 +68,16 @@ const ProfileOrdersView = () => {
           <CardOrderProfile key={order.id} order={order} />
         ))}
       </div>
-
-      <h2 className="text-center">Mes retours</h2>
-      <div className="flex flex-col items-center mb-24">
-        {ordersReturns.map((orderReturn) => (
-          <CardOrderProfile key={orderReturn.id} order={orderReturn} />
-        ))}
-      </div>
-
     </>
   );
 };
 
 export default ProfileOrdersView;
+
+
+{/* <h2 className="text-center">Mes retours</h2>
+<div className="flex flex-col items-center mb-24">
+  {ordersReturns.map((orderReturn) => (
+    <CardOrderProfile key={orderReturn.id} order={orderReturn} />
+  ))}
+</div> */}

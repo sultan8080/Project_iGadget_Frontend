@@ -1,103 +1,133 @@
 import React, { useState, useEffect } from "react";
 import { RxDotFilled } from "react-icons/rx";
+import apiBackEnd from "../../api/backend/api.Backend";
+import {
+  URL_BACK_LATEST_PRODUCTS,
+  URL_BACK_UPLOADS_MEDIA,
+  URL_BACK_NO_API,
+} from "../../constants/urls/urlBackEnd";
+import { connect } from "react-redux";
+import { addToCart } from "../../redux-store/cartSlice";
 
-const slides = [
-  {
-    url: "src/app/assets/test/MacBookPro_gris_3.png",
-    alt: "Image 1",
-    title: "1 ThinkBook 13”",
-    description:
-      "Avec un processeur rapide, une RAM de 16 Go, un disque dur SSD de grande capacité, une carte graphique dédiée, et une résolution d'écran élevée. Le ThinkBook 13” est l’ordinateur portable qu’il vous faut !",
-  },
-  {
-    url: "src/app/assets/test/WatchSE_argent_3.png",
-    alt: "Image 1",
-    title: "2 Nova Watch",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a sapien sed metus eleifend egestas. Curabitur posuere, felis eu rhoncus facilisis, elit massa lobortis lectus, eu pharetra orci neque in nulla. ",
-  },
-  {
-    url: "src/app/assets/test/EchoSphere_noir_3.png",
-    alt: "Image 1",
-    title: "3 EchoSphere",
-    description:
-      "zerzerzer ezrzer Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a sapien sed metus eleifend egestas. Curabitur posuere, felis eu rhoncus facilisis, elit massa lobortis lectus, eu pharetra orci neque in nulla. ",
-  },
-];
-
-const CarouselHome = () => {
+const CarouselHome = ({ selectedProducts, addToCart }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slides, setSlides] = useState([]);
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const carouselData = () => {
+    apiBackEnd
+      .get(URL_BACK_LATEST_PRODUCTS)
+      .then((response) => {
+        const data = response.data;
+        setSlides(data);
+      })
+      .catch((error) => {
+        console.error("Erreur carousel home page :", error);
+      });
+  };
+
+  const handleClick = (product) => {
+    addToCart(product);
+  };
+
+  useEffect(() => {
+    carouselData();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % slides.length;
-      setCurrentIndex(nextIndex);
-    }, 7000);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [slides]);
 
   return (
-    <div className="container">
-      <section className="w-full m-auto relative">
-        
-        {slides.map((item, index) => (
-          <React.Fragment key={index}>
-            {index === currentIndex && (
-              <div className="animate-appear">
-                <div className="flex items-center">
-                  
-                  {/* TEXT */}
-                  <div className="w-full">
-                    <div className="flex flex-col pr-14">
-                      <h2 className="pb-4">{item.title}</h2>
-                      <p className="text-justify text-3xl ">
-                        {item.description}
-                      </p>
-                      <div className="flex mt-6">
-                        <button
-                          type="button"
-                          className="text-white bg-[#87D9D4] focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
-                        >
-                          Je shop
-                        </button>
-                        <button
-                          type="button"
-                          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#87D9D4] focus:outline-none bg-white rounded-full border border-[#87D9D4] focus:z-10 focus:ring-4 focus:ring-gray-200"
-                        >
-                          Détails du produit
-                        </button>
+    <div className="container h-[804px] ml-40 -mt-36">
+      <section className="w-full m-auto relative flex flex-col h-full justify-end">
+        {slides.length > 0 &&
+          slides.map((item, index) => (
+            <React.Fragment key={index}>
+              {index === currentIndex && (
+                <div className="animate-appear">
+                  <div className="flex items-center">
+                    {/* TEXT */}
+                    <div className="w-full">
+                      <div className="flex flex-col pr-14">
+                        <h2 className="pb-4">{item.name}</h2>
+                        <p className="text-justify text-3xl ">
+                          {item.description}
+                        </p>
+
+                        <div className="flex mt-6">
+                          <button
+                            type="button"
+                            className="text-white bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                            onClick={() => handleClick(item)}
+                          >
+                            Je shop
+                          </button>
+
+                          <button
+                            type="button"
+                            className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-secondary focus:outline-none bg-white rounded-full border border-secondary focus:z-10 focus:ring-4 focus:ring-gray-200"
+                          >
+                            Détails du produit
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* IMAGE */}
-                  <div className="w-full">
-                    <img src={item.url} alt="product img" />
+                    {/* IMAGE */}
+                    <div className="w-full">
+                      {item.productimages.length > 0 &&
+                      item.productimages[0].image_name ? (
+                        <img
+                          src={
+                            URL_BACK_NO_API +
+                            URL_BACK_UPLOADS_MEDIA +
+                            item.productimages[0].image_name
+                          }
+                          alt={item.name}
+                        />
+                      ) : (
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                          className="w-64 p-4"
+                          alt={item.name}
+                        />
+                      )}
+                    </div>
                   </div>
-
                 </div>
-              </div>
-            )}
-          </React.Fragment>
-        ))}
+              )}
+            </React.Fragment>
+          ))}
 
         {/* DOT */}
-        <div className="flex justify-end">
+        <div className="flex justify-end mr-40 -mt-20">
           {slides.map((slide, slideIndex) => (
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className="text-4rem cursor-pointer"
+              className="cursor-pointer text-4xl text-gray-600"
             >
               <RxDotFilled />
             </div>
           ))}
         </div>
-
       </section>
     </div>
   );
 };
 
-export default CarouselHome;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (product) => dispatch(addToCart(product)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CarouselHome);
