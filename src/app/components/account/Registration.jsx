@@ -11,7 +11,6 @@ import {
   URL_BACK_VERIFY_EMAIL,
 } from "../../constants/urls/urlBackEnd";
 import { toast } from "react-toastify";
-import axios from "axios";
 
 /**
  * Component User Registration Form
@@ -54,7 +53,7 @@ const Registration = () => {
   const SUPPORTED_FORMATS = ["jpg", "jpeg", "png"];
   const photoUpload = useRef();
   return (
-    <div className="min-width: 100%;">
+    <div className=" bg-white z-50 p-10">
       <div className="text-center">
         <h4 className="mt-1 text-center  font-bold text-primary">
           INSCRIPTION

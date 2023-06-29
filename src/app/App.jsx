@@ -34,49 +34,21 @@ const IfHomeView = () => {
  * @author Peter Mollet
  */
 const App = () => {
-  const isLogged = useSelector(selectIsLogged);
-  const dispatch = useDispatch();
-  const [isLogin, setIsLogin] = useState(true);
-
-  useEffect(() => {
-    const token = getToken();
-    if (token) dispatch(signIn(token));
-    setIsLogin(false);
-  }, []);
-
-  const isHomePage = IfHomeView;
 
   const [searchResults, setSearchResults] = useState([]);
 
   return (
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
-      <div className="flex h-full cursor-default relative flex-col bg-white text-black overflow-x-hidden">
-        {/* {isLogged && <IdleTimerCustom />} */}
 
-        {isHomePage() ? <NavbarHome /> : <Navbar />}
-
-        {isLogin ? null : (
-          <>
-            {/* <main className="mt-24 grow"></main> */}
+      <NavbarHome />
+     
             <main>
               <Routes />
             </main>
-
-            {/* <ToastContainer
-              toastClassName={({ type }) =>
-                contextClass[type || "default"] +
-                " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
-              }
-              bodyClassName={() => "text-sm font-white font-med block p-3"}
-              position="bottom-left"
-              autoClose={3000}
-            /> */}
-
-            <ToastContainer />
-            <Footer />
-          </>
-        )}
-      </div>
+           <ToastContainer />
+  
+      
+      
     </SearchContext.Provider>
   );
 };

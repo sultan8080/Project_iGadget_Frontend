@@ -68,7 +68,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full max-w-md space-y-4 rounded-md bg-white p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8">
+    <div className="w-full max-w-md space-y-4 rounded-md bg-white p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8 z-50 ">
       <div className="text-center">
         <h2 className="mt-1 text-center text-3xl font-bold text-primary">
           CONNEXION
