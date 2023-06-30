@@ -10,7 +10,7 @@ function NavConnexion() {
       <button
         id="dropdownNavbarLink"
         data-dropdown-toggle="dropdownNavbar"
-        className="flex items-center w-full hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 lg:w-auto text-white"
+        className="flex items-center  hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 lg:w-auto text-white"
       >
         <span className="text-sm font-black pr-2">
           <FaRegUser />
