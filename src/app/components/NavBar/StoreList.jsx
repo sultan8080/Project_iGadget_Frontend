@@ -4,6 +4,7 @@ import apiBackEnd from "../../api/backend/api.Backend";
 import { URL_BACK_CATEGORIES } from "../../constants/urls/urlBackEnd";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
+import { BiCategory } from "react-icons/bi";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -27,16 +28,21 @@ const StoreList = () => {
   }, []);
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative text-left">
       <div>
-        <Menu.Button className="flex items-center justify-between w-full rounded md:p-0 md:w-auto  hover:bg-primary-dark md:border-0 md:px-3 md:py-1 text-white ">
+        <Menu.Button className="flex items-center justify-start lg:p-0 md:w-auto  hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 text-white ">
           <span className="text-xl font-black">
-            <AiOutlineShoppingCart />
+            <BiCategory />
           </span>
 
-          <a href="/all-categories" className="block px-2 ">
-            STORE
-          </a>
+          <span className="mx-2">STORE</span>
+
+          {/* <a href="/all-categories" className="flex items-center justify-between">
+          <span>
+          STORE
+          </span>
+        </a> */}
+
           <span className="text-xl font-black">
             <BsChevronDown />
           </span>

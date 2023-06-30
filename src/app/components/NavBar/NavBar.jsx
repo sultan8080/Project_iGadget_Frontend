@@ -1,8 +1,10 @@
 import React from "react";
-import { AiOutlineMenuUnfold } from "react-icons/ai";
+import { AiOutlineMenuUnfold, AiOutlineShoppingCart } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
 import logo from "../../assets/logo_iGadget.png";
 import StoreList from "./StoreList";
+import { FaRegUser, FaUserCheck } from "react-icons/fa";
+import { BiHelpCircle, BiLogIn, BiUserPlus } from "react-icons/bi";
 
 function NavBar() {
   return (
@@ -21,27 +23,32 @@ function NavBar() {
           <AiOutlineMenuUnfold />
         </button>
         <div
-          className="hidden w-full lg:block lg:w-auto"
+          className="hidden w-full md:absolute md:top-[40px] md:left-[250px] lg:relative lg:top-0 lg:left-0 lg:block lg:w-auto"
           id="navbar-multi-level"
         >
-          <ul className="flex flex-col p-4 lg:p-0 mt-4 border  bg-primary lg:bg-transparent border-gray-100 rounded-lg text-lg lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 font-medium">
+          <ul className="flex flex-col gap-3 w-full md:w-2/3 lg:w-auto p-4 lg:p-0 mt-4  bg-primary lg:bg-transparent rounded-lg text-lg lg:flex-row lg:mt-0  font-medium">
             <li>
               <StoreList />
             </li>
             <li>
               <a
                 href="#"
-                className="block rounded  hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 text-white"
+                className="flex items-center rounded  hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 text-white"
               >
-                
+                <span className="text-xl font-black pr-2">
+                  <AiOutlineShoppingCart />
+                </span>
                 MON PANIER
               </a>
             </li>
             <li>
               <a
                 href="#"
-                className="block rounded  hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 text-white"
+                className="flex items-center rounded  hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 text-white"
               >
+                <span className="text-xl font-black pr-2">
+                  <BiHelpCircle />
+                </span>
                 BESOIN D'AIDE
               </a>
             </li>
@@ -49,8 +56,11 @@ function NavBar() {
               <button
                 id="dropdownNavbarLink"
                 data-dropdown-toggle="dropdownNavbar"
-                className="flex items-center justify-between w-full  border-b border-gray-100  hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 lg:w-auto text-white"
+                className="flex items-center w-full hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 lg:w-auto text-white"
               >
+                <span className="text-sm font-black pr-2">
+                  <FaRegUser />
+                </span>
                 CONNEXION
                 <span className="text-xl font-black pl-2">
                   <BsChevronDown />
@@ -58,17 +68,17 @@ function NavBar() {
               </button>
               <div
                 id="dropdownNavbar"
-                className="z-10 hidden font-normal bg-primary border text-white divide-y divide-gray-100 rounded-lg shadow lg:w-44 w-3/4"
+                className="z-10 hidden font-normal bg-primary border text-white rounded-lg shadow lg:w-44 w-11/12 md:w-7/12 "
               >
-                <ul
-                  className="py-2 text-sm dark:text-gray-400"
-                  aria-labelledby="dropdownLargeButton"
-                >
+                <ul className="py-2" aria-labelledby="dropdownLargeButton">
                   <li>
                     <a
                       href="#"
-                      className="block px-4 py-2 text-white hover:bg-primary-dark"
+                      className="flex px-4 py-2 text-white hover:bg-primary-dark"
                     >
+                      <span className=" text-lg font-black pr-2">
+                        <BiLogIn />
+                      </span>
                       SE CONNECTER
                     </a>
                   </li>
@@ -76,8 +86,11 @@ function NavBar() {
                   <li>
                     <a
                       href="#"
-                      className="block px-4 py-2 text-white hover:bg-primary-dark"
+                      className="flex items-center px-4 py-2 text-white hover:bg-primary-dark"
                     >
+                      <span className="text-lg font-black pr-2">
+                        <BiUserPlus />
+                      </span>
                       INSCRIPTION
                     </a>
                   </li>
