@@ -29,14 +29,17 @@ const StoreList = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:p-0 md:w-auto">
-          
-          <AiOutlineShoppingCart/>
-          <a href="/all-categories" className="block px-4 py-2">
+        <Menu.Button className="flex items-center justify-between w-full rounded md:p-0 md:w-auto  hover:bg-primary-dark md:border-0 md:px-3 md:py-1 text-white ">
+          <span className="text-xl font-black">
+            <AiOutlineShoppingCart />
+          </span>
+
+          <a href="/all-categories" className="block px-2 ">
             STORE
           </a>
-          <BsChevronDown/>
-                  
+          <span className="text-xl font-black">
+            <BsChevronDown />
+          </span>
         </Menu.Button>
       </div>
 

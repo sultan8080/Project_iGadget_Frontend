@@ -29,26 +29,20 @@ const IfHomeView = () => {
 
 /**
  * Component RouteWithNavigation
- * To create the structure of the application (nav bar, routes, toast, etc...)
  *
  * @author Peter Mollet
  */
 const App = () => {
-
   const [searchResults, setSearchResults] = useState([]);
 
   return (
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
-
       <NavbarHome />
-     
-            <main>
-              <Routes />
-            </main>
-           <ToastContainer />
-  
-      
-      
+
+      <main className="absolute md:top-[150px] top-[80px] left-0 w-full mx-10">
+        <Routes />
+      </main>
+      <ToastContainer />
     </SearchContext.Provider>
   );
 };
