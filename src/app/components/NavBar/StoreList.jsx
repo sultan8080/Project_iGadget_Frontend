@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import apiBackEnd from "../../api/backend/api.Backend";
 import { URL_BACK_CATEGORIES } from "../../constants/urls/urlBackEnd";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
 import { BiCategory } from "react-icons/bi";
 

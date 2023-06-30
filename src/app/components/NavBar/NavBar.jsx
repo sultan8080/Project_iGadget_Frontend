@@ -5,6 +5,9 @@ import logo from "../../assets/logo_iGadget.png";
 import StoreList from "./StoreList";
 import { FaRegUser, FaUserCheck } from "react-icons/fa";
 import { BiHelpCircle, BiLogIn, BiUserPlus } from "react-icons/bi";
+import Connexion from "./NavConnexion";
+import NavConnexion from "./NavConnexion";
+import NavBarUser from "./NavBarUser";
 
 function NavBar() {
   return (
@@ -52,51 +55,8 @@ function NavBar() {
                 BESOIN D'AIDE
               </a>
             </li>
-            <li>
-              <button
-                id="dropdownNavbarLink"
-                data-dropdown-toggle="dropdownNavbar"
-                className="flex items-center w-full hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 lg:w-auto text-white"
-              >
-                <span className="text-sm font-black pr-2">
-                  <FaRegUser />
-                </span>
-                CONNEXION
-                <span className="text-xl font-black pl-2">
-                  <BsChevronDown />
-                </span>
-              </button>
-              <div
-                id="dropdownNavbar"
-                className="z-10 hidden font-normal bg-primary border text-white rounded-lg shadow lg:w-44 w-11/12 md:w-7/12 "
-              >
-                <ul className="py-2" aria-labelledby="dropdownLargeButton">
-                  <li>
-                    <a
-                      href="#"
-                      className="flex px-4 py-2 text-white hover:bg-primary-dark"
-                    >
-                      <span className=" text-lg font-black pr-2">
-                        <BiLogIn />
-                      </span>
-                      SE CONNECTER
-                    </a>
-                  </li>
 
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center px-4 py-2 text-white hover:bg-primary-dark"
-                    >
-                      <span className="text-lg font-black pr-2">
-                        <BiUserPlus />
-                      </span>
-                      INSCRIPTION
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
+            <NavBarUser />
           </ul>
         </div>
       </div>
