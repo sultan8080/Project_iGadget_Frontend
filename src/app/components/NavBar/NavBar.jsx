@@ -1,12 +1,8 @@
 import React from "react";
 import { AiOutlineMenuUnfold, AiOutlineShoppingCart } from "react-icons/ai";
-import { BsChevronDown } from "react-icons/bs";
 import logo from "../../assets/logo_iGadget.png";
 import StoreList from "./StoreList";
-import { FaRegUser, FaUserCheck } from "react-icons/fa";
 import { BiHelpCircle, BiLogIn, BiUserPlus } from "react-icons/bi";
-import Connexion from "./NavConnexion";
-import NavConnexion from "./NavConnexion";
 import NavBarUser from "./NavBarUser";
 
 function NavBar() {
