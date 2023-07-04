@@ -24,17 +24,3 @@
   @apply border-red-500 border-2;
 }
 
-.input[type='file'] {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.input[type='file']::file-selector-button {
-  background-color: rgb(235, 235, 235);
-  color: rgb(48, 47, 47);
-}
-
-.input[type='file']::file-selector-button:hover {
-  background-color: rgb(112, 190, 209);
-  color: rgb(255, 254, 254);
-}
