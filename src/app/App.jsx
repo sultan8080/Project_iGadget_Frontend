@@ -13,20 +13,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 export const SearchContext = createContext();
 
-const contextClass = {
-  success: "bg-green-600",
-  error: "bg-red-600",
-  info: "bg-blue-600",
-  warning: "bg-yellow-500",
-  default: "bg-indigo-600",
-  dark: "bg-white-600 font-gray-300",
-};
-
-const IfHomeView = () => {
-  const location = useLocation();
-  return location.pathname === "/";
-};
-
 /**
  * Component RouteWithNavigation
  *
@@ -39,9 +25,11 @@ const App = () => {
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
       <NavbarHome />
 
-      <main className="absolute md:top-[150px] top-[80px] left-0 w-full mx-10">
+      <main className="absolute md:top-[150px] top-[80px] left-0 w-full z-40">
         <Routes />
+        <Footer />
       </main>
+
       <ToastContainer />
     </SearchContext.Provider>
   );

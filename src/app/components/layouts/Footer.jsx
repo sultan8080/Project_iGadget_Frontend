@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#349CA2]">
-      <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+
+      <div className="w-full p-4 md:py-8 bg-[#349CA2]">
         <div className="sm:flex sm:items-center justify-center">
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
             <li>
@@ -47,14 +47,13 @@ const Footer = () => {
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
         <span className="block text-sm text-white sm:text-center">
-        Copyright © 2023{" "}
+          Copyright © 2023{" "}
           <a href="http://127.0.0.1:5173" className="hover:underline">
             iGadget™
           </a>
           . Tous droits réservés.
         </span>
       </div>
-    </footer>
   );
 };
 

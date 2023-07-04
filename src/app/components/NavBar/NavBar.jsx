@@ -1,13 +1,13 @@
 import React from "react";
 import { AiOutlineMenuUnfold, AiOutlineShoppingCart } from "react-icons/ai";
 import logo from "../../assets/logo_iGadget.png";
-import StoreList from "./StoreList";
 import { BiHelpCircle, BiLogIn, BiUserPlus } from "react-icons/bi";
 import NavBarUser from "./NavBarUser";
+import CategoryList from "./CategoryList";
 
 function NavBar() {
   return (
-    <nav className="flex flex-col absolute top-0 left-0 w-full ">
+    <nav className="flex flex-col absolute top-0 left-0 w-full z-50 ">
       <div className="flex flex-wrap items-center justify-between p-4 z-50 lg:mx-10">
         <a href="/" className="flex items-center">
           <img src={logo} className="h-9 md:h-12 lg:h-16 mr-3" alt="logo" />
@@ -27,7 +27,7 @@ function NavBar() {
         >
           <ul className="flex flex-col gap-3 w-full md:w-2/3 lg:w-auto p-4 lg:p-0 mt-4  bg-primary lg:bg-transparent rounded-lg text-lg lg:flex-row lg:mt-0  font-medium">
             <li>
-              <StoreList />
+              <CategoryList />
             </li>
             <li>
               <a

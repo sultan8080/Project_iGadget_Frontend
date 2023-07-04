@@ -27,7 +27,7 @@ function NavBarUser() {
       </button>
       <div
         id="dropdownNavbarUser"
-        className="z-10 hidden font-normal bg-primary divide-y divide-gray-100 border text-white rounded-lg shadow  "
+        className="z-10 hidden text-sm bg-primary divide-y divide-gray-100 border text-white rounded-lg shadow w-56 "
       >
         <div class="px-4 py-3 text-xxl text-center text-white">
           <div class="font-medium truncate">sultan@gmail.com</div>
@@ -42,7 +42,7 @@ function NavBarUser() {
               <span className=" text-lg font-black mr-2">
                 <BsCardList />
               </span>
-              <span>MES COMMANDES </span>
+              <span className="">MES COMMANDES </span>
             </a>
           </li>
 
