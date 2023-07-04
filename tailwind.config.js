@@ -1,5 +1,5 @@
 module.exports = {
-    content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
+    content: ['node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}', './index.html'],
     theme: {
         extend: {
             colors: {
@@ -41,6 +41,7 @@ module.exports = {
     },
 
     plugins: [
+        require('flowbite/plugin'),
         require('@tailwindcss/forms'),
     ],
 

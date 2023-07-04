@@ -250,6 +250,7 @@ const Registration = () => {
                 innerRef={photoUpload}
                 name="userPhoto"
                 className="input"
+                id="inputFile"
               />
               <small className="text-red-600">
                 <ErrorMessage name="userPhoto" />
