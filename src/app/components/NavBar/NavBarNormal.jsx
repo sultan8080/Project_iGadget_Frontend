@@ -6,8 +6,6 @@ import { Menu, Transition } from "@headlessui/react";
 import { BsChevronDown } from "react-icons/bs";
 
 const NavBarNormal = () => {
-  const [menuItems, setMenuItems] = useState([]);
-
   return (
     <Menu as="div" className=" relative text-left z-50 ">
       <div>
@@ -34,34 +32,26 @@ const NavBarNormal = () => {
         <Menu.Items className="absolute left-24 lg:left-0 origin-top-right rounded-md bg-primary border  text-white shadow-lg focus:outline-none lg:w-48 w-11/12 md:w-7/12">
           <div className="py-1">
             <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="/login"
-                  className={`flex items-center w-full px-4 py-2 text-white ${
-                    active ? "bg-primary-dark" : "hover:bg-primary-dark"
-                  }`}
-                >
-                  <span className="text-lg font-black mr-2">
-                    <BiLogIn />
-                  </span>
-                  <span>SE CONNECTER</span>
-                </Link>
-              )}
+              <Link
+                to="/login"
+                className="flex items-center w-full px-4 py-2 text-white hover:bg-primary-dark"
+              >
+                <span className="text-lg font-black mr-2">
+                  <BiLogIn />
+                </span>
+                <span>SE CONNECTER</span>
+              </Link>
             </Menu.Item>
             <Menu.Item>
-              {({ active }) => (
-                <Link
-                  to="/register"
-                  className={`flex items-center px-4 py-2 text-white ${
-                    active ? "bg-primary-dark" : "hover:bg-primary-dark"
-                  }`}
-                >
-                  <span className="text-lg font-black pr-2">
-                    <BiUserPlus />
-                  </span>
-                  INSCRIPTION
-                </Link>
-              )}
+              <Link
+                to="/register"
+                className="flex items-center w-full px-4 py-2 text-white hover:bg-primary-dark"
+              >
+                <span className="text-lg font-black pr-2">
+                  <BiUserPlus />
+                </span>
+                INSCRIPTION
+              </Link>
             </Menu.Item>
           </div>
         </Menu.Items>

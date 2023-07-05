@@ -31,6 +31,7 @@ const App = () => {
         <div className="absolute md:top-[150px] top-[80px] left-0 w-full z-40">
           <Routes />
         </div>
+        
         <Footer />
       </main>
 

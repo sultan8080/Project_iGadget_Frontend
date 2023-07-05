@@ -9,6 +9,7 @@ import NavBar from "../NavBar/NavBar";
 
 const NavbarHome = () => {
   const isLoggued = useSelector(selectIsLogged);
+  
 
   return (
     <div className="relative">
