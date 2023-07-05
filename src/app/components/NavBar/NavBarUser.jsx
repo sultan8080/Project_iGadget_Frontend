@@ -5,6 +5,10 @@ import { BsCardList, BsChevronDown } from "react-icons/bs";
 import { FaHouseUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Menu, Transition } from "@headlessui/react";
+import { useSelector } from "react-redux";
+import { selectHasRole } from "../../redux-store/authenticationSlice";
+import { ROLE_ADMIN } from "../../constants/rolesConstant";
+import { MdDashboard } from "react-icons/md";
 
 
 // function NavBarUser() {
@@ -107,6 +111,8 @@ import { Menu, Transition } from "@headlessui/react";
 
 
 const NavBarUser = () => {
+    const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
+
 
   return (
     <Menu as="div" className=" relative text-left z-50 ">
@@ -167,6 +173,19 @@ const NavBarUser = () => {
                 </Link>
               )}
             </Menu.Item>
+            <Menu.Item>
+            {isAdmin && (
+            <Link
+                  to="/dashboard-admin"
+                  className="flex items-center px-4 py-2 text-white hover:bg-primary-dark"
+                >
+                  <span className="text-lg font-black pr-2">
+                    <MdDashboard />
+                  </span>
+                  TABLEAU DE BORD
+                </Link>)}
+            </Menu.Item>
+
             <Menu.Item>
               <div className="flex items-center px-4 py-2 text-white hover:bg-primary-dark border-t">
                 <span className="text-lg font-black pr-2">
