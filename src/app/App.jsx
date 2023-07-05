@@ -10,6 +10,7 @@ import Routes from "./routes/Routes";
 import { getToken } from "./services/tokenServices";
 import Footer from "./components/layouts/Footer";
 import "react-toastify/dist/ReactToastify.css";
+import NavBar from "./components/NavBar/NavBar";
 
 export const SearchContext = createContext();
 
@@ -25,8 +26,11 @@ const App = () => {
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
       <NavbarHome />
 
-      <main className="absolute md:top-[150px] top-[80px] left-0 w-full z-40">
-        <Routes />
+      <main>
+        {/* <NavBar /> */}
+        <div className="absolute md:top-[150px] top-[80px] left-0 w-full z-40">
+          <Routes />
+        </div>
         <Footer />
       </main>
 

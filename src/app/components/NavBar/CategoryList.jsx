@@ -4,6 +4,7 @@ import apiBackEnd from "../../api/backend/api.Backend";
 import { URL_BACK_CATEGORIES } from "../../constants/urls/urlBackEnd";
 import { BsChevronDown } from "react-icons/bs";
 import { BiCategory } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -62,15 +63,15 @@ const CategoryList = () => {
             {menuItems.map((menuItem) => (
               <Menu.Item key={menuItem.id}>
                 {({ active }) => (
-                  <a
-                    href="/category-items"
+                  <Link
+                    to="/category-items"
                     className={classNames(
                       active ? "bg-primary-dark" : "text-gray-700",
                       "block border px-4 py-2 text-sm uppercase text-white"
                     )}
                   >
                     {menuItem.name}
-                  </a>
+                  </Link>
                 )}
               </Menu.Item>
             ))}

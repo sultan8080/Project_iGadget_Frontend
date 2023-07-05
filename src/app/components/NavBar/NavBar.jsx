@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineMenuUnfold, AiOutlineShoppingCart } from "react-icons/ai";
 import logo from "../../assets/logo_iGadget.png";
 import { BiHelpCircle, BiLogIn, BiUserPlus } from "react-icons/bi";
 import NavBarUser from "./NavBarUser";
 import CategoryList from "./CategoryList";
+import NavBarNormal from "./NavBarNormal";
+import { useSelector } from "react-redux";
+import { selectIsLogged } from "../../redux-store/authenticationSlice";
+import { Link } from "react-router-dom";
 
 function NavBar() {
+  const isLogged = useSelector(selectIsLogged);
+  console.log(isLogged);
   return (
     <nav className="flex flex-col absolute top-0 left-0 w-full z-50 ">
       <div className="flex flex-wrap items-center justify-between p-4 z-50 lg:mx-10">
@@ -30,29 +36,29 @@ function NavBar() {
               <CategoryList />
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to="/cart"
                 className="flex items-center rounded  hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 text-white"
               >
                 <span className="text-xl font-black pr-2">
                   <AiOutlineShoppingCart />
                 </span>
                 MON PANIER
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to="/contact"
                 className="flex items-center rounded  hover:bg-primary-dark lg:border-0 lg:px-3 lg:py-1 text-white"
               >
                 <span className="text-xl font-black pr-2">
                   <BiHelpCircle />
                 </span>
                 BESOIN D'AIDE
-              </a>
+              </Link>
             </li>
 
-            <NavBarUser />
+            {isLogged ? <NavBarUser /> : <NavBarNormal />}
           </ul>
         </div>
       </div>
