@@ -58,7 +58,7 @@ export function isTokenValid(token) {
         const dateNow = new Date();
         const isVerified = payload.isVerified;
         const userId = payload.userId;
-        return token && roles.length > 0 && login && expirationDate < dateNow.getTime() && isVerified && userId;
+        return token && roles.length > 0 && login && expirationDate < dateNow.getTime() && userId && isVerified;
     } catch {
         return false;
     }

@@ -17,10 +17,17 @@ function NavBarUser() {
   const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
   const isLogged = useSelector(selectIsLogged);
 
-  if (isLogged) {
-    console.log(isLogged);
-    return (
+  // if(!isLogged){
+  //   return
+  //   <>
+  //   </>
+  // }
+
+  return (
+    <>
+
       <li>
+
         <button
           id="dropdownNavbarUserLink"
           data-dropdown-toggle="dropdownNavbarUser"
@@ -97,8 +104,9 @@ function NavBarUser() {
           </div>
         </div>
       </li>
-    );
-  }
+    </>
+  );
 }
 
 export default NavBarUser;
+

@@ -57,7 +57,7 @@ function NavBar() {
                 BESOIN D'AIDE
               </Link>
             </li>
-
+            {/* <NavBarUser /> */}
             {isLogged ? <NavBarUser /> : <NavBarNormal />}
           </ul>
         </div>
