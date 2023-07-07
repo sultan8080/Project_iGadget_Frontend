@@ -26,14 +26,13 @@ const App = () => {
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
       <NavbarHome />
 
-      <main>
-        {/* <NavBar /> */}
-        <div className="absolute md:top-[150px] top-[80px] left-0 w-full z-40">
-          <Routes />
-        </div>
-        
+      {/* <NavBar /> */}
+      <div className="absolute md:top-[150px] top-[80px] bottom-0 left-0 w-full z-40 h-auto">
+        <Routes />
+      </div>
+      <div className="relative md:top-4 w-full h-auto">
         <Footer />
-      </main>
+      </div>
 
       <ToastContainer />
     </SearchContext.Provider>

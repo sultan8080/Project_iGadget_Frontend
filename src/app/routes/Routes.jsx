@@ -55,9 +55,9 @@ const Routes = () => {
       <Route
         path={URL.URL_DASHBOARD_ADMIN}
         element={
- 
+          <PrivateRoute>
             <AdminRoutes />
-      
+          </PrivateRoute>
         }
       >
         {/* <Route path={URL.URL_DASHBOARD_ADMIN} element={<AdminRoutes />}> */}

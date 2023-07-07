@@ -59,7 +59,7 @@ const NavBarUser = () => {
             </Menu.Item>
             <Menu.Item as="div">
               <Link
-                to="#"
+                to="/profil"
                 className="flex items-center px-4 py-2 text-white hover:bg-primary-dark"
               >
                 <span className="text-lg font-black pr-2">

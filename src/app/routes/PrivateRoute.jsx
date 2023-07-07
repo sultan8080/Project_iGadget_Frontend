@@ -26,7 +26,7 @@ export const PrivateRoute = ({ children, roles }) => {
   const location = useLocation();
   const isAuthenticated = useSelector(selectIsLogged);
   const hasRole = useSelector((state) => selectHasRole(state, roles));
-
+  console.log(isAuthenticated);
   // Si non connecter redirection vers la page de connexion, désactiver
   if (!isAuthenticated)
     return <Navigate replace to={URL_PAGE_404} state={{ from: location }} />;

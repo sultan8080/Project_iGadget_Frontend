@@ -1,6 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectIsLogged } from "./../../redux-store/authenticationSlice";
 
 import formeaccueil from "../../assets/formeaccueil.svg";
 import SearchInput from "./SearchInput";
@@ -8,7 +6,6 @@ import SearchInput from "./SearchInput";
 import NavBar from "../NavBar/NavBar";
 
 const NavbarHome = () => {
-  const isLoggued = useSelector(selectIsLogged);
   
 
   return (
