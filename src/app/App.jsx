@@ -17,24 +17,24 @@ export const SearchContext = createContext();
 /**
  * Component RouteWithNavigation
  *
- * @author Peter Mollet
+ * @author Peter Mollet et Sultan
  */
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   return (
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>
+      
       <NavbarHome />
 
       {/* <NavBar /> */}
       <div className="absolute md:top-[150px] top-[80px] bottom-0 left-0 w-full z-40 h-auto">
         <Routes />
-      </div>
-      <div className="relative md:top-4 w-full h-auto">
         <Footer />
       </div>
 
       <ToastContainer />
+      <div className="md:top-4 w-full h-auto"></div>
     </SearchContext.Provider>
   );
 };

@@ -30,9 +30,8 @@ const products = [
 ];
 
 const Bestsellers = () => {
-
   return (
-    <section className="bestsallers max-w-[1800px] mx-auto mt-12">
+    <section className=" mt-12">
       <div>
         <h1 className="text-center uppercase font-bold mt-2">
           Les <span className="text-third"> Bestsellers </span>
@@ -48,12 +47,11 @@ const Bestsellers = () => {
                 <img src={product.image} alt={product.title} width={600} />
               </div>
 
-              <CardBestSellers product={product}/>
+              <CardBestSellers product={product} />
             </>
           ) : (
             <>
-              <CardBestSellersLeft product={product}/>
-              
+              <CardBestSellersLeft product={product} />
               <div className="image bg-[url('./src/app/assets/produits/autre/rectangle_orange_droite.svg')] bg-no-repeat flex justify-center bg-[length:31%] bg-[left_calc(61%)_top_calc(0px)]">
                 <img src={product.image} alt={product.title} width={450} />
               </div>

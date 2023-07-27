@@ -42,11 +42,10 @@ const Offres = ({
     }, [currentIndex, slides.length]);
 
     return (
-        <section className="w-full m-auto relative transition-500" >
+        <section className="relative transition-500 " >
 
-            {/* TEXT */}
-            <div className="container max-w-[18000px]">
-                <main className="container bg-[#53B3B5] max-w-none max-w-[18000px]">
+        
+                <div className="bg-[#53B3B5] ]">
                     <div className="titre ">
                         <h2 className="text-center uppercase font-bold mt-2 text-white pt-16 pb-16"> Des <span className=" text-[#349CA2]">Offres</span>  à ne pas manquer !</h2>
                     </div>
@@ -80,8 +79,8 @@ const Offres = ({
                     </div>
 
 
-                </main>
-            </div>
+                </div>
+           
 
             {/* DOT */}
             <div className="flex justify-center  bg-[#53B3B5]">

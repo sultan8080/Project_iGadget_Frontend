@@ -46,38 +46,36 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
   }, [slides]);
 
   return (
-    <div className="container h-[804px] ml-40 -mt-36">
-      <section className="w-full m-auto relative flex flex-col h-full justify-end">
+      <section className=" flex flex-col mt-0 mx-4 sm:mx-8 md:mx-12 lg:mx-20">
         {slides.length > 0 &&
           slides.map((item, index) => (
             <React.Fragment key={index}>
               {index === currentIndex && (
                 <div className="animate-appear">
                   <div className="flex items-center">
-                    {/* TEXT */}
-                    <div className="w-full">
-                      <div className="flex flex-col pr-14">
-                        <h2 className="pb-4">{item.name}</h2>
-                        <p className="text-justify text-3xl ">
-                          {item.description}
-                        </p>
+                    <div className="flex flex-col pr-14">
+                      <h2 className="pb-4 text-lg sm:text-xl md:text-2xl lg:text-4xl font-semibold ">
+                        {item.name}
+                      </h2>
+                      <p className="text-justify text-lg sm:text-xl md:text-2xl lg:text-3xl ">
+                        {item.description}
+                      </p>
 
-                        <div className="flex mt-6">
-                          <button
-                            type="button"
-                            className="text-white bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
-                            onClick={() => handleClick(item)}
-                          >
-                            Je shop
-                          </button>
+                      <div className="flex mt-6">
+                        <button
+                          type="button"
+                          className="text-white bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                          onClick={() => handleClick(item)}
+                        >
+                          Je shop
+                        </button>
 
-                          <button
-                            type="button"
-                            className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-secondary focus:outline-none bg-white rounded-full border border-secondary focus:z-10 focus:ring-4 focus:ring-gray-200"
-                          >
-                            Détails du produit
-                          </button>
-                        </div>
+                        <button
+                          type="button"
+                          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-secondary focus:outline-none bg-white rounded-full border border-secondary focus:z-10 focus:ring-4 focus:ring-gray-200"
+                        >
+                          Détails du produit
+                        </button>
                       </div>
                     </div>
 
@@ -120,7 +118,6 @@ const CarouselHome = ({ selectedProducts, addToCart }) => {
           ))}
         </div>
       </section>
-    </div>
   );
 };
 

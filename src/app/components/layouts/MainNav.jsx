@@ -11,7 +11,6 @@ const MainNav = () => {
   const cartItemCount = useSelector((state) => state.cart.cart.length);
 
   const isConnected = useSelector(selectIsLogged);
- 
 
   return (
     <>

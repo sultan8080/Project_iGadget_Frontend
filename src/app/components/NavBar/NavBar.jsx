@@ -18,7 +18,7 @@ function NavBar() {
   return (
     <nav className="flex flex-col absolute top-0 left-0 w-full z-50">
       {shouldRenderNavMenu && (
-        <div className="flex flex-wrap items-center justify-between p-4 z-50 lg:mx-10">
+        <div className="flex flex-wrap items-center justify-between pt-4 z-50 mx-4 sm:mx-8 md:mx-12 lg:mx-20">
           <a href="/" className="flex items-center">
             <img src={logo} className="h-9 md:h-12 lg:h-16 mr-3" alt="logo" />
           </a>
