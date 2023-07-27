@@ -1,5 +1,5 @@
 import React from "react";
-import StoreList from "./StoreList";
+
 import AccountList from "./AccountList";
 import { connect, useDispatch } from "react-redux";
 import { cartItemCountSelector } from "../../redux-store/cartSlice";
@@ -40,9 +40,9 @@ const MainNav = () => {
 
       <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
         <ul className="flex flex-col justify-between items-center text-xl font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
-          <li className="flex items-center">
+          {/* <li className="flex items-center">
             <StoreList />
-          </li>
+          </li> */}
 
           <li>
             {isConnected ? (

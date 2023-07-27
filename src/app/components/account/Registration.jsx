@@ -11,7 +11,6 @@ import {
   URL_BACK_VERIFY_EMAIL,
 } from "../../constants/urls/urlBackEnd";
 import { toast } from "react-toastify";
-import axios from "axios";
 
 /**
  * Component User Registration Form
@@ -54,7 +53,7 @@ const Registration = () => {
   const SUPPORTED_FORMATS = ["jpg", "jpeg", "png"];
   const photoUpload = useRef();
   return (
-    <div className="min-width: 100%;">
+    <div className=" bg-white z-40 p-10 shadow-lg border">
       <div className="text-center">
         <h4 className="mt-1 text-center  font-bold text-primary">
           INSCRIPTION
@@ -155,7 +154,7 @@ const Registration = () => {
         })}
         onSubmit={handleRegister}
       >
-        <Form className="mt-4 space-y-6">
+        <Form className="mt-4 space-y-6 ">
           <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 rounded-md shadow-sm">
             <div>
               <FormModel
@@ -251,6 +250,7 @@ const Registration = () => {
                 innerRef={photoUpload}
                 name="userPhoto"
                 className="input"
+                id="inputFile"
               />
               <small className="text-red-600">
                 <ErrorMessage name="userPhoto" />

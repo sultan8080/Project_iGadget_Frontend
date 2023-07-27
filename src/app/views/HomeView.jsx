@@ -18,7 +18,7 @@ const HomeView = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col max-w-[1600px] mx-auto">
+    <div className="flex flex-col max-w-[1600px] relative top-0 mx-auto">
       <h2 className="uppercase font-bold absolute mt-6">
         Les <span className="text-[#349CA2]">nouveautés</span>
         <br /> actuelles du shop

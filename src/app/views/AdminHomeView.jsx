@@ -31,7 +31,6 @@ const AdminHomeView = () => {
   const handleMenuClick = (menuName) => {
     setActiveMenu(menuName);
   };
-  console.log("hello");
   const handleLogOut = () => {
     dispatch(signOut());
     navigate(URL_HOME);

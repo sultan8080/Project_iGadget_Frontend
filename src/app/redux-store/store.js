@@ -5,12 +5,17 @@ import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 
 
-const persistConfig = {
-  key: "root",
+const persistConfigCart = {
+  key: "cart",
   storage,
 };
+const persistConfigAuth = {
+  key: "auth",
+  storage,
+};
+const persistedReducerCart = persistReducer(persistConfigCart, cartReducer);
+const persistedReducerAuth = persistReducer(persistConfigAuth, authenticationReducer);
 
-const persistedReducer = persistReducer(persistConfig, cartReducer);
 
 /**
  * To configure the store redux.
@@ -19,8 +24,8 @@ const persistedReducer = persistReducer(persistConfig, cartReducer);
  */
 export const store = configureStore({
   reducer: {
-    auth: authenticationReducer,
-    cart: persistedReducer,
+    auth: persistedReducerAuth,
+    cart: persistedReducerCart,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -4,10 +4,10 @@
 
 @import url(./components/input.css);
 @import url(./components/btn.css);
+@import url(./custom.css);
 
 @tailwind utilities;
 
-/* ANIMATION CSS */
 .anim-delay-100 {
   animation-delay: 0.1s;
 }

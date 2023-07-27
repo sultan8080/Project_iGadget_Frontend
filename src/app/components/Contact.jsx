@@ -18,7 +18,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-width: 100%;">
+    <div className="min-width: 100%; z-40 border bg-white p-10 shadow-lg">
       <div className="text-center mb-5">
         <h4 className="mt-1 text-center  font-bold text-primary">
           BESOIN D'AIDE ?

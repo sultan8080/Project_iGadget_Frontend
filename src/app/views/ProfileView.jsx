@@ -33,7 +33,7 @@ const ProfileView = () => {
   }, []);
 
   return (
-    <>
+    <div className="bg-transparent mb-15">
       <ProfileHeader userInfo={userInfo} />
 
       <div className="text-left mx-80">
@@ -90,7 +90,7 @@ const ProfileView = () => {
           <button className="btn btn-secondary">Metttre à jour</button>
         </div>
 
-        <div className="flex items-end justify-between border p-6  w-2/3 mt-6">
+        <div className="flex items-end justify-between border p-6  w-2/3 mt-6 mb-20">
           <div className="flex flex-col">
             <h5 className="mb-6">Mes Commandes</h5>
             <span className="font-bold ">En cours</span>
@@ -105,7 +105,7 @@ const ProfileView = () => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
