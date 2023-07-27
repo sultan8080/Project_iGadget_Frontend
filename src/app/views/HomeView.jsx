@@ -1,42 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import { ROLE_ADMIN } from "../constants/rolesConstant";
-import { URL_ADMIN_HOME } from "../constants/urls/urlFrontEnd";
-import { selectHasRole } from "../redux-store/authenticationSlice";
-
-import CarouselHome from "../components/CarouselHome";
-import BestsallersView from "./BestsallersView";
-import Bestsallers from "../components/Bestsallers";
-
+import CarouselHome from "../components/home/CarouselHome";
+import Bestsellers from "../components/home/Bestsellers";
+import Offres from "../components/home/Offres";
 
 const HomeView = () => {
-  // const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
-  // const isUser = useSelector((state) => selectHasRole(state, ROLE_USER));
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col max-w-[1400px] mx-auto">
-      <h2 className="uppercase font-bold absolute mt-6">
+    <div className="flex flex-col  relative top-0 ">
+      <div className="uppercase font-bold absolute md:mt-1 text-xl sm:text-2xl md:text-4xl lg:text-5xl mx-4 sm:mx-8 md:mx-12 lg:mx-20">
         Les <span className="text-[#349CA2]">nouveautés</span>
         <br /> actuelles du shop
-      </h2>
+      </div>
 
-      <CarouselHome />
-
-
-      <Bestsallers />
-      {/* Juste pour voir le bas du svg, vous pouvez les enlever (les br) */}
-
-      {/* {isAdmin && (
-        <button
-          className="btn btn-primary"
-          onClick={() => navigate(URL_ADMIN_HOME)}
-        >
-          Admin
-        </button>
-      )} */}
+      <div className="mx-4 sm:mx-8 md:mx-12 lg:mx-20">
+        <CarouselHome />
+      </div>
+      <Bestsellers />
+      <Offres />
     </div>
   );
 };

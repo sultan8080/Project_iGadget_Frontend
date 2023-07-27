@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
+import axios from 'axios';
+import apiBackEnd from "../../api/backend/api.Backend";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../App";
+import { URL_BACK_PRODUCTS, URL_BACK_PRODUCTIMAGES } from "../../constants/urls/urlBackEnd";
 
-import axios from "axios";
 
 const SearchInput = () => {
   const searchContext = useContext(SearchContext);
@@ -18,15 +20,20 @@ const SearchInput = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    axios
-      .get(`http://localhost:8000/api/products?name=${searchTerm}`)
+  
+    apiBackEnd
+      .get(URL_BACK_PRODUCTS + `?name=${searchTerm}`)
       .then((response) => {
         const data = response.data;
-        console.log("data:", data);
-        if (data['hydra:member']){
-          setSearchResults(data['hydra:member']);
+  
+        if (data) {
+          setSearchResults(data);
+  
+          if (data.length > 0 && data[0].hasOwnProperty('productimages') && data[0].productimages.length > 0) {
+            const product_image = data[0].productimages[0].image_name;
+          }
         }
+  
         navigate("/search");
       })
       .catch((error) => {

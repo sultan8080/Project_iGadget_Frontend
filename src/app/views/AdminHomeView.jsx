@@ -1,28 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import AdminHeader from "../components/Admin/AdminHeader";
+import AdminBody from "../components/Admin/AdminBody";
+import {
+  AiOutlineShoppingCart,
+  AiOutlineDown,
+  AiOutlinePlus,
+  AiFillEye,
+} from "react-icons/ai";
+import {
+  BsFillClipboard2PulseFill,
+  BsFillChatSquareDotsFill,
+} from "react-icons/bs";
+
+import { FaSignOutAlt } from "react-icons/fa";
+
+import { VscTypeHierarchySub } from "react-icons/vsc";
+import { FaUsers, FaShoppingBasket } from "react-icons/fa";
+import { MdAssignmentReturn } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { signOut } from "../redux-store/authenticationSlice";
-import { URL_HOME } from "../constants/urls/urlFrontEnd";
+import AdminRoutes from "../routes/AdminRoutes";
+import Routes from "../routes/Routes";
 
 const AdminHomeView = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [activeMenu, setActiveMenu] = useState(null);
 
+  const handleMenuClick = (menuName) => {
+    setActiveMenu(menuName);
+  };
   const handleLogOut = () => {
     dispatch(signOut());
     navigate(URL_HOME);
   };
-
   return (
-    <div className=" text-center">
-      <h1 className="mb-10"> Hi, I'am Admin</h1>
-      <button
-        type="button"
-        onClick={handleLogOut}
-        class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium rounded-full border btn-red"
-      >
-        Déconnecter
-      </button>
+    <div className="antialiased bg-gray-50">
+      <AdminBody />
     </div>
   );
 };

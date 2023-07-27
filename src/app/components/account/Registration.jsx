@@ -6,7 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import FormModel from "../form/FormModel";
 import { URL_HOME } from "../../constants/urls/urlFrontEnd";
 import apiBackEnd from "../../api/backend/api.Backend";
-import { URL_BACK_REGISTRATION } from "../../constants/urls/urlBackEnd";
+import {
+  URL_BACK_REGISTRATION,
+  URL_BACK_VERIFY_EMAIL,
+} from "../../constants/urls/urlBackEnd";
 import { toast } from "react-toastify";
 
 /**
@@ -18,7 +21,7 @@ const Registration = () => {
   const navigate = useNavigate();
   const handleRegister = (values) => {
     apiBackEnd
-      .post(URL_BACK_REGISTRATION, {
+      .post(URL_BACK_VERIFY_EMAIL, {
         firstname: values.firstName,
         lastname: values.lastName,
         address: values.address,
@@ -30,12 +33,16 @@ const Registration = () => {
         password: values.password,
       })
       .then(function (response) {
-        toast.success("Succès! nouvel utilisateur ajouté !", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        toast.success(
+          "Votre compte à bien été crée, Veuillez vérifier vos emails pour l'activer.",
+          {
+            position: toast.POSITION.TOP_CENTER,
+          }
+        );
         navigate(URL_HOME);
       })
       .catch(function (error) {
+        // console.log(error);
         toast.error("Erreur! quelque chose ne va pas !", {
           position: toast.POSITION.TOP_CENTER,
         });
@@ -46,7 +53,7 @@ const Registration = () => {
   const SUPPORTED_FORMATS = ["jpg", "jpeg", "png"];
   const photoUpload = useRef();
   return (
-    <div className="min-width: 100%;">
+    <div className=" bg-white z-40 p-10 shadow-lg border">
       <div className="text-center">
         <h4 className="mt-1 text-center  font-bold text-primary">
           INSCRIPTION
@@ -71,17 +78,23 @@ const Registration = () => {
         }}
         validationSchema={Yup.object({
           firstName: Yup.string()
+            .test("no-numbers", "Uniquement les lettres", function (value) {
+              return /^[^0-9]*$/.test(value);
+            })
             .matches(
-              /^s*\S[a-z][\s\S]+$/,
-              "Uniquement valide caractères autorisés"
+              /^[A-Za-z][A-Za-z\s]*[A-Za-z]$/,
+              "Vérifiez votre espace blanc"
             )
-            .required("Prénom  obligatoire"),
+            .required("Prénom obligatoire"),
           lastName: Yup.string()
+            .test("no-numbers", "Uniquement les lettres", function (value) {
+              return /^[^0-9]*$/.test(value);
+            })
             .matches(
-              /^s*\S[a-z][\s\S]+$/,
-              "Uniquement valide caractères autorisés"
+              /^[A-Za-z][A-Za-z\s]*[A-Za-z]$/,
+              "Vérifiez votre espace blanc"
             )
-            .required("Prénom  obligatoire"),
+            .required("Nom  obligatoire"),
           email: Yup.string()
             .email("Adresse e-mail invalide")
             .required("Email obligatoire"),
@@ -95,9 +108,15 @@ const Registration = () => {
             )
             .required("Mot de Passe confirmation obligatoire"),
           city: Yup.string().required("Ville obligatoire"),
-          phone: Yup.number()
+          phone: Yup.string()
             .required("Numéro téléphone obligatoire")
-            .typeError("Uniquement des chiffres"),
+            .matches(/^\d{10}$/, "Uniquement 10 chiffres: 0634586253")
+            .test("valid-number", "Uniquement des chiffres", function (value) {
+              if (value) {
+                return /^\d+$/.test(value);
+              }
+              return true;
+            }),
           address: Yup.string().required("Adresse obligatoire"),
           userPhoto: Yup.mixed()
             .nullable()
@@ -130,12 +149,12 @@ const Registration = () => {
             ),
 
           postCode: Yup.string()
-            .required("Code Postale obligatoire")
-            .length(5, "Uniquement 5 chiffres, Exemple: 02200"),
+            .required("Postale Code obligatoire")
+            .matches(/^\d{5}$/, "Uniquement 5 chiffres, Exemple: 02200"),
         })}
         onSubmit={handleRegister}
       >
-        <Form className="mt-4 space-y-6">
+        <Form className="mt-4 space-y-6 ">
           <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 rounded-md shadow-sm">
             <div>
               <FormModel
@@ -231,6 +250,7 @@ const Registration = () => {
                 innerRef={photoUpload}
                 name="userPhoto"
                 className="input"
+                id="inputFile"
               />
               <small className="text-red-600">
                 <ErrorMessage name="userPhoto" />

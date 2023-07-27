@@ -1,6 +1,17 @@
 import React from "react";
 
 const CardOrderProfile = ({ order }) => {
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const formattedDate = formatDate(order.orderDate);
+
   return (
     <section className="flex items-end border p-6  w-2/3 mt-6 cursor-pointer justify-between">
       <div className="flex flex-col w-5/6">
@@ -8,7 +19,6 @@ const CardOrderProfile = ({ order }) => {
         <span className="text-gray-500">2 article(s)</span>
 
         <div className="flex">
-          {/* Checking if order.picture is an array using Array.isArray() */}
           {Array.isArray(order.pictures) ? (
             order.pictures.map((picture, index) => (
               <img
@@ -25,19 +35,19 @@ const CardOrderProfile = ({ order }) => {
         </div>
       </div>
       <div className="flex flex-col text-gray-500 items-end">
-        <span>{order.date}</span>
-        <span>{order.price} €</span>
+        <span>{formattedDate}</span>
+        <span>100 €</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-10 w-10 mt-4"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          stroke-width="2"
+          strokeWidth="2"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M9 5l7 7-7 7"
           />
         </svg>

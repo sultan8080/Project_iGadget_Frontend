@@ -26,7 +26,7 @@ const DecouvrezImages = [
 
 function DecouvrezProduits() {
   return (
-    <div class="flex lg:gap-10 gap-4 justify-center items-end mb-8 sm:mb-13 lg:mb-20">
+    <div className="flex lg:gap-10 gap-4 justify-center items-end mb-8 sm:mb-13 lg:mb-20">
       <div className="w-1/12 h-auto">
         <img
           className="object-contain"

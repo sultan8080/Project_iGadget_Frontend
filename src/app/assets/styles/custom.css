@@ -1,0 +1,36 @@
+.image-container {
+  background-repeat: no-repeat;
+  background-position: top right;
+  width: 100%;
+  padding-top: 60%;
+  position: relative;
+  background-size: 65%;
+  right: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .image-container {
+    background-size: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    background-size: 50%;
+  }
+}
+
+.input[type='file'] {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.input[type='file']::file-selector-button {
+  background-color: rgb(235, 235, 235);
+  color: rgb(48, 47, 47);
+}
+
+.input[type='file']::file-selector-button:hover {
+  background-color: rgb(112, 190, 209);
+  color: rgb(255, 254, 254);
+}
